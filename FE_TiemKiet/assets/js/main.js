@@ -22,6 +22,15 @@
         }
     });
 
+	// Select 2
+	
+	if ($('.select').length > 0) {
+		$('.select').select2({
+			minimumResultsForSearch: 1,
+			width: '100%'
+		});
+	}
+
 	// Scroll To Top 
 	$(window).on('scroll',function () {
 		if ($(this).scrollTop() > 600) {
@@ -194,6 +203,7 @@
 	  })
 	});
 
+	
 
 	var scrollWindow = function() {
 		$(window).scroll(function(){
@@ -247,6 +257,7 @@
 		autoplayTimeout: ("5" * 1000) || 7000,
 	});
 
+	
 
 })(jQuery);
 
