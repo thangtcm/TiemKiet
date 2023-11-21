@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Firebase.Auth;
+using Firebase.Storage;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using TiemKiet.Models;
 
 namespace TiemKiet.Controllers
@@ -7,13 +12,25 @@ namespace TiemKiet.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(IFormFile upload)
         {
             return View();
         }

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using TiemKiet.Models;
 
 namespace TiemKietAPI.Controllers
 {
@@ -22,7 +21,6 @@ namespace TiemKietAPI.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            var country = new Country();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

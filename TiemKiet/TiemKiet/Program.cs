@@ -1,18 +1,27 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TiemKiet.Data;
+using TiemKiet.Helpers;
+using TiemKiet.Repository.Interface;
+using TiemKiet.Repository.UnitOfWork;
+using TiemKiet.Repository;
+using TiemKiet.Services.Interface;
+using TiemKiet.Services;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
+}
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize
+);
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+//Register
+StaticService.Register(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
@@ -31,10 +40,17 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseCookiePolicy();
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapAreaControllerRoute(
+    name: "admin_default",
+    areaName: "Admin",
+    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
@@ -42,3 +58,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
