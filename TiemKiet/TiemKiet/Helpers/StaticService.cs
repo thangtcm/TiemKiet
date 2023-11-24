@@ -53,11 +53,20 @@ namespace TiemKiet.Helpers
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<IDistrictRepository, DistrictRepository>();
+            services.AddScoped<IProvinceRepository, ProvinceRepository>();
+            services.AddScoped<IBranchRepository, BranchRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
 
             //Service
             services.AddTransient(typeof(IUserService), typeof(UserService));
             services.AddTransient(typeof(IRoleService), typeof(RoleService));
             services.AddTransient(typeof(ICountryService), typeof(CountryService));
+            services.AddTransient(typeof(IProvinceService), typeof(ProvinceService));
+            services.AddTransient(typeof(IDistrictService), typeof(DistrictService));
+            services.AddTransient(typeof(IImageService), typeof(ImageService));
+            services.AddTransient(typeof(IBranchService), typeof(BranchService));
             services.AddTransient(typeof(IFirebaseStorageService), typeof(FirebaseStorageService));
 
             //Authentication

@@ -69,5 +69,28 @@ namespace TiemKietAPI.Controllers
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
 
+
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update([FromBody] CountryInfoVM countryInfoVM, [FromQuery] long userId)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
+                var user = await _userService.GetUser(userId);
+                if (user == null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
+                }
+                await _countryService.Update(countryInfoVM, userId);
+                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Success", $"Cập Nhật Country {countryInfoVM.CountryName} thành công."));
+            }
+            catch
+            (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", $"Đã có lỗi xảy ra từ máy chủ. {ex.Message}"));
+            }
+        }
     }
 }

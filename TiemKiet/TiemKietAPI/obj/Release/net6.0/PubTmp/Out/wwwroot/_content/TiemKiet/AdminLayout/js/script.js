@@ -27,6 +27,17 @@ Version      : 1.0
     $(document).ready(function () {
         initCKEditors();
     });
+
+	// Spinner
+	var spinner = function () {
+		setTimeout(function () {
+			if ($('#spinner').length > 0) {
+				$('#spinner').removeClass('show');
+				$('#spinner').addClass('d-none');
+			}
+		}, 1);
+	};
+	spinner();
 	// Sidebar
 	
 	var Sidemenu = function() {

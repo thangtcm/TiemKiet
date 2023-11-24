@@ -28,6 +28,9 @@ namespace TiemKiet.Data
         public DbSet<District>? Districts { get; set; }
         public DbSet<Branch>? Branches { get; set; }
         public DbSet<Product>? Products { get; set; }
+        public DbSet<BlogPost>? BlogPosts { get; set; }
+        public DbSet<ImageModel>? ImageModel { get; set; }
+        public DbSet<TransactionLog>? TransactionLog { get; set; }
 
         public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
         {

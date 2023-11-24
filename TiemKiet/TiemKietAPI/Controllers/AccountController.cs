@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TiemKiet.Data;
 using TiemKiet.Helpers;
+using TiemKiet.Models;
+using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
+using X.PagedList;
 
 namespace TiemKietAPI.Controllers
 {
@@ -24,6 +27,23 @@ namespace TiemKietAPI.Controllers
             _userManager = userManager;
             _logger = logger;
         }
+
+        [HttpGet("GetUsers")]
+        public async Task<IActionResult> Get(int page = 1)
+        {
+            try
+            {
+                var data = await _userService.GetUsersWithRoles(page);
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { Data = data.Data, MaxPage = data.MaxPage }));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
+
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] UserInfoVM userinfo)

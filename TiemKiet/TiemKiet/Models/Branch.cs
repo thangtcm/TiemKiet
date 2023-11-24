@@ -38,5 +38,7 @@ namespace TiemKiet.Models
         [ForeignKey("DistrictId")]
         public District? District { get; set; }
         public virtual ICollection<Product>? Products { get; set; }
+        public virtual ICollection<ImageModel>? Imagelist { get; set; }
+
     }
 }

@@ -12,9 +12,9 @@ namespace TiemKiet.ViewModel
         public string? FullName { get; set; }
         public string? Password { get; set; }
         public string? PasswordOld { get; set; }
-        public long? Score { get; set; }
-        public long? Point { get; set; }
-        public virtual List<string>? Roles { get; set; }
+        public double? Score { get; set; }
+        public double? Point { get; set; }
+        public virtual ICollection<string>? Roles { get; set; }
         public UserInfoVM() { }
 
         public UserInfoVM(ApplicationUser user)
@@ -24,6 +24,16 @@ namespace TiemKiet.ViewModel
             this.Email = user.Email;
             this.NumberPhone = user.PhoneNumber;
             this.UserId = user.Id;
+        }
+
+        public UserInfoVM(ApplicationUser user, List<string> roles)
+        {
+            this.FullName = user.FullName;
+            this.UserName = user.UserName;
+            this.Email = user.Email;
+            this.NumberPhone = user.PhoneNumber;
+            this.UserId = user.Id;
+            this.Roles = roles;
         }
     }
 }

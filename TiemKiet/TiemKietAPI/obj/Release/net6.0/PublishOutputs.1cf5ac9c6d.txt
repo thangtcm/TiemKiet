@@ -1,6 +1,10 @@
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKiet.exe
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKietAPI.exe
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKiet.runtimeconfig.json
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Account\Edit.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Account\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Blog\Create.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Blog\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Home\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\Error.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Footer.cshtml
