@@ -1,0 +1,84 @@
+﻿using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Enums;
+using TiemKiet.Models;
+using TiemKiet.Repository.UnitOfWork;
+using TiemKiet.Services.Interface;
+using TiemKiet.ViewModel;
+
+namespace TiemKiet.Services
+{
+    public class VoucherService : IVoucherService
+    {
+        public IUnitOfWork _unitOfWork;
+        public VoucherService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+        public async Task Add(VoucherInfoVM voucherInfo, long userId)
+        {
+            Voucher model = new()
+            {
+                Code = voucherInfo.VoucherCode,
+                DateCreate = DateTime.Now,
+                DateUpdate = DateTime.Now,
+                DiscountType = voucherInfo.DiscountType,
+                DiscountValue = voucherInfo.DiscountValue,
+                IsRemoved = false,
+                MaxDiscountAmount = voucherInfo.MaxDiscountAmount,
+                MinBillAmount = voucherInfo.MinBillAmount,
+                VoucherName = voucherInfo.VoucherName,
+                UserIdCreate = userId,
+                UserIdUpdate = userId,
+            };
+            _unitOfWork.VoucherRepository.Add(model);
+            await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<bool> Delete(int Id, long userId)
+        {
+            var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == Id);
+            if (voucher == null) return false;
+            voucher.DateUpdate = DateTime.Now;
+            voucher.UserIdUpdate = userId;
+            voucher.DateRemove= DateTime.Now;
+            voucher.UserIdRemove = userId;
+            voucher.IsRemoved = true;
+            _unitOfWork.VoucherRepository.Update(voucher);
+            await _unitOfWork.CommitAsync();
+            return true;
+        }
+
+        public Voucher? GetById(int Id)
+            => _unitOfWork.VoucherRepository.Get(x => x.Id == Id);
+
+        public async Task<Voucher?> GetByIdAsync(int Id)
+            => await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == Id);
+
+        public async Task<Voucher?> GetByIdAsync(int Id, Func<IQueryable<Voucher>, IIncludableQueryable<Voucher, object>> includes)
+            => await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == Id, includes);
+
+        public async Task<ICollection<Voucher>> GetListAsync()
+            => await _unitOfWork.VoucherRepository.GetAllAsync();
+
+        public async Task<ICollection<Voucher>> GetListAsync(Func<IQueryable<Voucher>, IIncludableQueryable<Voucher, object>> includes)
+            => await _unitOfWork.VoucherRepository.GetAllAsync(null, includes);
+
+        public async Task<bool> Update(VoucherInfoVM voucherInfo, long userId)
+        {
+            var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == voucherInfo.VoucherId);
+            if(voucher != null)
+            {
+                voucher.Code = voucherInfo.VoucherCode;
+                voucher.DateUpdate = DateTime.Now;
+                voucher.DiscountType = voucherInfo.DiscountType;
+                voucher.DiscountValue = voucherInfo.DiscountValue;
+                voucher.MaxDiscountAmount = voucherInfo.MaxDiscountAmount;
+                voucher.MinBillAmount = voucherInfo.MinBillAmount;
+                voucher.VoucherName = voucherInfo.VoucherName;
+                voucher.UserIdUpdate = userId;
+                return true;
+            }
+            return false;
+        }
+    }
+}

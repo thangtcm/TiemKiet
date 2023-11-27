@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TiemKiet.Data;
+using TiemKiet.ViewModel;
 
 namespace TiemKiet.Models
 {
@@ -14,8 +15,12 @@ namespace TiemKiet.Models
         public string? ProductName { get; set; }
         [DisplayName("Giá sản phẩm")]
         public double ProductPrice { get; set; }
+        [DisplayName("Mô tả sản phẩm")]
+        public string? ProductDescription { get; set; }
         [DisplayName("Phần trăm giảm giá")]
         public double ProductSale { get; set; }
+        [DisplayName("Ảnh")]
+        public ImageModel? ProductImg {get; set; }
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreate { get; set; }
         [Display(Name = "Người tạo")]
@@ -42,5 +47,6 @@ namespace TiemKiet.Models
         public int BranchId { get; set; }
         [ForeignKey("BranchId")]
         public Branch? Branch { get; set; }
+        public Product() { }
     }
 }

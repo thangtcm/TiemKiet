@@ -18,7 +18,7 @@ namespace TiemKiet.Helpers
                             options.UseSqlServer(connectionString));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedPhoneNumber = true)
                 .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
@@ -29,14 +29,20 @@ namespace TiemKiet.Helpers
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
-
+                options.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultPhoneProvider;
                 options.User.AllowedUserNameCharacters =
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                options.User.RequireUniqueEmail = true;
-
-                options.SignIn.RequireConfirmedEmail = true;
-                options.SignIn.RequireConfirmedPhoneNumber = false;
+                options.User.RequireUniqueEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
             });
+
+            services.Configure<DataProtectionTokenProviderOptions>(options =>
+                options.TokenLifespan = TimeSpan.FromMinutes(15));
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -58,6 +64,10 @@ namespace TiemKiet.Helpers
             services.AddScoped<IBranchRepository, BranchRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<ITransactionLogRepository, TransactionLogRepository>();
+            services.AddScoped<IManagerVoucherLogRepository, ManagerVoucherLogRepository>();
+            services.AddScoped<IVoucherRepository, VoucherRepository>();
+            services.AddScoped<IVoucherUserRepository, VoucherUserRepository>();
 
             //Service
             services.AddTransient(typeof(IUserService), typeof(UserService));
@@ -67,6 +77,11 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IDistrictService), typeof(DistrictService));
             services.AddTransient(typeof(IImageService), typeof(ImageService));
             services.AddTransient(typeof(IBranchService), typeof(BranchService));
+            services.AddTransient(typeof(IProductService), typeof(ProductService));
+            services.AddTransient(typeof(ITranscationLogService), typeof(TranscationLogService));
+            services.AddTransient(typeof(IManagerVoucherLogRepository), typeof(ManagerVoucherLogRepository));
+            services.AddTransient(typeof(IVoucherService), typeof(VoucherService));
+            services.AddTransient(typeof(IVoucherUserService), typeof(VoucherUserService));
             services.AddTransient(typeof(IFirebaseStorageService), typeof(FirebaseStorageService));
 
             //Authentication

@@ -31,6 +31,10 @@ namespace TiemKiet.Data
         public DbSet<BlogPost>? BlogPosts { get; set; }
         public DbSet<ImageModel>? ImageModel { get; set; }
         public DbSet<TransactionLog>? TransactionLog { get; set; }
+        public DbSet<Voucher>? Vouchers { get; set; }
+        public DbSet<VoucherUser>? VoucherUsers { get; set; }
+        public DbSet<ManagerVoucherLog> ManagerVoucherLogs { get; set; }
+        public DbSet<ApplicationUserToken> ApplicationUserToken { get; set; }
 
         public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
         {
@@ -77,6 +81,8 @@ namespace TiemKiet.Data
                     ConcurrencyStamp = "b19f1b24-5ac9-4c8d-9b7c-5e5d5f5cfb1e",
                     FullName = "Admin",
                     TwoFactorEnabled = false,
+                    PhoneNumber = "092342005148",
+                    PhoneNumberConfirmed= true,
                     LockoutEnabled = true,
                     AccessFailedCount = 0
                 }

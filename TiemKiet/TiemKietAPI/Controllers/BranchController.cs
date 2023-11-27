@@ -36,7 +36,7 @@ namespace TiemKietAPI.Controllers
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
                 }
                 await _branchService.Add(branchInfoVM, userId, districtId);
-                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Success", $"Tạo Chi nhánh {branchInfoVM.BranchName} thành công."));
+                return Ok(ResponseResult.CreateResponse("Success", $"Tạo Chi nhánh {branchInfoVM.BranchName} thành công."));
             }
             catch
             (Exception ex)

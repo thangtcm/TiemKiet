@@ -12,6 +12,11 @@ namespace TiemKiet.Repository.UnitOfWork
         IBranchRepository BranchRepository { get;  }
         IProductRepository ProductRepository { get; }
         IImageRepository ImageRepository { get; }
+        ITransactionLogRepository TransactionLogRepository { get; }
+        IVoucherRepository VoucherRepository { get; }
+        IVoucherUserRepository VoucherUserRepository { get; }
+        IManagerVoucherLogRepository ManagerVoucherLogRepository { get; }
+        IUserTokenRepository UserTokenRepository { get; }
         void Commit();
         void Rollback();
         Task CommitAsync();

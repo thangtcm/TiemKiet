@@ -34,7 +34,7 @@ namespace TiemKietAPI.Controllers
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
                 }
                 await _districtService.Add(districtInfo, userId);
-                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Success", $"Tạo {districtInfo.DistrictName} thành công."));
+                return Ok(ResponseResult.CreateResponse("Success", $"Tạo {districtInfo.DistrictName} thành công."));
             }
             catch
             (Exception ex)

@@ -14,6 +14,11 @@ namespace TiemKiet.Repository.UnitOfWork
         private IBranchRepository _branchRepository;
         private IProductRepository _productRepository;
         private IImageRepository _imageRepository;
+        private ITransactionLogRepository _transactionLog;
+        private IVoucherRepository _voucherRepository;
+        private IVoucherUserRepository _voucherUserRepository;
+        private IManagerVoucherLogRepository _managerVoucher;
+        private IUserTokenRepository _userTokenRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -76,6 +81,46 @@ namespace TiemKiet.Repository.UnitOfWork
             get
             {
                 return _imageRepository ??= new ImageRepository(_context);
+            }
+        }
+
+        public ITransactionLogRepository TransactionLogRepository
+        {
+            get
+            {
+                return _transactionLog ??= new TransactionLogRepository(_context);
+            }
+        }
+
+        public IVoucherRepository VoucherRepository
+        {
+            get
+            {
+                return _voucherRepository ??= new VoucherRepository(_context);
+            }
+        }
+
+        public IVoucherUserRepository VoucherUserRepository
+        {
+            get
+            {
+                return _voucherUserRepository ??= new VoucherUserRepository(_context);
+            }
+        }
+
+        public IManagerVoucherLogRepository ManagerVoucherLogRepository
+        {
+            get
+            {
+                return _managerVoucher ??= new ManagerVoucherLogRepository(_context);
+            }
+        }
+
+        public IUserTokenRepository UserTokenRepository
+        {
+            get
+            {
+                return _userTokenRepository ??= new UserTokenRepository(_context);
             }
         }
         public void Commit()

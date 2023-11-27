@@ -191,6 +191,9 @@ namespace TiemKiet.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -234,6 +237,12 @@ namespace TiemKiet.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<double>("Point")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -267,6 +276,7 @@ namespace TiemKiet.Migrations
                         {
                             Id = 1000000001L,
                             AccessFailedCount = 0,
+                            Birthday = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ConcurrencyStamp = "b19f1b24-5ac9-4c8d-9b7c-5e5d5f5cfb1e",
                             Email = "admin@tiemkiet.vn",
                             EmailConfirmed = true,
@@ -276,11 +286,36 @@ namespace TiemKiet.Migrations
                             NormalizedEmail = "admin@tiemkiet.vn",
                             NormalizedUserName = "admin",
                             PasswordHash = "AQAAAAEAACcQAAAAECAsUeOByw0jsD4x7X0K9WQdxWV/RrvPBnHITnRzdbrhHKzmf35BZDPXJBcVjp5FIQ==",
-                            PhoneNumberConfirmed = false,
+                            PhoneNumber = "092342005148",
+                            PhoneNumberConfirmed = true,
+                            Point = 0.0,
+                            Score = 0.0,
                             SecurityStamp = "ZD5UZJQK6Q5W6N7O6RBRF6DB2Q2G2AIJ",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.ApplicationUserToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("UserToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ApplicationUserToken");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.BlogPost", b =>
@@ -518,6 +553,40 @@ namespace TiemKiet.Migrations
                     b.ToTable("ImageModel");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.ManagerVoucherLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateTimeGives")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReponseGive")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("UserIdClaim")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("UserIdGive")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("VoucherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserIdClaim");
+
+                    b.HasIndex("UserIdGive");
+
+                    b.HasIndex("VoucherId");
+
+                    b.ToTable("ManagerVoucherLogs");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -541,6 +610,12 @@ namespace TiemKiet.Migrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProductDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductImgId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
@@ -562,6 +637,8 @@ namespace TiemKiet.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
+
+                    b.HasIndex("ProductImgId");
 
                     b.HasIndex("UserIdCreate");
 
@@ -664,6 +741,97 @@ namespace TiemKiet.Migrations
                     b.ToTable("TransactionLog");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.Voucher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateRemove")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DiscountType")
+                        .HasColumnType("int");
+
+                    b.Property<double>("DiscountValue")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ExpiryDays")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("MaxDiscountAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MinBillAmount")
+                        .HasColumnType("float");
+
+                    b.Property<long?>("UserIdCreate")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("UserIdRemove")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("UserIdUpdate")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("VoucherName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserIdCreate");
+
+                    b.HasIndex("UserIdRemove");
+
+                    b.HasIndex("UserIdUpdate");
+
+                    b.ToTable("Vouchers");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.VoucherUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("RedeemedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("UserIdClaim")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("VoucherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserIdClaim");
+
+                    b.HasIndex("VoucherId");
+
+                    b.ToTable("VoucherUsers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
                     b.HasOne("TiemKiet.Data.ApplicationRole", null)
@@ -713,6 +881,15 @@ namespace TiemKiet.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.ApplicationUserToken", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.BlogPost", b =>
@@ -830,6 +1007,27 @@ namespace TiemKiet.Migrations
                     b.Navigation("UserUpload");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.ManagerVoucherLog", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserClaim")
+                        .WithMany()
+                        .HasForeignKey("UserIdClaim");
+
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserGive")
+                        .WithMany()
+                        .HasForeignKey("UserIdGive");
+
+                    b.HasOne("TiemKiet.Models.Voucher", "Voucher")
+                        .WithMany()
+                        .HasForeignKey("VoucherId");
+
+                    b.Navigation("UserClaim");
+
+                    b.Navigation("UserGive");
+
+                    b.Navigation("Voucher");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.Product", b =>
                 {
                     b.HasOne("TiemKiet.Models.Branch", "Branch")
@@ -837,6 +1035,10 @@ namespace TiemKiet.Migrations
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TiemKiet.Models.ImageModel", "ProductImg")
+                        .WithMany()
+                        .HasForeignKey("ProductImgId");
 
                     b.HasOne("TiemKiet.Data.ApplicationUser", "UserCreate")
                         .WithMany()
@@ -851,6 +1053,8 @@ namespace TiemKiet.Migrations
                         .HasForeignKey("UserIdUpdate");
 
                     b.Navigation("Branch");
+
+                    b.Navigation("ProductImg");
 
                     b.Navigation("UserCreate");
 
@@ -901,6 +1105,42 @@ namespace TiemKiet.Migrations
                     b.Navigation("UserCustomer");
 
                     b.Navigation("UserStaff");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.Voucher", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserCreate")
+                        .WithMany()
+                        .HasForeignKey("UserIdCreate");
+
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserRemove")
+                        .WithMany()
+                        .HasForeignKey("UserIdRemove");
+
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserUpdate")
+                        .WithMany()
+                        .HasForeignKey("UserIdUpdate");
+
+                    b.Navigation("UserCreate");
+
+                    b.Navigation("UserRemove");
+
+                    b.Navigation("UserUpdate");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.VoucherUser", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserClaim")
+                        .WithMany()
+                        .HasForeignKey("UserIdClaim");
+
+                    b.HasOne("TiemKiet.Models.Voucher", "Voucher")
+                        .WithMany()
+                        .HasForeignKey("VoucherId");
+
+                    b.Navigation("UserClaim");
+
+                    b.Navigation("Voucher");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.Branch", b =>

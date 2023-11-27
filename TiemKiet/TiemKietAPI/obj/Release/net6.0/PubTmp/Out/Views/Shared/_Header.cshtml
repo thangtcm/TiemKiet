@@ -1,0 +1,23 @@
+﻿<header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center">
+            <img src="~/images/logo.png" alt="">
+        </a>
+
+        <a class="mobile-nav-toggle mobile-nav-show"><i class="fas fa-bars"></i></a>
+        <a class="mobile-nav-toggle mobile-nav-hide d-none"><i class="fas fa-times"></i></a>
+        <nav id="navbar" class="navbar justify-content-between">
+            <ul>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="active nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Product" class="nav-link">Sản Phẩm</a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Blog" class="nav-link">Chuyện Nhà Kiết</a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Restaurant" class="nav-link">Cửa Hàng</a></li>
+                <partial name="_LoginPartial" />
+            </ul>
+        </nav><!-- .navbar -->
+    </div>
+</header><!-- End Header -->
+<partial name="_FormEnterNumberPhone" />
+<partial name="_FormConfirmOTP" />
+<partial name="_FormConfirmPIN" />

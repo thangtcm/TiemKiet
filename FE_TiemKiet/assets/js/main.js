@@ -275,7 +275,144 @@
 		});
 	});
 	
+	//Input phone
+	$(document).ready(function () {
+		var inputPhone = $("input[type='tel']");
+		
+		if(inputPhone.length > 0)
+		{
+			inputPhone.each(function (index, element) {
+			window.intlTelInput(element, {
+				utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+				separateDialCode: true,
+				onlyCountries: ["vn"],
+				initialCountry: "vn"
+			});
+			});
+		}
+	  });
+	  
 	
+	//Input OTP
+	// $(document).ready(function () {
+	// 	const inputs = $(".otp-field > input");
+	// 	const button = $(".btn-otp");
+	  
+	// 	inputs.first().focus();
+	// 	button.prop("disabled", true);
+	  
+	// 	inputs.first().on("paste", function (event) {
+	// 	  event.preventDefault();
+	  
+	// 	  const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
+	  
+	// 	  inputs.each(function (index) {
+	// 		const currentInput = $(this);
+	  
+	// 		if (index < pastedValue.length) {
+	// 		  currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
+	// 		} else {
+	// 		  currentInput.val("").focus();
+	// 		}
+	// 	  });
+	// 	});
+	  
+	// 	inputs.each(function (index1) {
+	// 		const currentInput = $(this);
+	// 		const nextInput = currentInput.next("input");
+	// 		const prevInput = currentInput.prev("input");
+	// 		currentInput.on("input", function (e){
+	// 			if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
+	// 				nextInput.removeAttr("disabled").focus();
+	// 			}
+	// 		})
+	// 		currentInput.on("keyup", function (e) {
+	// 			if (currentInput.val().length > 1) {
+	// 				currentInput.val("");
+	// 				return;
+	// 			}
+				
+	// 			if (e.key === "Backspace" || e.key == "delete") {
+	// 				inputs.each(function (index2) {
+	// 					const input = $(this);
+			
+	// 					if (index1 <= index2 && prevInput.length) {
+	// 					input.prop("disabled", true).val("");
+	// 					prevInput.focus();
+	// 					}
+	// 				});
+	// 			}
+	  
+	// 			button.removeClass("active").prop("disabled", true);
+	  
+	// 			if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
+	// 				button.addClass("active").prop("disabled", false);
+	// 			}
+	// 	  	});
+	// 	});
+	// });
+
+	$(document).ready(function () {
+		$(".otp-field").each(function () {
+			const inputs = $(this).find("input");
+			const button = $(this).closest(".modal-content").find(".btn-otp");
+	
+			inputs.first().focus();
+			button.prop("disabled", true);
+	
+			inputs.first().on("paste", function (event) {
+				event.preventDefault();
+	
+				const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
+	
+				inputs.each(function (index) {
+					const currentInput = $(this);
+	
+					if (index < pastedValue.length) {
+						currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
+					} else {
+						currentInput.val("").focus();
+					}
+				});
+			});
+	
+			inputs.each(function (index1) {
+				const currentInput = $(this);
+				const nextInput = currentInput.next("input");
+				const prevInput = currentInput.prev("input");
+	
+				currentInput.on("input", function (e) {
+					if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
+						nextInput.removeAttr("disabled").focus();
+					}
+				});
+	
+				currentInput.on("keyup", function (e) {
+					if (currentInput.val().length > 1) {
+						currentInput.val("");
+						return;
+					}
+	
+					if (e.key === "Backspace" || e.key === "Delete") {
+						inputs.each(function (index2) {
+							const input = $(this);
+	
+							if (index1 <= index2 && prevInput.length) {
+								input.prop("disabled", true).val("");
+								prevInput.focus();
+							}
+						});
+					}
+	
+					button.removeClass("active").prop("disabled", true);
+	
+					if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
+						button.addClass("active").prop("disabled", false);
+					}
+				});
+			});
+		});
+	});
 	
 
 })(jQuery);

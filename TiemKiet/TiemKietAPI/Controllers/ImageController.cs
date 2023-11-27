@@ -33,7 +33,7 @@ namespace TiemKietAPI.Controllers
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
                 }
                 await _imageService.Add(upload, userId);
-                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Success", $"Tải ảnh lên máy chủ thành công."));
+                return Ok( ResponseResult.CreateResponse("Success", $"Tải ảnh lên máy chủ thành công."));
             }
             catch
             (Exception ex)

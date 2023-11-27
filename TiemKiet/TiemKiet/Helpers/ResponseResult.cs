@@ -4,7 +4,7 @@
     {
         public static object CreateResponse(string code, string message, object? data = null)
         {
-            var response = new { Code = code, Description = message, Data = data };
+            var response = new { status = code, message = message, Data = data };
             return response;
         }
     }

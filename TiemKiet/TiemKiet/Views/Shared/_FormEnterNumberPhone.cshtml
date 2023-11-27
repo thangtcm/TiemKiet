@@ -1,0 +1,30 @@
+﻿@model TiemKiet.ViewModel.UserInfoVM
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="row no-gutters">
+                <div class="col-md-6 d-flex">
+                    <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="text w-100 text-center">
+                            <div class="p-3">
+                                <img src="~/images/logo.png" alt="#" width="100">
+                                <h4 class="mb-4 text-dark">Chào mừng bạn đến<br><span class="fw-bold text-primary">Tiệm Kiết</span> </h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phoneNumber" class="form-control" placeholder="0123456789">
+                                <span class="text-danger" id="phoneNumberError"></span>
+                            </div>
+                            <button type="button" id="sendOTPBtn" class="btn btn-primary d-block rounded-5 w-100" data-bs-target="#otpModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal" disabled onclick="sendOTP()">Đăng Nhập</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Cửa hàng";
+}
+<section id="header-title">
+    <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+        <div class="container py-5" data-aos="fade-up" data-aos-duration="3000">
+            <h1 class="display-3 text-white mb-3">Cửa Hàng</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home">Trang Chủ</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Restaurant">Cửa Hàng</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<section id="restaurant" class="section restaurant">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>TÌM CỬA HÀNG</h2>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-lg-3 d-none d-xl-block d-xxl-block sidebar-border">
+                <div class="container">
+                    <aside class="page_sidebar px-3">
+                        <p class="fw-bold fs-4">Theo Khu Vực</p>
+                        <ul>
+                            <li>
+                                <a href="#" class="active">
+                                    Hồ Chí Minh (3)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Huế (3)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Đà Nẵng (3)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Bình Dương (3)
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+            <div class="col-lg-9 col-sm-12 col-md-12">
+                <div class="container-fluid ">
+                    <h3 class="text-primary text-start">Khám phá 3 cửa hàng của chúng tôi ở Hồ Chí Minh</h3>
+                    <form action="" class="row py-4">
+                        <div class="col-12 col-sm-6 col-lg-4 d-block d-xl-none d-xxl-none">
+                            <div class="form-group local-forms">
+                                <label>Tỉnh/Thành Phố <span class="text-danger">*</span></label>
+                                <select class="form-control select select-restaurants" name="state">
+                                    <option value="">Chọn Tỉnh/Thành Phố</option>
+                                    <option value="1">TP Hồ Chí Minh (3)</option>
+                                    <option value="2">Huế (3)</option>
+                                    <option value="3">Đà Nẵng (3)</option>
+                                    <option value="3">Bình Dương (3)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="form-group local-forms">
+                                <label>Quận Huyện <span class="text-danger">*</span></label>
+                                <select class="form-control select select-restaurants" name="state">
+                                    <option value="">Chọn Quận/Huyện</option>
+                                    <option value="1">Bình Tân</option>
+                                    <option value="2">Bình Thạnh</option>
+                                    <option value="3">Quận 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="container">
+                    <p class="text-start text-dark">Có 3 cửa hàng</p>
+                    <div class="row gx-5 mb-5">
+                        <div class="col-lg-6 mb-5">
+                            <div class="card lift h-100 p-0">
+                                <div id="owl-branch" class="owl-carousel owl-theme owl-loaded owl-drag owl-branch">
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title mb-2">Nguyễn Gia Trị - Tiệm Kiết</h4>
+                                    <hr>
+                                    <div class="card-text">
+                                        <p><i class="fas fa-map-marker-alt me-2"></i>69/1/7 Nguyễn Gia Trí, P. 25,  Quận Bình Thạnh, TP. Hồ Chí Minh</p>
+                                        <p><i class="fas fa-utensils me-2"></i>7:00 - 23:00</p>
+                                        <div class="d-flex flex-wrap ">
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top d-flex align-items-center justify-content-center">
+                                    <a href="#" class="text-center btn btn-primary">Xem Bản Đồ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-5">
+                            <div class="card lift h-100 p-0">
+                                <div id="owl-branch" class="owl-carousel owl-theme owl-loaded owl-drag owl-branch">
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500"
+                                             alt="...">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title mb-2">Nguyễn Gia Trị - Tiệm Kiết</h4>
+                                    <hr>
+                                    <div class="card-text">
+                                        <p><i class="fas fa-map-marker-alt me-2"></i>69/1/7 Nguyễn Gia Trí, P. 25,  Quận Bình Thạnh, TP. Hồ Chí Minh</p>
+                                        <p><i class="fas fa-utensils me-2"></i>7:00 - 23:00</p>
+                                        <div class="d-flex flex-wrap ">
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                            <div class="pe-4">
+                                                <p>
+                                                    <i class="fas fa-biking me-2"></i>
+                                                    Có chỗ giữ xe
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-top d-flex align-items-center justify-content-center">
+                                    <a href="#" class="text-center btn btn-primary">Xem Bản Đồ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -34,7 +34,7 @@ namespace TiemKietAPI.Controllers
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
                 }
                 await _countryService.Add(countryInfoVM, userId);
-                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Success", $"Tạo Country {countryInfoVM.CountryName} thành công."));
+                return Ok( ResponseResult.CreateResponse("Success", $"Tạo Country {countryInfoVM.CountryName} thành công."));
             }
             catch
             (Exception ex)

@@ -1989,12 +1989,56 @@
       "PackagePath": "staticwebassets\\AdminLayout\\plugin\\jQuery-slimScroll-master\\package.json"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\animate.css",
+      "PackagePath": "staticwebassets\\css\\animate.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Anh-Wibu-mat-do.jpg",
+      "PackagePath": "staticwebassets\\images\\Anh-Wibu-mat-do.jpg"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Product\\test.png",
+      "PackagePath": "staticwebassets\\images\\Product\\test.png"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\background.jpg",
+      "PackagePath": "staticwebassets\\images\\background.jpg"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\barqr.jpg",
+      "PackagePath": "staticwebassets\\images\\barqr.jpg"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\qr.svg",
+      "PackagePath": "staticwebassets\\images\\qr.svg"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",
+      "PackagePath": "staticwebassets\\js\\scrolljax.min.js"
     },
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\site.js",
@@ -2227,6 +2271,54 @@
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\README.md",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\README.md"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
     },
     {
       "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.TiemKiet.Microsoft.AspNetCore.StaticWebAssets.props",

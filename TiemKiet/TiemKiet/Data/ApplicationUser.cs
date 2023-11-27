@@ -13,9 +13,14 @@ namespace TiemKiet.Data
         public override long Id { get; set; }
         [DisplayName("Họ và tên")]
         public string? FullName { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Birthday { get; set; }
         public Gender Gender { get; set; }
         public string? ImgAvatar { get; set; }
         public string? TokenNotify { get; set; }
         public string? TokenAPI { get; set; }
+        public double Score { get; set; }
+        public double Point { get; set; }
     }
 }

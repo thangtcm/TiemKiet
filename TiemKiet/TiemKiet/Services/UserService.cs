@@ -16,11 +16,14 @@ namespace TiemKiet.Services
         public IUnitOfWork _unitOfWork;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor)
+        private readonly ITranscationLogService _transcationLogService;
+        public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor, 
+            ITranscationLogService transcationLogService)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
+            _transcationLogService = transcationLogService;
         }
 
         public async Task<ApplicationUser?> GetUser()
@@ -66,6 +69,45 @@ namespace TiemKiet.Services
             _unitOfWork.UserRepository.Update(userModel);
             await _unitOfWork.CommitAsync();
             return true;
+        }
+
+        public async Task<CaculateVoucherInfo> CaculatePrice(long userId, double TotalPrice, int VoucherId = 0)
+        {
+            var user = await GetUser(userId);
+            CaculateVoucherInfo model = new();
+            if(user != null)
+            {
+                var discount = CallBack.GetDiscount(user.Score);
+                model.DiscountPrice = TotalPrice * discount/100;
+                model.CurrentPrice = TotalPrice;
+                model.TotalPrice = TotalPrice - model.DiscountPrice;
+                model.UserId = userId;
+                model.VoucherId = VoucherId;
+            }
+            return model;
+        }
+
+        public async Task UpdatePoint(CaculateVoucherInfo model, long userId)
+        {
+            var user = await GetUser(model.UserId);
+            if(user != null)
+            {
+                double RecivePoint = model.TotalPrice / 1000.0;
+                TransactionLogVM _logPayment = new()
+                {
+                    PointOld = user.Point,
+                    TotalPrice = model.TotalPrice,
+                    ScroreOld = user.Score,
+                    ScroreNew = user.Score + RecivePoint,
+                    PointNew = user.Score + RecivePoint,
+                    DiscountPrice = model.DiscountPrice
+                };
+                user.Point += RecivePoint;
+                user.Score += RecivePoint;
+                await _transcationLogService.Add(_logPayment, model.UserId, userId);
+                _unitOfWork.UserRepository.Update(user);
+                await _unitOfWork.CommitAsync();
+            }    
         }
     }
 }
