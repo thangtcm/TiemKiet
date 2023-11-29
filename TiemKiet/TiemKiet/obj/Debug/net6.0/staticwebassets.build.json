@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wb1wmig/OtLlLq07OWeCHt8efrbzq1qjmuj20dU5DJY=",
+  "Hash": "6X5NyyeCmr4HPHxdKbuGjzdJ/WOpKciiNEfFOPCKSZ0=",
   "Source": "TiemKiet",
   "BasePath": "_content/TiemKiet",
   "Mode": "Default",
@@ -9588,6 +9588,23 @@
       "OriginalItemSpec": "wwwroot\\css\\animate.css"
     },
     {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\bootstrap-datetimepicker.min.css",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "css/bootstrap-datetimepicker.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap-datetimepicker.min.css"
+    },
+    {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\responsive.css",
       "SourceId": "TiemKiet",
       "SourceType": "Discovered",
@@ -9707,6 +9724,23 @@
       "OriginalItemSpec": "wwwroot\\images\\barqr.jpg"
     },
     {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\clock-bg-sm.png",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "images/clock-bg-sm.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\clock-bg-sm.png"
+    },
+    {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\logo.png",
       "SourceId": "TiemKiet",
       "SourceType": "Discovered",
@@ -9758,6 +9792,40 @@
       "OriginalItemSpec": "wwwroot\\images\\qr.svg"
     },
     {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "js/bootstrap-datetimepicker.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\func.js",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "js/func.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\func.js"
+    },
+    {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\main.js",
       "SourceId": "TiemKiet",
       "SourceType": "Discovered",
@@ -9773,6 +9841,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\moment-with-locales.min.js",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "js/moment-with-locales.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\moment-with-locales.min.js"
     },
     {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",

@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using TiemKiet.Data;
+@using TiemKiet.Helpers;
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
@@ -26,9 +27,21 @@
         </a>
             <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
             aria-labelledby="dropdownAccount">
+            @if (User.IsInRole(Constants.Roles.Admin))
+            {
+                <li class="nav-item">
+                    <a class="nav-link dropdown-item" asp-area="Admin" asp-action="Index" asp-controller="Home">
+                        Quản lý Admin
+                    </a>
+                </li>
+            }
             <li class="nav-item"><a class="nav-link dropdown-item" href="profile.html">Thông tin tài khoản</a></li>
             <li class="nav-item"><a class="nav-link dropdown-item" href="#">Lịch sử mua hàng</a></li>
-            <li class="nav-item"><a class="nav-link dropdown-item" href="#">Đăng Xuất</a></li>
+            <li class="nav-item">
+                <form class="form-inline" asp-action="Logout" asp-controller="Account" asp-area="" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link text-dark dropdown-item">Đăng xuất</button>
+                </form>
+            </li>
             </ul>
         </div>
     </li>

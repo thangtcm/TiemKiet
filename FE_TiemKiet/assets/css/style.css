@@ -149,6 +149,14 @@ input:-webkit-autofill:focus {
     height: calc(1.5em + 1rem + 2px);
 }
 
+.formgroup .invalid-feedback
+{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .9em;
+    color: #ed2000;
+}
+
 a {
     color: #3d5ee1;
     text-decoration: none;
@@ -1643,3 +1651,4 @@ Pre-loader Style
     background-position: center center;
     min-height: 300px;
 }
+

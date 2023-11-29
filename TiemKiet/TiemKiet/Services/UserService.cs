@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing.Printing;
+using System.Net.WebSockets;
 using TiemKiet.Data;
 using TiemKiet.Helpers;
 using TiemKiet.Repository.UnitOfWork;
@@ -15,15 +16,17 @@ namespace TiemKiet.Services
     {
         public IUnitOfWork _unitOfWork;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ITranscationLogService _transcationLogService;
         public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor, 
-            ITranscationLogService transcationLogService)
+            ITranscationLogService transcationLogService, RoleManager<ApplicationRole> roleManager)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _transcationLogService = transcationLogService;
+            _roleManager = roleManager;
         }
 
         public async Task<ApplicationUser?> GetUser()
@@ -37,17 +40,21 @@ namespace TiemKiet.Services
 
         public async Task<ResponseListVM<UserInfoVM>> GetUsersWithRoles(int page = 1)
         {
+           
             var users = await _userManager.Users.AsNoTracking().ToListAsync();
+            var userroles = await _unitOfWork.UserRoleRepository.GetAllAsync();
+            var roles = await _roleManager.Roles.AsNoTracking().ToListAsync();
             int pagesize = 10;
             int totalUsers = users.Count;
             int maxpage = (totalUsers / pagesize) + (totalUsers % 10 == 0 ? 0 : 1);
             int pagenumber = page < 0 ? 1 : page;
             PagedList<ApplicationUser> lst = new(users, pagenumber, pagesize);
             var userWithRoles = new List<UserInfoVM>();
-            foreach (var user in users)
+            foreach (var user in lst)
             {
-                var userRoles = new List<string>(await _userManager.GetRolesAsync(user));
-                userWithRoles.Add(new UserInfoVM(user, userRoles));
+                var userRoles = userroles.Where(x => x.UserId == user.Id).Select(x => x.RoleId);
+                var matchingRoles = roles.Where(r => userRoles.Contains(r.Id)).Select(r => r.Name).ToList();
+                userWithRoles.Add(new UserInfoVM(user, matchingRoles));
             }
             var data = new ResponseListVM<UserInfoVM>()
             {
@@ -55,6 +62,21 @@ namespace TiemKiet.Services
                 MaxPage = maxpage
             };
             return data;
+        }
+        public async Task<ICollection<UserInfoVM>> GetUsersWithRoles()
+        {
+
+            var users = await _userManager.Users.AsNoTracking().ToListAsync();
+            var userroles = await _unitOfWork.UserRoleRepository.GetAllAsync();
+            var roles = await _roleManager.Roles.AsNoTracking().ToListAsync();
+            var userWithRoles = new List<UserInfoVM>();
+            foreach (var user in users)
+            {
+                var userRoles = userroles.Where(x => x.UserId == user.Id).Select(x => x.RoleId);
+                var matchingRoles = roles.Where(r => userRoles.Contains(r.Id)).Select(r => r.Name).ToList();
+                userWithRoles.Add(new UserInfoVM(user, matchingRoles));
+            }
+            return userWithRoles.ToList();
         }
         public async Task<ApplicationUser?> GetUser(long userId)
             => await _unitOfWork.UserRepository.GetAsync(x => x.Id == userId);

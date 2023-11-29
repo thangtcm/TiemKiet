@@ -93,28 +93,6 @@ namespace TiemKiet.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
-                {
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("RoleId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1000000001L,
-                            RoleId = 1L
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
                 {
                     b.Property<long>("UserId")
@@ -285,14 +263,36 @@ namespace TiemKiet.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "admin@tiemkiet.vn",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAECAsUeOByw0jsD4x7X0K9WQdxWV/RrvPBnHITnRzdbrhHKzmf35BZDPXJBcVjp5FIQ==",
-                            PhoneNumber = "092342005148",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGjoTI1vP//MoGZ+MmaqcaQANpnEaNIA/mRu21K4RuOTb/Z536KxBT4tUEEdguWDMQ==",
+                            PhoneNumber = "0923425148",
                             PhoneNumberConfirmed = true,
                             Point = 0.0,
                             Score = 0.0,
                             SecurityStamp = "ZD5UZJQK6Q5W6N7O6RBRF6DB2Q2G2AIJ",
                             TwoFactorEnabled = false,
                             UserName = "admin"
+                        });
+                });
+
+            modelBuilder.Entity("TiemKiet.Data.ApplicationUserRole", b =>
+                {
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("RoleId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1000000001L,
+                            RoleId = 1L
                         });
                 });
 
@@ -859,14 +859,8 @@ namespace TiemKiet.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
                 {
-                    b.HasOne("TiemKiet.Data.ApplicationRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TiemKiet.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -874,8 +868,14 @@ namespace TiemKiet.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+            modelBuilder.Entity("TiemKiet.Data.ApplicationUserRole", b =>
                 {
+                    b.HasOne("TiemKiet.Data.ApplicationRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TiemKiet.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")

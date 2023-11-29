@@ -1,7 +1,10 @@
 ﻿<div class="modal fade" id="CodePinModalToggle" tabindex="-1" aria-labelledby="CodePinModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="row no-gutters">
+            <div class="row no-gutters position-relative">
+                <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+                    <i class="fas fa-times"></i>
+                </button>
                 <div class="col-md-6 d-flex">
                     <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
                     </div>
@@ -10,21 +13,22 @@
                     <div class="modal-body d-flex align-items-center">
                         <div class="text w-100 text-center">
                             <div class="p-3 pb-0">
-                                <img src="~/logo.png" alt="#" width="100">
+                                <img src="~/images/logo.png" alt="#" width="100">
                                 <h4 class="text-dark">Xác thực mã PIN</h4>
                                 <h6 class="text-dark fw-normal">Vui lòng nhập mã PIN mà bạn đã đăng ký trước đó.</h6>
                             </div>
                             <p>Nhập mã PIN để tiếp tục</p>
-                            <form action="#" class="pb-2">
+                            <form asp-action="Login" asp-controller="Account" asp-area="" id="formlogin" class="pb-3">
                                 <div class="form-group">
-                                    <div class="otp-field mb-4">
-                                        <input type="number" maxlength="1" />
-                                        <input type="number" maxlength="1" disabled />
-                                        <input type="number" maxlength="1" disabled />
-                                        <input type="number" maxlength="1" disabled />
-                                        <input type="number" maxlength="1" disabled />
-                                        <input type="number" maxlength="1" disabled />
+                                    <div id="OtpPINContainer" class="otp-field mb-4">
+                                        <input type="number" maxlength="1" required/>
+                                        <input type="number" maxlength="1" disabled required/>
+                                        <input type="number" maxlength="1" disabled required/>
+                                        <input type="number" maxlength="1" disabled required />
+                                        <input type="number" maxlength="1" disabled required />
+                                        <input type="number" maxlength="1" disabled required />
                                     </div>
+                                    <span class="text-danger" id="passwordError"></span>
                                 </div>
                                 <button class="btn btn-primary btn-otp d-block rounded-5 w-100">Xác nhận</button>
                             </form>

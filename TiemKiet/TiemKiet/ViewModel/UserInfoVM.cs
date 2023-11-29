@@ -18,6 +18,7 @@ namespace TiemKiet.ViewModel
         public double? Score { get; set; }
         public double? Point { get; set; }
         public virtual ICollection<string>? Roles { get; set; }
+        public virtual ICollection<string>? Tokens { get; set; }
         public UserInfoVM() { }
 
         public UserInfoVM(ApplicationUser user)
@@ -26,6 +27,8 @@ namespace TiemKiet.ViewModel
             this.NumberPhone = user.PhoneNumber;
             this.UserId = user.Id;
             this.Gender = user.Gender;
+            this.Score = user.Score;
+            this.Point = user.Point;
         }
 
         public UserInfoVM(ApplicationUser user, List<string> roles)
@@ -35,6 +38,20 @@ namespace TiemKiet.ViewModel
             this.Birthday = user.Birthday.ToString("dd/MM/yyyy");
             this.UserId = user.Id;
             this.Roles = roles;
+            this.Score = user.Score;
+            this.Point = user.Point;
+        }
+
+        public UserInfoVM(ApplicationUser user, List<string> roles, List<string> tokens)
+        {
+            this.FullName = user.FullName;
+            this.NumberPhone = user.PhoneNumber;
+            this.Birthday = user.Birthday.ToString("dd/MM/yyyy");
+            this.UserId = user.Id;
+            this.Roles = roles;
+            this.Score = user.Score;
+            this.Point = user.Point;
+            this.Tokens = tokens;
+        }
         }
     }
-}

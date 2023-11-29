@@ -12,7 +12,6 @@ using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
 using X.PagedList;
-using static TiemKiet.Helpers.Constants;
 
 namespace TiemKietAPI.Controllers
 {
@@ -25,15 +24,56 @@ namespace TiemKietAPI.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly ILogger<AccountController> _logger;
+        private readonly IUserTokenService _userTokenService;
         public AccountController(IUserService userService, SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager, ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore)
+            UserManager<ApplicationUser> userManager, ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, 
+            IUserTokenService userTokenService)
         {
             _userService = userService;
             _signInManager = signInManager;
             _userManager = userManager;
             _logger = logger;
             _userStore = userStore;
+            _userTokenService = userTokenService;
         }
+
+        [HttpPost("AddToken")]
+        public async Task<IActionResult> AddToken(long? userId, string token)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return NotFound(ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu đầu vào không hợp lệ - {ModelState}."));
+                await _userTokenService.Add(userId, token);
+                return Ok(ResponseResult.CreateResponse("Success", "Đã thêm token vào dữ liệu người dùng thành công.", null));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
+        [HttpGet("GetUserTokens")]
+        public async Task<IActionResult> GetUserTokens(long? userId, int? page)
+        {
+            try
+            {
+                var userTokens = await _userTokenService.GetListAsync(userId);
+                int pagesize = 10;
+                int maxpage = (userTokens.Count / pagesize) + (userTokens.Count % 10 == 0 ? 0 : 1);
+                int pagenumber = page == null || page < 0 ? 1 : page.Value;
+                PagedList<ApplicationUserToken> lst = new(userTokens, pagenumber, pagesize);
+
+                return Ok(ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { Data = lst, MaxPage = maxpage }));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
 
         [HttpGet("GetUsers")]
         public async Task<IActionResult> Get(int page = 1)
@@ -49,6 +89,31 @@ namespace TiemKietAPI.Controllers
             }
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
+
+        [HttpGet("GetUserWithPhone")]
+        public async Task<IActionResult> GetUserWithPhone([Phone] string numberPhone)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return NotFound(ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
+
+                var userResult = await _userManager.Users.SingleOrDefaultAsync(x => x.PhoneNumber == numberPhone);
+
+                if (userResult == null)
+                {
+                    return NotFound(ResponseResult.CreateResponse("Not Exist", "NumberPhone không tồn tại."));
+                }
+                var roles = await _userManager.GetRolesAsync(userResult);
+                var tokens = await _userTokenService.GetListAsync(userResult.Id);
+                return Ok(ResponseResult.CreateResponse("Success", "Tìm thấy dữ liệu tài khoản.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList())));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }    
 
         [HttpGet("IsNumberPhoneExist")]
         public async Task<IActionResult> IsNumberPhoneExist([Phone] string numberPhone)
@@ -116,7 +181,8 @@ namespace TiemKietAPI.Controllers
                 if (result.Succeeded)
                 {
                     var roles = await _userManager.GetRolesAsync(userResult);
-                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList())));
+                    var tokens = await _userTokenService.GetListAsync(userResult.Id);
+                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList())));
                 }
 
                 return NotFound(ResponseResult.CreateResponse("DataNull", "UserName or Password không đúng."));
@@ -154,9 +220,9 @@ namespace TiemKietAPI.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return StatusCode(StatusCodes.Status200OK, new { Message = $"Đăng ký tài khoản của {model.FullName} thành công." });
+                    return Ok(ResponseResult.CreateResponse("Success", $"Đăng ký tài khoản của {model.FullName} thành công.", null));
                 }
-                return StatusCode(StatusCodes.Status200OK, new { Message = $"Đăng ký tài khoản của {model.FullName} không thành công. Lỗi :{result.Errors}" });
+                return NotFound(ResponseResult.CreateResponse("Error", $"Đăng ký tài khoản của {model.FullName} không thành công. Lỗi :{result.Errors}", null));
             }
             catch (Exception ex)
             {

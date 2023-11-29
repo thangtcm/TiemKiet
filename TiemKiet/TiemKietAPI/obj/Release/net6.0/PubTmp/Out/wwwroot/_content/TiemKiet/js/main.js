@@ -24,9 +24,16 @@
 
 	// Select 2
 
+	if ($('.selectsearch').length > 0) {
+		$('.selectsearch').select2({
+			minimumResultsForSearch: 1,
+			width: '100%'
+		});
+	}
+
 	if ($('.select').length > 0) {
 		$('.select').select2({
-			minimumResultsForSearch: 1,
+			minimumResultsForSearch: -1,
 			width: '100%'
 		});
 	}
@@ -413,5 +420,33 @@
 		});
 	});
 
-})(jQuery);
+	if ($('#input_date').length > 0) {
+		var format = $('#input_date').data('format') || "DD/MM/YYYY hh:mm:ss A";
+		$('#input_date').datetimepicker({
+			allowInputToggle: true,
+			showClose: true,
+			showClear: true,
+			showTodayButton: true,
+			format: format,
+			icons: {
+				time: 'fas fa-clock',
 
+				date: 'fas fa-clock',
+
+				up: 'fa fa-chevron-up',
+
+				down: 'fa fa-chevron-down',
+
+				previous: 'fa fa-chevron-left',
+
+				next: 'fa fa-chevron-right',
+
+				today: 'fa fa-chevron-up',
+
+				clear: 'fa fa-trash',
+
+				close: 'fas fa-times'
+			},
+		});
+	}
+})(jQuery);

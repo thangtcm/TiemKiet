@@ -24,9 +24,16 @@
 
 	// Select 2
 
+	if ($('.selectsearch').length > 0) {
+		$('.selectsearch').select2({
+			minimumResultsForSearch: 1,
+			width: '100%'
+		});
+	}
+
 	if ($('.select').length > 0) {
 		$('.select').select2({
-			minimumResultsForSearch: 1,
+			minimumResultsForSearch: -1,
 			width: '100%'
 		});
 	}
@@ -278,37 +285,36 @@
 	//Input phone
 	$(document).ready(function () {
 		var inputPhone = $("input[type='tel']");
-		
-		if(inputPhone.length > 0)
-		{
+
+		if (inputPhone.length > 0) {
 			inputPhone.each(function (index, element) {
-			window.intlTelInput(element, {
-				utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-				separateDialCode: true,
-				onlyCountries: ["vn"],
-				initialCountry: "vn"
-			});
+				window.intlTelInput(element, {
+					utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+					separateDialCode: true,
+					onlyCountries: ["vn"],
+					initialCountry: "vn"
+				});
 			});
 		}
-	  });
-	  
-	
+	});
+
+
 	//Input OTP
 	// $(document).ready(function () {
 	// 	const inputs = $(".otp-field > input");
 	// 	const button = $(".btn-otp");
-	  
+
 	// 	inputs.first().focus();
 	// 	button.prop("disabled", true);
-	  
+
 	// 	inputs.first().on("paste", function (event) {
 	// 	  event.preventDefault();
-	  
+
 	// 	  const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
-	  
+
 	// 	  inputs.each(function (index) {
 	// 		const currentInput = $(this);
-	  
+
 	// 		if (index < pastedValue.length) {
 	// 		  currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
 	// 		} else {
@@ -316,7 +322,7 @@
 	// 		}
 	// 	  });
 	// 	});
-	  
+
 	// 	inputs.each(function (index1) {
 	// 		const currentInput = $(this);
 	// 		const nextInput = currentInput.next("input");
@@ -331,20 +337,20 @@
 	// 				currentInput.val("");
 	// 				return;
 	// 			}
-				
+
 	// 			if (e.key === "Backspace" || e.key == "delete") {
 	// 				inputs.each(function (index2) {
 	// 					const input = $(this);
-			
+
 	// 					if (index1 <= index2 && prevInput.length) {
 	// 					input.prop("disabled", true).val("");
 	// 					prevInput.focus();
 	// 					}
 	// 				});
 	// 			}
-	  
+
 	// 			button.removeClass("active").prop("disabled", true);
-	  
+
 	// 			if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
 	// 				button.addClass("active").prop("disabled", false);
 	// 			}
@@ -352,68 +358,225 @@
 	// 	});
 	// });
 
+	// $(document).ready(function () {
+	// 	$(".otp-field").each(function () {
+	// 		const inputs = $(this).find("input");
+	// 		const button = $(this).closest(".modal-content").find(".btn-otp");
+
+	// 		inputs.first().focus();
+	// 		button.prop("disabled", true);
+
+	// 		inputs.first().on("paste", function (event) {
+	// 			event.preventDefault();
+
+	// 			const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
+
+	// 			inputs.each(function (index) {
+	// 				const currentInput = $(this);
+
+	// 				if (index < pastedValue.length) {
+	// 					currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
+	// 				} else {
+	// 					currentInput.val("").focus();
+	// 				}
+	// 			});
+	// 		});
+
+	// 		inputs.each(function (index1) {
+	// 			const currentInput = $(this);
+	// 			const nextInput = currentInput.next("input");
+	// 			const prevInput = currentInput.prev("input");
+
+	// 			currentInput.on("input", function (e) {
+	// 				if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
+	// 					nextInput.removeAttr("disabled").focus();
+	// 				}
+	// 			});
+
+	// 			currentInput.on("keyup", function (e) {
+	// 				if (currentInput.val().length > 1) {
+	// 					currentInput.val("");
+	// 					return;
+	// 				}
+
+	// 				if (e.key === "Backspace" || e.key === "Delete") {
+	// 					inputs.each(function (index2) {
+	// 						const input = $(this);
+
+	// 						if (index1 <= index2 && prevInput.length) {
+	// 							input.prop("disabled", true).val("");
+	// 							prevInput.focus();
+	// 						}
+	// 					});
+	// 				}
+
+	// 				button.removeClass("active").prop("disabled", true);
+
+	// 				if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
+	// 					button.addClass("active").prop("disabled", false);
+	// 				}
+	// 			});
+	// 		});
+	// 	});
+	// });
 	$(document).ready(function () {
 		$(".otp-field").each(function () {
 			const inputs = $(this).find("input");
-			const button = $(this).closest(".modal-content").find(".btn-otp");
-	
-			inputs.first().focus();
-			button.prop("disabled", true);
-	
-			inputs.first().on("paste", function (event) {
-				event.preventDefault();
-	
-				const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
-	
-				inputs.each(function (index) {
-					const currentInput = $(this);
-	
-					if (index < pastedValue.length) {
-						currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
-					} else {
-						currentInput.val("").focus();
-					}
-				});
-			});
-	
-			inputs.each(function (index1) {
-				const currentInput = $(this);
-				const nextInput = currentInput.next("input");
-				const prevInput = currentInput.prev("input");
-	
-				currentInput.on("input", function (e) {
-					if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
-						nextInput.removeAttr("disabled").focus();
-					}
-				});
-	
-				currentInput.on("keyup", function (e) {
-					if (currentInput.val().length > 1) {
-						currentInput.val("");
-						return;
-					}
-	
-					if (e.key === "Backspace" || e.key === "Delete") {
-						inputs.each(function (index2) {
-							const input = $(this);
-	
-							if (index1 <= index2 && prevInput.length) {
-								input.prop("disabled", true).val("");
-								prevInput.focus();
-							}
-						});
-					}
-	
-					button.removeClass("active").prop("disabled", true);
-	
-					if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
-						button.addClass("active").prop("disabled", false);
-					}
-				});
-			});
-		});
-	});
-	
+			const buttons = $(this).closest(".modal-content").find(".btn-otp");
+			buttons.prop("disabled", true);
+			inputs.each(function (index) {
+				$(this).data("index", index);
+				$(this).on("keyup", handleOtp);
+				$(this).on("paste", handleOnPasteOtp);
+			  });
+		  
+			  function handleOtp(e) {
+				const input = $(this);
+				let value = input.val();
+				let isValidInput = value.match(/[0-9a-z]/gi);
+				input.val("");
+				input.val(isValidInput ? value[0] : "");
+		  
+				let fieldIndex = input.data("index");
+				if (fieldIndex < inputs.length - 1 && isValidInput) {
+				  input.next().focus();
+				}
+		  
+				if (e.key === "Backspace" && fieldIndex > 0) {
+				  input.prev().focus();
+				}
+				buttons.prop("disabled", true);
+				console.log(fieldIndex + '   ' + isValidInput +  '  ' + inputs.length+ '    ' + (fieldIndex == inputs.length - 1 && isValidInput) );
+				if (fieldIndex == inputs.length - 1 && isValidInput) {
+					buttons.prop("disabled", false);
+				}
+			  }
+		  
+			  function handleOnPasteOtp(e) {
+				const data = e.originalEvent.clipboardData.getData("text");
+				const value = data.split("");
+				if (value.length === inputs.length) {
+				  inputs.each(function (index) {
+					$(this).val(value[index]);
+					buttons.prop("disabled", false);
+				  });
+				}
+			  }
 
+
+		  
+			//   function submit() {
+			// 	console.log("Submitting...");
+			// 	let otp = "";
+			// 	inputs.each(function () {
+			// 	  otp += $(this).val();
+			// 	  $(this).prop("disabled", true);
+			// 	  $(this).addClass("disabled");
+			// 	});
+			// 	console.log(otp);
+			// 	// Call API here
+			//   }
+		});
+		
+	});
+
+	if ($('#input_date').length > 0) {
+		$('#input_date').datetimepicker({
+		useCurrent: false,
+		allowInputToggle: true,
+		showClose: true,
+		showClear: true,
+		showTodayButton: true,
+		format: "DD/MM/YYYY hh:mm:ss A",
+		icons: {
+				time:'fas fa-clock',
+
+				date:'fas fa-clock',
+
+				up:'fa fa-chevron-up',
+
+				down:'fa fa-chevron-down',
+
+				previous:'fa fa-chevron-left',
+
+				next:'fa fa-chevron-right',
+
+				today:'fa fa-chevron-up',
+
+				clear:'fa fa-trash',
+
+				close:'fas fa-times'
+			},
+		debug:true
+		});
+	}
+	$('#formregister').on('submit', function (event) {
+		event.preventDefault();
+	
+	});
 })(jQuery);
 
+function isValidPhoneNumber(phoneNumber) {
+	var phoneRegex = /^(0[1-9][0-9]{8,9})$/;
+	return phoneRegex.test(phoneNumber);
+}
+
+function sendOTP() {
+	var phoneNumber = $('#phoneNumber').val();
+
+	$.ajax({
+		url: '/Account/SendOTP',
+		method: 'POST',
+		data: { phoneNumber: phoneNumber },
+		success: function (result) {
+			$('#loginModal').modal('hide');
+			$('#otpModalToggle').modal('show');
+		},
+		error: function () {
+			alert('Error sending OTP.' + message);
+		}
+	});
+}
+
+function getOtpData(targetId) {
+	const targetField = $("#" + targetId);
+
+	const otpValues = targetField.find("input").map(function () {
+		return $(this).val();
+	}).get();
+
+	const otpCode = otpValues.join('');
+
+	return otpCode;
+}
+
+function confirmOTP() {
+	var phoneNumber = $('#phoneNumber').val();
+	const otpCode = getOtpData("ConfirmOTPContainer");
+	$.ajax({
+		url: '/Account/ConfirmOTP',
+		method: 'POST',
+		data: { phoneNumber: phoneNumber, codeOTP: otpCode},
+		success: function (result) {
+			$('#otpModalToggle').modal('hide');
+			$('#CodePinModalToggle').modal('show');
+		},
+		error: function () {
+			alert('Error sending OTP.');
+		}
+	});
+}
+
+function loginOTP() {
+	var phoneNumber = $('#phoneNumber').val();
+	var otpCode = getOtpData("OtpPINContainer");
+	var passwordError = $('#passwordError');
+	$.ajax({
+		url: '/Account/Login',
+		method: 'POST',
+		data: { phoneNumber: phoneNumber, password: otpCode},
+		error: function () {
+			passwordError.text('Số điện thoại không hợp lệ.');
+		}
+	});
+}

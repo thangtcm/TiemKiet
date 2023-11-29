@@ -17,6 +17,8 @@ namespace TiemKiet.Repository.UnitOfWork
         IVoucherUserRepository VoucherUserRepository { get; }
         IManagerVoucherLogRepository ManagerVoucherLogRepository { get; }
         IUserTokenRepository UserTokenRepository { get; }
+        IUserRoleRepository UserRoleRepository { get; }
+        IBlogRepository BlogRepository { get; }
         void Commit();
         void Rollback();
         Task CommitAsync();

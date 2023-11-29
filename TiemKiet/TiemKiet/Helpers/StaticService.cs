@@ -68,6 +68,9 @@ namespace TiemKiet.Helpers
             services.AddScoped<IManagerVoucherLogRepository, ManagerVoucherLogRepository>();
             services.AddScoped<IVoucherRepository, VoucherRepository>();
             services.AddScoped<IVoucherUserRepository, VoucherUserRepository>();
+            services.AddScoped<IUserTokenRepository, UserTokenRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+            services.AddScoped<IBlogRepository, BlogRepository>();
 
             //Service
             services.AddTransient(typeof(IUserService), typeof(UserService));
@@ -82,6 +85,8 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IManagerVoucherLogRepository), typeof(ManagerVoucherLogRepository));
             services.AddTransient(typeof(IVoucherService), typeof(VoucherService));
             services.AddTransient(typeof(IVoucherUserService), typeof(VoucherUserService));
+            services.AddTransient(typeof(IUserTokenService), typeof(UserTokenService));
+            services.AddTransient(typeof(IBlogService), typeof(BlogService));
             services.AddTransient(typeof(IFirebaseStorageService), typeof(FirebaseStorageService));
 
             //Authentication

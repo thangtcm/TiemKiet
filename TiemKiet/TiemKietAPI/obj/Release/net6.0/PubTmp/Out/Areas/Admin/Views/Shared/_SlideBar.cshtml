@@ -13,7 +13,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: block;">
-                        <li><a asp-action="Index" asp-controller="HomeAdmin" asp-area="Admin" class="active">Admin Dashboard</a></li>
+                        <li><a asp-action="Index" asp-controller="Home" asp-area="Admin" class="active">Admin Dashboard</a></li>
                     </ul>
                 </li>
                 <li class="menu-title">
@@ -21,14 +21,11 @@
                 </li>
                 <li class="submenu">
                     <a href="#">
-                        <i class="fas fa-file-invoice-dollar"></i> <span> Quản lí đề thi</span> <span class="menu-arrow"></span>
+                        <i class="fas fa-file-invoice-dollar"></i> <span> Quản lí câu chuyện</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
                         <li>
-                            <a asp-area="Admin" asp-action="Index" asp-controller="Exams"><i class="fas fa-table"></i> <span>Đề Thi</span></a>
-                        </li>
-                        <li>
-                            <a asp-area="Admin" asp-action="Index" asp-controller="ExamMatrices"><i class="fas fa-table"></i> <span>Ma trận</span></a>
+                            <a asp-area="Admin" asp-action="Index" asp-controller="Blog"><i class="fas fa-table"></i> <span>Danh sách câu chuyện</span></a>
                         </li>
                     </ul>
                 </li>
@@ -37,18 +34,9 @@
                         <i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a asp-area="Admin" asp-controller="User" asp-action="Index">Quản lý phân quyền</a></li>
+                        <li><a asp-area="Admin" asp-controller="Account" asp-action="Index">Quản lý phân quyền</a></li>
                         <li><a asp-area="Admin">Quản lý tài khoản</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a asp-area="Admin" asp-action="Index" asp-controller="Classes"><i class="fas fa-clipboard-list"></i> <span>Lớp</span></a>
-                </li>
-                <li>
-                    <a asp-area="Admin" asp-action="Index" asp-controller="Chappters"><i class="fas fa-calendar-day"></i> <span>Chương học</span></a>
-                </li>
-                <li>
-                    <a asp-area="Admin" asp-action="Create" asp-controller="Questions"><i class="fas fa-calendar-day"></i> <span>Câu hỏi</span></a>
                 </li>
             </ul>
         </div>

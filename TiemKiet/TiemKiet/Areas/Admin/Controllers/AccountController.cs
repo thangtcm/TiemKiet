@@ -31,7 +31,7 @@ namespace TiemKiet.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _userService.GetUsersWithRoles();
-            return View(users.Data);
+            return View(users);
         }
 
         [Authorize(Roles =Constants.Roles.Admin)]
@@ -93,8 +93,6 @@ namespace TiemKiet.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cannot add selected roles to user");
                     return View(data);
                 }
-                UserInfoVM model = new(data.User);
-                await _userService.UpdateUser(model);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

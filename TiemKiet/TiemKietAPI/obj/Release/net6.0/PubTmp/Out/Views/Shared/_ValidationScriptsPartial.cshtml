@@ -20,5 +20,29 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
 <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/js/moment-with-locales.min.js"></script>
+<script src="~/js/bootstrap-datetimepicker.min.js"></script>
 <script src="~/js/main.js"></script>
+<script src="~/js/func.js"></script>
+
+<script>
+    $('#phoneNumber').on('input', function () {
+        var phoneNumber = $(this).val();
+        console.log(phoneNumber);
+        var sendOTPBtn = $('#sendOTPBtn');
+        var phoneNumberError = $('#phoneNumberError');
+
+        if (isValidPhoneNumber(phoneNumber)) {
+            sendOTPBtn.prop('disabled', false);
+            phoneNumberError.text(''); // Xóa thông báo lỗi nếu có
+        } else {
+            sendOTPBtn.prop('disabled', true);
+            phoneNumberError.text('Số điện thoại không hợp lệ.');
+        }
+    });
+    initializeForm('#formregister', register);
+    initializeForm('#confirmOTP', confirmOTP);
+    initializeForm('#formlogin', loginOTP);
+</script>

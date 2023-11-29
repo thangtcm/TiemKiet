@@ -19,6 +19,8 @@ namespace TiemKiet.Repository.UnitOfWork
         private IVoucherUserRepository _voucherUserRepository;
         private IManagerVoucherLogRepository _managerVoucher;
         private IUserTokenRepository _userTokenRepository;
+        private IUserRoleRepository _userRoleRepository;
+        private IBlogRepository _blogRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -121,6 +123,22 @@ namespace TiemKiet.Repository.UnitOfWork
             get
             {
                 return _userTokenRepository ??= new UserTokenRepository(_context);
+            }
+        }
+
+        public IUserRoleRepository UserRoleRepository
+        {
+            get
+            {
+                return _userRoleRepository ??= new UserRoleRepository(_context);
+            }
+        }
+
+        public IBlogRepository BlogRepository
+        {
+            get
+            {
+                return _blogRepository ??= new BlogRepository(_context);
             }
         }
         public void Commit()

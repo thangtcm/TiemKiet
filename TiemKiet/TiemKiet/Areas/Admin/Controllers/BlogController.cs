@@ -1,14 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Services.Interface;
 
 namespace TiemKiet.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Policy = Constants.Policies.RequireStaff)]
     public class BlogController : Controller
     {
-        public IActionResult Index()
+        private readonly IBlogService _blogService;
+        public BlogController(IBlogService blogService)
         {
-            return View();
+            _blogService = blogService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _blogService.GetListAsync());
         }
 
         public IActionResult Create()

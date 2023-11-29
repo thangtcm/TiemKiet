@@ -1,5 +1,132 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ICollection<TiemKiet.Models.BlogPost>
 @{
+    ViewData["Title"] = "Danh sách câu chuyện";
 }
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Blog</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Blog" asp-area="Admin">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="student-group-form">
+        <form class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search by ID ...">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search by Name ...">
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="search-student-btn">
+                    <button type="button" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-table">
+                <div class="card-body">
+
+                    <div class="page-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="page-title">Subjects</h3>
+                            </div>
+                            <div class="col-auto text-end float-end ms-auto download-grp">
+                                <a href="#" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a class="btn btn-primary" asp-controller="Blog" asp-action="Create" asp-area="Admin">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped" style="width:100%">
+                            <thead>
+                                <tr role="row">
+                                    <th>ID</th>
+                                    <th>Tên bài viết</th>
+                                    <th>Tác giả</th>
+                                    <th>Trạng Thái</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row">
+                                    <td>1</td>
+                                    <td>
+                                        <h2>
+                                            <a>Câu chuyện đầu</a>
+                                        </h2>
+                                    </td>
+                                    <td>
+                                        <h2 class="table-avatar">
+                                            <a href="#" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="~/images/Anh-Wibu-mat-do.jpg" alt="User Image"></a>
+                                            <a href="#">Admin</a>
+                                        </h2>
+                                    </td>
+                                    <td><span class="badge bg-primary-light">Hoạt động</span></td>
+                                    <td class="text-end">
+                                        <div class="actions">
+                                            <a href="#" class="btn btn-sm bg-success-light me-2">
+                                                    <i class="far fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm bg-danger-light">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr role="row">
+                                        <td>@item.Id</td>
+                                        <td>
+                                            <h2>
+                                                <a>@item.Heading</a>
+                                            </h2>
+                                        </td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="#" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="~/images/Anh-Wibu-mat-do.jpg" alt="User Image"></a>
+                                                <a href="#">Admin</a>
+                                            </h2>
+                                        </td>
+                                        <td><span class="badge bg-primary-light">Active</span></td>
+                                        <td class="text-end">
+                                            <div class="actions">
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm bg-success-light me-2">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm bg-danger-light">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

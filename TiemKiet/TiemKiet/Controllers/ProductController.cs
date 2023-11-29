@@ -1,12 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TiemKiet.Services.Interface;
 
 namespace TiemKiet.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _productService;
+        private readonly ILogger<ProductController> _logger;
+        public ProductController(IProductService productService, ILogger<ProductController> logger)
         {
-            return View();
+            _productService = productService;
+            _logger = logger;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var products = await _productService.GetListAsync();
+                return View(products);
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return NotFound();
+            
+        }
+
+        public async Task<IActionResult> Details(int Id)
+        {
+            var product = await _productService.GetByIdAsync(Id);
+            return View(product);
         }
     }
 }

@@ -1993,6 +1993,10 @@
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-datetimepicker.min.css"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
@@ -2025,6 +2029,10 @@
       "PackagePath": "staticwebassets\\images\\barqr.jpg"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\clock-bg-sm.png",
+      "PackagePath": "staticwebassets\\images\\clock-bg-sm.png"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
@@ -2033,8 +2041,20 @@
       "PackagePath": "staticwebassets\\images\\qr.svg"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\func.js",
+      "PackagePath": "staticwebassets\\js\\func.js"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\moment-with-locales.min.js",
+      "PackagePath": "staticwebassets\\js\\moment-with-locales.min.js"
     },
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",

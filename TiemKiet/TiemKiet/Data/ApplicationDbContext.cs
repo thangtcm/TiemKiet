@@ -2,12 +2,14 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 
 namespace TiemKiet.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, long>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, long, IdentityUserClaim<long>, ApplicationUserRole, IdentityUserLogin<long>,
+        IdentityRoleClaim<long>, IdentityUserToken<long>>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -17,10 +19,10 @@ namespace TiemKiet.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
             SeedRoles(builder);
             SeedUser(builder);
             SeedUserRole(builder);
-            builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
         }
 
         public DbSet<Country>? Countries { get; set; }
@@ -50,17 +52,16 @@ namespace TiemKiet.Data
             (
                 new ApplicationRole() { Id = 1, Name = Constants.Roles.Admin, NormalizedName = Constants.Roles.Admin, ConcurrencyStamp = null },
                 new ApplicationRole() { Id = 2, Name = Constants.Roles.Staff, NormalizedName = Constants.Roles.Staff, ConcurrencyStamp = null }
-
             );
         }
 
         private void SeedUserRole(ModelBuilder builder)
         {
-            builder.Entity<IdentityUserRole<long>>().HasData(
-                new IdentityUserRole<long>
+            builder.Entity<ApplicationUserRole>().HasData(
+                new ApplicationUserRole
                 {
                     UserId = 1000000001,
-                    RoleId = 1 // 
+                    RoleId = 1
                 }
             );
         }
@@ -76,18 +77,17 @@ namespace TiemKiet.Data
                     Email = "admin@tiemkiet.vn",
                     NormalizedEmail = "admin@tiemkiet.vn",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAEAACcQAAAAECAsUeOByw0jsD4x7X0K9WQdxWV/RrvPBnHITnRzdbrhHKzmf35BZDPXJBcVjp5FIQ==", //Admin@123
+                    PasswordHash = "AQAAAAEAACcQAAAAEGjoTI1vP//MoGZ+MmaqcaQANpnEaNIA/mRu21K4RuOTb/Z536KxBT4tUEEdguWDMQ==", //Admin@123
                     SecurityStamp = "ZD5UZJQK6Q5W6N7O6RBRF6DB2Q2G2AIJ",
                     ConcurrencyStamp = "b19f1b24-5ac9-4c8d-9b7c-5e5d5f5cfb1e",
                     FullName = "Admin",
                     TwoFactorEnabled = false,
-                    PhoneNumber = "092342005148",
+                    PhoneNumber = "0923425148",
                     PhoneNumberConfirmed= true,
                     LockoutEnabled = true,
                     AccessFailedCount = 0
                 }
             );
         }
-
     }
 }
