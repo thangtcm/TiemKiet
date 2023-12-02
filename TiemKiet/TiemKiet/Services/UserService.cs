@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Drawing.Printing;
 using System.Net.WebSockets;
 using TiemKiet.Data;
+using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -87,7 +88,7 @@ namespace TiemKiet.Services
             var userModel = await _unitOfWork.UserRepository.GetAsync(x => x.Id == user.UserId!);
             if (userModel is null) return false;
             userModel.FullName = user.FullName;
-            userModel.PhoneNumber = user.NumberPhone;
+            userModel.Gender = user.Gender ?? Gender.Another;
             _unitOfWork.UserRepository.Update(userModel);
             await _unitOfWork.CommitAsync();
             return true;

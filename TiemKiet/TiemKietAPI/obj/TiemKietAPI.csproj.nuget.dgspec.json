@@ -120,6 +120,10 @@
               "target": "Package",
               "version": "[1.1.0, )"
             },
+            "BarcodeLib": {
+              "target": "Package",
+              "version": "[3.0.3, )"
+            },
             "Firebase.Auth": {
               "target": "Package",
               "version": "[1.0.0, )"

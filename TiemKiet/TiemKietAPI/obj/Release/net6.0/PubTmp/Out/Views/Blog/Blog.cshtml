@@ -1,0 +1,91 @@
+﻿@model TiemKiet.Models.BlogPost
+
+@{
+    ViewData["Title"] = Model != null ? Model.Title ?? "" : "";
+}
+<section id="header-title">
+    <div class="container-fluid page-blog text-center"
+         style="padding: 10rem 0; background-image: url(@Model!.FeatheredImageUrl);">
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="blog-content">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+</section>
+<section id="blog" class="section blog">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Đọc Chuyện Kiết Khác</h2>
+        </div>
+        <div class="blog-more">
+            <div class="row justify-content-center align-content-center">
+                <div class="col-lg-4 col-sm-4 my-5" data-aos="zoom-in">
+                    <div class="single-blog">
+                        <div class="single-blog-img">
+                            <img src="https://file.hstatic.net/1000075078/article/thecoffeehouse_traxanhtaybac_1_d8c2ac635c5941a19c0065339727e41a_grande.jpg"
+                                 alt="blog image">
+                            <div class="single-blog-img-overlay"></div>
+                        </div>
+                        <div class="single-blog-content">
+                            <p class="blog-date">12/11/2023</p>
+                            <h2><a href="#" class="fw-bold">NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</a></h2>
+                            <p class="text-justify">
+                                Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, muôn cung đường
+                                ngợp mùa hoa… đó là
+                                rẻo cao Tây Bắc luôn làm say lòng...
+                            </p>
+                            <div class="row justify-content-start">
+                                <a href="#" class="btn btn-primary w-auto">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 my-5" data-aos="zoom-in">
+                    <div class="single-blog">
+                        <div class="single-blog-img">
+                            <img src="https://file.hstatic.net/1000075078/article/thecoffeehouse_traxanhtaybac_1_d8c2ac635c5941a19c0065339727e41a_grande.jpg"
+                                 alt="blog image">
+                            <div class="single-blog-img-overlay"></div>
+                        </div>
+                        <div class="single-blog-content">
+                            <p class="blog-date">12/11/2023</p>
+                            <h2><a href="#" class="fw-bold">NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</a></h2>
+                            <p class="text-justify">
+                                Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, muôn cung đường
+                                ngợp mùa hoa… đó là
+                                rẻo cao Tây Bắc luôn làm say lòng...
+                            </p>
+                            <div class="row justify-content-start">
+                                <a href="#" class="btn btn-primary w-auto">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 my-5" data-aos="zoom-in">
+                    <div class="single-blog">
+                        <div class="single-blog-img">
+                            <img src="https://file.hstatic.net/1000075078/article/thecoffeehouse_traxanhtaybac_1_d8c2ac635c5941a19c0065339727e41a_grande.jpg"
+                                 alt="blog image">
+                            <div class="single-blog-img-overlay"></div>
+                        </div>
+                        <div class="single-blog-content">
+                            <p class="blog-date">12/11/2023</p>
+                            <h2><a href="#" class="fw-bold">NGƯỢC LÊN TÂY BẮC GÓI VỊ MỘC VỀ XUÔI</a></h2>
+                            <p class="text-justify">
+                                Những dải ruộng bậc thang, các cô gái Thái với điệu múa xòe hoa, muôn cung đường
+                                ngợp mùa hoa… đó là
+                                rẻo cao Tây Bắc luôn làm say lòng...
+                            </p>
+                            <div class="row justify-content-start">
+                                <a href="#" class="btn btn-primary w-auto">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

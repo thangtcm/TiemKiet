@@ -1,0 +1,55 @@
+﻿@model TiemKiet.ViewModel.ProvinceInfoVM
+@{
+    ViewData["Title"] = "Tạo tỉnh/thành phố";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Add Subject</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Province" asp-area="Admin">Danh sách tỉnh/thành phố</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="Province" asp-area="Admin">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Điền thông tin tỉnh/thành phố</span></h5>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="form-group local-forms">
+                                    <label>Tên tỉnh/thành phố <span class="text-danger">*</span></label>
+                                    <input asp-for="ProvinceName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="form-group local-forms">
+                                    <label>Chọn quốc gia<span class="text-danger">*</span></label>
+                                    <select asp-for="CountryId" class="form-control select" asp-items="ViewBag.Countrylst" required>
+                                        <option value="">Chọn quốc gia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

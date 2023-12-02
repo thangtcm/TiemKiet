@@ -1,0 +1,110 @@
+﻿@model TiemKiet.ViewModel.ProductInfoVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Add Subject</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Product" asp-area="Admin">Sản Phẩm</a></li>
+                    <li class="breadcrumb-item active">Thêm sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="Product" asp-area="Admin">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Điền thông tin sản phẩm</span></h5>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="container">
+                                        <div class="row justify-content-center align-items-center align-content-center">
+                                            <div class="avatar-preview">
+                                                <img class="my-3 avatar-xxl object-fit-cover rounded-circle" id="imagePreview" src="~/images/Anh-Wibu-mat-do.jpg" alt="User profile picture">
+                                            </div>
+                                            <div class="upload">
+                                                <label class="file-upload image-upbtn mb-0">
+                                                    Choose File <input type="file" asp-for="Imageupload" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Tên sản phẩm <span class="text-danger">*</span></label>
+                                    <input asp-for="ProductName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Giá sản phẩm <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductSale" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Giảm giá <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductSale" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Chi nhánh <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-items="ViewBag.BranchLst" required>
+                                        <option value="">Chọn chi nhánh</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Danh mục sản phẩm <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-items="ViewBag.ProductTypeLst" required>
+                                        <option value="">Chọn danh mục</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label>Mô tả sản phẩm<span class="login-danger">*</span></label>
+                                    <textarea id="editor1" asp-for="ProductDescription" class="editor" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿using TiemKiet.Models;
+﻿using TiemKiet.Enums;
+using TiemKiet.Models;
 
 namespace TiemKiet.ViewModel
 {
@@ -11,6 +12,7 @@ namespace TiemKiet.ViewModel
         public double ProductSale { get; set; }
         public string? ProductImage { get; set; }
         public IFormFile Imageupload { get; set; }
+        public ProductType ProductType { get; set; }
 
         public ProductInfoVM() { }
         public ProductInfoVM(Product model)
@@ -21,6 +23,7 @@ namespace TiemKiet.ViewModel
             this.ProductPrice = model.ProductPrice;
             this.ProductSale = model.ProductSale;
             this.ProductImage = model.ProductImg is null ? "" : (model.ProductImg.ImageUrl ?? "");
+            this.ProductType = model.ProductType;
         }
     }
 }

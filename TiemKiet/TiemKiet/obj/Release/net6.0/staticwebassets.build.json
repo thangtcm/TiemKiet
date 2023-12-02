@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PF85X9MDo9UrB3LSDeoY3WUWZnisE5ITeKix6dgckFQ=",
+  "Hash": "F9q7HRWIKs6kdGJJNRxnKXleSQS8LOhI9gAEKopXTUk=",
   "Source": "TiemKiet",
   "BasePath": "_content/TiemKiet",
   "Mode": "Default",
@@ -9790,6 +9790,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\qr.svg"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\rank-sliver.jpg",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "images/rank-sliver.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\rank-sliver.jpg"
     },
     {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",

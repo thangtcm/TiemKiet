@@ -6,7 +6,7 @@ namespace TiemKiet.Services.Interface
 {
     public interface IBlogService
     {
-        public Task Add(BlogInfoVM blogInfoVM, long userId);
+        public Task Add(BlogInfoVM blogInfoVM, long userId, IFormFile upload);
         public Task<ICollection<BlogPost>> GetListAsync();
         public Task<ICollection<BlogPost>> GetListAsync(Func<IQueryable<BlogPost>, IIncludableQueryable<BlogPost, object>> includes);
         public Task<BlogPost?> GetByIdAsync(int Id);

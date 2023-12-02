@@ -38,6 +38,23 @@
                         <li><a asp-area="Admin">Quản lý tài khoản</a></li>
                     </ul>
                 </li>
+                <li class="submenu">
+                    <a href="#">
+                        <i class="fas fa-file-invoice-dollar"></i> <span> Quản lý địa chỉ</span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li><a asp-area="Admin" asp-controller="Country" asp-action="Index">Quản lý quốc gia</a></li>
+                        <li><a asp-area="Admin" asp-controller="Province" asp-action="Index">Quản lý tỉnh/thành phố</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#">
+                        <i class="fas fa-file-invoice-dollar"></i> <span> Quản lý chi nhánh</span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <li><a asp-area="Admin" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

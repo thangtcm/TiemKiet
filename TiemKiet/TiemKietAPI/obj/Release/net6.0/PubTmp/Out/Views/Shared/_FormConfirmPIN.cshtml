@@ -9,7 +9,7 @@
                     <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
                     </div>
                 </div>
-                <div class="col-md-6 d-flex">
+                <div class="col-md-6">
                     <div class="modal-body d-flex align-items-center">
                         <div class="text w-100 text-center">
                             <div class="p-3 pb-0">
@@ -20,13 +20,13 @@
                             <p>Nhập mã PIN để tiếp tục</p>
                             <form asp-action="Login" asp-controller="Account" asp-area="" id="formlogin" class="pb-3">
                                 <div class="form-group">
-                                    <div id="OtpPINContainer" class="otp-field mb-4">
-                                        <input type="number" maxlength="1" required/>
-                                        <input type="number" maxlength="1" disabled required/>
-                                        <input type="number" maxlength="1" disabled required/>
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
+                                    <div id="OtpPINContainer" class="otp-field row gap-2 mb-4">
+                                        <input type="text" maxlength="1" required/>
+                                        <input type="text" maxlength="1" required/>
+                                        <input type="text" maxlength="1" required/>
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
                                     </div>
                                     <span class="text-danger" id="passwordError"></span>
                                 </div>

@@ -10,6 +10,7 @@ namespace TiemKiet.ViewModel
     {
         public int BlogId { get; set; }
         public string Heading { get; set; }
+        public string Title { get; set; }
         public string Content { get; set; }
         public string ShortDescription { get; set; }
         public string FeatheredImageUrl { get; set; }

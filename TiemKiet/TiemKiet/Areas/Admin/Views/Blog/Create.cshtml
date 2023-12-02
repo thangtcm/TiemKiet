@@ -1,8 +1,7 @@
-﻿@model TiemKiet.Models.BlogPost
+﻿@model TiemKiet.ViewModel.BlogInfoVM
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Tạo câu chuyện";
 }
 
 <div class="content container-fluid">
@@ -11,8 +10,8 @@
             <div class="col">
                 <h3 class="page-title">Add Teachers</h3>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="teachers.html">Blog</a></li>
-                    <li class="breadcrumb-item active">Add Blog</li>
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Blog" asp-area="Admin">Blog</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
                 </ul>
             </div>
         </div>
@@ -30,28 +29,48 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
-                                    <label asp-for="Heading" class="control-label">@Html.DisplayNameFor(model => model.Heading)<span class="login-danger">*</span></label>
-                                    <input asp-for="Heading" class="form-control" placeholder="Nhập Tiêu đề" />
-                                    <span asp-validation-for="Heading" class="text-danger"></span>
+                                    <label asp-for="Title" class="control-label">Tiêu đề ngắn<span class="login-danger">*</span></label>
+                                    <input asp-for="Title" class="form-control" placeholder="Nhập tiêu đề ngắn" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
-                                    <label asp-for="ShortDescription" class="control-label">@Html.DisplayNameFor(model => model.ShortDescription)<span class="login-danger">*</span></label>
-                                    <input asp-for="ShortDescription" class="form-control" placeholder="Nhập mô tả ngắn" />
-                                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group local-forms">
-                                    <label asp-for="Author" class="control-label">@Html.DisplayNameFor(model => model.Author)<span class="login-danger">*</span></label>
+                                    <label asp-for="Author" class="control-label">Tác giả<span class="login-danger">*</span></label>
                                     <input asp-for="Author" class="form-control" placeholder="Nhập tác giả" />
                                     <span asp-validation-for="Author" class="text-danger"></span>
                                 </div>
                             </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Blog Image</label>
+                                    <div class="avatar-preview">
+                                        <img class="my-3 avatar-xxl object-fit-cover" id="imagePreview" src="" alt="User profile picture">
+                                    </div>
+                                    <div class="change-photo-btn">
+                                        <div>
+                                        <p>Add Image</p></div>
+                                        <input type="file" name="upload" class="upload" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="form-group local-forms">
-                                    <label asp-for="Content">@Html.DisplayNameFor(model => model.Content)<span class="login-danger">*</span></label>
+                                    <label asp-for="Heading" class="control-label">Tiêu đề<span class="login-danger">*</span></label>
+                                    <input asp-for="Heading" class="form-control" placeholder="Nhập Tiêu đề" />
+                                    <span asp-validation-for="Heading" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label asp-for="ShortDescription" class="control-label">Mô tả ngắn<span class="login-danger">*</span></label>
+                                    <input asp-for="ShortDescription" class="form-control" placeholder="Nhập mô tả ngắn" />
+                                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label asp-for="Content">Nội dung<span class="login-danger">*</span></label>
                                     <textarea id="editor1" asp-for="Content" class="editor" cols="30" rows="10"></textarea>
                                 </div>
                             </div>

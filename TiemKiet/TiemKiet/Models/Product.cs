@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TiemKiet.Data;
+using TiemKiet.Enums;
 using TiemKiet.ViewModel;
 
 namespace TiemKiet.Models
@@ -19,6 +20,8 @@ namespace TiemKiet.Models
         public string? ProductDescription { get; set; }
         [DisplayName("Phần trăm giảm giá")]
         public double ProductSale { get; set; }
+        [DisplayName("Loại sản phẩm")]
+        public ProductType ProductType { get; set; }
         [DisplayName("Ảnh")]
         public ImageModel? ProductImg {get; set; }
         [Display(Name = "Ngày tạo")]

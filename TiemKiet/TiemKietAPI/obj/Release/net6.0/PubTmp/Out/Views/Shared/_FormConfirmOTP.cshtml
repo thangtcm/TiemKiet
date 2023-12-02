@@ -9,7 +9,7 @@
                     <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
                     </div>
                 </div>
-                <div class="col-md-6 d-flex">
+                <div class="col-md-6">
                     <div class="modal-body d-flex align-items-center">
                         <div class="text w-100 text-center">
                             <div class="p-3 pb-0">
@@ -20,17 +20,18 @@
                             <p>Nhập mã để tiếp tục</p>
                             <form id="confirmOTP" class="pb-3">
                                 <div class="form-group">
-                                    <div class="otp-field mb-4" id="ConfirmOTPContainer">
-                                        <input type="number" maxlength="1" required/>
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
-                                        <input type="number" maxlength="1" disabled required />
+                                    <div class="otp-field row gap-2 mb-4" id="ConfirmOTPContainer">
+                                        <input type="text" maxlength="1" required/>
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
                                     </div>
                                 </div>
                                 <button class="btn btn-primary btn-otp d-block rounded-5 w-100">Xác nhận</button>
                             </form>
+                            <a href="#" class="text-primary py-2 fw-bold">Gửi lại mã</a>
                         </div>
                     </div>
                 </div>

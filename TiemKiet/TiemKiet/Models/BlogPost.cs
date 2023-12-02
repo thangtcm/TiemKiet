@@ -14,6 +14,8 @@ namespace TiemKiet.Models
         public string Heading { get; set; }
         [DisplayName("Nội dung")]
         public string Content { get; set; }
+        [DisplayName("Tiêu đề hiển thị ngắn")]
+        public string Title { get; set; }
         [DisplayName("Nội dung hiển thị ngắn")]
         public string ShortDescription { get; set; }
         [DisplayName("Ảnh đại diện blog")]

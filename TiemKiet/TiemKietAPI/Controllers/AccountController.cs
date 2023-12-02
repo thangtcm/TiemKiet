@@ -25,9 +25,10 @@ namespace TiemKietAPI.Controllers
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly ILogger<AccountController> _logger;
         private readonly IUserTokenService _userTokenService;
+        private readonly ITranscationLogService _transcationLogService;
         public AccountController(IUserService userService, SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager, ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, 
-            IUserTokenService userTokenService)
+            IUserTokenService userTokenService, ITranscationLogService transcationLogService)
         {
             _userService = userService;
             _signInManager = signInManager;
@@ -35,6 +36,7 @@ namespace TiemKietAPI.Controllers
             _logger = logger;
             _userStore = userStore;
             _userTokenService = userTokenService;
+            _transcationLogService = transcationLogService;
         }
 
         [HttpPost("AddToken")]
@@ -54,8 +56,32 @@ namespace TiemKietAPI.Controllers
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
 
+        [HttpGet("GetHistoryPayment")]
+        public async Task<IActionResult> GetHistoryPayment(long userId, string? date)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return NotFound(ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
+                if(await _userService.GetUser(userId) == null) return NotFound(ResponseResult.CreateResponse("User Not Valid", "Không tìm thấy người dùng."));
+                DateTime datenow = DateTime.Now;
+                if(!String.IsNullOrEmpty(date))
+                {
+                    datenow = CallBack.ConvertStringToDateTime(date);
+                }    
+                var logPayment = await _transcationLogService.GetListAsync(userId, datenow);
+                var logpaymentlst = logPayment.Select(x => new TransactionLogVM(x)).ToList();
+                return Ok(ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { Data = logpaymentlst}));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
         [HttpGet("GetUserTokens")]
-        public async Task<IActionResult> GetUserTokens(long? userId, int? page)
+        public async Task<IActionResult> GetUserTokens(long userId, int? page)
         {
             try
             {

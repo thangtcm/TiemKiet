@@ -1,11 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BarcodeStandard;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SkiaSharp;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
+using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
 
 namespace TiemKiet.Controllers
@@ -16,13 +21,15 @@ namespace TiemKiet.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
         private readonly IUserStore<ApplicationUser> _userStore;
+        private readonly IUserService _userService;
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore)
+            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, IUserService userService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _userStore = userStore;
+            _userService = userService;
         }
         public IActionResult Register()
         {
@@ -50,12 +57,12 @@ namespace TiemKiet.Controllers
                     Birthday = model.Birthday is null ? DateTime.Now : CallBack.ConvertStringToDateTime(model.Birthday),
                     Gender = model.Gender ?? Gender.Another,
                 };
-                //await _userStore.SetUserNameAsync(user, model.NumberPhone, CancellationToken.None);
-                //var result = await _userManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    return RedirectToAction("Index", "Home");
-                //}
+                await _userStore.SetUserNameAsync(user, model.NumberPhone, CancellationToken.None);
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
                 return Json(new { success = true, error = $"Lỗi " });
             }
             catch (Exception ex)
@@ -114,6 +121,36 @@ namespace TiemKiet.Controllers
             }
         }
 
+        //public IActionResult GenerateBarCode(string code)
+        //{
+        //    try
+        //    {
+        //        QRCodeGenerator qrGenerator = new QRCodeGenerator();
+        //        QRCodeData qrCodeData = qrGenerator.C(code,
+        //        QRCodeGenerator.ECCLevel.Q);
+        //        QRCode qrCode = new QRCode(qrCodeData);
+        //        Bitmap qrCodeImage = qrCode.GetGraphic(20);
+        //        return View(BitmapToBytes(qrCodeImage));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message.ToString());
+        //        throw;
+        //    }
+        //}
+
+        public ActionResult GenerateBarcode(string barcodeData)
+        {
+            Barcode barcode = new Barcode();
+            var barcodeImage = barcode.Encode(BarcodeStandard.Type.Code128, barcodeData, 350, 100);
+
+            MemoryStream ms = new MemoryStream();
+            barcodeImage.Encode(SKEncodedImageFormat.Png, 100).SaveTo(ms);
+
+            return File(ms.ToArray(), "image/png");
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Login([Phone] string phoneNumber, string password)
         {
@@ -139,5 +176,38 @@ namespace TiemKiet.Controllers
                 return Json(new { success = false, error = ex.Message});
             }
         }
+
+        [Authorize]
+        public async Task<IActionResult> Profile()
+        {
+            try
+            {
+                var user = await _userService.GetUser();
+                if(user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập.");
+                    return View();
+                }    
+                return View(new UserInfoVM(user));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return View();
+        }  
+        
+        public async Task<IActionResult> EditProfile(long? userId, UserInfoVM model)
+        {
+            try {
+                await _userService.UpdateUser(model);
+                return View(nameof(Profile));
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return View();
+        }    
     }
 }

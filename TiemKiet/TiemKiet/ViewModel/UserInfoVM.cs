@@ -49,6 +49,7 @@ namespace TiemKiet.ViewModel
             this.Birthday = user.Birthday.ToString("dd/MM/yyyy");
             this.UserId = user.Id;
             this.Roles = roles;
+            this.Gender = user.Gender;
             this.Score = user.Score;
             this.Point = user.Point;
             this.Tokens = tokens;

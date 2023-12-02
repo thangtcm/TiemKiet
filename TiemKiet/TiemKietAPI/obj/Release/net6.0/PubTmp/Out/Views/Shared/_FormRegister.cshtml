@@ -1,53 +1,66 @@
 ﻿<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="row no-gutters position-relative">
-          <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
-            <i class="fas fa-times"></i>
-          </button>
-          <div class="col-md-7 d-flex">
-            <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
-            </div>
-          </div>
-          <div class="col-md-5 d-flex">
-            <div class="modal-body d-flex align-items-center">
-              <div class="text w-100">
-                <div class="p-3 text-center">
-                  <img src="~/images/logo.png" alt="#" width="100">
-                  <h4 class="mb-4 text-dark">Chào mừng bạn đến<br><span class="fw-bold text-primary">Tiệm Kiết</span> </h4>
-                </div>
-                <form asp-action="Register" asp-controller="Account" asp-area="" class="pb-3">  
-                  <div class="form-group">
-                    <label class="form-label fs-6">Họ và tên</label>
-                    <input id="FullName" class="form-control" required> 
-                    <span class="text-danger"></span>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label fs-6">Số điện thoại</label>
-                    <input id="NumberPhone" type="tel" class="form-control" placeholder="0123456789" readonly>
-                    <span class="text-danger"></span>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-control-label">Ngày sinh</label>
-                    <div class="input-group date" id="input_date" data-format="DD/MM/YYYY">
-                        <input id="Birthday" type="text" placeholder="DD/MM/YYYY" class="form-control" required/>
+        <div class="modal-content">
+            <div class="row no-gutters position-relative">
+                <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="col-md-7 d-flex">
+                    <div class="modal-body p-5 ml-img d-flex" style="background-image: url(./images/background.jpg);">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-control-label"></label>
-                    <select id="Gender" class="form-control select" data-dropdown-parent="#registerModal" required>
-                        <option value="">Chọn Giới Tính</option>
-                        <option value="0">Nam</option>
-                        <option value="1">Nữ</option>
-                        <option value="2">Khác</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary d-block rounded-5 w-100">Đăng Ký</button>
-                </form>
-              </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="text w-100">
+                            <div class="p-3 text-center">
+                                <img src="~/images/logo.png" alt="#" width="100">
+                                <h4 class="mb-4 text-dark">Chào mừng bạn đến<br><span class="fw-bold text-primary">Tiệm Kiết</span> </h4>
+                            </div>
+                            <form asp-action="Register" asp-controller="Account" asp-area="" id="formregister" class="pb-3">
+                                <input id="NumberPhone" name="NumberPhone" type="text" class="form-control" hidden>
+                                <input id="Password" name="Password" type="password" class="form-control" hidden>
+                                <div class="form-group">
+                                    <label class="form-label fs-6">Họ và tên</label>
+                                    <input id="FullName" name="FullName" class="form-control" required>
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label fs-6">Số điện thoại</label>
+                                    <input id="NumberPhoneHidden" type="tel" class="form-control" placeholder="0123456789" readonly>
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Ngày sinh</label>
+                                    <div class="input-group date" id="input_date" data-format="DD/MM/YYYY">
+                                        <input id="Birthday" type="text" name="Birthday" placeholder="DD/MM/YYYY" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Giới tính</label>
+                                    <select id="Gender" name="Gender" class="form-control select" data-dropdown-parent="#registerModal" required>
+                                        <option value="">Chọn Giới Tính</option>
+                                        <option value="0">Nam</option>
+                                        <option value="1">Nữ</option>
+                                        <option value="2">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Mã PIN</label>
+                                    <div id="OtpPINRegister" class="otp-field row gap-2 mb-4 justify-content-start">
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                        <input type="text" maxlength="1" required />
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-otp d-block rounded-5 w-100">Đăng Ký</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>

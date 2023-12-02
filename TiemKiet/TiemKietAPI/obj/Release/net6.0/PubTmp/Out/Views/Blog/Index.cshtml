@@ -1,1 +1,53 @@
-﻿
+﻿@model X.PagedList.IPagedList<TiemKiet.Models.BlogPost>
+@{
+    ViewData["Title"] = "Những câu chuyện";
+}
+
+<section id="header-title">
+    <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+        <div class="container py-5" data-aos="fade-up"
+             data-aos-duration="3000">
+            <h1 class="display-3 text-white mb-3">Chuyện Nhà Kiết</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home" asp-area="">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">@ViewData["Title"]</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="section blog">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>CHUYỆN NHÀ KIẾT</h2>
+        </div>
+        <div class="blog-content">
+            <div class="row justify-content-center align-content-center">
+                @foreach(var blog in Model)
+                {
+                    <div class="col-lg-4 col-sm-6 my-5" data-aos="zoom-in">
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <img src="@blog.FeatheredImageUrl"
+                                     alt="blog image">
+                                <div class="single-blog-img-overlay"></div>
+                            </div>
+                            <div class="single-blog-content">
+                                <p class="blog-date">@blog.PublishedDate.ToString("dd/MM/yyyy")</p>
+                                <h2><a asp-action="Blog" asp-route-Id="@blog.Id" class="fw-bold">@blog.Title</a></h2>
+                                <p class="text-justify">
+                                    @blog.ShortDescription
+                                </p>
+                                <div class="row justify-content-start">
+                                    <a asp-action="Blog" asp-route-Id="@blog.Id" class="btn btn-primary w-auto">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

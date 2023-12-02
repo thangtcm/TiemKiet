@@ -35,7 +35,7 @@
                     </a>
                 </li>
             }
-            <li class="nav-item"><a class="nav-link dropdown-item" href="profile.html">Thông tin tài khoản</a></li>
+            <li class="nav-item"><a class="nav-link dropdown-item" asp-action="Profile" asp-controller="Account">Thông tin tài khoản</a></li>
             <li class="nav-item"><a class="nav-link dropdown-item" href="#">Lịch sử mua hàng</a></li>
             <li class="nav-item">
                 <form class="form-inline" asp-action="Logout" asp-controller="Account" asp-area="" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

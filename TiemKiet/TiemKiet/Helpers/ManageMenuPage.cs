@@ -8,6 +8,10 @@ namespace TiemKiet.Helpers
         public static string Product => "Product";
         public static string Blog => "Blog";
         public static string Restaurant => "Restaurant";
+        public static string InformationProfile => "InformationProfile";
+        public static string AddressBook => "AddressBook";
+        public static string ChangePassword => "ChangePassword";
+
 
         public static string MainNavClass(ViewContext viewContext, string controllerName, string? actionName = null)
         {
@@ -17,10 +21,10 @@ namespace TiemKiet.Helpers
             if (string.Equals(currentController, controllerName, StringComparison.OrdinalIgnoreCase) &&
                 (actionName == null || string.Equals(currentAction, actionName, StringComparison.OrdinalIgnoreCase)))
             {
-                return "";
+                return "active";
             }
 
-            return "active";
+            return "";
         }
     }
 }

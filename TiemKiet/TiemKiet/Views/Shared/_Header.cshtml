@@ -18,7 +18,14 @@
         </nav><!-- .navbar -->
     </div>
 </header><!-- End Header -->
+@{
+    var controllerName = ViewContext.RouteData.Values["controller"]?.ToString();
+    var actionName = ViewContext.RouteData.Values["action"]?.ToString();
+}
 <partial name="_FormEnterNumberPhone" />
 <partial name="_FormConfirmOTP" />
 <partial name="_FormConfirmPIN" />
-<partial name="_FormRegister" />
+@if (controllerName != "Account")
+{
+    <partial name="_FormRegister" />
+}

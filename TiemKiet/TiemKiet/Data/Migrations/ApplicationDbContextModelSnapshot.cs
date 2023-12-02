@@ -358,6 +358,10 @@ namespace TiemKiet.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long?>("UserIdCreate")
                         .HasColumnType("bigint");
 
@@ -624,6 +628,9 @@ namespace TiemKiet.Migrations
 
                     b.Property<double>("ProductSale")
                         .HasColumnType("float");
+
+                    b.Property<int>("ProductType")
+                        .HasColumnType("int");
 
                     b.Property<long?>("UserIdCreate")
                         .HasColumnType("bigint");

@@ -2041,6 +2041,10 @@
       "PackagePath": "staticwebassets\\images\\qr.svg"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\rank-sliver.jpg",
+      "PackagePath": "staticwebassets\\images\\rank-sliver.jpg"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap-datetimepicker.min.js"
     },

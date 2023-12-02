@@ -300,123 +300,62 @@
 
 
 	//Input OTP
-	// $(document).ready(function () {
-	// 	const inputs = $(".otp-field > input");
-	// 	const button = $(".btn-otp");
-
-	// 	inputs.first().focus();
-	// 	button.prop("disabled", true);
-
-	// 	inputs.first().on("paste", function (event) {
-	// 	  event.preventDefault();
-
-	// 	  const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
-
-	// 	  inputs.each(function (index) {
-	// 		const currentInput = $(this);
-
-	// 		if (index < pastedValue.length) {
-	// 		  currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
-	// 		} else {
-	// 		  currentInput.val("").focus();
-	// 		}
-	// 	  });
-	// 	});
-
-	// 	inputs.each(function (index1) {
-	// 		const currentInput = $(this);
-	// 		const nextInput = currentInput.next("input");
-	// 		const prevInput = currentInput.prev("input");
-	// 		currentInput.on("input", function (e){
-	// 			if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
-	// 				nextInput.removeAttr("disabled").focus();
-	// 			}
-	// 		})
-	// 		currentInput.on("keyup", function (e) {
-	// 			if (currentInput.val().length > 1) {
-	// 				currentInput.val("");
-	// 				return;
-	// 			}
-
-	// 			if (e.key === "Backspace" || e.key == "delete") {
-	// 				inputs.each(function (index2) {
-	// 					const input = $(this);
-
-	// 					if (index1 <= index2 && prevInput.length) {
-	// 					input.prop("disabled", true).val("");
-	// 					prevInput.focus();
-	// 					}
-	// 				});
-	// 			}
-
-	// 			button.removeClass("active").prop("disabled", true);
-
-	// 			if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
-	// 				button.addClass("active").prop("disabled", false);
-	// 			}
-	// 	  	});
-	// 	});
-	// });
-
+	
 	$(document).ready(function () {
 		$(".otp-field").each(function () {
 			const inputs = $(this).find("input");
-			const button = $(this).closest(".modal-content").find(".btn-otp");
-
-			inputs.first().focus();
-			button.prop("disabled", true);
-
-			inputs.first().on("paste", function (event) {
-				event.preventDefault();
-
-				const pastedValue = (event.originalEvent.clipboardData || window.Clipboard).getData("text");
-
-				inputs.each(function (index) {
-					const currentInput = $(this);
-
-					if (index < pastedValue.length) {
-						currentInput.val(pastedValue[index]).removeAttr("disabled").focus();
-					} else {
-						currentInput.val("").focus();
-					}
-				});
+			const buttons = $(this).closest(".modal-content").find(".btn-otp");
+			buttons.prop("disabled", true);
+			inputs.each(function (index) {
+				$(this).data("index", index);
+				$(this).on("keyup", handleOtp);
+				$(this).on("paste", handleOnPasteOtp);
 			});
 
-			inputs.each(function (index1) {
-				const currentInput = $(this);
-				const nextInput = currentInput.next("input");
-				const prevInput = currentInput.prev("input");
+			function handleOtp(e) {
+				const input = $(this);
+				let value = input.val();
+				let isValidInput = value.match(/[0-9a-z]/gi);
+				input.val("");
+				input.val(isValidInput ? value[0] : "");
 
-				currentInput.on("input", function (e) {
-					if (nextInput.length && nextInput.prop("disabled") && currentInput.val() !== "") {
-						nextInput.removeAttr("disabled").focus();
-					}
-				});
+				let fieldIndex = input.data("index");
+				if (fieldIndex < inputs.length - 1 && isValidInput) {
+					input.next().focus();
+				}
 
-				currentInput.on("keyup", function (e) {
-					if (currentInput.val().length > 1) {
-						currentInput.val("");
-						return;
-					}
+				if (e.key === "Backspace" && fieldIndex > 0) {
+					input.prev().focus();
+				}
+				buttons.prop("disabled", true);
+				console.log(fieldIndex + '   ' + isValidInput + '  ' + inputs.length + '    ' + (fieldIndex == inputs.length - 1 && isValidInput));
+				if (fieldIndex == inputs.length - 1 && isValidInput) {
+					buttons.prop("disabled", false);
+				}
+			}
 
-					if (e.key === "Backspace" || e.key === "Delete") {
-						inputs.each(function (index2) {
-							const input = $(this);
+			function handleOnPasteOtp(e) {
+				const data = e.originalEvent.clipboardData.getData("text");
+				const value = data.split("");
+				if (value.length === inputs.length) {
+					inputs.each(function (index) {
+						$(this).val(value[index]);
+						buttons.prop("disabled", false);
+					});
+				}
+			}
 
-							if (index1 <= index2 && prevInput.length) {
-								input.prop("disabled", true).val("");
-								prevInput.focus();
-							}
-						});
-					}
-
-					button.removeClass("active").prop("disabled", true);
-
-					if (!inputs.last().prop("disabled") && inputs.last().val() !== "") {
-						button.addClass("active").prop("disabled", false);
-					}
-				});
-			});
+			//   function submit() {
+			// 	console.log("Submitting...");
+			// 	let otp = "";
+			// 	inputs.each(function () {
+			// 	  otp += $(this).val();
+			// 	  $(this).prop("disabled", true);
+			// 	  $(this).addClass("disabled");
+			// 	});
+			// 	console.log(otp);
+			// 	// Call API here
+			//   }
 		});
 	});
 
@@ -447,6 +386,22 @@
 
 				close: 'fas fa-times'
 			},
+		});
+	}
+
+	if ($("#imageUpload").length > 0) {
+		$("#imageUpload").change(function (data) {
+
+			var imageFile = data.target.files[0];
+			var reader = new FileReader();
+			reader.readAsDataURL(imageFile);
+
+			reader.onload = function (evt) {
+				$('#imagePreview').attr('src', evt.target.result);
+				$('#imagePreview').hide();
+				$('#imagePreview').fadeIn(650);
+			}
+
 		});
 	}
 })(jQuery);

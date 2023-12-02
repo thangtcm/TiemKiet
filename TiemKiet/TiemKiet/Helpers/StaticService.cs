@@ -40,7 +40,6 @@ namespace TiemKiet.Helpers
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = false;
             });
-
             services.Configure<DataProtectionTokenProviderOptions>(options =>
                 options.TokenLifespan = TimeSpan.FromMinutes(15));
 

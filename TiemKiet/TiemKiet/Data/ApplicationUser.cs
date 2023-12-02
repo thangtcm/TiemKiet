@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using TiemKiet.Enums;
+using TiemKiet.ViewModel;
 
 namespace TiemKiet.Data
 {
@@ -22,5 +23,8 @@ namespace TiemKiet.Data
         public string? TokenAPI { get; set; }
         public double Score { get; set; }
         public double Point { get; set; }
+
+        public ApplicationUser() { }
+
     }
 }

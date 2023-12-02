@@ -9,13 +9,30 @@ namespace TiemKiet.Services
     public class BlogService : IBlogService
     {
         public IUnitOfWork _unitOfWork;
-        public BlogService(IUnitOfWork unitOfWork)
+        private readonly IFirebaseStorageService _firebaseStorageService;
+        public BlogService(IUnitOfWork unitOfWork, IFirebaseStorageService firebaseStorageService)
         {
             _unitOfWork = unitOfWork;
+            _firebaseStorageService = firebaseStorageService;
         }
-        public Task Add(BlogInfoVM blogInfoVM, long userId)
+        public async Task Add(BlogInfoVM blogInfoVM, long userId, IFormFile upload)
         {
-            throw new NotImplementedException();
+            BlogPost model = new()
+            {
+                Author = blogInfoVM.Author,
+                Content = blogInfoVM.Content,
+                FeatheredImageUrl = (await _firebaseStorageService.UploadFile(upload)).ToString(),
+                Heading = blogInfoVM.Heading,
+                ShortDescription = blogInfoVM.ShortDescription,
+                Visible = blogInfoVM.Visible,
+                PublishedDate = DateTime.Now,
+                DateUpdate = DateTime.Now,
+                UserIdCreate = userId,
+                UserIdUpdate = userId,
+                Title = blogInfoVM.Title
+            };
+            _unitOfWork.BlogRepository.Add(model);
+            await _unitOfWork.CommitAsync();
         }
 
         public Task<bool> Delete(int Id, long userId)
@@ -28,10 +45,8 @@ namespace TiemKiet.Services
             throw new NotImplementedException();
         }
 
-        public Task<BlogPost?> GetByIdAsync(int Id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<BlogPost?> GetByIdAsync(int Id)
+            => await _unitOfWork.BlogRepository.GetAsync(x => x.Id == Id);
 
         public Task<BlogPost?> GetByIdAsync(int Id, Func<IQueryable<BlogPost>, IIncludableQueryable<BlogPost, object>> includes)
         {
