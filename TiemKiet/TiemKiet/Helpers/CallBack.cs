@@ -19,6 +19,12 @@ namespace TiemKiet.Helpers
             }
         }
 
+        public static DateTime ToTimeZone(this DateTime dateTime, string timeZoneId = "SE Asia Standard Time")
+        {
+            TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+            return TimeZoneInfo.ConvertTimeFromUtc(dateTime, timeZone);
+        }
+
         public static string GetRankName(double score)
         {
             var rank = string.Empty;

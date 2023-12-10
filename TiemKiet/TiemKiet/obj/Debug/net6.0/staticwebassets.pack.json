@@ -2013,6 +2013,182 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Black.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Black.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-BlackItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Bold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraBold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraLight.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Italic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Light.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-LightItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Medium.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-MediumItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Regular.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-SemiBold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Thin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Thin.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ThinItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\OFL.txt",
+      "PackagePath": "staticwebassets\\fonts\\Montserrat\\OFL.txt"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\OFL.txt",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\OFL.txt"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Black.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Black.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-BlackItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Bold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Italic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Regular.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Black.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Black.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-BlackItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Bold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraBold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraLight.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Italic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Light.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-LightItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Medium.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-MediumItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Regular.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-SemiBold.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Thin.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Thin.ttf"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ThinItalic.ttf"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Anh-Wibu-mat-do.jpg",
       "PackagePath": "staticwebassets\\images\\Anh-Wibu-mat-do.jpg"
     },
@@ -2061,12 +2237,20 @@
       "PackagePath": "staticwebassets\\js\\moment-with-locales.min.js"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\notification.js",
+      "PackagePath": "staticwebassets\\js\\notification.js"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",
       "PackagePath": "staticwebassets\\js\\scrolljax.min.js"
     },
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\slicknav.js",
+      "PackagePath": "staticwebassets\\js\\slicknav.js"
     },
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\bootstrap\\LICENSE",

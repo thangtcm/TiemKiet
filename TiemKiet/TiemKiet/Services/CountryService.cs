@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -21,8 +23,8 @@ namespace TiemKiet.Services
                 CountryName = countryInfo.CountryName,
                 UserIdCreate = userId,
                 UserIdUpdate = userId,
-                DateCreate = DateTime.Now,
-                DateUpdate = DateTime.Now
+                DateCreate = DateTime.UtcNow.ToTimeZone(),
+                DateUpdate = DateTime.UtcNow.ToTimeZone()
             };
             _unitOfWork.CountryRepository.Add(country);
             await _unitOfWork.CommitAsync();
@@ -60,7 +62,7 @@ namespace TiemKiet.Services
             if (model != null)
             {
                 model.UserIdUpdate = userId;
-                model.DateUpdate = DateTime.Now;
+                model.DateUpdate = DateTime.UtcNow.ToTimeZone();
                 model.CountryName = countryInfo.CountryName;
                 _unitOfWork.CountryRepository.Update(model);
                 await _unitOfWork.CommitAsync();

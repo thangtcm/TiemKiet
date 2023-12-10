@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Enums;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -17,19 +19,27 @@ namespace TiemKiet.Services
         }
         public async Task Add(ProductInfoVM productInfo, long userId, int branchId)
         {
-            Product product = new()
+            var branchlst = await _unitOfWork.BranchRepository.GetAllAsync();
+            ICollection<Product> productLst = new List<Product>();
+            var resultImg = await _imageService.Add(productInfo.UploadImage, userId);
+            foreach (var x in branchlst)
             {
-                BranchId = branchId,
-                DateCreate = DateTime.Now,
-                DateUpdate = DateTime.Now,
-                ProductName = productInfo.ProductName,
-                UserIdCreate = userId,
-                ProductImg = await _imageService.Add(productInfo.Imageupload, userId),
-                ProductPrice = productInfo.ProductPrice,
-                ProductDescription = productInfo.ProductDescription,
-                UserIdUpdate = userId,
-            };
-            _unitOfWork.ProductRepository.Add(product);
+                Product product = new()
+                {
+                    BranchId = x.Id,
+                    DateCreate = DateTime.UtcNow.ToTimeZone(),
+                    DateUpdate = DateTime.UtcNow.ToTimeZone(),
+                    ProductType = productInfo.ProductType,
+                    ProductName = productInfo.ProductName,
+                    UserIdCreate = userId,
+                    ProductImg = resultImg,
+                    ProductPrice = productInfo.ProductPrice,
+                    ProductDescription = productInfo.ProductDescription,
+                    UserIdUpdate = userId,
+                };
+                productLst.Add(product);
+            }    
+            _unitOfWork.ProductRepository.AddRange(productLst);
             await _unitOfWork.CommitAsync();
         }
 
@@ -61,16 +71,22 @@ namespace TiemKiet.Services
         public async Task<ICollection<Product>> GetListAsync(Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes)
             => await _unitOfWork.ProductRepository.GetAllAsync(null, includes);
 
-        public async Task<ICollection<Product>> GetListAsync(int? branchId, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes)
+        public async Task<ICollection<Product>> GetListAsync(int branchId, ProductType productType, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes)
         {
-            if(branchId.HasValue)
+            if(branchId != 0 && productType != 0)
             {
-                return await _unitOfWork.ProductRepository.GetAllAsync(x => x.BranchId == branchId.Value, includes);
+                return await _unitOfWork.ProductRepository.GetAllAsync(x => x.BranchId == branchId && x.ProductType == productType, includes);
+            }
+            else if(branchId != 0 && productType == 0)
+            {
+                return await _unitOfWork.ProductRepository.GetAllAsync(x => x.BranchId == branchId, includes);
+            }
+            else if (productType != 0 && branchId == 0)
+            {
+                return await _unitOfWork.ProductRepository.GetAllAsync(x => x.ProductType == productType, includes);
             }
             else
-            {
                 return await _unitOfWork.ProductRepository.GetAllAsync(null, includes);
-            }
         }    
 
         public async Task<bool> Update(ProductInfoVM productInfo, long userId)
@@ -80,8 +96,9 @@ namespace TiemKiet.Services
             {
                 product.ProductName = productInfo.ProductName;
                 product.ProductPrice = productInfo.ProductPrice;
+                product.ProductType = productInfo.ProductType;
                 product.ProductDescription = productInfo.ProductDescription;
-                product.DateUpdate = DateTime.Now;
+                product.DateUpdate = DateTime.UtcNow.ToTimeZone();
                 product.UserIdUpdate = userId;
                 _unitOfWork.ProductRepository.Update(product);
                 await _unitOfWork.CommitAsync();

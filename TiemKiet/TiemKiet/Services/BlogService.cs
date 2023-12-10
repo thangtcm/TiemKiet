@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -25,8 +26,8 @@ namespace TiemKiet.Services
                 Heading = blogInfoVM.Heading,
                 ShortDescription = blogInfoVM.ShortDescription,
                 Visible = blogInfoVM.Visible,
-                PublishedDate = DateTime.Now,
-                DateUpdate = DateTime.Now,
+                PublishedDate = DateTime.UtcNow.ToTimeZone(),
+                DateUpdate = DateTime.UtcNow.ToTimeZone(),
                 UserIdCreate = userId,
                 UserIdUpdate = userId,
                 Title = blogInfoVM.Title

@@ -10,8 +10,10 @@ namespace TiemKiet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [DisplayName("Thành phố/Tỉnh")]
+        [Display(Name = "Thành phố/Tỉnh")]
         public string? CityName { get; set; }
+        [Display(Name = "Tên ngắn Thành phố/Tỉnh")]
+        public string? CityNameShort { get; set; }
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreate { get; set; }
         [Display(Name = "Người tạo")]

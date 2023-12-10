@@ -1,4 +1,5 @@
-﻿
+﻿const UrlAPI = "https://tiemkiet-001-site1.atempurl.com/api";
+
 function isValidPhoneNumber(phoneNumber) {
 	var phoneRegex = /^(0[1-9][0-9]{8,9})$/;
 	return phoneRegex.test(phoneNumber);
@@ -131,4 +132,87 @@ function getFormData(formId) {
 	});
 
 	return formDataObject;
+}
+
+function getDistrictByProvince(provinceId) {
+	var districtSelects = document.querySelectorAll("#DistrictSelect");
+	districtSelects.innerHTML = "";
+
+	if (provinceId !== "") {
+		$.ajax({
+			url: "/District/GetDistrictByProvince",
+			type: "GET",
+			data: { provinceId: provinceId },
+			success: function (data) {
+				var s = '<option value="">Chọn Quận/Huyện</option>';
+				for (var i = 0; i < data.length; i++) {
+					s += '<option value="' + data[i].value + '">' + data[i].text + '</option>';
+				}
+				districtSelects.forEach(districtSelect => {
+					districtSelect.innerHTML = s;
+				});
+			}
+		});
+	}
+}
+
+
+
+function ImgUpload() {
+	var imgWrap = "";
+	var imgArray = [];
+
+	$('#Multiple-Image').each(function () {
+		$(this).on('change', function (e) {
+			console.log("RUNN");
+			imgWrap = $('#Multiple_ImgPreview');
+			console.log(imgWrap);
+			var maxLength = $(this).attr('data-max_length');
+
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			var iterator = 0;
+			filesArr.forEach(function (f, index) {
+
+				if (!f.type.match('image.*')) {
+					return;
+				}
+
+				if (imgArray.length > maxLength) {
+					return false
+				} else {
+					var len = 0;
+					for (var i = 0; i < imgArray.length; i++) {
+						if (imgArray[i] !== undefined) {
+							len++;
+						}
+					}
+					if (len > maxLength) {
+						return false;
+					} else {
+						imgArray.push(f);
+
+						var reader = new FileReader();
+						reader.onload = function (e) {
+							var html = "<div class='upload_img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload_img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload_img-close'></div></div></div>";
+							imgWrap.append(html);
+							iterator++;
+						}
+						reader.readAsDataURL(f);
+					}
+				}
+			});
+		});
+	});
+
+	$('body').on('click', ".upload_img-close", function (e) {
+		var file = $(this).parent().data("file");
+		for (var i = 0; i < imgArray.length; i++) {
+			if (imgArray[i].name === file) {
+				imgArray.splice(i, 1);
+				break;
+			}
+		}
+		$(this).parent().parent().remove();
+	});
 }

@@ -376,6 +376,22 @@
           "lib/netstandard1.1/Firebase.Auth.dll": {}
         }
       },
+      "FirebaseAdmin/2.4.0": {
+        "dependencies": {
+          "Google.Api.Gax.Rest": "4.4.0",
+          "Google.Apis.Auth": "1.63.0",
+          "System.Collections.Immutable": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FirebaseAdmin.dll": {
+            "assemblyVersion": "2.4.0.0",
+            "fileVersion": "2.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FirebaseAdmin.dll": {}
+        }
+      },
       "FirebaseStorage.net/1.0.3": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -3582,6 +3598,7 @@
           "AspNetCoreHero.ToastNotification": "1.1.0",
           "BarcodeLib": "3.0.3",
           "Firebase.Auth": "1.0.0",
+          "FirebaseAdmin": "2.4.0",
           "FirebaseStorage.net": "1.0.3",
           "Google.Cloud.Storage.V1": "4.7.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.25",
@@ -5313,6 +5330,13 @@
       "sha512": "sha512-MRAGIRDXqB0jRvtJx0yRmTMjZInQcUSyHN7LuOwxL/nfyceDEA+Gfiimn7HtI2ntHw3hdUAoeeCA6BCc3qg0/A==",
       "path": "firebase.auth/1.0.0",
       "hashPath": "firebase.auth.1.0.0.nupkg.sha512"
+    },
+    "FirebaseAdmin/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0O89+8oFnHys8TPsk6af0nqcthedok4R467q/tQ/mUyKsXgG45fu1U0acnkKpOGSXT+550cyFfcUj5QlicoOvg==",
+      "path": "firebaseadmin/2.4.0",
+      "hashPath": "firebaseadmin.2.4.0.nupkg.sha512"
     },
     "FirebaseStorage.net/1.0.3": {
       "type": "package",

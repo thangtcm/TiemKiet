@@ -1,6 +1,7 @@
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\TiemKiet.exe
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\tiemkiet-firebase-admin.json
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\refs\Microsoft.AspNetCore.Antiforgery.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\refs\Microsoft.AspNetCore.Authentication.Cookies.dll
@@ -294,6 +295,7 @@ D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.Toast
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.ToastNotification.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\BarcodeStandard.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\Firebase.Auth.dll
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\FirebaseAdmin.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\Firebase.Storage.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\Google.Api.Gax.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\PubTmp\Out\Google.Api.Gax.Rest.dll

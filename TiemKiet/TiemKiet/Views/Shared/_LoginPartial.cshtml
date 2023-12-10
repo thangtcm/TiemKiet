@@ -7,26 +7,17 @@
 @if (SignInManager.IsSignedIn(User))
 {
     var user = await UserManager.GetUserAsync(User);
-    @*<li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>*@
-    <li class="nav-item">
-        <div class="dropdown">
-            <a class="btn dropdown-toggle" role="button" id="dropdownAccount" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-        <div>
-            <img src="~/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
-            style="width: 40px; height: 40px;">
-                    <span>@user.FullName!</span>
-        </div>
-        </a>
-            <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
-            aria-labelledby="dropdownAccount">
+    <div class="dropdown">
+        <a class="btn dropdown-toggle" role="button" id="dropdownAccount" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+    <div class="d-inline-block">
+        <img src="~/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
+        style="width: 40px; height: 40px;">
+        <span>@user.FullName!</span>
+    </div>
+    </a>
+        <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
+        aria-labelledby="dropdownAccount">
             @if (User.IsInRole(Constants.Roles.Admin))
             {
                 <li class="nav-item">
@@ -42,17 +33,10 @@
                     <button type="submit" class="nav-link text-dark dropdown-item">Đăng xuất</button>
                 </form>
             </li>
-            </ul>
-        </div>
-    </li>
+        </ul>
+    </div>
 }
 else
 {
-    <li class="nav-item"><a role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle nav-link">Đăng nhập</a></li>
-@*    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>*@
+    <a role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="d-lg-block d-xxl-block d-xl-block d-none nav-link">Đăng nhập</a>
 }

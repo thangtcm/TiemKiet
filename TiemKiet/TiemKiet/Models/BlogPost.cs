@@ -10,21 +10,21 @@ namespace TiemKiet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [DisplayName("Tiêu đề")]
+        [Display(Name = "Tiêu đề")]
         public string Heading { get; set; }
-        [DisplayName("Nội dung")]
+        [Display(Name = "Nội dung")]
         public string Content { get; set; }
-        [DisplayName("Tiêu đề hiển thị ngắn")]
+        [Display(Name = "Tiêu đề hiển thị ngắn")]
         public string Title { get; set; }
-        [DisplayName("Nội dung hiển thị ngắn")]
+        [Display(Name = "Nội dung hiển thị ngắn")]
         public string ShortDescription { get; set; }
-        [DisplayName("Ảnh đại diện blog")]
+        [Display(Name = "Ảnh đại diện blog")]
         public string FeatheredImageUrl { get; set; }
-        [DisplayName("Thời gian đăng")]
+        [Display(Name = "Thời gian đăng")]
         public DateTime PublishedDate { get; set; }
-        [DisplayName("Tác giả")]
+        [Display(Name = "Tác giả")]
         public string Author { get; set; }
-        [DisplayName("Trạng thái (Ẩn / Hiển thị)")]
+        [Display(Name = "Trạng thái (Ẩn / Hiển thị)")]
         public bool Visible { get; set; }
         public long? UserIdCreate { get; set; }
         [ForeignKey("UserIdCreate")]

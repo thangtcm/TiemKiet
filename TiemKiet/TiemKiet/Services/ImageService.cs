@@ -1,4 +1,5 @@
-﻿using TiemKiet.Models;
+﻿using TiemKiet.Helpers;
+using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
 
@@ -23,7 +24,7 @@ namespace TiemKiet.Services
                 model = new()
                 {
                     ImageUrl = result.ToString(),
-                    PublishUpload = DateTime.Now,
+                    PublishUpload = DateTime.UtcNow.ToTimeZone(),
                     UserIdUpload = userId
                 };
                 _unitOfWork.ImageRepository.Add(model);
@@ -43,7 +44,7 @@ namespace TiemKiet.Services
                     imageLst.Add(new ImageModel()
                     {
                         ImageUrl = result.ToString(),
-                        PublishUpload = DateTime.Now,
+                        PublishUpload = DateTime.UtcNow.ToTimeZone(),
                         UserIdUpload = userId
                     });       
                 }

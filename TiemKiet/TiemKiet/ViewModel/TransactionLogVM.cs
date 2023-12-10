@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 
 namespace TiemKiet.ViewModel
@@ -22,7 +23,7 @@ namespace TiemKiet.ViewModel
             this.DiscountPrice = model.DiscountPrice;
             this.PointOld = model.PointOld;
             this.PointNew = model.PointNew;
-            this.DateTimePayment = model.DateTimePayment.ToString("hh:mm dd/MM/yyyy");
+            this.DateTimePayment = model.DateTimePayment.ToString("HH:mm dd/MM/yyyy");
             this.ScroreNew= model.ScroreNew;
             this.ScroreOld= model.ScroreOld;
         }

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Bzl6EvFgUi6eg0HQyAOMme0VOUkk30I3K7gEN++NAsse+lrzsW7CJIElARM4XrALX/seYDYfEecbDyFCyFXD9Q==",
+  "dgSpecHash": "ig4FSufoQazUKNZAUNSCiPJITxxBLMQQzccP9WLVzAZsY6QzjsJKkPGp8JlyYDQEtWS2LTKWjSJAsjP/Zt9oiQ==",
   "success": true,
   "projectFilePath": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\TiemKiet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\couni\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\barcodelib\\3.0.3\\barcodelib.3.0.3.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\firebase.auth\\1.0.0\\firebase.auth.1.0.0.nupkg.sha512",
+    "C:\\Users\\couni\\.nuget\\packages\\firebaseadmin\\2.4.0\\firebaseadmin.2.4.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\firebasestorage.net\\1.0.3\\firebasestorage.net.1.0.3.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\google.api.gax\\4.4.0\\google.api.gax.4.4.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\google.api.gax.rest\\4.4.0\\google.api.gax.rest.4.4.0.nupkg.sha512",

@@ -6,6 +6,12 @@ using TiemKiet.Services;
 using TiemKiet.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using System.Text.Json;
+using Firebase.Auth;
+using TiemKiet.Models;
+using Newtonsoft.Json;
 
 namespace TiemKiet.Helpers
 {
@@ -98,6 +104,21 @@ namespace TiemKiet.Helpers
                  options.Cookie.IsEssential = true;
                  options.Cookie.HttpOnly = true;
             });
+            //Console.WriteLine(JsonConvert.SerializeObject(configuration.GetSection("FirebaseConfig").Get<FirebaseNotiConfig>()) + "\n\n\n");
+            try
+            {
+                var firebaseApp = FirebaseApp.Create(new AppOptions
+                {
+                    Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tiemkiet-firebase-admin.json")),
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error creating FirebaseApp: {ex.Message}");
+            }
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize);
         }
 
         public static void AddAuthorizationPolicies(this IServiceCollection services)

@@ -575,3 +575,5 @@ D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\refint\TiemKiet.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.pdb
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.genruntimeconfig.cache
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\ref\TiemKiet.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\FirebaseAdmin.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\tiemkiet-firebase-admin.json

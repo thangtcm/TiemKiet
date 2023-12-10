@@ -575,3 +575,5 @@ D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\win-arm64\native\libSk
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\tiemkiet-firebase-admin.json
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\FirebaseAdmin.dll

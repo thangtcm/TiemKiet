@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FirebaseAdmin;
+using FirebaseAdmin.Messaging;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TiemKiet.Data;
 using TiemKiet.Enums;
@@ -12,6 +15,7 @@ using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
 using X.PagedList;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace TiemKietAPI.Controllers
 {
@@ -37,6 +41,60 @@ namespace TiemKietAPI.Controllers
             _userStore = userStore;
             _userTokenService = userTokenService;
             _transcationLogService = transcationLogService;
+        }
+
+        [HttpPost("SendNotificationUser")]
+        public async Task<IActionResult> SendNotificationUser([FromBody] MessageRequest request, long userId)
+        {
+            try
+            {
+                var listToken = await _userTokenService.GetListAsync(userId);
+                var message = new MulticastMessage()
+                {
+                    Tokens = listToken.Select(x => x.UserToken).ToList(),
+                    Notification = new Notification
+                    {
+                        Title = request.Title,
+                        Body = request.Body,
+                    },
+                };
+                var messaging = FirebaseMessaging.DefaultInstance;
+                var result = await messaging.SendMulticastAsync(message);
+                return Ok("Gửi thông báo thành công!.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return BadRequest("Đã xảy ra sự cố trong lúc gửi thông báo.");
+
+        }    
+
+        [HttpPost("SendNotification")]
+        public async Task<IActionResult> SendNotification([FromBody] MessageRequest request)
+        {
+            try
+            {
+                var messagelst = new List<Message>();
+                var message = new Message()
+                {
+                    Token = request.DeviceToken,
+                    Notification = new Notification
+                    {
+                        Title = request.Title,
+                        Body = request.Body,
+                    },
+                };
+                messagelst.Add(message);
+                var messaging = FirebaseMessaging.DefaultInstance;
+                var result = await messaging.SendAllAsync(messagelst);
+                return Ok("Gửi thông báo thành công!.");
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return BadRequest("Đã xảy ra sự cố trong lúc gửi thông báo.");
+            
         }
 
         [HttpPost("AddToken")]

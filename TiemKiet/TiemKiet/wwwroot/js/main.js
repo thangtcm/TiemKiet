@@ -53,7 +53,17 @@
 		return false;
 	});
 
+	/*==================================================================
+	[ +/- num product ]*/
+	$('.btn-num-product-down').on('click', function () {
+		var numProduct = Number($(this).next().val());
+		if (numProduct > 0) $(this).next().val(numProduct - 1);
+	});
 
+	$('.btn-num-product-up').on('click', function () {
+		var numProduct = Number($(this).prev().val());
+		$(this).prev().val(numProduct + 1);
+	});
 
 	$(window).stellar({
 		responsive: true,
@@ -78,104 +88,15 @@
 	};
 	siteSticky();
 
-	var siteMenuClone = function () {
-
-		$('.js-clone-nav').each(function () {
-			var $this = $(this);
-			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
-		});
-
-
-		setTimeout(function () {
-
-			var counter = 0;
-			$('.site-mobile-menu .has-children').each(function () {
-				var $this = $(this);
-
-				$this.prepend('<span class="arrow-collapse collapsed">');
-
-				$this.find('.arrow-collapse').attr({
-					'data-toggle': 'collapse',
-					'data-target': '#collapseItem' + counter,
-				});
-
-				$this.find('> ul').attr({
-					'class': 'collapse',
-					'id': 'collapseItem' + counter,
-				});
-
-				counter++;
-
-			});
-
-		}, 1000);
-
-		$('body').on('click', '.arrow-collapse', function (e) {
-			var $this = $(this);
-			if ($this.closest('li').find('.collapse').hasClass('show')) {
-				$this.removeClass('active');
-			} else {
-				$this.addClass('active');
-			}
-			e.preventDefault();
-
-		});
-
-		$(window).resize(function () {
-			var $this = $(this),
-				w = $this.width();
-
-			if (w > 768) {
-				if ($('body').hasClass('offcanvas-menu')) {
-					$('body').removeClass('offcanvas-menu');
-				}
-			}
-		})
-
-		$('body').on('click', '.js-menu-toggle', function (e) {
-			var $this = $(this);
-			e.preventDefault();
-
-			if ($('body').hasClass('offcanvas-menu')) {
-				$('body').removeClass('offcanvas-menu');
-				$this.removeClass('active');
-			} else {
-				$('body').addClass('offcanvas-menu');
-				$this.addClass('active');
-			}
-		})
-
-		// click outisde offcanvas
-		$(document).mouseup(function (e) {
-			var container = $(".site-mobile-menu");
-			if (!container.is(e.target) && container.has(e.target).length === 0) {
-				if ($('body').hasClass('offcanvas-menu')) {
-					$('body').removeClass('offcanvas-menu');
-				}
-			}
-		});
-	};
-	siteMenuClone();
-
-	/**
-   * Mobile nav toggle
-   */
-
-	const mobileNavShow = document.querySelector('.mobile-nav-show');
-	const mobileNavHide = document.querySelector('.mobile-nav-hide');
-
-	document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-		el.addEventListener('click', function (event) {
-			event.preventDefault();
-			mobileNavToogle();
-		})
+	/*------------------
+		Navigation
+	--------------------*/
+	$(".mobile-menu").slicknav({
+		prependTo: '#mobile-menu-wrap',
+		allowParentLinks: true,
+		closedSymbol: "<i class='fas fa-caret-right'></i>",
+		openedSymbol: "<i class='fas fa-caret-down'></i>"
 	});
-
-	function mobileNavToogle() {
-		document.querySelector('body').classList.toggle('mobile-nav-active');
-		mobileNavShow.classList.toggle('d-none');
-		mobileNavHide.classList.toggle('d-none');
-	}
 
 	/**
 	 * Hide mobile nav on same-page/hash links
@@ -209,8 +130,6 @@
 			}
 		})
 	});
-
-
 
 	var scrollWindow = function () {
 		$(window).scroll(function () {
@@ -274,6 +193,35 @@
 				center: true,
 				margin: 20,
 				items: 1,
+				autoplay: true,
+				autoplayHoverPause: true,
+				navText: ["<i class=\"fas fa-chevron-left\"></i>", "<i class=\"fas fa-chevron-right\"></i>"],
+				autoplayTimeout: ("5" * 1000) || 7000,
+			});
+		});
+	});
+
+	$(document).ready(function () {
+		$(".owl-product").each(function () {
+			// Cấu hình Owl Carousel
+			$(this).owlCarousel({
+				nav: true,
+				dots: true,
+				loop: true,
+				center: true,
+				margin: 20,
+				responsive: {
+					0: {
+						items: 1
+					},
+					600: {
+						items: 3
+					},
+					1000: {
+						items: 5
+					}
+				},
+				loop: true,
 				autoplay: true,
 				autoplayHoverPause: true,
 				navText: ["<i class=\"fas fa-chevron-left\"></i>", "<i class=\"fas fa-chevron-right\"></i>"],

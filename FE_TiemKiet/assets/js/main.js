@@ -54,6 +54,17 @@
 	});
 
 
+	/*==================================================================
+    [ +/- num product ]*/
+    $('.btn-num-product-down').on('click', function(){
+        var numProduct = Number($(this).next().val());
+        if(numProduct > 0) $(this).next().val(numProduct - 1);
+    });
+
+    $('.btn-num-product-up').on('click', function(){
+        var numProduct = Number($(this).prev().val());
+        $(this).prev().val(numProduct + 1);
+    });
 
 	$(window).stellar({
 		responsive: true,
@@ -157,59 +168,27 @@
 	};
 	siteMenuClone();
 
-	/**
-   * Mobile nav toggle
-   */
 
-	const mobileNavShow = document.querySelector('.mobile-nav-show');
-	const mobileNavHide = document.querySelector('.mobile-nav-hide');
+	/*------------------
+		Navigation
+	--------------------*/
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true,
+		closedSymbol:"<i class='fas fa-caret-right'></i>",
+    	openedSymbol:"<i class='fas fa-caret-down'></i>"
+    });
 
-	document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-		el.addEventListener('click', function (event) {
-			event.preventDefault();
-			mobileNavToogle();
-		})
-	});
+	// //Canvas Menu
+    // $(".canvas__open").on('click', function () {
+    //     $(".offcanvas-menu-wrapper").addClass("active");
+    //     $(".offcanvas-menu-overlay").addClass("active");
+    // });
 
-	function mobileNavToogle() {
-		document.querySelector('body').classList.toggle('mobile-nav-active');
-		mobileNavShow.classList.toggle('d-none');
-		mobileNavHide.classList.toggle('d-none');
-	}
-
-	/**
-	 * Hide mobile nav on same-page/hash links
-	 */
-	document.querySelectorAll('#navbar a').forEach(navbarlink => {
-
-		if (!navbarlink.hash) return;
-
-		let section = document.querySelector(navbarlink.hash);
-		if (!section) return;
-
-		navbarlink.addEventListener('click', () => {
-			if (document.querySelector('.mobile-nav-active')) {
-				mobileNavToogle();
-			}
-		});
-
-	});
-
-	/**
-	 * Toggle mobile nav dropdowns
-	 */
-	const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
-
-	navDropdowns.forEach(el => {
-		el.addEventListener('click', function (event) {
-			if (document.querySelector('.mobile-nav-active')) {
-				event.preventDefault();
-				this.classList.toggle('active');
-				this.nextElementSibling.classList.toggle('dropdown-active');
-			}
-		})
-	});
-
+    // $(".offcanvas-menu-overlay").on('click', function () {
+    //     $(".offcanvas-menu-wrapper").removeClass("active");
+    //     $(".offcanvas-menu-overlay").removeClass("active");
+    // });
 
 
 	var scrollWindow = function () {
@@ -262,6 +241,35 @@
 		autoplayHoverPause: true,
 		navText: ["<i class=\"fas fa-chevron-left\"></i>", "<i class=\"fas fa-chevron-right\"></i>"],
 		autoplayTimeout: ("5" * 1000) || 7000,
+	});
+
+	$(document).ready(function() {
+		$(".owl-product").each(function() {
+			// Cấu hình Owl Carousel
+			$(this).owlCarousel({
+				nav: true,
+				dots: true,
+				loop: true,
+				center: true,
+				margin: 20,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:3
+					},
+					1000:{
+						items:5
+					}
+				},
+				loop: true,
+				autoplay: true,
+				autoplayHoverPause: true,
+				navText: ["<i class=\"fas fa-chevron-left\"></i>", "<i class=\"fas fa-chevron-right\"></i>"],
+				autoplayTimeout: ("5" * 1000) || 7000,
+			});
+		});
 	});
 
 	$(document).ready(function() {

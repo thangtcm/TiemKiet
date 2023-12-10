@@ -1,23 +1,77 @@
-﻿<header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-        <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center">
-            <img src="~/images/logo.png" alt="">
-        </a>
-
-        <a class="mobile-nav-toggle mobile-nav-show"><i class="fas fa-bars"></i></a>
-        <a class="mobile-nav-toggle mobile-nav-hide d-none"><i class="fas fa-times"></i></a>
-        <nav id="navbar" class="navbar justify-content-between">
-            <ul>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="active nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Product" class="nav-link">Sản Phẩm</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Blog" class="nav-link">Chuyện Nhà Kiết</a></li>
-                <li class="nav-item"><a asp-action="Index" asp-controller="Restaurant" class="nav-link">Cửa Hàng</a></li>
-                <partial name="_LoginPartial" />
-            </ul>
-        </nav><!-- .navbar -->
+﻿<!-- Offcanvas Menu Begin -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="MobileNavMenu" aria-labelledby="MobileNavMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="MobileNavMenuLabel"></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-</header><!-- End Header -->
+    <div class="offcanvas-body">
+        <div class="container">
+            <div class="offcanvas-menu">
+                <partial name="_LoginPartial" />
+            </div>
+            <div class="my-3 text-center">
+                <a href="#" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">Giỏ hàng <i class="ms-2 fas fa-shopping-cart"></i><span class="ms-1">(2)</span></a>
+            </div>
+            <br>
+            <div id="mobile-menu-wrap"></div>
+            <div class="font-monospace text-primary">
+                <p>Miễn phí giao hàng, 30 ngày tính từ ../../....</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-7"> 
+                    <h5>Miễn phí giao hàng, 30 ngày tính từ ../../....</h5>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="text-end text-userNamepc">
+                        <div class="d-flex justify-content-end">
+                            <partial name="_LoginPartial" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="~/images/logo.png" alt="" style="max-width: 4rem;"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="nav-item d-lg-none d-xxl-none d-xl-none d-inline-block">
+                            <a role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle nav-link">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Home" class="nav-link">Trang chủ</a></li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Product" class="nav-link">Sản Phẩm</a></li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Blog" class="nav-link">Chuyện Nhà Kiết</a></li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Restaurant" class="nav-link">Cửa Hàng</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <div class="d-flex flex-wrap gap-3 justify-content-end">
+                        <a class="icon-header-item px-2 icon-header-noti" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                            <span class="font-monospace fs-5 font-weight-600">Giỏ hàng </span> <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary canvas__open" data-bs-toggle="offcanvas" href="#MobileNavMenu" role="button" aria-controls="MobileNavMenu"><i class="fa fa-bars"></i></a>
+    </div>
+</header>
+
 @{
     var controllerName = ViewContext.RouteData.Values["controller"]?.ToString();
     var actionName = ViewContext.RouteData.Values["action"]?.ToString();
@@ -25,6 +79,7 @@
 <partial name="_FormEnterNumberPhone" />
 <partial name="_FormConfirmOTP" />
 <partial name="_FormConfirmPIN" />
+<partial name="_Cart" />
 @if (controllerName != "Account")
 {
     <partial name="_FormRegister" />

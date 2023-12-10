@@ -42,6 +42,7 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Giảm giá</th>
+                                    <th>Chi Nhánh</th>
                                     <th>Trạng thái</th>
                                     <th class="text-end">Action</th>
                                 </tr>
@@ -64,6 +65,9 @@
                                         </td>
                                         <td>
                                             @item.ProductSale
+                                        </td>
+                                        <td>
+                                            @item.BranchName
                                         </td>
                                         <td><span class="badge bg-primary-light">Đang hoạt động</span></td>
                                         <td class="text-end">

@@ -563,7 +563,6 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.GeneratedMSBuildEd
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.AssemblyInfoInputs.cache
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.AssemblyInfo.cs
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.csproj.CoreCompileInputs.cache
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\staticwebassets\msbuild.TiemKietAPI.Microsoft.AspNetCore.StaticWebAssets.props
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.TiemKietAPI.props
@@ -579,3 +578,6 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\refint\TiemKietAPI.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.pdb
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.genruntimeconfig.cache
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\ref\TiemKietAPI.dll
+D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\FirebaseAdmin.dll
+D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\tiemkiet-firebase-admin.json
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Debug\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cs

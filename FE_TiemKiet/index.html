@@ -23,6 +23,9 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.theme.default.min.css">
+  <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/courgette" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css" integrity="sha512-heyoieAHmpAL3BdaQMsbIOhVvGb4+pl4aGCZqWzX/f1BChRArrBy/XUZDHW9WVi5p6pf92pX4yjkfmdaIYa2QQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/css/animate.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/responsive.css">
@@ -40,54 +43,275 @@
       </div>
     </div>
   </div>
-  <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="./assets/images/logo.png" alt="">
-      </a>
-
-      <a class="mobile-nav-toggle mobile-nav-show"><i class="fas fa-bars"></i></a>
-      <a class="mobile-nav-toggle mobile-nav-hide d-none"><i class="fas fa-times"></i></a>
-      <nav id="navbar" class="navbar justify-content-between">
-        <ul>
-          <li class="nav-item"><a href="index.html" class="active nav-link">Trang chủ</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Sản Phẩm</a></li>
-          <li><a href="about.html">Chuyện Nhà Kiết</a></li>
-          <li><a href="restaurant.html">Cửa Hàng</a></li>
-          <li><a role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle">Đăng nhập</a></li>
-          <!-- <li class="ms-auto">
-            <div class="dropdown">
-              <a class="btn dropdown-toggle" type="button" id="dropdownAccount" data-bs-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <div>
-                  <img src="./assets/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
-                    style="width: 40px; height: 40px;">
-                  <span>Trần Cao Minh Thắng</span>
-                </div>
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileNavMenu" aria-labelledby="MobileNavMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="MobileNavMenuLabel"></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="container">
+          <div class="offcanvas-menu">
+            <!-- <div class="dropdown">
+              <a class="btn dropdown-toggle " type="button" id="dropdownAccount" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <div class="d-inline-block">
+                      <img src="./assets/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
+                          style="width: 40px; height: 40px;">
+                      <span class="text-userName">Trần Cao Minh Thắng</span>
+                  </div>
               </a>
-              <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
-                aria-labelledby="dropdownAccount">
-                <li><a class="dropdown-item" href="profile.html">Thông tin tài khoản</a></li>
-                <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
-                <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-profile border-0 rounded-0 rounded-bottom m-0 shadow-none"
+                  aria-labelledby="dropdownAccount">
+                  <li><a class="dropdown-item" href="profile.html">Thông tin tài khoản</a></li>
+                  <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                  <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
               </ul>
+            </div> -->
+          </div>
+          <div class="my-3 text-center">
+            <a href="#" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">Giỏ hàng <i class="ms-2 fas fa-shopping-cart"></i><span class="ms-1">(2)</span></a>
+          </div>
+          <br>
+          <div id="mobile-menu-wrap"></div>
+          <div class="font-monospace text-primary">
+            <p>Miễn phí giao hàng, 30 ngày tính từ ../../....</p>
+        </div>
+        </div>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+  <!-- Header Section Begin -->
+  <header class="header">
+      <div class="header__top">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-6 col-md-7"> 
+                      <h5>Miễn phí giao hàng, 30 ngày tính từ ../../....</h5>
+                  </div>
+                  <div class="col-lg-6 col-md-5">
+                      <div class="text-end text-userNamepc d-flex justify-content-end">
+                        <a href="#" class="font-monospace fw-bold" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle">Đăng nhập</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-3 col-md-3">
+                  <div class="header__logo">
+                      <a href="./index.html"><img src="./assets/images/logo.png" alt="" style="max-width: 4rem;"></a>
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                  <nav class="header__menu mobile-menu">
+                      <ul>
+                          <li class="active d-lg-none d-xxl-none d-xl-none d-inline-block"><a href="./index.html">Home</a></li>
+                          <li><a href="./shop.html">Shop</a></li>
+                          <li><a href="#">Pages</a>
+                              <ul class="dropdown">
+                                  <li><a href="./about.html">About Us</a></li>
+                                  <li><a href="./shop-details.html">Shop Details</a></li>
+                                  <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                  <li><a href="./checkout.html">Check Out</a></li>
+                                  <li><a href="./blog-details.html">Blog Details</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="./blog.html">Blog</a></li>
+                          <li><a href="./contact.html">Contacts</a></li>
+                      </ul>
+                  </nav>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                  <div class="header__nav__option">
+                    <div class="d-flex flex-wrap gap-3 justify-content-end">
+                      <a class="icon-header-item px-2 icon-header-noti" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                        <span class="font-monospace fs-5 font-weight-600">Giỏ hàng </span> <i class="fas fa-shopping-cart"></i>
+                      </a>
+                    </div>
+                    
+                  </div>
+              </div>
+          </div>
+          <a class="btn btn-primary canvas__open" data-bs-toggle="offcanvas" href="#MobileNavMenu" role="button" aria-controls="MobileNavMenu"><i class="fa fa-bars"></i></a>
+      </div>
+  </header>
+  <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="ps-5 h-100">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasCartLabel">Giỏ hàng</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div class="d-flex align-items-start flex-column" style="min-height: 60vh;">
+          <ul class="d-flex flex-wrap w-100 py-2 gap-3 overflow-scroll" style="max-height: 50vh;">
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+            <li class="d-flex align-items-center justify-content-center">
+              <a class="header-cart-item-img">
+                <img src="./assets/images/Product/test.png" alt="IMG">
+              </a>
+              <div class="header-cart-item-txt pt-2">
+                <a href="#" class="header-cart-item-name mb-2 trans-04">
+                  Cà phê muối
+                </a>
+                <span class="header-cart-item-info">
+                  1 x 25,000đ
+                </span>
+              </div>
+            </li>
+          </ul>
+          <div class="w-100 mt-auto">
+            <h5>Tổng cộng: 1,125,000đ</h5>
+            <div class="d-flex flex-wrap gap-3 mt-3">
+              <a href="" class="btn btn-primary font-monospace text-uppercase font-weight-600">XEM GIỎ HÀNG</a>
+              <a href="" class="btn btn-primary font-monospace text-uppercase font-weight-600">THANH TOÁN</a>
             </div>
-          </li> -->
-        </ul>
-      </nav><!-- .navbar -->
-      <!-- <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="login.html">Đăng nhập</a></li>
-          <li><a href="#">Đăng ký</a></li>
-        </ul>
-      </nav> -->
-
+          </div>
+        </div>
+      </div>
     </div>
+    
+  </div>
 
-  </header><!-- End Header -->
+  <div class="modal fade" id="ViewProductModal" tabindex="-1" aria-labelledby="ViewProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="row no-gutters position-relative pt-5 pb-3">
+          <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="col-md-6 d-flex px-5">
+            <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
+              <img src="./assets/images/Product/test.png" alt="" style="max-width: 15rem;">
+            </div>
+          </div>
+          <div class="col-md-6 d-flex">
+            <div class="modal-body">
+              <div class="container">
+                <div class="font-monospace">
+                  <h2 class="font-weight-600 text-dark mb-2">Cà phê muối</h2>
+                  <span class="sprice font-weight-600 mb-2">45,000đ</span>
+                  <p class="pcontent mt-3 text-secondary">Đây là món cà phê muối, một hương vị mới ,..................
+                    aa
+                  </p>
+                </div>
+                <div class="py-5 mt-5">
+                  <div class="row justify-content-center align-content-center">
+                    <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+											<div class="btn btn-primary btn-num-product-down trans-04">
+												<i class="fas fa-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn btn-primary btn-num-product-up trans-04">
+												<i class="fas fa-plus"></i>
+											</div>
+										</div>
+                    <div class="py-3">
+                      <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
@@ -300,7 +524,7 @@
         </div>
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <div class="image">
+            <div class="image hov-img-zoom" style="max-width: 35rem;">
               <img src="./assets/images/background.jpg" class="img-fluid" alt="">
             </div>
           </div>
@@ -313,80 +537,111 @@
                 đi qua, nơi tâm hồn được đồng điệu với thiên nhiên, với nỗi vất vả nhọc nhằn của người nông dân; cảm
                 nhận được hết thảy những tầng hương ẩn sâu trong từng nguyên liệu.
               </p>
-              <ul>
-                <li><i class="fas fa-check"></i> Đa dạng nước uống.</li>
-                <li><i class="fas fa-check"></i> Vị giác mới lạ.</li>
-                <li><i class="fas fa-check"></i> Nhân viên tốt gì đó bla bla.</li>
-              </ul>
               <p class="text-justify text-wrap">
                 Ngoài ra, không gian của <span class="fw-bold">TIỆM KIẾT</span> còn là địa điểm chạy deadline được nhiều
                 người ưa chuộng. Cây xanh và khí trời
                 cùng con người gần gũi sẽ khiến chúng ta thoải mái làm việc, là cơ hội tốt để các ý tưởng tươi mới ùa
                 về.
               </p>
-              <a href="#" class="btn btn-primary">Đọc thêm</a>
+              <a href="#" class="btn text-primary fw-bold">Đọc thêm <i class="ms-2 fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="product" class="section product">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>CÁC DÒNG SẢN PHẨM NỔI BẬT</h2>
+    <section class="section section-intro">
+      <div class="header-intro text-center" style="background-image: url('./assets/images/background.jpg'); background-position: center; padding: 7rem 0;">
+        <div class="mb-4">
+          <span>Tiệm Kiết</span>
         </div>
-        <div class="row">
-          <div class="col-12 col-lg-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="3000">
-            <div class="product-item">
-              <div class="container-fluid">
-                <img src="./assets/images/Product/test.png" alt="" class="product-img product-thumbnail">
-                <h3 class="product-title">Cà Phê Muối</h3>
-                <p class="text-justify px-3 text-break">Cafe muối là loại cà phê có sự kết hợp giữa muối và cà phê. Thức
-                  uống gồm sữa đặc bên dưới, lớp sữa lên men và lớp muối trên cùng. </p>
-                <a class="detail-cross btn btn-primary" href="#">
-                  Chi Tiết
-                </a>
+        <h3 class="text-center font-intro">
+          KHÁM PHÁ ĐỊA ĐIỂM
+        </h3>
+      </div>
+	  </section>
+    <section id="product" class="section product pt-2">
+      <div class="container">
+        <div class="pb-3">
+          <h3 class="ltext-105 text-center">
+            Store Overview
+          </h3>
+        </div>
+  
+        <!-- Tab01 -->
+        <div class="tab01">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item pb-2" role="presentation">
+              <a class="nav-link active" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#best-seller" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Best Seller</a>
+            </li>
+  
+            <li class="nav-item pb-2" role="presentation">
+              <a class="nav-link" data-toggle="tab" href="#featured" data-bs-toggle="tab" data-bs-target="#featured" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Featured</a>
+            </li>
+  
+          </ul>
+  
+          <!-- Tab panes -->
+          <div class="tab-content pt-3"> 
+            <!-- - -->
+            <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+              <!-- Slide2 -->
+              <div id="owl-product" class="owl-carousel owl-product owl-theme owl-loaded owl-drag">
+                <div class="item">
+                  <div class="block2">
+                    <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                      <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+
+                      <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                        role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                        Quick View
+                      </a>
+                    </div>
+
+                    <div class="block2-txt d-flex justify-content-between pt-2">
+                      <div class="d-flex flex-column ">
+                        <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                          Cà phê muối
+                        </a>
+                        <span class="stext-103 cl3">
+                          $16.64
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-lg-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="3000">
-            <div class="product-item">
-              <div class="container-fluid">
-                <img src="./assets/images/Product/test.png" alt="" class="product-img product-thumbnail">
-                <h3 class="product-title">Cà Phê Muối</h3>
-                <p class="text-justify px-3 text-break">Cafe muối là loại cà phê có sự kết hợp giữa muối và cà phê. Thức
-                  uống gồm sữa đặc bên dưới, lớp sữa lên men và lớp muối trên cùng. </p>
-                <a class="detail-cross btn btn-primary" href="#">
-                  Chi Tiết
-                </a>
+            <!-- - -->
+            <div class="tab-pane fade" id="featured" role="tabpanel">
+              <!-- Slide2 -->
+              <div id="owl-product" class="owl-carousel owl-product owl-theme owl-loaded owl-drag">
+                <div class="item">
+                  <div class="block2">
+                    <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                      <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+
+                      <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                        role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                        Quick View
+                      </a>
+                    </div>
+
+                    <div class="block2-txt d-flex justify-content-between pt-2">
+                      <div class="d-flex flex-column ">
+                        <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                          Cà phê muối
+                        </a>
+                        <span class="stext-103 cl3">
+                          $16.64
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-lg-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="3000">
-            <div class="product-item">
-              <div class="container-fluid">
-                <img src="./assets/images/Product/test.png" alt="" class="product-img product-thumbnail">
-                <h3 class="product-title">Cà Phê Muối</h3>
-                <p class="text-justify px-3 text-break">Cafe muối là loại cà phê có sự kết hợp giữa muối và cà phê. Thức
-                  uống gồm sữa đặc bên dưới, lớp sữa lên men và lớp muối trên cùng. </p>
-                <a class="detail-cross btn btn-primary" href="#">
-                  Chi Tiết
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-3 mb-5 mb-md-0" data-aos="fade-up" data-aos-duration="3000">
-            <div class="product-item">
-              <div class="container-fluid">
-                <img src="./assets/images/Product/test.png" alt="" class="product-img product-thumbnail">
-                <h3 class="product-title">Cà Phê Muối</h3>
-                <p class="text-justify px-3 text-break">Cafe muối là loại cà phê có sự kết hợp giữa muối và cà phê. Thức
-                  uống gồm sữa đặc bên dưới, lớp sữa lên men và lớp muối trên cùng. </p>
-                <a class="detail-cross btn btn-primary" href="#">
-                  Chi Tiết
-                </a>
-              </div>
-            </div>
+  
           </div>
         </div>
       </div>
@@ -428,6 +683,11 @@
         </div>
 
       </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.10913482737!2d106.715121611096!3d10.802952761160414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529c50f309cc5%3A0x5a3c14fede5191da!2zVGnhu4dtIEtp4bq_dCAtIE5ndXnhu4VuIEdpYSBUcsOt!5e0!3m2!1sen!2s!4v1701770924640!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
     <section id="blog" class="section blog">
@@ -610,6 +870,7 @@
   <script src="./assets/plugins/owlcarousel/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js" integrity="sha512-FmCXNJaXWw1fc3G8zO3WdwR2N23YTWDFDTM3uretxVIbZ7lvnjHkciW4zy6JGvnrgjkcNEk8UNtdGTLs2GExAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./assets/js/main.js"></script>
 
 </body>

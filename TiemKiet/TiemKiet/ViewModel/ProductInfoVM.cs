@@ -1,17 +1,20 @@
-﻿using TiemKiet.Enums;
+﻿using Newtonsoft.Json;
+using TiemKiet.Enums;
 using TiemKiet.Models;
 
 namespace TiemKiet.ViewModel
 {
     public class ProductInfoVM
     {
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set;}
         public double ProductPrice { get; set; }
         public double ProductSale { get; set; }
+        public string? BranchName { get; set; }
         public string? ProductImage { get; set; }
-        public IFormFile Imageupload { get; set; }
+        [JsonIgnore]
+        public IFormFile UploadImage { get; set; }
         public ProductType ProductType { get; set; }
 
         public ProductInfoVM() { }
@@ -23,6 +26,7 @@ namespace TiemKiet.ViewModel
             this.ProductPrice = model.ProductPrice;
             this.ProductSale = model.ProductSale;
             this.ProductImage = model.ProductImg is null ? "" : (model.ProductImg.ImageUrl ?? "");
+            this.BranchName = model.Branch is null ? "" : (model.Branch.BranchName ?? "");
             this.ProductType = model.ProductType;
         }
     }

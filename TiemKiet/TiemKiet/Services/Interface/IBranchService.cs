@@ -8,6 +8,8 @@ namespace TiemKiet.Services.Interface
     {
         public Task<ICollection<Branch>> GetListAsync();
         public Task<ICollection<Branch>> GetListAsync(int? districtId, int? provinceId);
+        public Task<ICollection<ProvinceBranchVM>> GetListWithBranchAsync();
+        public Task<ICollection<Branch>> GetListAsync(int? districtId, int? provinceId, Func<IQueryable<Branch>, IIncludableQueryable<Branch, object>> includes);
         public Task<ICollection<Branch>> GetListAsync(Func<IQueryable<Branch>, IIncludableQueryable<Branch, object>> includes);
         public Task Add(BranchInfoVM branchInfo, long userId, int districtId);
         public Task<Branch?> GetByIdAsync(int Id);

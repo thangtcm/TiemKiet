@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Enums;
 using TiemKiet.Models;
 using TiemKiet.ViewModel;
 
@@ -10,7 +11,7 @@ namespace TiemKiet.Services.Interface
         public Task<ICollection<Product>> GetListAsync();
         public Task<ICollection<Product>> GetListAsync(int branchId);
         public Task<ICollection<Product>> GetListAsync(Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);
-        public Task<ICollection<Product>> GetListAsync(int? branchId, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);
+        public Task<ICollection<Product>> GetListAsync(int branchId, ProductType productType, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);
         public Task<Product?> GetByIdAsync(int Id);
         public Task<Product?> GetByIdAsync(int Id, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);
         public Product? GetById(int Id);

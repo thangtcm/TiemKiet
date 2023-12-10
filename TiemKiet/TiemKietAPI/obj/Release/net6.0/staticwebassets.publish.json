@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kB6yeqYFaXQ5AqMds62Szh+rVOqZGGuYzQDRBdRmWMM=",
+  "Hash": "t+aFLBjqPKTx5JIFjep3BZQjNZ492QyYvK1iYVol5O4=",
   "Source": "TiemKietAPI",
   "BasePath": "_content/TiemKietAPI",
   "Mode": "Default",
@@ -8850,6 +8850,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\moment-with-locales.min.js"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\notification.js",
+      "SourceId": "TiemKiet",
+      "SourceType": "Project",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "js/notification.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notification.js"
     },
     {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",

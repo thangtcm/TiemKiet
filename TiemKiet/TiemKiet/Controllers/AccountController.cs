@@ -1,4 +1,5 @@
 ﻿using BarcodeStandard;
+using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using System.Drawing;
 using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
+using TiemKiet.Models;
 using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
 
@@ -22,14 +24,16 @@ namespace TiemKiet.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserService _userService;
+        private readonly IUserTokenService _userTokenService;
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, IUserService userService)
+            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, IUserService userService, IUserTokenService userTokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _userStore = userStore;
             _userService = userService;
+            _userTokenService = userTokenService;
         }
         public IActionResult Register()
         {
@@ -121,24 +125,6 @@ namespace TiemKiet.Controllers
             }
         }
 
-        //public IActionResult GenerateBarCode(string code)
-        //{
-        //    try
-        //    {
-        //        QRCodeGenerator qrGenerator = new QRCodeGenerator();
-        //        QRCodeData qrCodeData = qrGenerator.C(code,
-        //        QRCodeGenerator.ECCLevel.Q);
-        //        QRCode qrCode = new QRCode(qrCodeData);
-        //        Bitmap qrCodeImage = qrCode.GetGraphic(20);
-        //        return View(BitmapToBytes(qrCodeImage));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message.ToString());
-        //        throw;
-        //    }
-        //}
-
         public ActionResult GenerateBarcode(string barcodeData)
         {
             Barcode barcode = new Barcode();
@@ -152,7 +138,7 @@ namespace TiemKiet.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Login([Phone] string phoneNumber, string password)
+        public async Task<IActionResult> Login([Phone] string phoneNumber, string password, string token)
         {
             if (!ModelState.IsValid)
             {
@@ -167,6 +153,10 @@ namespace TiemKiet.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    if(!string.IsNullOrEmpty(token))
+                    {
+                        await _userTokenService.Add(userResult.Id, token);
+                    }    
                     return Json(new { success = true, redirectUrl = Url.Action("Index", "Home") });
                 }
                 return Json(new { success = false, error = "Mật khẩu không đúng." });
@@ -208,6 +198,13 @@ namespace TiemKiet.Controllers
                 _logger.LogError(ex.Message);
             }
             return View();
-        }    
+        }
+
+        [HttpPost]
+        public IActionResult SaveToken(string token)
+        {
+            Console.WriteLine($"Dữ liệu là : {token}\n\n\n\n");
+            return Ok(new { Message = "Token saved successfully" });
+        }
     }
 }

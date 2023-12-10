@@ -617,5 +617,5 @@ Version      : 1.0
 
 		});
 	}
-	
+	ImgUpload();
 })(jQuery);

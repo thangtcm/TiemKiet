@@ -1,7 +1,6 @@
 ﻿@model TiemKiet.ViewModel.ProductInfoVM
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Thêm sản phẩm";
 }
 
 <div class="content container-fluid">
@@ -12,7 +11,7 @@
                 <h3 class="page-title">Add Subject</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Product" asp-area="Admin">Sản Phẩm</a></li>
-                    <li class="breadcrumb-item active">Thêm sản phẩm</li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
                 </ul>
             </div>
         </div>
@@ -22,30 +21,25 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form asp-action="Create" asp-controller="Product" asp-area="Admin">
+                    <form asp-action="Create" asp-controller="Product" asp-area="Admin" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="form-title"><span>Điền thông tin sản phẩm</span></h5>
                             </div>
-                            <div class="col-12">
+                            <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <div class="container">
-                                        <div class="row justify-content-center align-items-center align-content-center">
-                                            <div class="avatar-preview">
-                                                <img class="my-3 avatar-xxl object-fit-cover rounded-circle" id="imagePreview" src="~/images/Anh-Wibu-mat-do.jpg" alt="User profile picture">
-                                            </div>
-                                            <div class="upload">
-                                                <label class="file-upload image-upbtn mb-0">
-                                                    Choose File <input type="file" asp-for="Imageupload" id="imageUpload" accept=".png, .jpg, .jpeg">
-                                                </label>
-                                            </div>
-                                        </div>
-
+                                    <label>Blog Image</label>
+                                    <div class="avatar-preview">
+                                        <img class="my-3 avatar-xxl object-fit-cover" id="imagePreview" src="" alt="User profile picture">
                                     </div>
-
+                                    <div class="change-photo-btn">
+                                        <div>
+                                            <p>Add Image</p>
+                                        </div>
+                                        <input asp-for="UploadImage" class="upload" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                    </div>
                                 </div>
-
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
@@ -59,7 +53,7 @@
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
                                         <span class="input-group-text">0.00</span>
-                                        <input asp-for="ProductSale" class="form-control">
+                                        <input asp-for="ProductPrice" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +70,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Chi nhánh <span class="login-danger">*</span></label>
-                                    <select class="form-control select" asp-items="ViewBag.BranchLst" required>
+                                    <select class="form-control select" name="branchId" asp-items="ViewBag.BranchLst" required>
                                         <option value="">Chọn chi nhánh</option>
                                     </select>
                                 </div>
@@ -84,7 +78,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Danh mục sản phẩm <span class="login-danger">*</span></label>
-                                    <select class="form-control select" asp-items="ViewBag.ProductTypeLst" required>
+                                    <select class="form-control select" asp-for="ProductType" asp-items="ViewBag.ProductTypeLst" required>
                                         <option value="">Chọn danh mục</option>
                                     </select>
                                 </div>

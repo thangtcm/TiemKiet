@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 using TiemKiet.Helpers;
+using TiemKiet.Models;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 using TiemKiet.ViewModel;
@@ -60,5 +62,40 @@ namespace TiemKiet.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> Edit(int? Id)
+        {
+            if (!Id.HasValue)
+                return NotFound();
+            var province = await _provinceService.GetByIdAsync(Id.Value);
+            if (province == null)
+                return NotFound();
+            var countries = await _countryService.GetListAsync();
+            ViewData["Countrylst"] = new SelectList(countries, "Id", "CountryName", province.CountryId);
+            return View(new ProvinceInfoVM(province));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int ProvinceId, ProvinceInfoVM model)
+        {
+            try
+            {
+                var user = await _userService.GetUser();
+                if(user == null)
+                {
+                    return NotFound();
+                }    
+                await _provinceService.Update(model, user.Id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            var countries = await _countryService.GetListAsync();
+            ViewData["Countrylst"] = new SelectList(countries, "Id", "CountryName", model.CountryId);
+            return View(model);
+        }    
     }
 }

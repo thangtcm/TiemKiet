@@ -39,52 +39,113 @@
         </div>
     </div>
     <!-- ======= Header ======= -->
-    <header id="header" class="header d-flex align-items-center">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="./assets/images/logo.png" alt="">
-            </a>
-
-            <a class="mobile-nav-toggle mobile-nav-show"><i class="fas fa-bars"></i></a>
-            <a class="mobile-nav-toggle mobile-nav-hide d-none"><i class="fas fa-times"></i></a>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="product.html" class="active">Sản Phẩm</a></li>
-                    <li><a href="about.html">Chuyện Nhà Kiết</a></li>
-                    <li><a href="restaurant.html">Cửa Hàng</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <a class="btn dropdown-toggle" type="button" id="dropdownAccount" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <div>
-                                    <img src="./assets/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
-                                        style="width: 40px; height: 40px;">
-                                    <span>Trần Cao Minh Thắng</span>
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
-                                aria-labelledby="dropdownAccount">
-                                <li><a class="dropdown-item" href="profile.html">Thông tin tài khoản</a></li>
-                                <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
-                                <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7"> 
+                        <h5>Miễn phí giao hàng, 30 ngày tính từ ../../....</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="text-end">
+                          <nav id="navbar" class="navbar justify-content-end">
+                            <ul>
+                              <li><a href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle">Đăng nhập</a></li>
+                              <li><a href="#">Đăng ký</a></li>
                             </ul>
+                          </nav>
                         </div>
-                    </li>
-                </ul>
-            </nav><!-- .navbar -->
-            <!-- <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#">Đăng nhập</a></li>
-          <li><a href="#">Đăng ký</a></li>
-        </ul>
-      </nav> -->
-
+                    </div>
+                </div>
+            </div>
         </div>
-    </header><!-- End Header -->
-
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="./assets/images/logo.png" alt="" style="max-width: 4rem;"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                      <div class="d-flex flex-wrap gap-3 justify-content-end">
+                        <a class="icon-header-item px-2 icon-header-noti" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                          <i class="fas fa-shopping-cart"></i>
+                        </a>
+                      </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <div class="modal fade" id="ViewProductModal" tabindex="-1" aria-labelledby="ViewProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row no-gutters position-relative pt-5 pb-3">
+              <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+                <i class="fas fa-times"></i>
+              </button>
+              <div class="col-md-6 d-flex px-5">
+                <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
+                  <img src="./assets/images/Product/test.png" alt="" style="max-width: 15rem;">
+                </div>
+              </div>
+              <div class="col-md-6 d-flex">
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="font-monospace">
+                      <h2 class="font-weight-600 text-dark mb-2">Cà phê muối</h2>
+                      <span class="sprice font-weight-600 mb-2">45,000đ</span>
+                      <p class="pcontent mt-3 text-secondary">Đây là món cà phê muối, một hương vị mới ,..................
+                        aa
+                      </p>
+                    </div>
+                    <div class="py-5 mt-5">
+                      <div class="row justify-content-center align-content-center">
+                        <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+                                                <div class="btn btn-primary btn-num-product-down trans-04">
+                                                    <i class="fas fa-minus"></i>
+                                                </div>
+    
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+    
+                                                <div class="btn btn-primary btn-num-product-up trans-04">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            </div>
+                        <div class="py-3">
+                          <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <main id="main">
         <section id="header-title">
             <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
@@ -106,33 +167,33 @@
                     <div class="col-xl-3 col-lg-4 col-md-5">
                         <div class="sidebar-categories">
                             <div class="head">Loại Sản Phẩm</div>
-                            <ul class="main-categories">
+                            <ul class="main-categories nav nav-tabs" role="tablist">
                                 <li class="main-nav-list">
-                                    <a href="#coffee">
-                                        <span class="me-2 categories-title active">CÀ PHÊ/COFFEE</span><span
+                                    <a href="#coffee" class="active" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#coffee" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                                        <span class="me-2 categories-title">CÀ PHÊ/COFFEE</span><span
                                             class="number">(53)</span>
                                     </a>
                                 </li>
                                 <li class="main-nav-list">
-                                    <a href="#coffee">
+                                    <a href="#chocolate" class="" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#chocolate" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                                         <span class="me-2 categories-title">CHOCOLATE</span><span
                                             class="number">(53)</span>
                                     </a>
                                 </li>
                                 <li class="main-nav-list">
-                                    <a href="#coffee">
+                                    <a href="#tea">
                                         <span class="me-2 categories-title">TRÀ/TEA</span><span
                                             class="number">(53)</span>
                                     </a>
                                 </li>
                                 <li class="main-nav-list">
-                                    <a href="#coffee">
+                                    <a href="#juice">
                                         <span class="me-2 categories-title">NƯỚC ÉP/JUICE</span><span
                                             class="number">(53)</span>
                                     </a>
                                 </li>
                                 <li class="main-nav-list">
-                                    <a href="#coffee">
+                                    <a href="#smoothie">
                                         <span class="me-2 categories-title">SINH TỐ/SMOOTHIE</span><span
                                             class="number">(53)</span>
                                     </a>
@@ -141,178 +202,273 @@
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-8 col-md-7">
-                        <form action="" class="row">
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-group local-forms">
-                                    <label>Tỉnh/Thành Phố <span class="text-danger">*</span></label>
-                                    <select class="form-control selectsearch select-restaurants" name="state">
-                                        <option value="">Chọn Tỉnh/Thành Phố</option>
-                                        <option value="1">TP Hồ Chí Minh (3)</option>
-                                        <option value="2">Huế (3)</option>
-                                        <option value="3">Đà Nẵng (3)</option>
-                                        <option value="3">Bình Dương (3)</option>
-                                    </select>
+                        <section class="category-list">
+                            <div class="tab-content" >
+                                <div class="tab-pane fade show active" id="coffee" role="tabpanel" aria-labelledby="coffee-tab">
+                                    <h5 class="mb-4">Tìm được 5 món nước Cà Phê/Coffee</h5>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="chocolate" role="tabpanel" aria-labelledby="chocolate-tab">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="block2 my-3">
+                                                <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                  <img src="./assets/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 10rem;">
+                            
+                                                  <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                    role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
+                                                    Quick View
+                                                  </a>
+                                                </div>
+                            
+                                                <div class="block2-txt d-flex justify-content-between pt-2">
+                                                  <div class="d-flex flex-column ">
+                                                    <a href="product-detail.html" class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                      Cà phê muối
+                                                    </a>
+                                                    <span class="stext-103 cl3">
+                                                      $16.64
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="form-group local-forms">
-                                    <label>Quận Huyện <span class="text-danger">*</span></label>
-                                    <select class="form-control selectsearch select-restaurants" name="state">
-                                        <option value="">Chọn Quận/Huyện</option>
-                                        <option value="1">Bình Tân</option>
-                                        <option value="2">Bình Thạnh</option>
-                                        <option value="3">Quận 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
-                        <section class="section category-list">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="single-product text-center">
-                                        <img class="img-fluid" src="./assets/images/Product/test.png" alt="">
-                                        <div class="product-details">
-                                            <h6>Cà Phê Muối</h6>
-                                            <div class="price">
-                                                <h6>$150.00</h6>
-                                                <h6 class="l-through">$210.00</h6>
-                                            </div>
-                                            <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="social-info rounded-circle">
-                                                    <span>
-                                                        <i class="fas fa-eye"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </section>
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
@@ -331,7 +487,6 @@
                 </div>
             </div>
         </section>
-
     </main>
     <footer id="footer" class="footer mt-3">
         <div class="container">
@@ -435,6 +590,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="./assets/plugins/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js" integrity="sha512-FmCXNJaXWw1fc3G8zO3WdwR2N23YTWDFDTM3uretxVIbZ7lvnjHkciW4zy6JGvnrgjkcNEk8UNtdGTLs2GExAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/main.js"></script>
 
 </body>

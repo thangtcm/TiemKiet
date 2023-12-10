@@ -1,0 +1,80 @@
+﻿@model TiemKiet.ViewModel.BranchInfoVM
+
+@{
+    ViewData["Title"] = "Tạo chi nhánh";
+}
+
+<div class="content container-fluid">
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Add Teachers</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Branch" asp-area="Admin">Chi Nhánh</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Basic Details</span></h5>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label asp-for="BranchName" class="control-label">Tên chi nhánh<span class="login-danger">*</span></label>
+                                    <input asp-for="BranchName" class="form-control" placeholder="Nhập tên chi nhánh" />
+                                    <span asp-validation-for="BranchName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label asp-for="UrlGoogleMap" class="control-label">Đường dẫn google map<span class="login-danger">*</span></label>
+                                    <input asp-for="UrlGoogleMap" class="form-control" placeholder="Nhập đường dẫn google map" />
+                                    <span asp-validation-for="UrlGoogleMap" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Chọn Tỉnh/Thành Phố<span class="text-danger">*</span></label>
+                                    <select class="form-control select" asp-items="ViewBag.ProvinceLst" onchange="getDistrictByProvince(this.value)">
+                                        <option value="">Chọn tỉnh/thành phố</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Chọn Quận/Huyện<span class="text-danger">*</span></label>
+                                    <select name="districtId" class="form-control select" id="DistrictSelect">
+                                        <option value="">Chọn quận/huyện</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="btn btn-primary">
+                                        <span>Upload Image</span>
+                                        <input type="file" asp-for="uploadLst" multiple data-max_length="20" class="upload_inputfile" id="Multiple-Image" accept=".png, .jpg, .jpeg">
+                                    </label>
+                                    <div id="Multiple_ImgPreview" class="d-flex flex-wrap gap-2"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

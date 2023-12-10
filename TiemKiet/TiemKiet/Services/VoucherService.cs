@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using TiemKiet.Enums;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -19,8 +20,8 @@ namespace TiemKiet.Services
             Voucher model = new()
             {
                 Code = voucherInfo.VoucherCode,
-                DateCreate = DateTime.Now,
-                DateUpdate = DateTime.Now,
+                DateCreate = DateTime.UtcNow.ToTimeZone(),
+                DateUpdate = DateTime.UtcNow.ToTimeZone(),
                 DiscountType = voucherInfo.DiscountType,
                 DiscountValue = voucherInfo.DiscountValue,
                 IsRemoved = false,
@@ -38,9 +39,9 @@ namespace TiemKiet.Services
         {
             var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == Id);
             if (voucher == null) return false;
-            voucher.DateUpdate = DateTime.Now;
+            voucher.DateUpdate = DateTime.UtcNow.ToTimeZone();
             voucher.UserIdUpdate = userId;
-            voucher.DateRemove= DateTime.Now;
+            voucher.DateRemove= DateTime.UtcNow.ToTimeZone();
             voucher.UserIdRemove = userId;
             voucher.IsRemoved = true;
             _unitOfWork.VoucherRepository.Update(voucher);
@@ -69,7 +70,7 @@ namespace TiemKiet.Services
             if(voucher != null)
             {
                 voucher.Code = voucherInfo.VoucherCode;
-                voucher.DateUpdate = DateTime.Now;
+                voucher.DateUpdate = DateTime.UtcNow.ToTimeZone();
                 voucher.DiscountType = voucherInfo.DiscountType;
                 voucher.DiscountValue = voucherInfo.DiscountValue;
                 voucher.MaxDiscountAmount = voucherInfo.MaxDiscountAmount;

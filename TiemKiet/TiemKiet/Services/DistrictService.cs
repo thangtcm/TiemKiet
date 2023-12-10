@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -17,8 +18,8 @@ namespace TiemKiet.Services
         {
             District district = new()
             {
-                DateCreate = DateTime.Now,
-                DateUpdate = DateTime.Now,
+                DateCreate = DateTime.UtcNow.ToTimeZone(),
+                DateUpdate = DateTime.UtcNow.ToTimeZone(),
                 IsRemoved = false,
                 ProvinceId = districtInfo.ProvinceId,
                 UserIdCreate = userId,
@@ -35,7 +36,7 @@ namespace TiemKiet.Services
             if (district == null) return false;
             district.IsRemoved = true;
             district.UserIdRemove = userId;
-            district.DateRemove = DateTime.Now;
+            district.DateRemove = DateTime.UtcNow.ToTimeZone();
             await _unitOfWork.CommitAsync();
             return true;
         }
@@ -67,7 +68,7 @@ namespace TiemKiet.Services
             if (district == null) return false;
             district.DistrictName = districtInfo.DistrictName;
             district.UserIdUpdate = userId;
-            district.DateUpdate = DateTime.Now;
+            district.DateUpdate = DateTime.UtcNow.ToTimeZone();
             _unitOfWork.DistrictRepository.Update(district);
             await _unitOfWork.CommitAsync();
             return true;

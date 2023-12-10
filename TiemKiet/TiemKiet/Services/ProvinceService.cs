@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -18,8 +20,9 @@ namespace TiemKiet.Services
             Province province = new()
             {
                 CityName = provinceInfo.ProvinceName,
-                DateCreate = DateTime.Now,
-                DateUpdate = DateTime.Now,
+                CityNameShort = provinceInfo.ShortProvinceName,
+                DateCreate = DateTime.UtcNow.ToTimeZone(),
+                DateUpdate = DateTime.UtcNow.ToTimeZone(),
                 CountryId = provinceInfo.CountryId,
                 UserIdCreate= userId,
                 UserIdUpdate= userId,
@@ -35,7 +38,7 @@ namespace TiemKiet.Services
             if(province == null) return false;
             province.IsRemoved = true;
             province.UserIdRemove = userId;
-            province.DateRemove = DateTime.Now;
+            province.DateRemove = DateTime.UtcNow.ToTimeZone();
             await _unitOfWork.CommitAsync();
             return true;
         }
@@ -64,8 +67,9 @@ namespace TiemKiet.Services
             var province = await _unitOfWork.ProvinceRepository.GetAsync(x => x.Id == provinceInfo.ProvinceId && x.IsRemoved == false);
             if (province == null) return false;
             province.CityName = provinceInfo.ProvinceName;
+            province.CityNameShort = provinceInfo.ShortProvinceName;
             province.UserIdUpdate = userId;
-            province.DateUpdate = DateTime.Now;
+            province.DateUpdate = DateTime.UtcNow.ToTimeZone();
             _unitOfWork.ProvinceRepository.Update(province);
             await _unitOfWork.CommitAsync();
             return true;

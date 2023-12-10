@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Google.Api.Gax;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
+using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Services;
@@ -47,19 +51,37 @@ namespace TiemKietAPI.Controllers
             }
         }
 
-        [HttpGet("GetProducts")]
-        public async Task<IActionResult> Get(int? page, int? branchId)
+        [HttpGet("GetCategory")]
+        public IActionResult GetCategory()
         {
             try
             {
-                var products = await _productService.GetListAsync(branchId, x => x.Include(x => x.ProductImg!));
-                int pagesize = 10;
-                int maxpage = (products.Count / pagesize) + (products.Count % 10 == 0 ? 0 : 1);
-                int pagenumber = page == null || page < 0 ? 1 : page.Value;
-                PagedList<Product> lst = new(products, pagenumber, pagesize);
-                var productlst = lst.Select(product => new ProductInfoVM(product)).ToList();
+                var enumData = from ProductType e in Enum.GetValues(typeof(ProductType))
+                select new
+                {
+                    ID = (int)e,
+                    Name = e.ToString()
+                };
 
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { Data = productlst, MaxPage = maxpage }));
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new SelectList(enumData, "ID", "Name")));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+            
+        }
+
+        [HttpGet("GetProducts")]
+        public async Task<IActionResult> Get(int branchId = 1, ProductType productType = 0)
+        {
+            try
+            {
+                var products = await _productService.GetListAsync(branchId, productType, x => x.Include(x => x.ProductImg!));
+                var productlst = products.Select(product => new ProductInfoVM(product)).ToList();
+
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", productlst));
             }
             catch (Exception ex)
             {
