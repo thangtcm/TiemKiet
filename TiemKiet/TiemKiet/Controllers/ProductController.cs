@@ -17,7 +17,7 @@ namespace TiemKiet.Controllers
         {
             try
             {
-                var products = await _productService.GetListAsync();
+                var products = await _productService.GetCategoriesWithProductsAsync();
                 return View(products);
             }catch(Exception ex)
             {

@@ -169,7 +169,8 @@ h6 {
     color: var(--color-primary);
 }
 
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
     color: var(--color-primary);
 }
 
@@ -333,8 +334,24 @@ ol {
     background-color: var(--color-secondary) !important;
 }
 
+.bg-normal {
+    background-color: #dc7a34;
+}
+
+.bg-copper {
+    background-color: #bb7135;
+}
+
 .bg-sliver {
     background-color: #716969;
+}
+
+.bg-gold {
+    background-color: #a77a03;
+}
+
+.bg-diamond {
+    background-color: #005fcf;
 }
 
 .text-primary {
@@ -354,19 +371,41 @@ ol {
 /*-----------------
 	2. Table
 -----------------------*/
+.table>:not(:last-child)>:last-child>*
+{
+    font-size: 18px;
+    font-family: monospace;
+    vertical-align: middle;
+    text-align: center;
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row
+{
+    margin-bottom: 1rem;
+}
+
+.table-cart > th
+{
+    width: 200px;
+}
+
+.table .price{
+    font-family: monospace;
+    font-weight: 600;
+}
 
 .table {
     color: #333;
     max-width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
-.table>:not(:first-child) {
+.table> :not(:first-child) {
     border-top: transparent;
 }
 
-.table>:not(caption)>*>* {
+.table> :not(caption)>*>* {
     box-shadow: unset;
     padding: 0.75rem;
 }
@@ -588,10 +627,8 @@ table.table td h2 span {
 }
 
 .header__top a {
-    color: #ffffff !important;
+    color: #ffffff;
     font-size: 16px !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     display: inline-block;
     font-family: monospace;
 }
@@ -1023,6 +1060,7 @@ Pre-loader Style
 
 .user-info-card-header {
     font-size: 18px;
+    color: white;
     font-weight: 600;
     text-shadow: 0.254px 0.508px 0.508px rgba(0, 0, 0, .25);
 }
@@ -1091,6 +1129,17 @@ Pre-loader Style
 /*-----------------
 	PRODUCT
 -----------------------*/
+.product-thumbnail
+{
+    width: 200px;
+}
+
+.product-thumbnail img
+{
+    max-width: 160px!important;
+}
+
+
 .product-item {
     box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
     margin-bottom: 3rem;
@@ -1444,7 +1493,6 @@ Pre-loader Style
 #scroll-Top .return-to-top i {
     position: relative;
     bottom: 0;
-
 }
 
 #scroll-Top .return-to-top i {
@@ -2008,6 +2056,28 @@ Pre-loader Style
     font-size: 1.5rem;
 }
 
+
+/*===============================
+    Error
+===============================*/
+#error {
+    background-color: #ebf3ff;
+    padding: 2rem 0;
+    min-height: 100vh
+}
+
+#error .img-error {
+    height: 435px;
+    object-fit: contain;
+    padding: 3rem 0
+}
+
+#error .error-title {
+    color: #0d6efd;
+    font-size: 3rem;
+    margin-top: 1rem
+}
+
 /*===============================
     Avatar
 ===============================*/
@@ -2362,12 +2432,10 @@ Pre-loader Style
     font-size: 16px;
     color: #888;
     line-height: 1.2;
-
     padding: 0;
     border-radius: 0px;
     border: none;
     border-bottom: 1px solid transparent;
-
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -2406,9 +2474,21 @@ Pre-loader Style
 }
 
 .stext-103 {
-    font-family: Poppins-Regular;
+    font-family: monospace;
     font-size: 16px;
     line-height: 1.6;
+    color: var(--color-primary) !important;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.stext-product {
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-primary) !important;
+    line-height: 1.6;
+    font-weight: 600;
 }
 
 .sprice {
@@ -2572,15 +2652,13 @@ Pre-loader Style
 /*//////////////////////////////////////////////////////////////////
 [ Num Product ]*/
 .wrap-num-product {
-    height: 45px;
+    height: 2.5rem;
     border-radius: 3px;
     overflow: hidden;
 }
 
 .btn-num-product-up,
 .btn-num-product-down {
-    width: 45px;
-    height: 100%;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -2593,7 +2671,7 @@ Pre-loader Style
 
 .num-product {
     font-family: 'Poppins-SemiBold';
-    width: 45px;
+    width: 2.5rem;
     height: 100%;
     text-align: center;
     border: 1px solid #e6e6e6;
@@ -2625,6 +2703,7 @@ input.num-product::-webkit-inner-spin-button {
     color: var(--color-primary) !important;
 }
 
+
 .text-userName {
     font-family: monospace;
     font-size: 20px;
@@ -2638,4 +2717,31 @@ input.num-product::-webkit-inner-spin-button {
 
 .dropdown-menu-profile a {
     color: white;
+}
+
+/*--------------------------------------------------------------
+# Pagination
+--------------------------------------------------------------*/
+.pagination-tab{
+    padding: 30px;
+}
+
+.pagination > .active > a, 
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+	background-color: var(--color-primary)!important;
+	border-color: var(--color-primary)!important;
+}
+.pagination > li > a, 
+.pagination > li > span {
+	color: #fff;
+}
+.page-link:hover {
+    color: #fff;
+}
+.page-link:focus {
+	box-shadow: unset;
 }

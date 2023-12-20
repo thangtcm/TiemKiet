@@ -30,14 +30,14 @@ namespace TiemKiet.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var productlst = await _productService.GetListAsync(x => x.Include(x => x.ProductImg!).Include(x => x.Branch!));
+            var productlst = await _productService.GetListBranchAsync(1, x => x.Include(x => x.Branch!));
             return View(productlst.Select(x => new ProductInfoVM(x)).ToList());
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var branchlst = await _branchService.GetListAsync();
-            ViewData["BranchLst"] = new SelectList(branchlst, "Id", "BranchName");
+            //var branchlst = await _branchService.GetListAsync();
+            //ViewData["BranchLst"] = new SelectList(branchlst, "Id", "BranchName");
             var enumData = from ProductType e in Enum.GetValues(typeof(ProductType))
             select new
             {
@@ -63,12 +63,9 @@ namespace TiemKiet.Areas.Admin.Controllers
             {
                 
                 var user = await _userService.GetUser();
-                if(user == null || model.UploadImage == null)
+                if(user == null)
                 {
-                    branchlst = await _branchService.GetListAsync();
-                    ViewData["BranchLst"] = new SelectList(branchlst, "Id", "BranchName");
-                    ModelState.AddModelError(string.Empty, "Bạn chưa chọn ảnh");
-                    return View();
+                    return RedirectToAction(nameof(Index));
                 }
                 await _productService.Add(model, user.Id, branchId);
                 return RedirectToAction(nameof(Index));
@@ -82,5 +79,60 @@ namespace TiemKiet.Areas.Admin.Controllers
             return View();
         }
  
+
+        public async Task<IActionResult> Edit(int? Id)
+        {
+            if(Id == null)
+            {
+                return NotFound();
+            }
+            var product = await _productService.GetByIdAsync(Id.Value);
+            if(product == null)
+            {
+                return NotFound();
+            }
+            //var branchlst = await _branchService.GetListAsync();
+            //ViewData["BranchLst"] = new SelectList(branchlst, "Id", "BranchName", product.BranchId);
+            var enumData = from ProductType e in Enum.GetValues(typeof(ProductType))
+                           select new
+                           {
+                               ID = (int)e,
+                               Name = e.ToString()
+                           };
+            ViewData["ProductTypeLst"] = new SelectList(enumData, "ID", "Name", product.ProductType);
+            return View(new ProductInfoVM(product) { ProductDescription = product.ProductDescription ?? "",ProductMBDescription = product.ProductMBDescription ?? "" });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int ProductId, ProductInfoVM model)
+        {
+            try
+            {
+                if(ProductId != model.ProductId)
+                {
+                    ModelState.AddModelError(string.Empty, "Lỗi không xác định.");
+                    return RedirectToAction(nameof(Index));
+                }
+                var user = await _userService.GetUser();
+                if(user == null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }    
+                await _productService.Update(model, user.Id);
+                return RedirectToAction(nameof(Index));
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            var enumData = from ProductType e in Enum.GetValues(typeof(ProductType))
+                           select new
+                           {
+                               ID = (int)e,
+                               Name = e.ToString()
+                           };
+            ViewData["ProductTypeLst"] = new SelectList(enumData, "ID", "Name", model.ProductType);
+            return View();
+        }
     }
 }

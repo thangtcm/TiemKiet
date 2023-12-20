@@ -21,16 +21,16 @@
             @if (User.IsInRole(Constants.Roles.Admin))
             {
                 <li class="nav-item">
-                    <a class="nav-link dropdown-item" asp-area="Admin" asp-action="Index" asp-controller="Home">
+                    <a class="nav-link dropdown-item text-primary" asp-area="Admin" asp-action="Index" asp-controller="Home">
                         Quản lý Admin
                     </a>
                 </li>
             }
-            <li class="nav-item"><a class="nav-link dropdown-item" asp-action="Profile" asp-controller="Account">Thông tin tài khoản</a></li>
-            <li class="nav-item"><a class="nav-link dropdown-item" href="#">Lịch sử mua hàng</a></li>
+            <li class="nav-item"><a class="nav-link dropdown-item text-primary" asp-action="Profile" asp-controller="Account">Thông tin tài khoản</a></li>
+            <li class="nav-item"><a class="nav-link dropdown-item text-primary" href="#">Lịch sử mua hàng</a></li>
             <li class="nav-item">
                 <form class="form-inline" asp-action="Logout" asp-controller="Account" asp-area="" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link text-dark dropdown-item">Đăng xuất</button>
+                    <button type="submit" class="nav-link text-primary dropdown-item">Đăng xuất</button>
                 </form>
             </li>
         </ul>

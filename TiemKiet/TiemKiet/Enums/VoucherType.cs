@@ -5,7 +5,8 @@ namespace TiemKiet.Enums
 {
     public enum VoucherType
     {
-        VoucherSystem = 0, // Voucher cho user ranking là gì
-        VoucherUser = 1,
+        VoucherShip = 0, // Loại voucher
+        VoucherProduct = 1,
+        VoucherRank = 2
     }
 }

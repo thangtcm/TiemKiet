@@ -37,6 +37,9 @@ namespace TiemKiet.Data
         public DbSet<VoucherUser>? VoucherUsers { get; set; }
         public DbSet<ManagerVoucherLog> ManagerVoucherLogs { get; set; }
         public DbSet<ApplicationUserToken> ApplicationUserToken { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
+        public DbSet<VersionModel> VersionModel { get; set; }
+        public DbSet<ProductHome> ProductHome { get; set; }
 
         public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
         {

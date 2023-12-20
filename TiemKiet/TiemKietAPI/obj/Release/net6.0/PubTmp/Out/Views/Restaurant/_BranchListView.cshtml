@@ -1,0 +1,52 @@
+﻿@model ICollection<TiemKiet.ViewModel.BranchInfoVM>
+
+<p class="text-start text-dark">Có @Model.Count cửa hàng</p>
+<div class="row gx-5 mb-5">
+    @foreach(var item in Model)
+    {
+        <div class="col-lg-6 mb-5">
+            <div class="card lift h-100 p-0">
+                <div id="owl-branch" class="owl-carousel owl-theme owl-loaded owl-drag owl-branch">
+                    @foreach(var img in item.Imagelst!)
+                    {
+                        <div class="item">
+                            <img class="card-img-top" src="@img"
+                            alt="...">
+                        </div>
+                    }
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title mb-2">@item.BranchName</h4>
+                    <hr>
+                    <div class="card-text">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>69/1/7 Nguyễn Gia Trí, P. 25,  Quận Bình Thạnh, TP. Hồ Chí Minh</p>
+                        <p><i class="fas fa-utensils me-2"></i>7:00 - 23:00</p>
+                        <div class="d-flex flex-wrap">
+                            <div class="pe-4">
+                                <p>
+                                    <i class="fas fa-biking me-2"></i>
+                                    Có chỗ giữ xe
+                                </p>
+                            </div>
+                            <div class="pe-4">
+                                <p>
+                                    <i class="fas fa-biking me-2"></i>
+                                    Có chỗ giữ xe
+                                </p>
+                            </div>
+                            <div class="pe-4">
+                                <p>
+                                    <i class="fas fa-biking me-2"></i>
+                                    Có chỗ giữ xe
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top d-flex align-items-center justify-content-center">
+                    <a href="@item.UrlGoogleMap" class="text-center btn btn-primary">Xem Bản Đồ</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

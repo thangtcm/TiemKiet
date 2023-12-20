@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using System.Diagnostics.Eventing.Reader;
+using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -14,17 +15,12 @@ namespace TiemKiet.Services
         {
             _unitOfWork = unitOfWork;
         }    
-        public async Task<bool> Add(VoucherUserInfoVM voucherInfoVM)
+        public async Task<bool> Add(VoucherUser model)
         {
-            var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == voucherInfoVM.VoucherId);
+            var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Id == model.VoucherId);
             if (voucher == null) return false;
-            VoucherUser model = new()
-            {
-                UserIdClaim = voucherInfoVM.UserIdClaim,
-                VoucherId = voucherInfoVM.VoucherId,
-                ExpiryDate = DateTime.UtcNow.AddDays(voucher.ExpiryDays),
-                RedeemedDate = DateTime.UtcNow,
-            };
+            model.ExpiryDate = DateTime.UtcNow.AddDays(voucher.ExpiryDays).ToTimeZone();
+            model.RedeemedDate = DateTime.UtcNow.ToTimeZone();
             _unitOfWork.VoucherUserRepository.Add(model);
             await _unitOfWork.CommitAsync();
             return true;
@@ -48,28 +44,17 @@ namespace TiemKiet.Services
         public async Task<VoucherUser?> GetByIdAsync(int Id, Func<IQueryable<VoucherUser>, IIncludableQueryable<VoucherUser, object>> includes)
             => await _unitOfWork.VoucherUserRepository.GetAsync(x => x.Id == Id, includes);
 
-        public async Task<ICollection<VoucherUser>> GetListAsync(long? userId)
+        public async Task<ICollection<VoucherUser>> GetListAsync(long userId)
         {
-            if(userId.HasValue)
-            {
-                return await _unitOfWork.VoucherUserRepository.GetAllAsync(x => x.UserIdClaim == userId.Value);
-            }
-            else
-            {
-                return await _unitOfWork.VoucherUserRepository.GetAllAsync();
-            }
+            return await _unitOfWork.VoucherUserRepository.GetAllAsync(x => x.UserIdClaim == userId && x.ExpiryDate <= DateTime.UtcNow);
         }
 
-        public async Task<ICollection<VoucherUser>> GetListAsync(long? userId, Func<IQueryable<VoucherUser>, IIncludableQueryable<VoucherUser, object>> includes)
+        public async Task<ICollection<VoucherUser>> GetListAsync(long userId, Func<IQueryable<VoucherUser>, IIncludableQueryable<VoucherUser, object>> includes)
         {
-            if(userId.HasValue)
-            {
-                return await _unitOfWork.VoucherUserRepository.GetAllAsync(x => x.UserIdClaim == userId.Value, includes);
-            }    
-            else
-            {
-                return await _unitOfWork.VoucherUserRepository.GetAllAsync(null, includes);
-            }    
+            return await _unitOfWork.VoucherUserRepository.GetAllAsync(x => x.UserIdClaim == userId, includes);
         }
+
+        public async Task<ICollection<VoucherUser>> GetListAsync()
+            => await _unitOfWork.VoucherUserRepository.GetAllAsync();
     }
 }

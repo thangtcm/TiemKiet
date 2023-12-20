@@ -78,8 +78,11 @@ namespace TiemKietAPI.Controllers
         {
             try
             {
-                var products = await _productService.GetListAsync(branchId, productType, x => x.Include(x => x.ProductImg!));
-                var productlst = products.Select(product => new ProductInfoVM(product)).ToList();
+                var products = await _productService.GetListAsync(branchId, productType);
+                var productlst = products.Select(product => new ProductInfoVM(product)
+                {
+                    ProductDescription = product.ProductMBDescription ?? "",
+                }).ToList();
 
                 return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", productlst));
             }

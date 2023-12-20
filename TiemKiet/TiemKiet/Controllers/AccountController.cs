@@ -138,7 +138,7 @@ namespace TiemKiet.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Login([Phone] string phoneNumber, string password, string token)
+        public async Task<IActionResult> Login([Phone] string phoneNumber, string password, string? token)
         {
             if (!ModelState.IsValid)
             {

@@ -1,4 +1,5 @@
-﻿using TiemKiet.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using TiemKiet.Data;
 using TiemKiet.ViewModel;
 
 namespace TiemKiet.Services.Interface
@@ -11,6 +12,7 @@ namespace TiemKiet.Services.Interface
         public Task<ApplicationUser?> GetUser(long userId);
         public Task<bool> UpdateUser(UserInfoVM user);
         public Task<ApplicationUser?> GetUser();
+        public Task<ApplicationUser?> GetUserwithPhone([Phone] string Phone);
         public Task<CaculateVoucherInfo> CaculatePrice(long userId, double TotalPrice, int VoucherId = 0);
         public Task UpdatePoint(CaculateVoucherInfo model, long userId);
     }

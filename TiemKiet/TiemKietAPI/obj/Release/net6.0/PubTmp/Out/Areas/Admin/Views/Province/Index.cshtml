@@ -64,6 +64,7 @@
                                     <th>Tên Thành phố/Tỉnh</th>
                                     <th>Quốc gia</th>
                                     <th>Trạng Thái</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,6 +92,13 @@
                                                     <span class="badge bg-primary-light">Hoạt động</span>
                                                 }
                                             }
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="actions">
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm bg-danger-light">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 }

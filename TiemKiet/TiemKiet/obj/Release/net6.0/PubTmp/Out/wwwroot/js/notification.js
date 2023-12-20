@@ -15,14 +15,19 @@ async function getToken() {
     const messaging = firebase.messaging();
     togglePreloader(true);
     try {
-        const currentToken = await messaging.getToken({ vapidKey: 'BPPI3HPUZ0xGI4axfOogJXzKwdOM54c_O9zRGwH_ttz8HXJvv3F4FvMv6-bhzuNJp9ljIgxEQHLKQxdJi-JiX2E' });
+        const permission = await Notification.requestPermission();
+        if (permission === 'granted') {
+            const currentToken = await messaging.getToken({ vapidKey: 'BPPI3HPUZ0xGI4axfOogJXzKwdOM54c_O9zRGwH_ttz8HXJvv3F4FvMv6-bhzuNJp9ljIgxEQHLKQxdJi-JiX2E' });
 
-        if (currentToken) {
-            console.log(currentToken);
-            return currentToken;
+            if (currentToken) {
+                console.log(currentToken);
+                return currentToken;
+            } else {
+                console.log('No registration token available. Request permission to generate one.');
+                return "";
+            }
         } else {
-            console.log('No registration token available. Request permission to generate one.');
-            return "";
+            console.log('Unable to get permission to notify.');
         }
     } catch (err) {
         console.log('An error occurred while retrieving token. ', err);

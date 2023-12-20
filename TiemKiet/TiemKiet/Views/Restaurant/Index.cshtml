@@ -55,7 +55,7 @@
                                         <div class="col-12 col-sm-6 col-lg-4">
                                             <div class="form-group local-forms">
                                                 <label>Quận Huyện <span class="text-danger">*</span></label>
-                                                <select class="form-control select select-restaurants" name="districtId">
+                                                <select class="form-control select select-restaurants districtFilter" name="districtId">
                                                     <option value="">Chọn Quận/Huyện</option>
                                                     @if(item.districts != null)
                                                     {
@@ -76,7 +76,7 @@
                                         {
                                             @foreach(var branch in item.branches)
                                             {
-                                                <div class="col-lg-6 mb-5">
+                                                <div class="col-lg-6 mb-5 product-card" data-district-id="@branch.DistrictId">
                                                     <div class="card lift h-100 p-0">
                                                         <div id="owl-branch" class="owl-carousel owl-theme owl-loaded owl-drag owl-branch">
                                                             @foreach (var img in branch.Imagelst!)
@@ -133,3 +133,20 @@
         </div>
     </section>
 </main>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.districtFilter').change(function () {
+                var selectedDistrictId = $(this).val();
+
+                // Hiển thị tất cả các card nếu giá trị là ''
+                if (selectedDistrictId === '') {
+                    $('.product-card').removeClass('d-none');
+                } else {
+                    $('.product-card').addClass('d-none');
+                    $('.product-card[data-district-id="' + selectedDistrictId + '"]').removeClass('d-none');
+                }
+            });
+        });
+    </script>
+}

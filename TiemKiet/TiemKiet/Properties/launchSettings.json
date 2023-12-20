@@ -7,14 +7,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7117;http://localhost:5157"
+      "applicationUrl": "https://localhost:7117;http://localhost:5157",
+      "hotReloadEnabled": false
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": true
     },
     "Docker": {
       "commandName": "Docker",
@@ -25,7 +27,7 @@
     }
   },
   "iisSettings": {
-    "windowsAuthentication": false,
+    "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:18869",

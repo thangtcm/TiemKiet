@@ -1,245 +1,135 @@
-﻿@model ICollection<TiemKiet.Models.Product>
+﻿@model ICollection<TiemKiet.ViewModel.CategorywithProduct>
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
 }
 
-<section id="header-title">
-    <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
-        <div class="container py-5" data-aos="fade-up"
-             data-aos-duration="3000">
-            <h1 class="display-3 text-white mb-3">Thực đơn</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home" asp-area="">Trang Chủ</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Thực Đơn</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</section>
-<section id="products" class="section products">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="sidebar-categories">
-                    <div class="head">Loại Sản Phẩm</div>
-                    <ul class="main-categories">
-                        <li class="main-nav-list">
-                            <a href="#coffee">
-                                <span class="me-2 categories-title active">CÀ PHÊ/COFFEE</span><span class="number">(53)</span>
-                            </a>
-                        </li>
-                        <li class="main-nav-list">
-                            <a href="#coffee">
-                                <span class="me-2 categories-title">CHOCOLATE</span><span class="number">(53)</span>
-                            </a>
-                        </li>
-                        <li class="main-nav-list">
-                            <a href="#coffee">
-                                <span class="me-2 categories-title">TRÀ/TEA</span><span class="number">(53)</span>
-                            </a>
-                        </li>
-                        <li class="main-nav-list">
-                            <a href="#coffee">
-                                <span class="me-2 categories-title">NƯỚC ÉP/JUICE</span><span class="number">(53)</span>
-                            </a>
-                        </li>
-                        <li class="main-nav-list">
-                            <a href="#coffee">
-                                <span class="me-2 categories-title">SINH TỐ/SMOOTHIE</span><span class="number">(53)</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-9 col-lg-8 col-md-7">
-                <form action="" class="row">
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="form-group local-forms">
-                            <label>Tỉnh/Thành Phố <span class="text-danger">*</span></label>
-                            <select class="form-control selectsearch select-restaurants" name="state">
-                                <option value="">Chọn Tỉnh/Thành Phố</option>
-                                <option value="1">TP Hồ Chí Minh (3)</option>
-                                <option value="2">Huế (3)</option>
-                                <option value="3">Đà Nẵng (3)</option>
-                                <option value="3">Bình Dương (3)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="form-group local-forms">
-                            <label>Quận Huyện <span class="text-danger">*</span></label>
-                            <select class="form-control selectsearch select-restaurants" name="state">
-                                <option value="">Chọn Quận/Huyện</option>
-                                <option value="1">Bình Tân</option>
-                                <option value="2">Bình Thạnh</option>
-                                <option value="3">Quận 3</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-                <section class="section category-list">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-product text-center">
-                                <img class="img-fluid" src="~/images/Product/test.png" alt="">
-                                <div class="product-details">
-                                    <h6>Cà Phê Muối</h6>
-                                    <div class="price">
-                                        <h6>$150.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                    <div class="mt-3 d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="social-info rounded-circle">
-                                            <span>
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
+<main id="main">
+    <section id="header-title">
+        <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+            <div class="container py-5" data-aos="fade-up"
+                 data-aos-duration="3000">
+                <h1 class="display-3 text-white mb-3">Thực đơn</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home" asp-area="">Trang Chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Thực Đơn</li>
+                    </ol>
                 </nav>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section id="products" class="section products">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="sidebar-categories">
+                        <div class="head">Loại Sản Phẩm</div>
+                        <ul class="main-categories nav nav-tabs" role="tablist">
+                            @{
+                                foreach(var item in Model){
+                                    var categoryRole = $"#ProductNav{item.CategoryId}";
+                                    <li class="main-nav-list">
+                                        <a href="#" class="@(item == Model.FirstOrDefault() ? "active" : "")" data-toggle="tab" data-bs-toggle="tab" data-bs-target="@categoryRole" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                                            <span class="me-2 categories-title">@item.CategoryName</span><span class="number">(@item.ProductCount)</span>
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8 col-md-7">
+                    <section class="category-list">
+                        <div class="tab-content">
+                            @{
+                                foreach(var category in Model)
+                                {
+                                    var categoryRole = $"ProductNav{category.CategoryId}";
+                                    <div class="tab-pane fade show @(category == Model.FirstOrDefault() ? "active" : "")" id="@categoryRole" role="tabpanel" aria-labelledby="nav-tab">
+                                        <h5 class="mb-4">Tìm được @category.ProductCount món nước @category.CategoryName</h5>
+                                        <div class="row">
+                                            @foreach(var item in category.Products)
+                                            {
+                                                var productModal = $"ViewProductModal{item.ProductId}";
+                                                <div class="modal fade" id="@productModal" tabindex="-1" aria-labelledby="ViewProductModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                        <div class="modal-content">
+                                                            <div class="row no-gutters position-relative pt-5 pb-3">
+                                                                <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                                <div class="col-md-6 d-flex px-5">
+                                                                    <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
+                                                                        <img src="@item.ProductImage" alt="" style="max-width: 15rem;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 d-flex">
+                                                                    <div class="modal-body">
+                                                                        <div class="container">
+                                                                            <div class="font-monospace">
+                                                                                <h2 class="font-weight-600 text-dark mb-2">@item.ProductName</h2>
+                                                                                <span class="sprice font-weight-600 mb-2">@item.ProductPrice.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</span>
+                                                                                <p class="pcontent mt-3 text-secondary">
+                                                                                    @Html.Raw(item.ProductDescription)
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="py-5 mt-5">
+                                                                                <div class="row justify-content-center align-content-center">
+                                                                                    <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+                                                                                        <div class="btn btn-primary btn-num-product-down trans-04">
+                                                                                            <i class="fas fa-minus"></i>
+                                                                                        </div>
+
+                                                                                        <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                                                                                        <div class="btn btn-primary btn-num-product-up trans-04">
+                                                                                            <i class="fas fa-plus"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="py-3">
+                                                                                        <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-6">
+                                                    <div class="block2 my-3">
+                                                        <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
+                                                            <img src="@item.ProductImage" alt="IMG-PRODUCT" style="max-width: 10rem;">
+
+                                                            <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
+                                                                role="button" data-bs-toggle="modal" data-bs-target="#@productModal">
+                                                                Chi Tiết
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="block2-txt d-flex justify-content-between pt-2">
+                                                            <div class="d-flex flex-column ">
+                                                                <a class="stext-103 text-secondary trans-04 js-name-b2 p-b-6">
+                                                                    @item.ProductName
+                                                                </a>
+                                                                <span class="stext-103 cl3">
+                                                                    @item.ProductPrice.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

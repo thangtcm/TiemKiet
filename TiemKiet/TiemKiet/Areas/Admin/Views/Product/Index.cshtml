@@ -42,6 +42,7 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Giảm giá</th>
+                                    <th>Loại sản phẩm</th>
                                     <th>Chi Nhánh</th>
                                     <th>Trạng thái</th>
                                     <th class="text-end">Action</th>
@@ -67,6 +68,9 @@
                                             @item.ProductSale
                                         </td>
                                         <td>
+                                            @item.ProductType.ToString()
+                                        </td>
+                                        <td>
                                             @item.BranchName
                                         </td>
                                         <td><span class="badge bg-primary-light">Đang hoạt động</span></td>
@@ -75,7 +79,7 @@
                                                 <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm bg-success-light me-2">
                                                     <i class="far fa-eye"></i>
                                                 </a>
-                                                <a asp-action="Edit" asp-route-userId="@item.ProductId" class="btn btn-sm bg-danger-light">
+                                                <a asp-action="Edit" asp-route-Id="@item.ProductId" class="btn btn-sm bg-danger-light">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </div>

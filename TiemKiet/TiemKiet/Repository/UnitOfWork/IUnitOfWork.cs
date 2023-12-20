@@ -19,6 +19,10 @@ namespace TiemKiet.Repository.UnitOfWork
         IUserTokenRepository UserTokenRepository { get; }
         IUserRoleRepository UserRoleRepository { get; }
         IBlogRepository BlogRepository { get; }
+        IFeedbackRepository FeedbackRepository { get; }
+        IVersionRepository VersionRepository { get; }
+        IProductHomeRepository ProductHomeRepository { get; }
+        IBannerRepository BannerRepository { get; }
         void Commit();
         void Rollback();
         Task CommitAsync();

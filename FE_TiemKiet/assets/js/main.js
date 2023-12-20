@@ -53,6 +53,19 @@
 		return false;
 	});
 
+	// Datatable
+
+	if ($('.datatable').length > 0) {
+        $('.datatable').DataTable({
+            "bFilter": false,
+        });
+    }
+    if ($('.datatables').length > 0) {
+        $('.datatables').DataTable({
+            "bFilter": true,
+        });
+    }
+	new DataTable('.datatable');
 
 	/*==================================================================
     [ +/- num product ]*/

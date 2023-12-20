@@ -1,0 +1,57 @@
+﻿@model TiemKiet.Models.VoucherUser
+@{
+    ViewData["Title"] = "Thêm voucher cho người dùng";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">@ViewData["Title"]</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="VoucherUser" asp-area="Admin">Sản Phẩm</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="VoucherUser" asp-area="Admin" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Cấp voucher cho người dùng</span></h5>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Chọn Người dùng <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-for="UserIdClaim" asp-items="ViewBag.UserList" required>
+                                        <option value="">Chọn người dùng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Chọn Voucher <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-for="VoucherId" asp-items="ViewBag.VoucherList" required>
+                                        <option value="">Chọn voucher</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

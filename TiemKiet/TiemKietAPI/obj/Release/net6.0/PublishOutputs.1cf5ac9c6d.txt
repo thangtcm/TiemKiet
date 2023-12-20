@@ -13,9 +13,12 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\District\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Home\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Create.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Edit.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Province\Create.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Province\Edit.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Province\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Settings\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\Error.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Footer.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Header.cshtml
@@ -26,6 +29,10 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_SlideBar.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Style.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\VoucherUser\Create.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\VoucherUser\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Voucher\Create.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Voucher\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\_ViewImports.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\_ViewStart.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Identity\Pages\Account\AccessDenied.cshtml
@@ -78,7 +85,9 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Index.
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Privacy.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Product\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Restaurant\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Restaurant\_BranchListView.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Shared\Error.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Shared\_Cart.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Shared\_Footer.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Shared\_FormConfirmOTP.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Shared\_FormConfirmPIN.cshtml

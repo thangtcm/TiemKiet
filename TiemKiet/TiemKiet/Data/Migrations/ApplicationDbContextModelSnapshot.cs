@@ -528,6 +528,38 @@ namespace TiemKiet.Migrations
                     b.ToTable("Districts");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<long>("ApplicationUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateFeedback")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Feedback");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.ImageModel", b =>
                 {
                     b.Property<int>("Id")
@@ -537,6 +569,9 @@ namespace TiemKiet.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("BranchId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FeedbackId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -551,6 +586,8 @@ namespace TiemKiet.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
+
+                    b.HasIndex("FeedbackId");
 
                     b.HasIndex("UserIdUpload");
 
@@ -617,13 +654,19 @@ namespace TiemKiet.Migrations
                     b.Property<string>("ProductDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductImgId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductImg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductMBDescription")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ProductPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ProductPriceUp")
                         .HasColumnType("float");
 
                     b.Property<double>("ProductSale")
@@ -645,8 +688,6 @@ namespace TiemKiet.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.HasIndex("ProductImgId");
-
                     b.HasIndex("UserIdCreate");
 
                     b.HasIndex("UserIdRemove");
@@ -654,6 +695,33 @@ namespace TiemKiet.Migrations
                     b.HasIndex("UserIdUpdate");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.ProductHome", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DatePublish")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("UserUpdateId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("productHomeType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserUpdateId");
+
+                    b.ToTable("ProductHome");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.Province", b =>
@@ -751,6 +819,34 @@ namespace TiemKiet.Migrations
                     b.ToTable("TransactionLog");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.VersionModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsDeploy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMaintenance")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UrlAndroidVersion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlIOSVersion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VersionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VersionModel");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.Voucher", b =>
                 {
                     b.Property<int>("Id")
@@ -762,12 +858,6 @@ namespace TiemKiet.Migrations
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateRemove")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateUpdate")
                         .HasColumnType("datetime2");
@@ -790,23 +880,16 @@ namespace TiemKiet.Migrations
                     b.Property<double>("MinBillAmount")
                         .HasColumnType("float");
 
-                    b.Property<long?>("UserIdCreate")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("UserIdRemove")
-                        .HasColumnType("bigint");
-
                     b.Property<long?>("UserIdUpdate")
                         .HasColumnType("bigint");
 
                     b.Property<string>("VoucherName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("VoucherType")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
-
-                    b.HasIndex("UserIdCreate");
-
-                    b.HasIndex("UserIdRemove");
 
                     b.HasIndex("UserIdUpdate");
 
@@ -1002,11 +1085,26 @@ namespace TiemKiet.Migrations
                     b.Navigation("UserUpdate");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.Feedback", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.ImageModel", b =>
                 {
                     b.HasOne("TiemKiet.Models.Branch", null)
                         .WithMany("Imagelist")
                         .HasForeignKey("BranchId");
+
+                    b.HasOne("TiemKiet.Models.Feedback", null)
+                        .WithMany("ImageLst")
+                        .HasForeignKey("FeedbackId");
 
                     b.HasOne("TiemKiet.Data.ApplicationUser", "UserUpload")
                         .WithMany()
@@ -1046,10 +1144,6 @@ namespace TiemKiet.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TiemKiet.Models.ImageModel", "ProductImg")
-                        .WithMany()
-                        .HasForeignKey("ProductImgId");
-
                     b.HasOne("TiemKiet.Data.ApplicationUser", "UserCreate")
                         .WithMany()
                         .HasForeignKey("UserIdCreate");
@@ -1064,11 +1158,20 @@ namespace TiemKiet.Migrations
 
                     b.Navigation("Branch");
 
-                    b.Navigation("ProductImg");
-
                     b.Navigation("UserCreate");
 
                     b.Navigation("UserRemove");
+
+                    b.Navigation("UserUpdate");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.ProductHome", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserUpdate")
+                        .WithMany()
+                        .HasForeignKey("UserUpdateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("UserUpdate");
                 });
@@ -1119,21 +1222,9 @@ namespace TiemKiet.Migrations
 
             modelBuilder.Entity("TiemKiet.Models.Voucher", b =>
                 {
-                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserCreate")
-                        .WithMany()
-                        .HasForeignKey("UserIdCreate");
-
-                    b.HasOne("TiemKiet.Data.ApplicationUser", "UserRemove")
-                        .WithMany()
-                        .HasForeignKey("UserIdRemove");
-
                     b.HasOne("TiemKiet.Data.ApplicationUser", "UserUpdate")
                         .WithMany()
                         .HasForeignKey("UserIdUpdate");
-
-                    b.Navigation("UserCreate");
-
-                    b.Navigation("UserRemove");
 
                     b.Navigation("UserUpdate");
                 });
@@ -1168,6 +1259,11 @@ namespace TiemKiet.Migrations
             modelBuilder.Entity("TiemKiet.Models.District", b =>
                 {
                     b.Navigation("Branches");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.Feedback", b =>
+                {
+                    b.Navigation("ImageLst");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.Province", b =>

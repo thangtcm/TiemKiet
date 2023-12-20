@@ -25,17 +25,6 @@ namespace TiemKiet.Controllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(IFormFile upload)
-        {
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();

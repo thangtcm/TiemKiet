@@ -1,0 +1,105 @@
+﻿@model TiemKiet.Models.Voucher
+@{
+    ViewData["Title"] = "Thêm voucher";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">@ViewData["Title"]</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Voucher" asp-area="Admin">Voucher</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="Voucher" asp-area="Admin" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Điền thông tin voucher</span></h5>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.Code) <span class="text-danger">*</span></label>
+                                    <input asp-for="Code" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.VoucherName) <span class="text-danger">*</span></label>
+                                    <input asp-for="VoucherName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.DiscountType) <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-for="DiscountType" asp-items="ViewBag.DiscountTypeLst" required>
+                                        <option value="">Chọn loại giảm giá</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.DiscountValue) <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="DiscountValue" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.MinBillAmount) <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="MinBillAmount" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.MaxDiscountAmount) <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="MaxDiscountAmount" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.VoucherType) <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-for="DiscountType" asp-items="ViewBag.VoucherTypeLst" required>
+                                        <option value="">Chọn loại voucher</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>@Html.DisplayNameFor(model => model.ExpiryDays) <span class="text-danger">*</span></label>
+                                    <input asp-for="ExpiryDays" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

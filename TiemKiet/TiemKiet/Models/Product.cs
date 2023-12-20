@@ -16,14 +16,18 @@ namespace TiemKiet.Models
         public string? ProductName { get; set; }
         [DisplayName("Giá sản phẩm")]
         public double ProductPrice { get; set; }
+        [DisplayName("Giá Upsize")]
+        public double ProductPriceUp { get; set; }
         [DisplayName("Mô tả sản phẩm")]
         public string? ProductDescription { get; set; }
+        [DisplayName("Mô tả sản phẩm (Mobile")]
+        public string? ProductMBDescription { get; set; }
         [DisplayName("Phần trăm giảm giá")]
         public double ProductSale { get; set; }
         [DisplayName("Loại sản phẩm")]
         public ProductType ProductType { get; set; }
         [DisplayName("Ảnh")]
-        public ImageModel? ProductImg {get; set; }
+        public string? ProductImg {get; set; }
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreate { get; set; }
         [Display(Name = "Người tạo")]

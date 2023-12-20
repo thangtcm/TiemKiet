@@ -577,3 +577,5 @@ D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\win-x86\native\libSkia
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\tiemkiet-firebase-admin.json
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\FirebaseAdmin.dll
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\TiemKiet.Properties.Resources.resources
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\TiemKiet.csproj.GenerateResource.cache

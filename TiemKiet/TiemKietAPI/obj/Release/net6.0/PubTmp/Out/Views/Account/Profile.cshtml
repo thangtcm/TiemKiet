@@ -1,96 +1,97 @@
-﻿@model TiemKiet.ViewModel.UserInfoVM
+﻿@using TiemKiet.Helpers;
+@model TiemKiet.ViewModel.UserInfoVM
 
 @{
     ViewData["Title"] = "Quản lý thông tin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<section id="header-title">
-    <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
-        <div class="container py-5" data-aos="fade-up"
-             data-aos-duration="3000">
-            <h1 class="display-3 text-white mb-3">Thông tin tài khoản</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Người dùng</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Thông tin tài khoản</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</section>
-<section id="profile" class="section profile">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-5">
-                <div class="sidebar-categories">
-                    <div class="user-info-card my-3 text-primary" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/tiemkiet-aa7d7.appspot.com/o/Images%2Frank-sliver.jpg?alt=media&token=fefaf954-1bb8-480a-94e2-5cb4cca61338);">
-                        <div class="user-info-card-header ">
-                            <span>Trần Cao Minh Thắng</span>
-                            <p>0 Điểm - <span class="fw-bold">hạng Đồng</span></p>
-                        </div>
-                        <div class="user-card-barcode d-flex flex-column align-items-center">
-                            <img src="@Url.Action("GenerateBarcode", "Account", new { barcodeData = Model.UserId.ToString() })" , new { code=Model.UserId }))" alt="">
-                            <p class="mb-0">@Model.UserId</p>
-                        </div>
-                        <div class="user-info-detail">
-                            <div class="progress">
-                                <div class="progress-bar bg-sliver progress-bar-striped" style="width:30%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <partial name="_NavMenuProfile" />
-                </div>
+<main id="main">
+    <section id="header-title">
+        <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+            <div class="container py-5" data-aos="fade-up"
+                 data-aos-duration="3000">
+                <h1 class="display-3 text-white mb-3">Thông tin tài khoản</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Người dùng</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Thông tin tài khoản</li>
+                    </ol>
+                </nav>
             </div>
-            <div class="col-xl-9 col-lg-8 col-md-7">
-                <div class="content w-100 pt-0">
-                    <div class="container">
-                    <div class="content-page-header">
-                        <h5>Cài đặt tài khoản</h5>
-                    </div>
-                    <div class="row">
-                        <form asp-action="EditProfile" asp-controller="Account" asp-area="" class="py-2">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <input type="hidden" asp-for="UserId" />
-                            <div class="avatar-upload">
-                                <div class="avatar-edit">
-                                    <div id="form-image">
-                                        <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-                                        <label for="imageUpload">
-                                            <i class="fas fa-camera"></i>
-                                        </label>
+        </div>
+    </section>
+    <section id="profile" class="section profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="sidebar-categories">
+                        <div class="user-info-card my-3 text-primary" style="@CallBack.GetBackGroundRank(Model!.Point!.Value);">
+                            <div class="user-info-card-header ">
+                                <span>@Model.FullName</span>
+                                <p>@Model.Point Điểm - <span class="fw-bold">hạng @Model.RankName</span></p>
+                            </div>
+                            <div class="user-card-barcode d-flex flex-column align-items-center">
+                                <img src="@Url.Action("GenerateBarcode", "Account", new { barcodeData = Model.UserId.ToString() })" , new { code=Model.UserId }))" alt="">
+                                <p class="mb-0">@Model.UserId</p>
+                            </div>
+                            <div class="user-info-detail">
+                                <div class="progress">
+                                    <div class="progress-bar @CallBack.GetClassProgress(Model.Score!.Value) progress-bar-striped" style="width:@(Model.Percent)%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                     </div>
                                 </div>
-                                <div class="avatar-preview">
-                                    <img class="profile-user-img img-responsive rounded-circle" id="imagePreview" src="~/images/Anh-Wibu-mat-do.jpg" alt="User profile picture">
-                                </div>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="FullName" class="form-label font-weight-600">Họ và tên</label>
-                                <input asp-for="FullName" class="form-control" placeholder="Nhập họ và tên">
-                                <span asp-validation-for="FullName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="NumberPhone" class="form-label font-weight-600">Số điện thoại</label>
-                                <input asp-for="NumberPhone" class="form-control" placeholder="0123456789" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Gender" class="form-label font-weight-600">Giới tính</label>
-                                <select asp-for="Gender" class="select">
-                                    <option value="">Chọn giới tính</option>
-                                    <option value="">Nam</option>
-                                    <option value="">Nữ</option>
-                                    <option value="">Khác</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-                        </form>
+                        </div>
+                        <partial name="_NavMenuProfile" />
                     </div>
                 </div>
+                <div class="col-xl-9 col-lg-8 col-md-7">
+                    <div class="content w-100 pt-0">
+                        <div class="container">
+                        <div class="content-page-header">
+                            <h5>Cài đặt tài khoản</h5>
+                        </div>
+                        <div class="row">
+                            <form asp-action="EditProfile" asp-controller="Account" asp-area="" class="py-2">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="UserId" />
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <div id="form-image">
+                                            <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                            <label for="imageUpload">
+                                                <i class="fas fa-camera"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <img class="profile-user-img img-responsive rounded-circle" id="imagePreview" src="~/images/Anh-Wibu-mat-do.jpg" alt="User profile picture">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="FullName" class="form-label font-weight-600">Họ và tên</label>
+                                    <input asp-for="FullName" class="form-control" placeholder="Nhập họ và tên">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="NumberPhone" class="form-label font-weight-600">Số điện thoại</label>
+                                    <input asp-for="NumberPhone" class="form-control" placeholder="0123456789" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Gender" class="form-label font-weight-600">Giới tính</label>
+                                    <select asp-for="Gender" class="select">
+                                        <option value="">Chọn giới tính</option>
+                                        <option value="">Nam</option>
+                                        <option value="">Nữ</option>
+                                        <option value="">Khác</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
+</main>

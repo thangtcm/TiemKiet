@@ -30,8 +30,17 @@ namespace TiemKiet.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var users = await _userService.GetUsersWithRoles();
-            return View(users);
+            try
+            {
+                var users = await _userService.GetUsersWithRoles();
+                this.AddToastrMessage("Tải dữ liệu thành công", Enums.ToastrMessageType.Success);   
+                return View(users);
+            }catch(Exception ex)
+            {
+                this.AddToastrMessage("Đã có lỗi xayr ra", Enums.ToastrMessageType.Error);
+                _logger.LogError(ex.Message.ToString());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize(Roles =Constants.Roles.Admin)]

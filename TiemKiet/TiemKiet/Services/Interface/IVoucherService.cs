@@ -8,7 +8,7 @@ namespace TiemKiet.Services.Interface
     {
         public Task<ICollection<Voucher>> GetListAsync();
         public Task<ICollection<Voucher>> GetListAsync(Func<IQueryable<Voucher>, IIncludableQueryable<Voucher, object>> includes);
-        public Task Add(VoucherInfoVM voucherInfo, long userId);
+        public Task Add(Voucher model, long userId);
         public Task<Voucher?> GetByIdAsync(int Id);
         public Task<Voucher?> GetByIdAsync(int Id, Func<IQueryable<Voucher>, IIncludableQueryable<Voucher, object>> includes);
         public Voucher? GetById(int Id);

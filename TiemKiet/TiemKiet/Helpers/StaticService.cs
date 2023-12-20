@@ -19,6 +19,8 @@ namespace TiemKiet.Helpers
     {
         public static void Register(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize);
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                             options.UseSqlServer(connectionString));
@@ -55,8 +57,8 @@ namespace TiemKiet.Helpers
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 options.Cookie.SameSite = SameSiteMode.None;
-                options.LoginPath = "/Identity/Account/Login";
-                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.LoginPath = "/Home";
+                options.AccessDeniedPath = "/Home/Error";
                 options.SlidingExpiration = true;
             });
             //Repository
@@ -76,6 +78,10 @@ namespace TiemKiet.Helpers
             services.AddScoped<IUserTokenRepository, UserTokenRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddScoped<IVersionRepository, VersionRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<IProductHomeRepository, ProductHomeRepository>();
+            services.AddScoped<IBannerRepository, BannerRepository>();
 
             //Service
             services.AddTransient(typeof(IUserService), typeof(UserService));
@@ -93,6 +99,10 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IUserTokenService), typeof(UserTokenService));
             services.AddTransient(typeof(IBlogService), typeof(BlogService));
             services.AddTransient(typeof(IFirebaseStorageService), typeof(FirebaseStorageService));
+            services.AddTransient(typeof(IVersionService), typeof(VersionService));
+            services.AddTransient(typeof(IProductHomeService), typeof(ProductHomeService));
+            services.AddTransient(typeof(IBannerService), typeof(BannerService));
+            //services.AddTransient(typeof(IFeedbackService), typeof(FeedbackService));
 
             //Authentication
             AddAuthorizationPolicies(services);
@@ -117,8 +127,7 @@ namespace TiemKiet.Helpers
                 Console.WriteLine($"Error creating FirebaseApp: {ex.Message}");
             }
 
-            services.AddControllersWithViews().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize);
+            
         }
 
         public static void AddAuthorizationPolicies(this IServiceCollection services)

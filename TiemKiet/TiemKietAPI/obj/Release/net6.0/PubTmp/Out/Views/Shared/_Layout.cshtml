@@ -20,9 +20,7 @@
     @{
         await Html.RenderPartialAsync("_Header");
     }
-    <main id="main">
-        @RenderBody()
-    </main>
+    @RenderBody()
     @{
         await Html.RenderPartialAsync("_Footer");
     }

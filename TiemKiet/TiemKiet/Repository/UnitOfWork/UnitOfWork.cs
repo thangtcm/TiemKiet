@@ -21,6 +21,10 @@ namespace TiemKiet.Repository.UnitOfWork
         private IUserTokenRepository _userTokenRepository;
         private IUserRoleRepository _userRoleRepository;
         private IBlogRepository _blogRepository;
+        private IFeedbackRepository _feedbackRepository;
+        private IVersionRepository _versionRepository;
+        private IProductHomeRepository _productHomeRepository;
+        private IBannerRepository _bannerRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -139,6 +143,37 @@ namespace TiemKiet.Repository.UnitOfWork
             get
             {
                 return _blogRepository ??= new BlogRepository(_context);
+            }
+        }
+
+        public IFeedbackRepository FeedbackRepository
+        {
+            get
+            {
+                return _feedbackRepository ??= new FeedbackRepository(_context);
+            }
+        }
+
+        public IVersionRepository VersionRepository
+        {
+            get
+            {
+                return _versionRepository ??= new VersionRepository(_context);
+            }
+        }
+        public IProductHomeRepository ProductHomeRepository
+        {
+            get
+            {
+                return _productHomeRepository ??= new ProductHomeRepository(_context);
+            }
+        }
+
+        public IBannerRepository BannerRepository
+        {
+            get
+            {
+                return _bannerRepository??= new BannerRepository(_context);
             }
         }
         public void Commit()

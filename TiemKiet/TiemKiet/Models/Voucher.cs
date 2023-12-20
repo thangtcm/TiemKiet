@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TiemKiet.Data;
 using TiemKiet.Enums;
+using TiemKiet.Helpers;
 
 namespace TiemKiet.Models
 {
@@ -16,6 +17,8 @@ namespace TiemKiet.Models
         public string? VoucherName { get; set; }
         [DisplayName("Mã giảm giá")]
         public string Code { get; set; }
+        [Display(Name ="Loại voucher")]
+        public VoucherType VoucherType { get; set; }
         [DisplayName("Loại giảm giá")]
         public DiscountType DiscountType { get; set; }
         [DisplayName("Giảm giá")]
@@ -28,22 +31,28 @@ namespace TiemKiet.Models
         public int ExpiryDays { get; set; }
         [Display(Name = "Trạng thái")]
         public bool IsRemoved { get; set; }
-        [Display(Name = "Ngày tạo")]
-        public DateTime DateCreate { get; set; }
-        public long? UserIdCreate { get; set; }
-        [ForeignKey("UserIdCreate")]
-        [Display(Name = "Người tạo")]
-        public ApplicationUser? UserCreate { get; set; }
         [Display(Name = "Ngày cập nhật")]
         public DateTime DateUpdate { get; set; }
         public long? UserIdUpdate { get; set; }
         [ForeignKey("UserIdUpdate")]
         [Display(Name = "Ngày cập nhật")]
         public ApplicationUser? UserUpdate { get; set; }
-        [Display(Name = "Ngày xóa")]
-        public DateTime DateRemove { get; set; }
-        public long? UserIdRemove { get; set; }
-        [ForeignKey("UserIdRemove")]
-        public ApplicationUser UserRemove { get; set; }
+
+        public Voucher()
+        {
+
+        }
+        public Voucher(Voucher model)
+        {
+            this.VoucherName = model.VoucherName;
+            this.VoucherType = model.VoucherType;
+            this.DiscountType = model.DiscountType;
+            this.DiscountValue = model.DiscountValue;
+            this.ExpiryDays = model.ExpiryDays;
+            this.Code = model.Code;
+            this.DateUpdate = DateTime.UtcNow.ToTimeZone();
+            this.MaxDiscountAmount= model.MaxDiscountAmount;
+            this.MinBillAmount  = model.MinBillAmount;
+        }
     }
 }

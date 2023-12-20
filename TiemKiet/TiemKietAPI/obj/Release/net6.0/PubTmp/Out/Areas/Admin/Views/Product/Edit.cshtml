@@ -1,0 +1,120 @@
+﻿@model TiemKiet.ViewModel.ProductInfoVM
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Add Subject</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Product" asp-area="Admin">Sản Phẩm</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit" asp-controller="Product" asp-area="Admin" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="ProductId" />
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Điền thông tin sản phẩm</span></h5>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Blog Image</label>
+                                    <div class="avatar-preview">
+                                        <img class="my-3 avatar-xxl object-fit-cover" id="imagePreview" src="@Model.ProductImage" alt="User profile picture">
+                                    </div>
+                                    <div class="change-photo-btn">
+                                        <div>
+                                            <p>Add Image</p>
+                                        </div>
+                                        <input asp-for="UploadImage" class="upload" id="imageUpload" accept=".png, .jpg, .jpeg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Tên sản phẩm <span class="text-danger">*</span></label>
+                                    <input asp-for="ProductName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Giá sản phẩm <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductPrice" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Giá upsize sản phẩm <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductPriceUpSize" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Giảm giá <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductSale" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            @*                            <div class="col-12 col-sm-6">
+                            <div class="form-group local-forms">
+                            <label>Chi nhánh <span class="login-danger">*</span></label>
+                            <select class="form-control select" name="branchId" asp-items="ViewBag.BranchLst" required>
+                            <option value="">Chọn chi nhánh</option>
+                            </select>
+                            </div>
+                            </div>*@
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
+                                    <label>Danh mục sản phẩm <span class="login-danger">*</span></label>
+                                    <select class="form-control select" asp-for="ProductType" asp-items="ViewBag.ProductTypeLst" required>
+                                        <option value="">Chọn danh mục</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label>Mô tả mobile sản phẩm<span class="login-danger">*</span></label>
+                                    <textarea asp-for="ProductMBDescription" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label>Mô tả sản phẩm<span class="login-danger">*</span></label>
+                                    <textarea id="editor1" asp-for="ProductDescription" class="editor" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

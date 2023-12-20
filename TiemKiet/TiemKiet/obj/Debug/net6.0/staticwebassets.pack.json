@@ -2009,6 +2009,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\toastrcustom.css",
+      "PackagePath": "staticwebassets\\css\\toastrcustom.css"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -2221,6 +2225,10 @@
       "PackagePath": "staticwebassets\\images\\rank-sliver.jpg"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\svg\\error-404.svg",
+      "PackagePath": "staticwebassets\\images\\svg\\error-404.svg"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap-datetimepicker.min.js"
     },
@@ -2251,6 +2259,10 @@
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\slicknav.js",
       "PackagePath": "staticwebassets\\js\\slicknav.js"
+    },
+    {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\toastrjs.js",
+      "PackagePath": "staticwebassets\\js\\toastrjs.js"
     },
     {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\bootstrap\\LICENSE",

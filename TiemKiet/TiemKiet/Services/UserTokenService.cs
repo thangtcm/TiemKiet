@@ -14,13 +14,17 @@ namespace TiemKiet.Services
         }
         public async Task Add(long? userId, string token)
         {
-            ApplicationUserToken model = new()
+            var valid = await _unitOfWork.UserTokenRepository.GetAsync(x => x.UserId == userId && x.UserToken == token);
+            if(valid == null)
             {
-                UserId = userId,
-                UserToken = token
-            };
-            _unitOfWork.UserTokenRepository.Add(model);
-            await _unitOfWork.CommitAsync();
+                ApplicationUserToken model = new()
+                {
+                    UserId = userId,
+                    UserToken = token
+                };
+                _unitOfWork.UserTokenRepository.Add(model);
+                await _unitOfWork.CommitAsync();
+            }    
         }
 
         public Task<bool> Delete(int Id, long userId)

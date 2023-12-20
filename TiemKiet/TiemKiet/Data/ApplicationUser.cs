@@ -24,6 +24,11 @@ namespace TiemKiet.Data
         public double Score { get; set; }
         public double Point { get; set; }
 
+        public string NameAndNumberPhone
+        {
+            get { return $"{FullName} (Phone: {PhoneNumber})"; }
+        }
+
         public ApplicationUser() { }
 
     }

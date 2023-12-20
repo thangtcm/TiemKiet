@@ -8,7 +8,7 @@
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
-                <h3 class="page-title">Add Subject</h3>
+                <h3 class="page-title">Thêm Sản Phẩm</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Product" asp-area="Admin">Sản Phẩm</a></li>
                     <li class="breadcrumb-item active">@ViewData["Title"]</li>
@@ -59,6 +59,16 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
+                                    <label>Giá upsize sản phẩm <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">0.00</span>
+                                        <input asp-for="ProductPriceUpSize" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group local-forms">
                                     <label>Giảm giá <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
@@ -67,14 +77,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6">
+@*                            <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Chi nhánh <span class="login-danger">*</span></label>
                                     <select class="form-control select" name="branchId" asp-items="ViewBag.BranchLst" required>
                                         <option value="">Chọn chi nhánh</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Danh mục sản phẩm <span class="login-danger">*</span></label>
@@ -83,7 +93,12 @@
                                     </select>
                                 </div>
                             </div>
-                            
+                            <div class="col-12">
+                                <div class="form-group local-forms">
+                                    <label>Mô tả mobile sản phẩm<span class="login-danger">*</span></label>
+                                    <textarea asp-for="ProductMBDescription" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="form-group local-forms">
                                     <label>Mô tả sản phẩm<span class="login-danger">*</span></label>

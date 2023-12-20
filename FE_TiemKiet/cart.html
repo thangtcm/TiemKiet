@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054) -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Tiệm Kiết</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+        integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+        integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+
+<body>
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ======= Header ======= -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7"> 
+                        <h5>Miễn phí giao hàng, 30 ngày tính từ ../../....</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="text-end">
+                          <nav id="navbar" class="navbar justify-content-end">
+                            <ul>
+                              <li><a href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle">Đăng nhập</a></li>
+                              <li><a href="#">Đăng ký</a></li>
+                            </ul>
+                          </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="./assets/images/logo.png" alt="" style="max-width: 4rem;"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                      <div class="d-flex flex-wrap gap-3 justify-content-end">
+                        <a class="icon-header-item px-2 icon-header-noti" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                          <i class="fas fa-shopping-cart"></i>
+                        </a>
+                      </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <div class="modal fade" id="ViewProductModal" tabindex="-1" aria-labelledby="ViewProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row no-gutters position-relative pt-5 pb-3">
+              <button type="button" class="btn btn-primary position-absolute w-auto" data-bs-dismiss="modal" aria-label="Close" style="right: 1.5rem; top: .5rem; z-index: 1;">
+                <i class="fas fa-times"></i>
+              </button>
+              <div class="col-md-6 d-flex px-5">
+                <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
+                  <img src="./assets/images/Product/test.png" alt="" style="max-width: 15rem;">
+                </div>
+              </div>
+              <div class="col-md-6 d-flex">
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="font-monospace">
+                      <h2 class="font-weight-600 text-dark mb-2">Cà phê muối</h2>
+                      <span class="sprice font-weight-600 mb-2">45,000đ</span>
+                      <p class="pcontent mt-3 text-secondary">Đây là món cà phê muối, một hương vị mới ,..................
+                        aa
+                      </p>
+                    </div>
+                    <div class="py-5 mt-5">
+                      <div class="row justify-content-center align-content-center">
+                        <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+                                                <div class="btn btn-primary btn-num-product-down trans-04">
+                                                    <i class="fas fa-minus"></i>
+                                                </div>
+    
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+    
+                                                <div class="btn btn-primary btn-num-product-up trans-04">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            </div>
+                        <div class="py-3">
+                          <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <main id="main">
+        <section id="header-title">
+            <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+                <div class="container py-5" data-aos="fade-up"
+                data-aos-duration="3000">
+                    <h1 class="display-3 text-white mb-3">Thực đơn</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center mb-0">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Trang Chủ</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Thực Đơn</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <section id="cart" class="section cart">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-12" data-aos="fade-up"
+                    data-aos-duration="3000">
+                    <div class="table-responsive table-cart">
+                        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr role="row" >
+                                    <th>Ảnh</th>
+                                    <th>Món</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng cộng</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="text-center">
+                                    
+                                    <td class="product-thumbnail">
+                                        <img src="./assets/images/Product/Screenshot-2023-03-10-192430.jpg" alt="Image" class="img-fluid">
+                                      </td>
+                                    
+                                    <td>
+                                        <h5>Cà Phê Muối</h5>
+                                    </td>
+                                    
+                                    <td class="price">45,000 VND</td>
+                                    
+                                    <td>
+                                        <div class="wrap-num-product d-flex flex-wrap justify-content-center mt-1 mb-1">
+											<div class="btn btn-primary btn-num-product-down trans-04">
+												<i class="fas fa-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn btn-primary btn-num-product-up trans-04">
+												<i class="fas fa-plus"></i>
+											</div>
+										</div>
+                                    </td>
+                                    
+                                    <td class="price">45,000 VND</td>
+                                    <td class="product-remove"><a href="#"><i class="fas fa-times"></i></a></td>
+                                  </tr><!-- END TR-->
+                                </tbody>
+                              </table>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="row mb-5">
+                        <div class="col-md-6">
+                            <a class="btn btn-outline-dark btn-sm btn-primary p-2">Tiếp tục đặt hàng</a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label class="text-dark h4" >Coupon</label>
+                          <p>Enter your coupon code if you have one.</p>
+                        </div>
+                        <div class="col-md-8 mb-3 mb-md-0">
+                          <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                        </div>
+                        <div class="col-md-4">
+                          <button class="btn btn-primary">Apply Coupon</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-5">
+                      <div class="row justify-content-end">
+                        <div class="col-md-7">
+                          <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-5">
+                              <h3 class="text-dark h4 text-uppercase font-weight-600">Tổng cộng giỏ hàng</h3>
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <span class="text-dark font-weight-600">Tổng sản phẩm</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                              <strong class="text-dark font-monospace">250,000 VND</strong>
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <span class="text-dark font-weight-600">Khuyến mãi</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                              <strong class="text-dark text-decoration-line-through font-monospace">250,000 VND</strong>
+                            </div>
+                          </div>
+                          <div class="row mb-5">
+                            <div class="col-md-6">
+                              <span class="text-dark font-weight-600">Phí giao hàng</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                              <strong class="text-dark font-monospace">13,000 VND</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <a class="btn btn-primary btn-lg" href="#">Tiến hành đặt hàng</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="footer mt-3">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo-wrap"><a href="#" class="logo"><img src="./assets/images/logo.png"
+                                alt=""></a></div>
+                    <p class="mb-4">Tiệm Kiết là một quán cà phê nổi tiếng tại Sài Gòn với không gian chill và thân
+                        thiện. Quán
+                        nằm trong một con hẻm nhỏ, có không gian trang trí đơn giản với tông màu gỗ và trắng xanh.</p>
+
+                    <ul class="list-unstyled custom-social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row links-wrap">
+                        <div class="col-6 col-sm-6 col-md-4">
+                            <h4>Giới thiệu</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Trang Chủ</a></li>
+                                <li><a href="#">Về Chúng Tôi</a></li>
+                                <li><a href="#">Sản Phẩm</a></li>
+                                <li><a href="#">Cửa Hàng</a></li>
+                                <li><a href="#">Chuyện Nhà Kiết</a></li>
+                                <li><a href="#">Liên Hệ</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-6 col-sm-6 col-md-4">
+                            <h4>Điều khoản</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-6 col-sm-6 col-md-4">
+                            <h4>Liên Hệ</h4>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-phone-alt me-2"></i>+84 123456789</li>
+                                <li><i class="fas fa-map-marker-alt me-2"></i> 69/1/7 Nguyễn Gia Trí, P. 25, Bình Thạnh,
+                                    TP. HCM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top copyright">
+                    <div class="row pt-4">
+                        <div class="col-lg-6">
+                            <p class="mb-2 text-center text-lg-start">Copyright ©
+                                <script>document.write(new Date().getFullYear());</script>2023. All Rights Reserved. —
+                                Designed with
+                                love by <a href="#">Thangepe</a> Distributed By <a hreff="#">Thangepe</a>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 text-center text-lg-end">
+                            <ul class="list-unstyled d-inline-flex ms-auto">
+                                <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <div id="scroll-Top">
+        <div class="return-to-top" style="display: block;">
+            <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title=""
+                data-original-title="Back to Top" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+        integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+        integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.stellar@0.6.2/jquery.stellar.min.js"></script>
+    <script src="./assets/js/scrolljax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./assets/plugins/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js" integrity="sha512-FmCXNJaXWw1fc3G8zO3WdwR2N23YTWDFDTM3uretxVIbZ7lvnjHkciW4zy6JGvnrgjkcNEk8UNtdGTLs2GExAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>

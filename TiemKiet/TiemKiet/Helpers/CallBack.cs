@@ -41,6 +41,30 @@ namespace TiemKiet.Helpers
             return rank;
         }
 
+        public static string GetBackGroundRank(double score)
+        {
+            return score switch
+            {
+                >= 1000.0 and < 2000.0 => "background-image: url('https://firebasestorage.googleapis.com/v0/b/tiemkiet-aa7d7.appspot.com/o/Images%2Fz4930062184432_8198106af4be6073b7bac8cec5499833.jpg?alt=media&token=0c0fc379-390b-4334-a8eb-219de279ba74')",
+                >= 2000.0 and < 4000.0 => "background-image: url('https://firebasestorage.googleapis.com/v0/b/tiemkiet-aa7d7.appspot.com/o/Images%2Frank-sliver.jpg?alt=media&token=fefaf954-1bb8-480a-94e2-5cb4cca61338')",
+                >= 4000.0 and < 8000.0 => "background-image: url('https://firebasestorage.googleapis.com/v0/b/tiemkiet-aa7d7.appspot.com/o/Images%2Fz4929876123487_13d097f8d629bf779879bfcbbb1ec235.jpg?alt=media&token=b30d46ef-0b95-4fd3-9b6b-02617b54d1b9')",
+                >= 8000.0 => "background-image: url('https://firebasestorage.googleapis.com/v0/b/tiemkiet-aa7d7.appspot.com/o/Images%2Fz4929876123487_13d097f8d629bf779879bfcbbb1ec235.jpg?alt=media&token=b30d46ef-0b95-4fd3-9b6b-02617b54d1b9')",
+                _ => "background: #ffaf75;",
+            };
+        }    
+
+        public static string GetClassProgress(double score)
+        {
+            return score switch
+            {
+                >= 1000.0 and < 2000.0 => "bg-copper",
+                >= 2000.0 and < 4000.0 => "bg-sliver",
+                >= 4000.0 and < 8000.0 => "bg-gold",
+                >= 8000.0 => "bg-diamond",
+                _ => "bg-normal",
+            };
+        }
+
         public static DateTime ConvertStringToDateTime(string dateStr)
         {
             string[] formats = { "dd/MM/yyyy", "dd/M/yyyy", "d/M/yyyy", "d/MM/yyyy",

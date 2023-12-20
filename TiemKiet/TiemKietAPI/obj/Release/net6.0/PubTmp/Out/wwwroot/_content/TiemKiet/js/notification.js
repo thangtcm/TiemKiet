@@ -8,22 +8,54 @@
     measurementId: "G-MKB2F9R564"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-function registerFCMToken() {
-    messaging.requestPermission().then(() => {
-        return messaging.getToken();
-    }).then((token) => {
-        console.log('FCM Token:', token);
-        // Gửi token đến máy chủ để lưu trữ (backend của bạn)
-    }).catch((error) => {
-        console.error('Error getting FCM token:', error);
+async function getToken() {
+    const messaging = firebase.messaging();
+    togglePreloader(true);
+    try {
+        const permission = await Notification.requestPermission();
+        if (permission === 'granted') {
+            const currentToken = await messaging.getToken({ vapidKey: 'BPPI3HPUZ0xGI4axfOogJXzKwdOM54c_O9zRGwH_ttz8HXJvv3F4FvMv6-bhzuNJp9ljIgxEQHLKQxdJi-JiX2E' });
+
+            if (currentToken) {
+                console.log(currentToken);
+                return currentToken;
+            } else {
+                console.log('No registration token available. Request permission to generate one.');
+                return "";
+            }
+        } else {
+            console.log('Unable to get permission to notify.');
+        }
+    } catch (err) {
+        console.log('An error occurred while retrieving token. ', err);
+        return "";
+    }
+    finally {
+        togglePreloader(false);
+    }
+}
+
+function requestPermission() {
+    Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+            console.log('Notification permission granted.');
+        } else {
+            console.log('Unable to get permission to notify.');
+        }
     });
 }
 
-messaging.onMessage((payload) => {
-    console.log('Message received:', payload);
-    // Xử lý thông báo và hiển thị thông báo với jQuery (hoặc DOM manipulation)
-    $('#notification').text(payload.notification.title + ': ' + payload.notification.body);
-});
+requestPermission();
+
+function deleteToken() {
+    const messaging = firebase.messaging();
+
+    messaging.deleteToken().then(() => {
+        console.log('Token deleted.');
+    }).catch((err) => {
+        console.log('Unable to delete token. ', err);
+    });
+}

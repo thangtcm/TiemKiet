@@ -1,13 +1,5 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using TiemKiet.Data;
 using TiemKiet.Helpers;
-using TiemKiet.Repository.Interface;
-using TiemKiet.Repository.UnitOfWork;
-using TiemKiet.Repository;
-using TiemKiet.Services.Interface;
-using TiemKiet.Services;
-using System.Configuration;
+
 
 var builder = WebApplication.CreateBuilder(args);
 if (builder.Environment.IsDevelopment())
@@ -15,10 +7,6 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddRazorPages()
     .AddRazorRuntimeCompilation();
 }
-
-builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize
-);
 
 //Register
 StaticService.Register(builder.Services, builder.Configuration);

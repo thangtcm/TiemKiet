@@ -577,3 +577,5 @@ D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.genruntimeconfig.cache
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\ref\TiemKiet.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\FirebaseAdmin.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\tiemkiet-firebase-admin.json
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.Properties.Resources.resources
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.csproj.GenerateResource.cache

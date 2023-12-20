@@ -1,6 +1,7 @@
 ﻿using Firebase.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing.Printing;
 using System.Net.WebSockets;
 using TiemKiet.Data;
@@ -110,6 +111,9 @@ namespace TiemKiet.Services
             return model;
         }
 
+        public async Task<ApplicationUser?> GetUserwithPhone([Phone] string Phone)
+            => await _unitOfWork.UserRepository.GetAsync(x => x.PhoneNumber == Phone);
+            
         public async Task UpdatePoint(CaculateVoucherInfo model, long userId)
         {
             var user = await GetUser(model.UserId);

@@ -10,6 +10,7 @@ namespace TiemKiet.ViewModel
         public ICollection<string>? Imagelst { get; set; }
         public List<IFormFile>? uploadLst { get; set; }
         public string? ProvinceName { get; set; }
+        public int DistrictId { get; set; }
         public BranchInfoVM() {  }
         public BranchInfoVM(Branch model)
         {
@@ -18,6 +19,7 @@ namespace TiemKiet.ViewModel
             this.BranchName = model.BranchName;
             this.Imagelst = model.Imagelist is null ? new List<string>() :  model.Imagelist.Select(x => x.ImageUrl!).ToList();
             this.ProvinceName = "";
+            this.DistrictId = model.DistrictId;
         }
     }
 }

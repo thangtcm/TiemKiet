@@ -15,23 +15,14 @@ namespace TiemKiet.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task Add(VoucherInfoVM voucherInfo, long userId)
+        public async Task Add(Voucher model, long userId)
         {
-            Voucher model = new()
+            Voucher create = new(model)
             {
-                Code = voucherInfo.VoucherCode,
-                DateCreate = DateTime.UtcNow.ToTimeZone(),
-                DateUpdate = DateTime.UtcNow.ToTimeZone(),
-                DiscountType = voucherInfo.DiscountType,
-                DiscountValue = voucherInfo.DiscountValue,
                 IsRemoved = false,
-                MaxDiscountAmount = voucherInfo.MaxDiscountAmount,
-                MinBillAmount = voucherInfo.MinBillAmount,
-                VoucherName = voucherInfo.VoucherName,
-                UserIdCreate = userId,
                 UserIdUpdate = userId,
             };
-            _unitOfWork.VoucherRepository.Add(model);
+            _unitOfWork.VoucherRepository.Add(create);
             await _unitOfWork.CommitAsync();
         }
 
@@ -41,8 +32,6 @@ namespace TiemKiet.Services
             if (voucher == null) return false;
             voucher.DateUpdate = DateTime.UtcNow.ToTimeZone();
             voucher.UserIdUpdate = userId;
-            voucher.DateRemove= DateTime.UtcNow.ToTimeZone();
-            voucher.UserIdRemove = userId;
             voucher.IsRemoved = true;
             _unitOfWork.VoucherRepository.Update(voucher);
             await _unitOfWork.CommitAsync();

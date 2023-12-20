@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BLEWTuj4D2jIu7RJ9XWt1Ykasg9Is/SI/eEpHRzUrCo=",
+  "Hash": "UmcK+BVbdLPaAbnQ1GGsP1IHk5eDdF93NvWZWGYIQPQ=",
   "Source": "TiemKiet",
   "BasePath": "_content/TiemKiet",
   "Mode": "Default",
@@ -9656,6 +9656,23 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\toastrcustom.css",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "css/toastrcustom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\toastrcustom.css"
+    },
+    {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\favicon.ico",
       "SourceId": "TiemKiet",
       "SourceType": "Discovered",
@@ -10557,6 +10574,23 @@
       "OriginalItemSpec": "wwwroot\\images\\rank-sliver.jpg"
     },
     {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\svg\\error-404.svg",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "images/svg/error-404.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\svg\\error-404.svg"
+    },
+    {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
       "SourceId": "TiemKiet",
       "SourceType": "Discovered",
@@ -10691,6 +10725,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\slicknav.js"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\toastrjs.js",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "js/toastrjs.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\toastrjs.js"
     },
     {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
