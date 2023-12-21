@@ -222,19 +222,19 @@ namespace TiemKietAPI.Controllers
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }    
 
-        [HttpGet("GetPriceDiscount")]
-        public async Task<IActionResult> Get(long userId, double totalPrice, int voucherId = 0)
+        [HttpPost("GetPriceDiscount")]
+        public async Task<IActionResult> Get(long userId, double totalPrice, double ShipPrice, [FromBody] List<int> VoucherList)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
-                var data = await _userService.CaculatePrice(userId, totalPrice, voucherId);
-                if(data.UserId == 0)
+                var data = await _userService.CaculatePrice(userId, totalPrice, ShipPrice, VoucherList);
+                if(!data.IsSuccess)
                 {
-                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User Not Found", "Không tìm thấy người dùng."));
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error", data.Message));
                 }    
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Tính tiền cần thanh toán thành công.", data));
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", data.Message, data.Result));
             }
             catch (Exception ex)
             {

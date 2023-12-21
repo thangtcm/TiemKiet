@@ -95,20 +95,73 @@ namespace TiemKiet.Services
             return true;
         }
 
-        public async Task<CaculateVoucherInfo> CaculatePrice(long userId, double TotalPrice, int VoucherId = 0)
+        public async Task<StatusResponse<CaculateVoucherInfo>> CaculatePrice(long userId, double TotalPrice, double ShipPrice, List<int> VoucherList)
         {
             var user = await GetUser(userId);
-            CaculateVoucherInfo model = new();
-            if(user != null)
+            StatusResponse<CaculateVoucherInfo> data = new();
+            if (user == null)
             {
-                var discount = CallBack.GetDiscount(user.Score);
-                model.DiscountPrice = TotalPrice * discount/100;
-                model.CurrentPrice = TotalPrice;
-                model.TotalPrice = TotalPrice - model.DiscountPrice;
-                model.UserId = userId;
-                model.VoucherId = VoucherId;
+                data.IsSuccess = false;
+                data.Message = "{ERROR} Người dùng không hợp lệ.";
+                return data;
             }
-            return model;
+            double discount = 0, shipdiscount = 0;
+            List<double> DiscountTotal = new();
+            if (VoucherList.Any(item => item == 0))
+            {
+                discount += CallBack.GetDiscount(user.Score);
+                VoucherList.RemoveAll(item => item == 0);
+            }
+            var vouchers = await _unitOfWork.VoucherRepository.GetAllAsync(x => VoucherList.Contains(x.Id));
+            if (vouchers.Count(x => x.VoucherType == VoucherType.VoucherShip) > 1 || vouchers.Count(x => x.VoucherType == VoucherType.VoucherProduct) > 1)
+            {
+                data.IsSuccess = false;
+                data.Message = "{ERROR} Mỗi loại voucher chỉ được phép chọn 1 voucher.";
+                return data;
+            }    
+            foreach (var item in vouchers)
+            {
+                if(item.MinBillAmount <= TotalPrice && item.VoucherType != VoucherType.VoucherRank)
+                {
+                    if (item.DiscountType == DiscountType.Percentage)
+                    {
+                        if(item.VoucherType == VoucherType.VoucherShip)
+                        {
+                            shipdiscount = ((ShipPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (ShipPrice * item.DiscountValue / 100));
+                        }
+                        else
+                        {
+                            DiscountTotal.Add(((TotalPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (TotalPrice * item.DiscountValue / 100)));
+                            Console.WriteLine($"Giảm giá là {DiscountTotal.Sum()} - Min {item.MaxDiscountAmount} -- Giá {TotalPrice} -- Giảm {item.DiscountValue}");
+                        }
+                    }
+                    else
+                    {
+                        if (item.VoucherType == VoucherType.VoucherShip)
+                        {
+                            shipdiscount = item.DiscountValue;
+                        }
+                        else
+                        {
+                            DiscountTotal.Add(item.DiscountValue);
+                        }
+                    }
+                }    
+            }
+            CaculateVoucherInfo model = new()
+            {
+                DiscountPrice = (TotalPrice * discount / 100) + DiscountTotal.Sum(),
+                CurrentPrice = TotalPrice,
+                UserId = userId,
+                VoucherList = VoucherList,
+                ShipPrice = (ShipPrice - shipdiscount) < 0 ? 0 : (ShipPrice - shipdiscount)
+            };
+            Console.WriteLine($"KQ : {(TotalPrice * discount / 100)} -- {DiscountTotal.Sum()}");
+            model.TotalPrice = TotalPrice - model.DiscountPrice;
+            data.IsSuccess= true;
+            data.Result = model;
+            data.Message = "Tính toán thành công.";
+            return data;
         }
 
         public async Task<ApplicationUser?> GetUserwithPhone([Phone] string Phone)

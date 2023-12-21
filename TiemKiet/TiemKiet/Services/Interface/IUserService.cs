@@ -13,7 +13,7 @@ namespace TiemKiet.Services.Interface
         public Task<bool> UpdateUser(UserInfoVM user);
         public Task<ApplicationUser?> GetUser();
         public Task<ApplicationUser?> GetUserwithPhone([Phone] string Phone);
-        public Task<CaculateVoucherInfo> CaculatePrice(long userId, double TotalPrice, int VoucherId = 0);
+        public Task<StatusResponse<CaculateVoucherInfo>> CaculatePrice(long userId, double TotalPrice, double ShipPrice, List<int> VoucherList);
         public Task UpdatePoint(CaculateVoucherInfo model, long userId);
     }
 }

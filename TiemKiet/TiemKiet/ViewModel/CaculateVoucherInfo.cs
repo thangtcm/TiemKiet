@@ -6,6 +6,7 @@
         public double CurrentPrice { get; set; }
         public double DiscountPrice { get; set; }
         public double TotalPrice { get; set; }
-        public int VoucherId { get; set; }
+        public double ShipPrice { get; set; }
+        public List<int> VoucherList { get; set; }
     }
 }
