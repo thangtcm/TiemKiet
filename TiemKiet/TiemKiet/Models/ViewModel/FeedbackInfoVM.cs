@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class FeedbackInfoVM
     {
@@ -14,9 +14,9 @@ namespace TiemKiet.ViewModel
         public FeedbackInfoVM() { }
         public FeedbackInfoVM(Feedback model)
         {
-            this.FeedbackId = model.Id;
-            this.Title = model.Title;
-            this.Content = model.Content;
+            FeedbackId = model.Id;
+            Title = model.Title;
+            Content = model.Content;
         }
     }
 }

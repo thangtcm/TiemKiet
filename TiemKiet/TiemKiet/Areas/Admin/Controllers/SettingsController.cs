@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TiemKiet.Helpers;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 
 namespace TiemKiet.Areas.Admin.Controllers
 {

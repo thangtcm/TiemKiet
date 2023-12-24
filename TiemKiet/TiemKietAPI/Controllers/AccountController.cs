@@ -11,9 +11,9 @@ using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 using X.PagedList;
 using static Google.Apis.Requests.BatchRequest;
 
@@ -223,13 +223,13 @@ namespace TiemKietAPI.Controllers
         }    
 
         [HttpPost("GetPriceDiscount")]
-        public async Task<IActionResult> Get(long userId, double totalPrice, double ShipPrice, [FromBody] List<int> VoucherList)
+        public async Task<IActionResult> Get(long userId, double totalPrice, double shipPrice, [FromBody] VoucherListRequest request)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
-                var data = await _userService.CaculatePrice(userId, totalPrice, ShipPrice, VoucherList);
+                var data = await _userService.CaculatePrice(userId, totalPrice, shipPrice, request.VoucherList);
                 if(!data.IsSuccess)
                 {
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error", data.Message));

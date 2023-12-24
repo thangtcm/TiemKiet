@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TiemKiet.Data;
 using TiemKiet.Enums;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 
 namespace TiemKiet.Models
 {

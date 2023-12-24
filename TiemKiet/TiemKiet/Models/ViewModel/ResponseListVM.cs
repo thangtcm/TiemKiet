@@ -1,4 +1,4 @@
-﻿namespace TiemKiet.ViewModel
+﻿namespace TiemKiet.Models.ViewModel
 {
     public class ResponseListVM<T>
     {

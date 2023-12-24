@@ -2,7 +2,7 @@
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class TransactionLogVM
     {
@@ -18,14 +18,14 @@ namespace TiemKiet.ViewModel
         public TransactionLogVM() { }
         public TransactionLogVM(TransactionLog model)
         {
-            this.TransactionId = model.Id;
-            this.TotalPrice = model.TotalPrice;
-            this.DiscountPrice = model.DiscountPrice;
-            this.PointOld = model.PointOld;
-            this.PointNew = model.PointNew;
-            this.DateTimePayment = model.DateTimePayment.ToString("HH:mm dd/MM/yyyy");
-            this.ScroreNew= model.ScroreNew;
-            this.ScroreOld= model.ScroreOld;
+            TransactionId = model.Id;
+            TotalPrice = model.TotalPrice;
+            DiscountPrice = model.DiscountPrice;
+            PointOld = model.PointOld;
+            PointNew = model.PointNew;
+            DateTimePayment = model.DateTimePayment.ToString("HH:mm dd/MM/yyyy");
+            ScroreNew = model.ScroreNew;
+            ScroreOld = model.ScroreOld;
         }
     }
 

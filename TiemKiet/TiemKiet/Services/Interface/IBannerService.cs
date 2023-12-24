@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using TiemKiet.Models;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 
 namespace TiemKiet.Services.Interface
 {

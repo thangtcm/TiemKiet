@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Query;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 
 namespace TiemKiet.Services
 {

@@ -1,15 +1,16 @@
 ﻿using Firebase.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing.Printing;
 using System.Net.WebSockets;
 using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 using X.PagedList;
 
 namespace TiemKiet.Services
@@ -21,14 +22,18 @@ namespace TiemKiet.Services
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ITranscationLogService _transcationLogService;
+        private readonly HttpClient _client;
+        private readonly string goongApiKey = "6EuUBdEOjBJijWIabRTLzxVvhYDNi9cKWGY9UxjI";
+
         public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor, 
-            ITranscationLogService transcationLogService, RoleManager<ApplicationRole> roleManager)
+            ITranscationLogService transcationLogService, RoleManager<ApplicationRole> roleManager, HttpClient client)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _transcationLogService = transcationLogService;
             _roleManager = roleManager;
+            _client = client;
         }
 
         public async Task<ApplicationUser?> GetUser()
@@ -106,12 +111,11 @@ namespace TiemKiet.Services
                 return data;
             }
             double discount = 0, shipdiscount = 0;
-            List<double> DiscountTotal = new();
             if (VoucherList.Any(item => item == 0))
             {
-                discount += CallBack.GetDiscount(user.Score);
-                VoucherList.RemoveAll(item => item == 0);
+                discount = CallBack.GetDiscount(user.Score);
             }
+            List<double> DiscountTotal = new();
             var vouchers = await _unitOfWork.VoucherRepository.GetAllAsync(x => VoucherList.Contains(x.Id));
             if (vouchers.Count(x => x.VoucherType == VoucherType.VoucherShip) > 1 || vouchers.Count(x => x.VoucherType == VoucherType.VoucherProduct) > 1)
             {
@@ -121,32 +125,40 @@ namespace TiemKiet.Services
             }    
             foreach (var item in vouchers)
             {
-                if(item.MinBillAmount <= TotalPrice && item.VoucherType != VoucherType.VoucherRank)
+                if(item.MinBillAmount > TotalPrice)
                 {
-                    if (item.DiscountType == DiscountType.Percentage)
+                    data.IsSuccess = false;
+                    data.Message = $"Voucher bạn vừa chọn cần hoá đơn tối thiểu {item.MinBillAmount.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))}.";
+                    return data;
+                }
+                switch (item.VoucherType)
+                {
+                    case VoucherType.VoucherShip:
                     {
-                        if(item.VoucherType == VoucherType.VoucherShip)
+                        if (item.DiscountType == DiscountType.Percentage)
                         {
                             shipdiscount = ((ShipPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (ShipPrice * item.DiscountValue / 100));
                         }
                         else
                         {
-                            DiscountTotal.Add(((TotalPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (TotalPrice * item.DiscountValue / 100)));
-                            Console.WriteLine($"Giảm giá là {DiscountTotal.Sum()} - Min {item.MaxDiscountAmount} -- Giá {TotalPrice} -- Giảm {item.DiscountValue}");
-                        }
-                    }
-                    else
-                    {
-                        if (item.VoucherType == VoucherType.VoucherShip)
-                        {
                             shipdiscount = item.DiscountValue;
+                        }
+                        break;
+                    }
+                    case VoucherType.VoucherProduct:
+                    {
+                        if (item.DiscountType == DiscountType.Percentage)
+                        {
+                            DiscountTotal.Add(((TotalPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (TotalPrice * item.DiscountValue / 100)));
                         }
                         else
                         {
                             DiscountTotal.Add(item.DiscountValue);
                         }
+                        break;
                     }
-                }    
+                }
+
             }
             CaculateVoucherInfo model = new()
             {
@@ -154,9 +166,9 @@ namespace TiemKiet.Services
                 CurrentPrice = TotalPrice,
                 UserId = userId,
                 VoucherList = VoucherList,
-                ShipPrice = (ShipPrice - shipdiscount) < 0 ? 0 : (ShipPrice - shipdiscount)
+                ShipPrice = (ShipPrice - shipdiscount) < 0 ? 0 : (ShipPrice - shipdiscount),
+                DiscountShipPrice =( shipdiscount > ShipPrice) ? ShipPrice : shipdiscount
             };
-            Console.WriteLine($"KQ : {(TotalPrice * discount / 100)} -- {DiscountTotal.Sum()}");
             model.TotalPrice = TotalPrice - model.DiscountPrice;
             data.IsSuccess= true;
             data.Result = model;
@@ -188,6 +200,84 @@ namespace TiemKiet.Services
                 _unitOfWork.UserRepository.Update(user);
                 await _unitOfWork.CommitAsync();
             }    
+        }
+
+        public async Task SetUserLocation(double latitude, double longitude)
+        {
+            byte[]? oldLatitudeBytes = _httpContextAccessor.HttpContext!.Session.Get(Constants.UserLatitude);
+            byte[]? oldLongitudeBytes = _httpContextAccessor.HttpContext.Session.Get(Constants.UserLongitude);
+            double oldLatitude = 0;
+            double oldLongitude = 0;
+            if (oldLatitudeBytes != null && oldLongitudeBytes != null)
+            {
+                oldLatitude = BitConverter.ToDouble(oldLatitudeBytes, 0);
+                oldLongitude = BitConverter.ToDouble(oldLongitudeBytes, 0);
+            }
+            var distance = CalculateDistance(oldLatitude, oldLongitude, latitude, longitude);
+            Console.WriteLine($"Khoảng cách là : {distance}");
+            if (distance >= 15)
+            {
+                Console.WriteLine($"Dữ liệu cũ : {oldLatitude} -- {oldLongitude}");
+                Console.WriteLine($"Dữ liệu mới : {latitude} -- {longitude}");
+                var formattedAddress = await GetAddressName(latitude, longitude);
+                if (!string.IsNullOrEmpty(formattedAddress))
+                {
+                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserAddressCurrent);
+                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserLatitude);
+                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserLongitude);
+                    _httpContextAccessor.HttpContext.Session.SetString(Constants.UserAddressCurrent, formattedAddress);
+                    _httpContextAccessor.HttpContext.Session.Set(Constants.UserLatitude, BitConverter.GetBytes(latitude));
+                    _httpContextAccessor.HttpContext.Session.Set(Constants.UserLongitude, BitConverter.GetBytes(longitude));
+                }
+            }
+        }    
+        private async Task<string> GetAddressName(double latitude, double longitude)
+        {
+            string geocodingApiUrl = $"https://rsapi.goong.io/Geocode?latlng={latitude},{longitude}&api_key={goongApiKey}";
+            var response = await _client.GetAsync(geocodingApiUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var jsonObject = JObject.Parse(jsonString);
+                if (jsonObject["results"] is JArray results && results.Count > 0)
+                {
+                    var firstResult = results[0];
+                    if (firstResult != null)
+                    {
+                        var formattedAddressToken = firstResult["formatted_address"];
+                        if (formattedAddressToken != null)
+                        {
+                            var formattedAddress = formattedAddressToken.ToString();
+                            Console.WriteLine("Result Address: " + formattedAddress);
+                            return formattedAddress;
+                        }
+                    }
+                }
+            }
+            return "";
+        }
+
+        private double CalculateDistance(double lat1, double lon1, double lat2, double lon2)
+        {
+            var R = 6371; // Bán kính trái đất trong km
+
+            var dLat = ToRadians(lat2 - lat1);
+            var dLon = ToRadians(lon2 - lon1);
+
+            var a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                    Math.Cos(ToRadians(lat1)) * Math.Cos(ToRadians(lat2)) *
+                    Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+
+            var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+
+            var distance = R * c; // Khoảng cách giữa hai điểm
+
+            return distance * 1000; // Chuyển đổi khoảng cách thành mét
+        }
+
+        private double ToRadians(double degree)
+        {
+            return degree * (Math.PI / 180);
         }
     }
 }

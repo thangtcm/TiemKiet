@@ -4,7 +4,7 @@ using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 using X.PagedList;
 
 namespace TiemKietAPI.Controllers
@@ -14,7 +14,7 @@ namespace TiemKietAPI.Controllers
     public class VersionController : ControllerBase
     {
         private readonly IVersionService _versionService;
-        ILogger<VersionController> _logger;
+        private readonly ILogger<VersionController> _logger;
         public VersionController(IVersionService versionService, ILogger<VersionController> logger)
         {
             _versionService = versionService;

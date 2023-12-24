@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using TiemKiet.Data;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class EditUserViewModel
     {

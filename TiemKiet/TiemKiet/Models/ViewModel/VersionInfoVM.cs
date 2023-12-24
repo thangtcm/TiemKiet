@@ -1,6 +1,6 @@
 ﻿using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class VersionInfoVM
     {

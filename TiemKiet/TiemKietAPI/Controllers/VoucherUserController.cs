@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 
 namespace TiemKietAPI.Controllers
 {
@@ -42,14 +42,19 @@ namespace TiemKietAPI.Controllers
                 foreach (VoucherType e in Enum.GetValues(typeof(VoucherType)))
                 {
                     var lst = voucherUserInfo.Where(x => x.Voucher.VoucherType == e).ToList();
-                    if(e == VoucherType.VoucherShip)
+                    switch(e)
                     {
-                        voucherShip = lst;
-                    }
-                    else
-                    {
-                        voucherProduct = lst;
-                    }
+                        case VoucherType.VoucherShip:
+                        {
+                            voucherShip = lst;
+                            break;
+                        }
+                        case VoucherType.VoucherProduct:
+                        {
+                            voucherProduct = lst;
+                            break;
+                        }
+                    }    
                 }
                 Voucher dataRank = new()
                 {

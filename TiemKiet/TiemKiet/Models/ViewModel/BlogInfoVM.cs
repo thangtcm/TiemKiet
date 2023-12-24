@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Xml.Linq;
 using TiemKiet.Data;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class BlogInfoVM
     {

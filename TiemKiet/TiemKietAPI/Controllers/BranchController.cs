@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 using X.PagedList;
 
 namespace TiemKietAPI.Controllers

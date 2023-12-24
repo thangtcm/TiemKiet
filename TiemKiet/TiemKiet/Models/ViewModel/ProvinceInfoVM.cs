@@ -1,6 +1,6 @@
 ﻿using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class ProvinceInfoVM
     {
@@ -12,11 +12,11 @@ namespace TiemKiet.ViewModel
         public ProvinceInfoVM() { }
         public ProvinceInfoVM(Province model)
         {
-            this.ProvinceId = model.Id;
-            this.ProvinceName = model.CityName;
-            this.ShortProvinceName = model.CityNameShort;
-            this.CountryId = model.CountryId;
-            this.BranchCount = 0;
-        }    
+            ProvinceId = model.Id;
+            ProvinceName = model.CityName;
+            ShortProvinceName = model.CityNameShort;
+            CountryId = model.CountryId;
+            BranchCount = 0;
+        }
     }
 }

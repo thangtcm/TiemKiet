@@ -4,9 +4,9 @@ using System.Linq;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 using static System.Net.WebRequestMethods;
 
 namespace TiemKiet.Services
@@ -141,6 +141,7 @@ namespace TiemKiet.Services
                 product.UserIdUpdate = userId;
                 product.ProductMBDescription = productInfo.ProductMBDescription;
                 product.ProductPriceUp = productInfo.ProductPriceUpSize;
+                product.ProductSale = productInfo.ProductSale;
                 _unitOfWork.ProductRepository.Update(product);
                 await _unitOfWork.CommitAsync();
                 return true;

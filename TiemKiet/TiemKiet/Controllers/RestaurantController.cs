@@ -5,7 +5,7 @@ using SkiaSharp;
 using System.Linq;
 using System.Security.Claims;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 
 namespace TiemKiet.Controllers
 {

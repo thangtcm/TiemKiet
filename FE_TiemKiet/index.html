@@ -23,8 +23,9 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/plugins/owlcarousel/assets/owl.theme.default.min.css">
-  <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/courgette" rel="stylesheet">
+  <link rel="preload" href="https://fonts.cdnfonts.com/css/poppins" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.cdnfonts.com/css/courgette" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css" integrity="sha512-heyoieAHmpAL3BdaQMsbIOhVvGb4+pl4aGCZqWzX/f1BChRArrBy/XUZDHW9WVi5p6pf92pX4yjkfmdaIYa2QQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/css/animate.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -139,128 +140,65 @@
       </div>
   </header>
   <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
-    <div class="ps-5 h-100">
-      <div class="offcanvas-header">
-        <h5 id="offcanvasCartLabel">Giỏ hàng</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="d-flex flex-column h-100">
+      <div class="offcanvas-header align-items-center">
+          <div class="col-10 text-center">
+            <h5 id="offcanvasCartLabel" class="font-inter">Giỏ hàng</h5>
+            <p><span class="me-2"><i class="far fa-clock"></i></span> Thời gian giao: 20 phút (Cách bạn 3,7 km)</p>
+          </div>
+          <div class="col-2 text-end">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
       </div>
-      <div class="offcanvas-body d-flex flex-column">
-        <div class="d-flex align-items-start flex-column" style="min-height: 60vh;">
-          <ul class="d-flex flex-wrap w-100 py-2 gap-3 overflow-scroll" style="max-height: 50vh;">
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
+      <div class="container d-flex flex-column h-100">
+        <div class="offcanvas-body font-inter">
+          <div class="overflow-scroll h-100">
+            <h5>Danh sách giỏ hàng</h5>
+            <div class="container">
+              <div class="row justify-content-center gy-3">
+                <div class="col-12">
+                  <div class="d-flex align-items-center justify-content-between gap-3">
+                    <div class="wrap-num-product d-flex justify-content-between mt-1 mb-1">
+                      <div class="btn btn-primary btn-num-product-down trans-04">
+                        <i class="fas fa-minus"></i>
+                      </div>
+      
+                      <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+      
+                      <div class="btn btn-primary btn-num-product-up trans-04">
+                        <i class="fas fa-plus"></i>
+                      </div>
+                    </div>
+                    <div class="header-cart-item-img d-none d-lg-block d-xl-block d-xxl-block">
+                        <img src="./assets/images/logo.png" alt="IMG">
+                    </div>
+                    
+                    <div class="header-cart-item-txt pt-2">
+                        <h6>Cà phê muối</h6> 
+                    </div>
+                    <p class="ms-auto header-cart-item-info text-price mb-0">
+                      25,000 VND
+                    </p>
+                  </div>
+                </div>
               </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-              <a class="header-cart-item-img">
-                <img src="./assets/images/Product/test.png" alt="IMG">
-              </a>
-              <div class="header-cart-item-txt pt-2">
-                <a href="#" class="header-cart-item-name mb-2 trans-04">
-                  Cà phê muối
-                </a>
-                <span class="header-cart-item-info">
-                  1 x 25,000đ
-                </span>
-              </div>
-            </li>
-          </ul>
-          <div class="w-100 mt-auto">
-            <h5>Tổng cộng: 1,125,000đ</h5>
-            <div class="d-flex flex-wrap gap-3 mt-3">
-              <a href="" class="btn btn-primary font-monospace text-uppercase font-weight-600">XEM GIỎ HÀNG</a>
-              <a href="" class="btn btn-primary font-monospace text-uppercase font-weight-600">THANH TOÁN</a>
             </div>
+          </div>
+          
+        </div>
+        <div class="row mt-auto py-3 container">
+          <div class="col-6">
+            <h5>Tổng cộng:</h5>
+          </div>
+          <div class="col-6">
+            <p class="text-price text-end font-weight-600">1,125,000đ</p>
+          </div>
+          <div class="col-12">
+            <a href="" class="btn btn-primary w-100 font-monospace font-weight-600 mt-3">Xem lại đơn hàng</a>
           </div>
         </div>
       </div>
+      
     </div>
     
   </div>
@@ -273,36 +211,61 @@
             <i class="fas fa-times"></i>
           </button>
           <div class="col-md-6 d-flex px-5">
-            <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
-              <img src="./assets/images/Product/test.png" alt="" style="max-width: 15rem;">
+            <div class="modal-body ml-img d-flex justify-content-center bg-secondary align-items-center">
+              <img src="./assets/images/Product/test.png" alt="" style="max-height: 15rem;">
             </div>
           </div>
           <div class="col-md-6 d-flex">
             <div class="modal-body">
               <div class="container">
-                <div class="font-monospace">
+                <div class="font-monospace py-3">
                   <h2 class="font-weight-600 text-dark mb-2">Cà phê muối</h2>
-                  <span class="sprice font-weight-600 mb-2">45,000đ</span>
+                  <span class="text-price font-weight-600 mb-3 fs-6">45,000đ</span>
                   <p class="pcontent mt-3 text-secondary">Đây là món cà phê muối, một hương vị mới ,..................
                     aa
                   </p>
                 </div>
-                <div class="py-5 mt-5">
-                  <div class="row justify-content-center align-content-center">
-                    <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
-											<div class="btn btn-primary btn-num-product-down trans-04">
-												<i class="fas fa-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-											<div class="btn btn-primary btn-num-product-up trans-04">
-												<i class="fas fa-plus"></i>
-											</div>
-										</div>
-                    <div class="py-3">
-                      <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                <hr>
+                <div class="card-product-option">
+                  <span class="card-product-option-text">Chọn Size</span>
+                </div>
+                <div class="d-flex justify-content-between card-product-option-item align-items-center">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sizeProductRadio" id="sizeProductRadio1">
+                    <label class="form-check-label text-price font-weight-600" for="sizeProductRadio1">
+                      Upsize (13,000 đ)
+                    </label>
+                  </div>
+                </div>
+                <hr>
+                <div class="card-product-option">
+                  <span class="card-product-option-text">Lựa chọn khác</span>
+                </div>
+                <div class="d-flex justify-content-between card-product-option-item align-items-center">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="iceProductRadio" id="iceProductRadio1">
+                    <label class="form-check-label text-price font-weight-600" for="iceProductRadio1">
+                      Đá riêng
+                    </label>
+                  </div>
+                </div>
+                <div class="card-product-option">
+                  <span class="card-product-option-text">Số lượng</span>
+                </div>
+                <div class="row justify-content-center align-content-center mt-3">
+                  <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+                    <div class="btn btn-primary btn-num-product-down trans-04">
+                      <i class="fas fa-minus"></i>
                     </div>
+
+                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                    <div class="btn btn-primary btn-num-product-up trans-04">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                  <div class="py-3 text-end">
+                    <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
                   </div>
                 </div>
               </div>
@@ -874,7 +837,32 @@
   <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
   <script src="./assets/js/main.js"></script>
+  <script>
+    function getGeoLocation() {
+        if (navigator.geolocation) {
+            // Sử dụng Geolocation API để lấy vị trí chính xác
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
 
+                    // Sử dụng latitude và longitude cho chức năng của bạn
+                    console.log('Latitude: ' + latitude);
+                    console.log('Longitude: ' + longitude);
+                    getLocationName(latitude, longitude);
+                },
+                function (error) {
+                    console.error('Error getting geolocation:', error);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        getGeoLocation();
+    });
+  </script>
 </body>
 
 </html>

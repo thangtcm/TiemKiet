@@ -1,6 +1,6 @@
 ﻿using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class BannerInfoVM
     {
@@ -11,6 +11,6 @@ namespace TiemKiet.ViewModel
         public BannerInfoVM(List<string> lstImage)
         {
             UrlImageLst = lstImage;
-        }    
+        }
     }
 }

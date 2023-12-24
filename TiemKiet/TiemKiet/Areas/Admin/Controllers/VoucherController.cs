@@ -6,7 +6,7 @@ using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
+using TiemKiet.Models.ViewModel;
 
 namespace TiemKiet.Areas.Admin.Controllers
 {

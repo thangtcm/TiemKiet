@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TiemKiet.Data;
 using TiemKiet.Helpers;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 
 namespace TiemKiet.Areas.Admin.Controllers
 {

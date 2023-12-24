@@ -20,7 +20,7 @@ namespace TiemKiet.Helpers
         public static void Register(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize);
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize);
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                             options.UseSqlServer(connectionString));
@@ -104,6 +104,7 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IBannerService), typeof(BannerService));
             //services.AddTransient(typeof(IFeedbackService), typeof(FeedbackService));
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //Authentication
             AddAuthorizationPolicies(services);
 
@@ -127,7 +128,7 @@ namespace TiemKiet.Helpers
                 Console.WriteLine($"Error creating FirebaseApp: {ex.Message}");
             }
 
-            
+            services.AddHttpClient();
         }
 
         public static void AddAuthorizationPolicies(this IServiceCollection services)

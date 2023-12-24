@@ -236,4 +236,40 @@
 	});
 	}
 
+	$(document).ready(function () {
+		getGeoLocation();
+	});
+
+	function getGeoLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				function (position) {
+					var latitude = position.coords.latitude;
+					var longitude = position.coords.longitude;
+
+					console.log('Latitude: ' + latitude);
+					console.log('Longitude: ' + longitude);
+					fetch('/Account/SetUserLocation?latitude=' + latitude + '&longitude=' + longitude, {
+						method: 'POST', 
+						headers: {
+							'Content-Type': 'application/json'
+						},
+					}).then(response => {
+						if (!response.ok) {
+							console.error('Error sending location to server. Status:', response.status);
+						}
+					})
+					.catch(error => {
+						console.error('Error sending location to server:', error);
+					});
+				},
+				function (error) {
+					console.error('Error getting geolocation:', error);
+				}
+			);
+		} else {
+			console.error('Geolocation is not supported by this browser.');
+		}
+	}
+
 })(jQuery);

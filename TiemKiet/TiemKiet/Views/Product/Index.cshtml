@@ -1,4 +1,5 @@
-﻿@model ICollection<TiemKiet.ViewModel.CategorywithProduct>
+﻿@model ICollection<CategorywithProduct>
+@using TiemKiet.Models.ViewModel;
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
 }
@@ -59,8 +60,8 @@
                                                                     <i class="fas fa-times"></i>
                                                                 </button>
                                                                 <div class="col-md-6 d-flex px-5">
-                                                                    <div class="modal-body ml-img d-flex justify-content-center bg-secondary">
-                                                                        <img src="@item.ProductImage" alt="" style="max-width: 15rem;">
+                                                                    <div class="modal-body ml-img d-flex justify-content-center bg-secondary align-items-center">
+                                                                        <img src="@item.ProductImage" alt="" style="max-height: 15rem;">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6 d-flex">
@@ -68,27 +69,56 @@
                                                                         <div class="container">
                                                                             <div class="font-monospace">
                                                                                 <h2 class="font-weight-600 text-dark mb-2">@item.ProductName</h2>
-                                                                                <span class="sprice font-weight-600 mb-2">@item.ProductPrice.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</span>
+                                                                                <span class="text-price font-weight-600 mb-3 fs-6">@item.ProductPrice.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</span>
                                                                                 <p class="pcontent mt-3 text-secondary">
                                                                                     @Html.Raw(item.ProductDescription)
                                                                                 </p>
                                                                             </div>
-                                                                            <div class="py-5 mt-5">
-                                                                                <div class="row justify-content-center align-content-center">
-                                                                                    <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
-                                                                                        <div class="btn btn-primary btn-num-product-down trans-04">
-                                                                                            <i class="fas fa-minus"></i>
-                                                                                        </div>
-
-                                                                                        <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-                                                                                        <div class="btn btn-primary btn-num-product-up trans-04">
-                                                                                            <i class="fas fa-plus"></i>
-                                                                                        </div>
+                                                                            @if(item.ProductPriceUpSize != 0)
+                                                                            {
+                                                                                <hr>
+                                                                                <div class="card-product-option">
+                                                                                    <span class="card-product-option-text">Chọn Size</span>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between card-product-option-item align-items-center">
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="radio" id="sizeProductRadio@(item.ProductId)">
+                                                                                        <label class="form-check-label text-price font-weight-600" for="sizeProductRadio@(item.ProductId)">
+                                                                                            Upsize (@item.ProductPriceUpSize.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))
+                                                                                        </label>
                                                                                     </div>
-                                                                                    <div class="py-3">
-                                                                                        <a href="" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                                                                </div>
+                                                                            }
+                                                                            
+                                                                            <hr>
+                                                                            <div class="card-product-option">
+                                                                                <span class="card-product-option-text">Lựa chọn khác</span>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between card-product-option-item align-items-center">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="radio" id="iceProductRadio@(item.ProductId)">
+                                                                                    <label class="form-check-label text-price font-weight-600" for="iceProductRadio@(item.ProductId)">
+                                                                                        Đá riêng
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-product-option">
+                                                                                <span class="card-product-option-text">Số lượng</span>
+                                                                            </div>
+                                                                            <div class="row justify-content-center align-content-center mt-3">
+                                                                                <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
+                                                                                    <div class="btn btn-primary btn-num-product-down trans-04">
+                                                                                        <i class="fas fa-minus"></i>
                                                                                     </div>
+
+                                                                                    <input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product@(item.ProductId)" value="1">
+
+                                                                                    <div class="btn btn-primary btn-num-product-up trans-04">
+                                                                                        <i class="fas fa-plus"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-3 text-end">
+                                                                                    <a href="#" class="btn btn-primary add-to-cart-btn" data-product-id="@item.ProductId">Thêm vào giỏ hàng</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

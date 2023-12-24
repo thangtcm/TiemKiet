@@ -1,11 +1,11 @@
 ﻿using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class DistrictInfoVM
     {
         public int? DistrictId { get; set; }
-        public string? DistrictName { get; set;}
+        public string? DistrictName { get; set; }
         public int ProvinceId { get; set; }
 
         public DistrictInfoVM()
@@ -15,9 +15,9 @@ namespace TiemKiet.ViewModel
 
         public DistrictInfoVM(District model)
         {
-            this.DistrictId = model.Id;
-            this.DistrictName = model.DistrictName;
-            this.ProvinceId= model.ProvinceId;
+            DistrictId = model.Id;
+            DistrictName = model.DistrictName;
+            ProvinceId = model.ProvinceId;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 using TiemKiet.Data;
 
 namespace TiemKiet.Models
@@ -9,7 +10,7 @@ namespace TiemKiet.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public BigInteger Id { get; set; }
         public long? UserIdCustomer { get; set; }
         [ForeignKey("UserIdCustomer")]
         public ApplicationUser? UserCustomer { get; set; }

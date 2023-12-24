@@ -1,6 +1,6 @@
 ﻿using TiemKiet.Models;
 
-namespace TiemKiet.ViewModel
+namespace TiemKiet.Models.ViewModel
 {
     public class BranchInfoVM
     {
@@ -11,15 +11,15 @@ namespace TiemKiet.ViewModel
         public List<IFormFile>? uploadLst { get; set; }
         public string? ProvinceName { get; set; }
         public int DistrictId { get; set; }
-        public BranchInfoVM() {  }
+        public BranchInfoVM() { }
         public BranchInfoVM(Branch model)
         {
-            this.BranchId = model.Id;
-            this.UrlGoogleMap = model.UrlGoogleMap;
-            this.BranchName = model.BranchName;
-            this.Imagelst = model.Imagelist is null ? new List<string>() :  model.Imagelist.Select(x => x.ImageUrl!).ToList();
-            this.ProvinceName = "";
-            this.DistrictId = model.DistrictId;
+            BranchId = model.Id;
+            UrlGoogleMap = model.UrlGoogleMap;
+            BranchName = model.BranchName;
+            Imagelst = model.Imagelist is null ? new List<string>() : model.Imagelist.Select(x => x.ImageUrl!).ToList();
+            ProvinceName = "";
+            DistrictId = model.DistrictId;
         }
     }
 }

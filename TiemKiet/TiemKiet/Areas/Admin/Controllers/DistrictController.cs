@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 
 namespace TiemKiet.Areas.Admin.Controllers
 {

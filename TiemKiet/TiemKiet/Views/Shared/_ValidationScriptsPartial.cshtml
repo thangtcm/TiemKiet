@@ -51,5 +51,34 @@
             phoneNumberError.text('Số điện thoại không hợp lệ.');
         }
     });
-    
+    $('.add-to-cart-btn').on('click', function (e) {
+        e.preventDefault();
+
+        var productId = $(this).data('product-id');
+
+        var upsize = $(`#sizeProductRadio${productId}`).is(':checked');
+        var addIce = $(`#iceProductRadio${productId}`).is(':checked');
+        var quantity = $(`#num-product${productId}`).val();
+
+        console.log('Dữ liệu là : ' + productId + ' upsize' + upsize + ' addIce' + addIce + ' quantity' + quantity);
+        // Thực hiện Ajax request với các giá trị đã lấy được
+        $.ajax({
+            url: '/Cart/AddToCart',
+            method: 'POST',
+            data: {
+                productId: productId,
+                upsize: upsize,
+                addIce: addIce,
+                quantity: quantity
+            },
+            success: function (result) {
+                $('#cartItemCount').data('notify', result).attr('data-notify', result);
+                toastr.success('Thêm vào giỏ hàng thành công.', 'Thành công');
+            },
+            error: function (error) {
+                console.error('Error adding to cart:', error);
+                toastr.error('Đã có lỗi xảy ra', 'Lỗi');
+            }
+        });
+    });
 </script>

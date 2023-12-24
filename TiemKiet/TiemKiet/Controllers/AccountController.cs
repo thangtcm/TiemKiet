@@ -12,8 +12,8 @@ using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
 using TiemKiet.Services.Interface;
-using TiemKiet.ViewModel;
 
 namespace TiemKiet.Controllers
 {
@@ -206,5 +206,19 @@ namespace TiemKiet.Controllers
             Console.WriteLine($"Dữ liệu là : {token}\n\n\n\n");
             return Ok(new { Message = "Token saved successfully" });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SetUserLocation(double latitude, double longitude)
+        {
+            try
+            {
+                await _userService.SetUserLocation(latitude, longitude);
+                return Ok();
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return NotFound();
+        }    
     }
 }
