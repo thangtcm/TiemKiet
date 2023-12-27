@@ -20,8 +20,8 @@ namespace TiemKiet.Models.ViewModel
             VoucherUserId = model.Id;
             Voucher = model.Voucher is null ? new VoucherInfoVM() : new VoucherInfoVM(model.Voucher);
             UserClaim = model.UserClaim is null ? new UserInfoVM() : new UserInfoVM(model.UserClaim);
-            RedeemedDate = model.RedeemedDate.ToString("HH:mm dd:MM:yyyy");
-            ExpiryDate = model.ExpiryDate.ToString("HH:mm dd:MM:yyyy");
+            RedeemedDate = model.RedeemedDate.ToString("HH:mm dd-MM-yyyy");
+            ExpiryDate = model.ExpiryDate.ToString("HH:mm dd-MM-yyyy");
         }
     }
 }

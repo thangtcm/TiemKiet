@@ -2,19 +2,31 @@
 {
     public class CartItem
     {
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public string ProductNotes { get; set; }
-        public int Quantity { get; set; }
-        public bool Upsize { get; set; }
-        public bool AddIce { get; set; } 
+        public double ProductPrice { get; set; }
+        public double ProductPriceUp { get; set; }
+        public double ProductSale { get; set; }
+        public int ProductQuantity { get; set; }
+        public bool ProductUpsize { get; set; }
+        public bool ProductHasIce { get; set; } 
+        public CartItem() {  }
+        public CartItem(Product product)
+        {
+            this.ProductName = product.ProductName ?? "";
+            this.ProductSale = product.ProductSale;
+            this.ProductPrice = product.ProductPrice;
+            this.ProductPriceUp = product.ProductPriceUp;
+        }
         public bool IsSameProduct(Product product, bool upsize, bool addIce)
         {
-            return Product == product && Upsize == upsize && AddIce == addIce;
+            return ProductId == product.Id && ProductUpsize == upsize && ProductHasIce == addIce;
         }
 
         public double getPrice()
         {
-            return this.Product.ProductPrice + (Upsize is true ? this.Product.ProductPriceUp : 0);
-        }    
+            return this.ProductPrice + (ProductUpsize is true ? this.ProductPriceUp : 0) - this.ProductSale;
+        }
     }
 }

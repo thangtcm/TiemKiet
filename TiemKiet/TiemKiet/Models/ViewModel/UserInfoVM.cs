@@ -22,6 +22,7 @@ namespace TiemKiet.Models.ViewModel
         [JsonIgnore]
         public string? RankName { get; set; }
         public double? Point { get; set; }
+        public bool IsHasOrder { get; set; }
         public virtual ICollection<string>? Roles { get; set; }
         public virtual ICollection<string>? Tokens { get; set; }
         public UserInfoVM() { }

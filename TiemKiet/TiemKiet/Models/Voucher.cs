@@ -49,7 +49,7 @@ namespace TiemKiet.Models
             this.DiscountType = model.DiscountType;
             this.DiscountValue = model.DiscountValue;
             this.ExpiryDays = model.ExpiryDays;
-            this.Code = model.Code;
+            this.Code = model.Code.ToUpper();
             this.DateUpdate = DateTime.UtcNow.ToTimeZone();
             this.MaxDiscountAmount= model.MaxDiscountAmount;
             this.MinBillAmount  = model.MinBillAmount;

@@ -80,6 +80,7 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\Pro
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\_NavMenuProfile.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Blog\Blog.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Blog\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Cart\_PreviewCartPartialView.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Create.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Privacy.cshtml

@@ -82,6 +82,8 @@ namespace TiemKiet.Helpers
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<IProductHomeRepository, ProductHomeRepository>();
             services.AddScoped<IBannerRepository, BannerRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
 
             //Service
             services.AddTransient(typeof(IUserService), typeof(UserService));
@@ -102,6 +104,8 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IVersionService), typeof(VersionService));
             services.AddTransient(typeof(IProductHomeService), typeof(ProductHomeService));
             services.AddTransient(typeof(IBannerService), typeof(BannerService));
+            services.AddTransient(typeof(IOrderService), typeof(OrderService));
+            services.AddTransient(typeof(INotifyFCMService), typeof(NotifyFCMService));
             //services.AddTransient(typeof(IFeedbackService), typeof(FeedbackService));
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

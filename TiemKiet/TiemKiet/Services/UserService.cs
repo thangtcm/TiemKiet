@@ -45,6 +45,7 @@ namespace TiemKiet.Services
         public async Task<ICollection<ApplicationUser>> GetUsers()
             => await _unitOfWork.UserRepository.GetAllAsync();
 
+     
         public async Task<ResponseListVM<UserInfoVM>> GetUsersWithRoles(int page = 1)
         {
            
@@ -279,5 +280,8 @@ namespace TiemKiet.Services
         {
             return degree * (Math.PI / 180);
         }
+
+        public async Task<ICollection<ApplicationUser>> GetUsersRange(List<long> ListUserId)
+            => await _unitOfWork.UserRepository.GetAllAsync(x => ListUserId.Contains(x.Id));
     }
 }

@@ -25,6 +25,8 @@ namespace TiemKiet.Repository.UnitOfWork
         private IVersionRepository _versionRepository;
         private IProductHomeRepository _productHomeRepository;
         private IBannerRepository _bannerRepository;
+        private IOrderRepository _orderRepository;
+        private IOrderDetailRepository _orderDetailRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -174,6 +176,22 @@ namespace TiemKiet.Repository.UnitOfWork
             get
             {
                 return _bannerRepository??= new BannerRepository(_context);
+            }
+        }
+
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                return _orderRepository ??= new OrderRepository(_context);
+            }
+        }
+
+        public IOrderDetailRepository OrderDetailRepository
+        {
+            get
+            {
+                return _orderDetailRepository ??= new OrderDetailRepository(_context);
             }
         }
         public void Commit()

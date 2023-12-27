@@ -17,13 +17,17 @@ namespace TiemKiet.Services
         }
         public async Task Add(Voucher model, long userId)
         {
-            Voucher create = new(model)
+            var voucher = await _unitOfWork.VoucherRepository.GetAsync(x => x.Code.ToUpper() == model.Code.ToUpper());
+            if (voucher == null)
             {
-                IsRemoved = false,
-                UserIdUpdate = userId,
-            };
-            _unitOfWork.VoucherRepository.Add(create);
-            await _unitOfWork.CommitAsync();
+                Voucher create = new(model)
+                {
+                    IsRemoved = false,
+                    UserIdUpdate = userId,
+                };
+                _unitOfWork.VoucherRepository.Add(create);
+                await _unitOfWork.CommitAsync();
+            }
         }
 
         public async Task<bool> Delete(int Id, long userId)

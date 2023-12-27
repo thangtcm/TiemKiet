@@ -628,6 +628,127 @@ namespace TiemKiet.Migrations
                     b.ToTable("ManagerVoucherLogs");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.Order", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DatePreparing")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiscountEvent")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiscountRank")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiscountShip")
+                        .HasColumnType("float");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("GrandTotal")
+                        .HasColumnType("float");
+
+                    b.Property<double>("LatCustomer")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ListVoucher")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("LongCustomer")
+                        .HasColumnType("float");
+
+                    b.Property<string>("NoteShip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumberPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Shipping")
+                        .HasColumnType("float");
+
+                    b.Property<long?>("StaffId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StaffId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.OrderDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<bool>("AddIce")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("UpSize")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetail");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -1136,6 +1257,36 @@ namespace TiemKiet.Migrations
                     b.Navigation("Voucher");
                 });
 
+            modelBuilder.Entity("TiemKiet.Models.Order", b =>
+                {
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "StaffUser")
+                        .WithMany()
+                        .HasForeignKey("StaffId");
+
+                    b.HasOne("TiemKiet.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("StaffUser");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.OrderDetail", b =>
+                {
+                    b.HasOne("TiemKiet.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId");
+
+                    b.HasOne("TiemKiet.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("TiemKiet.Models.Product", b =>
                 {
                     b.HasOne("TiemKiet.Models.Branch", "Branch")
@@ -1264,6 +1415,11 @@ namespace TiemKiet.Migrations
             modelBuilder.Entity("TiemKiet.Models.Feedback", b =>
                 {
                     b.Navigation("ImageLst");
+                });
+
+            modelBuilder.Entity("TiemKiet.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("TiemKiet.Models.Province", b =>

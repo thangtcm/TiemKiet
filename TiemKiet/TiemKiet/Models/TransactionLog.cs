@@ -10,7 +10,7 @@ namespace TiemKiet.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public BigInteger Id { get; set; }
+        public int Id { get; set; }
         public long? UserIdCustomer { get; set; }
         [ForeignKey("UserIdCustomer")]
         public ApplicationUser? UserCustomer { get; set; }

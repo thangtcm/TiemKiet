@@ -40,7 +40,7 @@ namespace TiemKietAPI.Controllers
             {
                 _logger.LogError(ex.Message.ToString());
             }
-            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+            return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
     }
 }

@@ -63,11 +63,39 @@ namespace TiemKietAPI.Controllers
                     VoucherType = VoucherType.VoucherRank,
                     DiscountValue = CallBack.GetDiscount(user.Score)
                 };
-                voucherRank.Add(new VoucherUserInfoVM()
+                var modelRank = new VoucherUserInfoVM()
                 {
                     Voucher = new VoucherInfoVM(dataRank)
-                });
+                };
+                if(modelRank.Voucher.DiscountValue != 0)
+                {
+                    voucherRank.Add(modelRank);
+                }
                 return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { voucherRank = voucherRank, voucherShip = voucherShip, voucherProduct = voucherProduct }));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
+        [HttpPost("ReceiveVoucherUser")]
+        public async Task<IActionResult> ReceiveVoucherUser(string voucherCode,long userId)
+        {
+            try
+            {
+                var user = await _userService.GetUser(userId);
+                if (user == null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Not Found User", $"Không tìm thấy người dùng."));
+                }
+                var result = await _voucherUserService.ReceiveVoucher(voucherCode, userId);
+                if(result.IsSuccess)
+                {
+                    return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", result.Message));
+                }
+                return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Lỗi", result.Message));
             }
             catch (Exception ex)
             {

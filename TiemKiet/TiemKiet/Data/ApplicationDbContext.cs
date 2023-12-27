@@ -40,6 +40,8 @@ namespace TiemKiet.Data
         public DbSet<Feedback> Feedback { get; set; }
         public DbSet<VersionModel> VersionModel { get; set; }
         public DbSet<ProductHome> ProductHome { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
 
         public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
         {

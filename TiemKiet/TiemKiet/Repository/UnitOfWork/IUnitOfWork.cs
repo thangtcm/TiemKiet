@@ -23,6 +23,8 @@ namespace TiemKiet.Repository.UnitOfWork
         IVersionRepository VersionRepository { get; }
         IProductHomeRepository ProductHomeRepository { get; }
         IBannerRepository BannerRepository { get; }
+        IOrderRepository OrderRepository { get; }
+        IOrderDetailRepository OrderDetailRepository { get; }
         void Commit();
         void Rollback();
         Task CommitAsync();

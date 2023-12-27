@@ -30,9 +30,10 @@ namespace TiemKietAPI.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly IUserTokenService _userTokenService;
         private readonly ITranscationLogService _transcationLogService;
+        private readonly IOrderService _orderService;
         public AccountController(IUserService userService, SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager, ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, 
-            IUserTokenService userTokenService, ITranscationLogService transcationLogService)
+            IUserTokenService userTokenService, ITranscationLogService transcationLogService, IOrderService orderService)
         {
             _userService = userService;
             _signInManager = signInManager;
@@ -41,6 +42,7 @@ namespace TiemKietAPI.Controllers
             _userStore = userStore;
             _userTokenService = userTokenService;
             _transcationLogService = transcationLogService;
+            _orderService = orderService;
         }
 
         [HttpPost("SendNotificationUser")]
@@ -266,7 +268,8 @@ namespace TiemKietAPI.Controllers
                 {
                     var roles = await _userManager.GetRolesAsync(userResult);
                     var tokens = await _userTokenService.GetListAsync(userResult.Id);
-                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList())));
+                    var isHasOrder = await _orderService.HasOrder(userResult.Id);
+                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList()) { IsHasOrder = isHasOrder }));
                 }
 
                 return NotFound(ResponseResult.CreateResponse("DataNull", "UserName or Password không đúng."));

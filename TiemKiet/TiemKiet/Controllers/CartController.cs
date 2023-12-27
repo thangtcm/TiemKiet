@@ -8,7 +8,7 @@ namespace TiemKiet.Controllers
     public class CartController : Controller
     {
         private readonly IProductService _productService;
-        private ILogger<CartController> _logger;
+        private readonly ILogger<CartController> _logger;
         public CartController(IProductService productService, ILogger<CartController> logger)
         {
             _productService = productService;
@@ -37,22 +37,21 @@ namespace TiemKiet.Controllers
 
                 if (existingItem != null)
                 {
-                    existingItem.Quantity += quantity;
+                    existingItem.ProductQuantity += quantity;
                 }
                 else
                 {
-                    var newItem = new CartItem
+                    var newItem = new CartItem(product)
                     {
-                        Product = product,
-                        Quantity = quantity,
-                        Upsize = upsize,
-                        AddIce = addIce
+                        ProductQuantity = quantity,
+                        ProductUpsize = upsize,
+                        ProductHasIce = addIce
                     };
 
                     cart.Add(newItem);
                 }
                 HttpContext.Session.SetObjectAsJson(Constants.UserCart, cart);
-                var cartItemCount = cart.Sum(item => item.Quantity);
+                var cartItemCount = cart.Sum(item => item.ProductQuantity);
                 return Ok(cartItemCount);
             }
             catch (Exception ex)
@@ -69,13 +68,13 @@ namespace TiemKiet.Controllers
             try
             {
                 var cart = HttpContext.Session.GetObjectFromJson<ICollection<CartItem>>(Constants.UserCart) ?? new List<CartItem>();
-                var itemToRemove = cart.FirstOrDefault(item => item.Product.Id == productId && item.Upsize == upsize && item.AddIce == addIce);
+                var itemToRemove = cart.FirstOrDefault(item => item.ProductId == productId && item.ProductUpsize == upsize && item.ProductHasIce == addIce);
 
                 if (itemToRemove != null)
                 {
                     cart.Remove(itemToRemove);
                     HttpContext.Session.SetObjectAsJson(Constants.UserCart, cart);
-                    this.AddToastrMessage($"Bạn đã xóa {itemToRemove.Product.ProductName} ra khỏi giỏ hàng.", Enums.ToastrMessageType.Success);
+                    this.AddToastrMessage($"Bạn đã xóa {itemToRemove.ProductName} ra khỏi giỏ hàng.", Enums.ToastrMessageType.Success);
                 }
                 return Ok();
             }
@@ -94,13 +93,13 @@ namespace TiemKiet.Controllers
             try
             {
                 var cart = HttpContext.Session.GetObjectFromJson<ICollection<CartItem>>(Constants.UserCart) ?? new List<CartItem>();
-                var itemToUpdate = cart.FirstOrDefault(item => item.Product.Id == productId && item.Upsize == upsize && item.AddIce == addIce);
+                var itemToUpdate = cart.FirstOrDefault(item => item.ProductId == productId && item.ProductUpsize == upsize && item.ProductHasIce == addIce);
 
                 if (itemToUpdate != null)
                 {
-                    itemToUpdate.Quantity = quantity;
+                    itemToUpdate.ProductQuantity = quantity;
                     HttpContext.Session.SetObjectAsJson(Constants.UserCart, cart);
-                    this.AddToastrMessage($"Bạn đã cập nhật số lượng {itemToUpdate.Product.ProductName} thành công.", Enums.ToastrMessageType.Success);
+                    this.AddToastrMessage($"Bạn đã cập nhật số lượng {itemToUpdate.ProductName} thành công.", Enums.ToastrMessageType.Success);
                 }
                 return Ok();
             }catch (Exception ex)
@@ -115,7 +114,7 @@ namespace TiemKiet.Controllers
         public IActionResult GetCartItemCount()
         {
             var cart = HttpContext.Session.GetObjectFromJson<ICollection<CartItem>>(Constants.UserCart) ?? new List<CartItem>();
-            var totalQuantity = cart.Sum(item => item.Quantity);
+            var totalQuantity = cart.Sum(item => item.ProductQuantity);
             return Json(totalQuantity);
         }
 

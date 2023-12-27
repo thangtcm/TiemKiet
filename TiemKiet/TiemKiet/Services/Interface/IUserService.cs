@@ -7,6 +7,7 @@ namespace TiemKiet.Services.Interface
     public interface IUserService
     {
         public Task<ICollection<ApplicationUser>> GetUsers();
+        public Task<ICollection<ApplicationUser>> GetUsersRange(List<long> ListUserId);
         public Task<ResponseListVM<UserInfoVM>> GetUsersWithRoles(int page = 1);
         public Task<ICollection<UserInfoVM>> GetUsersWithRoles();
         public Task<ApplicationUser?> GetUser(long userId);

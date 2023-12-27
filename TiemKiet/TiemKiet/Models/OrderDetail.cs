@@ -8,11 +8,11 @@ namespace TiemKiet.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public BigInteger Id { get; set; }
+        public long Id { get; set; }
         public int? ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product? Product { get; set; }
-        public BigInteger? OrderId { get; set; }
+        public long? OrderId { get; set; }
         [ForeignKey(nameof(OrderId))]
         public Order? Order { get; set; }
         [Display(Name ="Giá")]
@@ -20,7 +20,7 @@ namespace TiemKiet.Models
         [Display(Name = "Số lượng")]
         public int Quantity { get; set; }
         [Display(Name = "Upsize")]
-        public bool Upsize { get; set; }
+        public bool UpSize { get; set; }
         [Display(Name = "Đá riêng")]
         public bool AddIce { get; set; }
         [Display(Name = "Ghi chú")]
