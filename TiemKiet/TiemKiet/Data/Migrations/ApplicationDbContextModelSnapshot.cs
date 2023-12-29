@@ -155,6 +155,24 @@ namespace TiemKiet.Migrations
                             Id = 2L,
                             Name = "Staff",
                             NormalizedName = "Staff"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "TiemKietNGT",
+                            NormalizedName = "TiemKietNGT"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "TiemKietPNT",
+                            NormalizedName = "TiemKietPNT"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Name = "TiemKietNB",
+                            NormalizedName = "TiemKietNB"
                         });
                 });
 

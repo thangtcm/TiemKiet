@@ -1,5 +1,9 @@
-﻿using Microsoft.CodeAnalysis.Operations;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore.Query;
+using System.Security.Claims;
+using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
@@ -12,11 +16,11 @@ namespace TiemKiet.Services
     public class OrderService : IOrderService
     {
         public IUnitOfWork _unitOfWork;
-        private readonly INotifyFCMService _notifyFCMService;
-        public OrderService(IUnitOfWork unitOfWork, INotifyFCMService notifyFCMService)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public OrderService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
-            _notifyFCMService = notifyFCMService;
+            _userManager = userManager;
         }
         public async Task<StatusResponse<Order>> Add(OrderInfoVM orderInfoVM, long staffId)
         {
@@ -50,7 +54,7 @@ namespace TiemKiet.Services
             _unitOfWork.OrderRepository.Add(order);
             _unitOfWork.OrderDetailRepository.AddRange(orderDetails);
             await _unitOfWork.CommitAsync();
-            await _notifyFCMService.SendToGroup("Có đơn hàng mới", $"Bạn vừa nhận được đơn hàng mới từ {order.FullName} (SDT: {order.NumberPhone})");
+            //await _notifyFCMService.SendToGroup("Có đơn hàng mới", $"Bạn vừa nhận được đơn hàng mới từ {order.FullName} (SDT: {order.NumberPhone})");
             data.IsSuccess = true;
             data.Message = "Xác nhận đơn hàng thành công, vui lòng đợi nhân viên xác nhận.";
             return data;
@@ -83,12 +87,25 @@ namespace TiemKiet.Services
             }
         }
 
-
-        public async Task<ICollection<Order>> GetListAsync(long? userId = null, Func<IQueryable<Order>, IIncludableQueryable<Order, object>>? includes = null)
+        public async Task<Order?> GetUserPedingOrder(long? userId = null, Func<IQueryable<Order>, IIncludableQueryable<Order, object>>? includes = null)
         {
-            if(userId.HasValue)
+            if (userId.HasValue)
             {
-                return await _unitOfWork.OrderRepository.GetAllAsync(x => x.UserId == userId.Value, includes);
+                return await _unitOfWork.OrderRepository.GetAsync(x => x.UserId == userId.Value && (x.Status != OrderStatus.Canncel && x.Status != OrderStatus.Complete), includes);
+            }
+            else
+            {
+                return new Order();
+            }
+        }
+
+        public async Task<ICollection<Order>> GetListAsync(long? userId = null, DateTime date = default, Func<IQueryable<Order>, IIncludableQueryable<Order, object>>? includes = null)
+        {
+            date = date == default ? DateTime.UtcNow.ToTimeZone() : date;
+            if (userId.HasValue)
+            {
+                Console.WriteLine($"Date là {date.Date}");
+                return await _unitOfWork.OrderRepository.GetAllAsync(x => x.UserId == userId.Value && x.DateCreate.Date == date.Date, includes);
             }
             return await _unitOfWork.OrderRepository.GetAllAsync();
         }
@@ -123,6 +140,34 @@ namespace TiemKiet.Services
                 return true;
             }
             return false;
+        }
+
+        public async Task<ICollection<Order>> GetPendingDateOrders(long userId, DateTime date, OrderStatus orderStatus, Func<IQueryable<Order>, IIncludableQueryable<Order, object>>? includes = null)
+        {
+            var user = await _unitOfWork.UserRepository.GetAsync(x => x.Id == userId);
+            if (user != null)
+            {
+                var userRoles = await _userManager.GetRolesAsync(user);
+                var policyMessages = new Dictionary<string, int>
+                {
+                    { Constants.Roles.TiemKietNGT, 1 },
+                    { Constants.Roles.TiemKietPNT, 2 },
+                    { Constants.Roles.TiemKietNB, 3 }
+                };
+                foreach (var policy in policyMessages.Keys)
+                {
+                    Console.WriteLine(policy + "\n\n\n");
+                    if (userRoles.Contains(policy))
+                    {
+                        var branchId = policyMessages[policy];
+                        Console.WriteLine(branchId + "\n\n\n");
+                        return await _unitOfWork.OrderRepository.GetAllAsync(x => x.BranchId == branchId 
+                            && x.DateCreate.Date == date.Date 
+                            && x.Status == orderStatus, includes, q => q.OrderByDescending(o => o.Id));
+                    }
+                }
+            }
+            return new List<Order>();
         }
 
         public async Task<bool> HasOrder(long userId)

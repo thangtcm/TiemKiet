@@ -56,7 +56,10 @@ namespace TiemKiet.Data
             builder.Entity<ApplicationRole>().HasData
             (
                 new ApplicationRole() { Id = 1, Name = Constants.Roles.Admin, NormalizedName = Constants.Roles.Admin, ConcurrencyStamp = null },
-                new ApplicationRole() { Id = 2, Name = Constants.Roles.Staff, NormalizedName = Constants.Roles.Staff, ConcurrencyStamp = null }
+                new ApplicationRole() { Id = 2, Name = Constants.Roles.Staff, NormalizedName = Constants.Roles.Staff, ConcurrencyStamp = null },
+                new ApplicationRole() { Id = 3, Name = Constants.Roles.TiemKietNGT, NormalizedName = Constants.Roles.TiemKietNGT, ConcurrencyStamp = null },
+                new ApplicationRole() { Id = 4, Name = Constants.Roles.TiemKietPNT, NormalizedName = Constants.Roles.TiemKietPNT, ConcurrencyStamp = null },
+                new ApplicationRole() { Id = 5, Name = Constants.Roles.TiemKietNB, NormalizedName = Constants.Roles.TiemKietNB, ConcurrencyStamp = null }
             );
         }
 

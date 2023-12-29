@@ -579,3 +579,10 @@ D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\tiemkiet-firebase-admin.json
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\FirebaseAdmin.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\TiemKiet.Properties.Resources.resources
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\TiemKiet.csproj.GenerateResource.cache
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Release\net6.0\refs\System.Diagnostics.DiagnosticSource.dll
+D:\TiemKiet\TiemKiet\TiemKiet\obj\Release\net6.0\TiemKiet.sourcelink.json

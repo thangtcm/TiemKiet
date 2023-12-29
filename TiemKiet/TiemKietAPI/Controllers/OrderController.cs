@@ -47,20 +47,21 @@ namespace TiemKietAPI.Controllers
         }
 
         [HttpGet("GetOrders")]
-        public async Task<IActionResult> Get(long userId, int? page)
+        public async Task<IActionResult> Get(long userId, string date)
         {
             try
             {
-                var orders = await _orderService.GetListAsync(userId);
-                int pagesize = 10;
-                int maxpage = (orders.Count / pagesize) + (orders.Count % 10 == 0 ? 0 : 1);
-                int pagenumber = page == null || page < 0 ? 1 : page.Value;
-                PagedList<Order> lst = new(orders, pagenumber, pagesize);
-                var orderlst = lst.Select(x => new OrderInfoVM(x)
+                DateTime datenow = DateTime.Now;
+                if (!String.IsNullOrEmpty(date))
+                {
+                    datenow = CallBack.ConvertStringToDateTime(date);
+                }
+                var orders = await _orderService.GetListAsync(userId, datenow);
+                var orderlst = orders.Select(x => new OrderInfoVM(x)
                 {
                 }).ToList();
 
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", new { Data = orderlst , MaxPage = maxpage }));
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", orderlst));
             }
             catch (Exception ex)
             {
@@ -69,21 +70,38 @@ namespace TiemKietAPI.Controllers
             }
             return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
-        [HttpGet("GetPendingOrders")]
-        public async Task<IActionResult> GetPendingOrders(int branchId, int? page)
+
+        [HttpGet("GetUserPedingOrder")]
+        public async Task<IActionResult> GetUserPedingOrder(long userId)
         {
             try
             {
-                var orders = await _orderService.GetPendingOrders(branchId);
-                int pagesize = 10;
-                int maxpage = (orders.Count / pagesize) + (orders.Count % 10 == 0 ? 0 : 1);
-                int pagenumber = page == null || page < 0 ? 1 : page.Value;
-                PagedList<Order> lst = new(orders, pagenumber, pagesize);
-                var orderlst = lst.Select(x => new OrderInfoVM(x)
+                var order = await _orderService.GetUserPedingOrder(userId);
+
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", order));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }    
+
+        [HttpGet("GetPendingOrders")]
+        public async Task<IActionResult> GetPendingOrders(long userId, string date, OrderStatus orderStatus)
+        {
+            try
+            {
+                DateTime datenow = DateTime.Now;
+                if (!String.IsNullOrEmpty(date))
+                {
+                    datenow = CallBack.ConvertStringToDateTime(date);
+                }
+                var orders = await _orderService.GetPendingDateOrders(userId, datenow, orderStatus);
+                var orderlst = orders.Select(x => new OrderInfoVM(x)
                 {
                 }).ToList();
-
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", new { Data = orderlst, MaxPage = maxpage }));
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", orderlst));
             }
             catch (Exception ex)
             {

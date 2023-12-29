@@ -141,6 +141,9 @@ namespace TiemKiet.Helpers
             {
                 options.AddPolicy(Constants.Policies.RequireAdmin, policy => policy.RequireRole(Constants.Roles.Admin));
                 options.AddPolicy(Constants.Policies.RequireStaff, policy => policy.RequireRole(Constants.Roles.Admin, Constants.Roles.Staff));
+                options.AddPolicy(Constants.Policies.RequireStaffNGT, policy => policy.RequireRole(Constants.Roles.Admin, Constants.Roles.Staff, Constants.Roles.TiemKietNGT));
+                options.AddPolicy(Constants.Policies.RequireStaffPNT, policy => policy.RequireRole(Constants.Roles.Admin, Constants.Roles.Staff, Constants.Roles.TiemKietPNT));
+                options.AddPolicy(Constants.Policies.RequireStaffNB, policy => policy.RequireRole(Constants.Roles.Admin, Constants.Roles.Staff, Constants.Roles.TiemKietNB));
             });
         }
     }
