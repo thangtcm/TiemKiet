@@ -12,7 +12,7 @@ namespace TiemKiet.Models.ViewModel
         public double DiscountRank { get; set; }
         public double DiscountEvent { get; set; }
         public double DiscountShip { get; set; }
-        public double Shipping { get; set; }
+        public double ShipTotal { get; set; }
         public string FullName { get; set; }
         public OrderStatus? Status { get; set; }
         [Phone]
@@ -25,6 +25,7 @@ namespace TiemKiet.Models.ViewModel
         public string? DateCreate { get; set; }
         public string? DatePreparing { get; set; }
         public string? DateUpdate { get; set; }
+        public double Distance { get; set; }
         public int BranchId { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
         public List<int>? VoucherList { get; set; } 
@@ -39,7 +40,7 @@ namespace TiemKiet.Models.ViewModel
             this.Address = model.Address;
             this.GrandTotal = model.GrandTotal;
             this.Discount = model.Discount;
-            this.Shipping = model.Shipping;
+            this.ShipTotal = model.ShipTotal;
             this.DiscountShip = model.DiscountShip;
             this.DiscountRank = model.DiscountRank;
             this.DiscountEvent = model.DiscountEvent;
@@ -53,6 +54,7 @@ namespace TiemKiet.Models.ViewModel
             this.DateCreate = model.DateCreate.ToString("HH:mm");
             this.DateUpdate = model.DateUpdate.ToString("HH:mm");
             this.DatePreparing = model.DatePreparing.ToString("HH:mm");
+            this.Distance = model.Distance;
             this.VoucherList = string.IsNullOrEmpty(model.ListVoucher) ? new List<int>() : model.ListVoucher.Split(", ")
                          .Select(int.Parse)
                          .ToList();
@@ -65,10 +67,11 @@ namespace TiemKiet.Models.ViewModel
                     {
                         CartItem cart = new(item.Product)
                         {
+                            ProductId = item.ProductId.HasValue ? item.ProductId.Value : 0,
                             ProductHasIce = item.AddIce,
                             ProductNotes = item.Note,
                             ProductQuantity = item.Quantity,
-                            ProductUpsize = item.UpSize
+                            ProductUpsize = item.UpSize,
                         };
                         CartItems.Add(cart);
                     }

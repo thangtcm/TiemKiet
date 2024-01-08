@@ -51,6 +51,7 @@ namespace TiemKiet.Models
         public ApplicationUser? UserRemove { get; set; }
         [Display(Name = "Trạng thái")]
         public bool IsRemoved { get; set; }
+        public bool ItemUnavailable { get; set; }
         public int BranchId { get; set; }
         [ForeignKey("BranchId")]
         public Branch? Branch { get; set; }

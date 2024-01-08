@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using TiemKiet.Models;
+using TiemKiet.Models.ViewModel;
+using TiemKiet.Services.Interface;
 
 namespace TiemKiet.Controllers
 {
@@ -14,18 +16,44 @@ namespace TiemKiet.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        private readonly IBlogService _blogService;
+        private readonly IProductService _productService;
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, IBlogService blogService, IProductService productService)
         {
             _logger = logger;
             _configuration = configuration;
+            _blogService = blogService;
+            _productService = productService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
+        {
+            if (HttpContext.Session.Keys.Contains("ToastrMessage") && HttpContext.Session.Keys.Contains("ToastrMessageType"))
+            {
+                TempData["ToastrMessage"] = HttpContext.Session.GetString("ToastrMessage");
+                TempData["ToastrMessageType"] = HttpContext.Session.GetString("ToastrMessageType");
+
+                HttpContext.Session.Remove("ToastrMessage");
+                HttpContext.Session.Remove("ToastrMessageType");
+            }
+            var blogs = await _blogService.GetListNewAsync();
+            var model = new SettingVMInfo
+            {
+                BlogLst = blogs.ToList()
+            };
+            return View(model);
+        }
+
+        [Route("Home/Privacy")]
+        [Route("Privacy")]
+        public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [Route("Home/Terms-of-user")]
+        [Route("Terms-of-user")]
+        public IActionResult Terms()
         {
             return View();
         }

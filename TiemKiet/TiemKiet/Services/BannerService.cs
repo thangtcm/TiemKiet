@@ -17,32 +17,25 @@ namespace TiemKiet.Services
             _firebaseStorageService = firebaseStorageService;
         }
 
-        public async Task Add(BannerInfoVM model, long userId)
+        public async Task AddRange(List<BannerInfoVM> model, long userId)
         {
-            if(model.UploadImg != null)
+            ICollection<Banner> lstModel = new List<Banner>();
+            foreach (var item in model)
             {
-                List<string> imglst = new();
-                foreach(var img in model.UploadImg)
+                var upload = await _firebaseStorageService.UploadFile(item.UploadImg);
+                var uploadmb = await _firebaseStorageService.UploadFile(item.UploadImgMobile);
+                var banner = new Banner()
                 {
-                    var upload = await _firebaseStorageService.UploadFile(img);
-                    imglst.Add(upload.ToString());
-                }
-                var bannerall = await _unitOfWork.BannerRepository.GetAllAsync();
-                _unitOfWork.BannerRepository.RemoveRange(bannerall);
-                ICollection<Banner> lstModel = new List<Banner>();
-                foreach(var item in imglst)
-                {
-                    var banner = new Banner()
-                    {
-                        DatePublish = DateTime.UtcNow.ToTimeZone(),
-                        UrlBanner = item,
-                        UserId = userId,
-                    };
-                    lstModel.Add(banner);
-                }
-                _unitOfWork.BannerRepository.AddRange(lstModel);
-                await _unitOfWork.CommitAsync();
-            }    
+                    DatePublish = DateTime.UtcNow.ToTimeZone(),
+                    UrlBannerPC = upload.ToString(),
+                    UrlBannerMobile = uploadmb.ToString(),
+                    UserId = userId,
+                };
+                lstModel.Add(banner);
+            }
+
+            _unitOfWork.BannerRepository.AddRange(lstModel);
+            await _unitOfWork.CommitAsync();
         }
 
         public async Task<ICollection<Banner>> GetListAsync()

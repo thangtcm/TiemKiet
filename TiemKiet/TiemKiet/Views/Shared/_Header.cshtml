@@ -1,4 +1,10 @@
 ﻿<!-- Offcanvas Menu Begin -->
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using TiemKiet.Helpers;
+@{
+    var cart = HttpContextAccessor.HttpContext!.Session.GetObjectFromJson<ICollection<CartItem>>(Constants.UserCart) ?? new List<CartItem>();
+}
 <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileNavMenu" aria-labelledby="MobileNavMenu">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="MobileNavMenuLabel"></h5>
@@ -10,7 +16,9 @@
                 <partial name="_LoginPartial" />
             </div>
             <div class="my-3 text-center">
-                <a href="#" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">Giỏ hàng <i class="ms-2 fas fa-shopping-cart"></i><span class="ms-1">(2)</span></a>
+                <a class="icon-header-item px-2 icon-header-noti cartItemCount" data-notify="@cart.Count" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" onclick="previewCart('#previewCartData')">
+                    <span class="font-monospace fs-5 font-weight-600">Giỏ hàng </span> <i class="fas fa-shopping-cart"></i>
+                </a>
             </div>
             <br>
             <div id="mobile-menu-wrap"></div>
@@ -61,7 +69,7 @@
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
                     <div class="d-flex flex-wrap gap-3 justify-content-end">
-                        <a class="icon-header-item px-2 icon-header-noti" id="cartItemCount" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                        <a class="icon-header-item px-2 icon-header-noti cartItemCount" data-notify="@cart.Count" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" onclick="previewCart('#previewCartData')">
                             <span class="font-monospace fs-5 font-weight-600">Giỏ hàng </span> <i class="fas fa-shopping-cart"></i>
                         </a>
                     </div>

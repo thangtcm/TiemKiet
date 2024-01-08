@@ -21,6 +21,21 @@
     </section>
     <section id="products" class="section products">
         <div class="container">
+            <h3 class="mb-4">Vui lòng chọn chi nhánh bạn muốn đặt hàng</h3>
+            <form asp-action="Index" method="get" class="row align-content-center mb-3">
+                <input type="hidden" id="currentBranchId" value="@ViewData["CurrentBranchId"]" />
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group">
+                        <select name="branchId" class="select" asp-items="@ViewBag.ListBranchSelect">
+                            <option value="">Chọn chi nhánh</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </div>
+            </form>
+            <hr>
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-5">
                     <div class="sidebar-categories">
@@ -61,7 +76,7 @@
                                                                 </button>
                                                                 <div class="col-md-6 d-flex px-5">
                                                                     <div class="modal-body ml-img d-flex justify-content-center bg-secondary align-items-center">
-                                                                        <img src="@item.ProductImage" alt="" style="max-height: 15rem;">
+                                                                        <img src="@item.ProductImage" alt="" style="max-height: 20rem;">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6 d-flex">
@@ -74,38 +89,26 @@
                                                                                     @Html.Raw(item.ProductDescription)
                                                                                 </p>
                                                                             </div>
-                                                                            @if(item.ProductPriceUpSize != 0)
-                                                                            {
-                                                                                <hr>
-                                                                                <div class="card-product-option">
-                                                                                    <span class="card-product-option-text">Chọn Size</span>
+                                                                            <div class="row justify-content-center card-product-option-item align-items-center">
+                                                                                <div class="form-group">
+                                                                                    <select class="select" id="sizeProductSelect@(item.ProductId)" data-modal-id="@productModal">
+                                                                                        <option value="">Chọn size</option>
+                                                                                        <option value="0">Size M</option>
+                                                                                        @if (item.ProductPriceUpSize != 0)
+                                                                                        {
+                                                                                            <option value="1">Size L (@item.ProductPriceUpSize.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</option>
+                                                                                        }
+                                                                                    </select>
                                                                                 </div>
-                                                                                <div class="d-flex justify-content-between card-product-option-item align-items-center">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input" type="radio" id="sizeProductRadio@(item.ProductId)">
-                                                                                        <label class="form-check-label text-price font-weight-600" for="sizeProductRadio@(item.ProductId)">
-                                                                                            Upsize (@item.ProductPriceUpSize.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            }
-                                                                            
-                                                                            <hr>
-                                                                            <div class="card-product-option">
-                                                                                <span class="card-product-option-text">Lựa chọn khác</span>
-                                                                            </div>
-                                                                            <div class="d-flex justify-content-between card-product-option-item align-items-center">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input" type="radio" id="iceProductRadio@(item.ProductId)">
-                                                                                    <label class="form-check-label text-price font-weight-600" for="iceProductRadio@(item.ProductId)">
-                                                                                        Đá riêng
-                                                                                    </label>
+                                                                                <div class="form-group">
+                                                                                    <select class="select" id="iceProductSelect@(item.ProductId)" data-modal-id="@productModal">
+                                                                                        <option value="">Lựa chọn khác</option>
+                                                                                        <option value="0">Đá chung</option>
+                                                                                        <option value="1">Đá riêng</option>
+                                                                                    </select>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="card-product-option">
-                                                                                <span class="card-product-option-text">Số lượng</span>
-                                                                            </div>
-                                                                            <div class="row justify-content-center align-content-center mt-3">
+                                                                            <div class="d-flex justify-content-center align-content-center mt-3">
                                                                                 <div class="wrap-num-product d-flex flex-wrap mt-1 mb-1">
                                                                                     <div class="btn btn-primary btn-num-product-down trans-04">
                                                                                         <i class="fas fa-minus"></i>
@@ -117,9 +120,9 @@
                                                                                         <i class="fas fa-plus"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="py-3 text-end">
-                                                                                    <a href="#" class="btn btn-primary add-to-cart-btn" data-product-id="@item.ProductId">Thêm vào giỏ hàng</a>
-                                                                                </div>
+                                                                            </div>
+                                                                            <div class="py-3 text-center">
+                                                                                <a href="#" class="btn btn-primary add-to-cart-btn" data-product-id="@item.ProductId">Thêm vào giỏ hàng</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -148,6 +151,15 @@
                                                                     @item.ProductPrice.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))
                                                                 </span>
                                                             </div>
+                                                            @if(item.ItemUnavailable != null)
+                                                            {
+                                                                if(item.ItemUnavailable.Value)
+                                                                {
+                                                                    <div class="d-flex align-items-center">
+                                                                        <span class="text-danger fw-bold" style="font-size: 14px;">Hết hàng</span>
+                                                                    </div>
+                                                                }
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>

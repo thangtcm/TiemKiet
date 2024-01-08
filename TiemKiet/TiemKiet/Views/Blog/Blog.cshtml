@@ -13,6 +13,22 @@
     <section class="section">
         <div class="container">
             <div class="blog-content">
+                <span class="d-flex flex-wrap g-2">
+                    <span>
+                        <span class="text-secondary">By</span> @Model.Author
+                        <span class="mx-2">|</span>
+                    </span>
+                    <span>
+                        @Model.PublishedDate.ToString("dd/MM/yyyy")
+                        <span class="mx-2">|</span>
+                    </span>
+                    <span>
+                        Tiệm Kiết
+                    </span>
+                </span>
+                <h1 class="text-dark">
+                    @Model.Heading
+                </h1>
                 @Html.Raw(Model.Content)
             </div>
         </div>

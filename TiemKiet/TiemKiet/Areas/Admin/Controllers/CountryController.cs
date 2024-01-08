@@ -42,7 +42,8 @@ namespace TiemKiet.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập.");
                     return View();
-                }    
+                }
+                this.AddToastrMessage("Tạo quốc gia thành công", Enums.ToastrMessageType.Success);
                 await _countryService.Add(model, user.Id);
                 return RedirectToAction(nameof(Index));
             }

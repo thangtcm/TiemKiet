@@ -54,6 +54,7 @@ namespace TiemKiet.Areas.Admin.Controllers
                     return View();
                 }
                 await _provinceService.Add(model, user.Id);
+                this.AddToastrMessage("Tạo tỉnh thành công", Enums.ToastrMessageType.Success);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -87,6 +88,7 @@ namespace TiemKiet.Areas.Admin.Controllers
                     return NotFound();
                 }    
                 await _provinceService.Update(model, user.Id);
+                this.AddToastrMessage("Chỉnh sửa thành công", Enums.ToastrMessageType.Success);
                 return RedirectToAction(nameof(Index));
             }
             catch(Exception ex)

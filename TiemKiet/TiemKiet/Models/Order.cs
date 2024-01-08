@@ -30,7 +30,7 @@ namespace TiemKiet.Models
         [Display(Name = "Giảm giá ship")]
         public double DiscountShip { get; set; }
         [Display(Name = "Tiền ship")]
-        public double Shipping { get; set; }
+        public double ShipTotal { get; set; }
         [Display(Name = "Họ và tên")]
         public string FullName { get; set; }
         [Display(Name ="Trạng thái đơn hàng")]
@@ -47,9 +47,10 @@ namespace TiemKiet.Models
         public DateTime DateUpdate { get; set; }
         public DateTime DatePreparing { get; set; }
         [Display(Name = "Ghi chú")]
-        public string NoteShip { get; set; }
+        public string? NoteShip { get; set; }
         public double LatCustomer { get; set; }
         public double LongCustomer { get; set; }
+        public double Distance { get; set; }
         public string ListVoucher { get; set; }
         public ICollection<OrderDetail>? OrderDetails { get; set; }
         public Order() { }
@@ -60,7 +61,7 @@ namespace TiemKiet.Models
             this.Address = model.Address;
             this.GrandTotal = model.GrandTotal;
             this.Discount = model.Discount;
-            this.Shipping = model.Shipping;
+            this.ShipTotal = model.ShipTotal;
             this.DiscountShip = model.DiscountShip;
             this.BranchId = model.BranchId;
             this.DiscountRank = model.DiscountRank;
@@ -68,6 +69,7 @@ namespace TiemKiet.Models
             this.NumberPhone = model.NumberPhone;
             this.Status = model.Status ?? OrderStatus.WaitingConfirm;
             this.NoteShip = model.NoteShip;
+            this.Distance = model.Distance;
             this.UserId = model.UserId;
             this.StaffId = StaffId;
             this.LatCustomer = model.LatCustomer;

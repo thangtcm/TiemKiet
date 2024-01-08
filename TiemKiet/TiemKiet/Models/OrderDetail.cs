@@ -24,7 +24,7 @@ namespace TiemKiet.Models
         [Display(Name = "Đá riêng")]
         public bool AddIce { get; set; }
         [Display(Name = "Ghi chú")]
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
     }
 }

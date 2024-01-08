@@ -56,11 +56,22 @@
 
         var productId = $(this).data('product-id');
 
-        var upsize = $(`#sizeProductRadio${productId}`).is(':checked');
-        var addIce = $(`#iceProductRadio${productId}`).is(':checked');
-        var quantity = $(`#num-product${productId}`).val();
+        // Kiểm tra sự tồn tại của các phần tử DOM
+        var sizeProductSelect = $(`#sizeProductSelect${productId}`);
+        var iceProductSelect = $(`#iceProductSelect${productId}`);
+        var numProductInput = $(`#num-product${productId}`);
 
-        console.log('Dữ liệu là : ' + productId + ' upsize' + upsize + ' addIce' + addIce + ' quantity' + quantity);
+        var upsize = sizeProductSelect.val()
+        var addIce = iceProductSelect.val();
+        var quantity = numProductInput.val();
+        var currentBranchId = $('#currentBranchId').val();
+        if(upsize == "" || addIce == "")
+        {
+            toastr.error('Vui lòng điền đủ thông tin.', 'Lỗi');
+            return;
+        }
+        console.log('Dữ liệu là : ' + productId + ' upsize' + upsize + ' addIce' + addIce + ' quantity' + quantity + "currentBranchId " + currentBranchId);
+
         // Thực hiện Ajax request với các giá trị đã lấy được
         $.ajax({
             url: '/Cart/AddToCart',
@@ -69,11 +80,16 @@
                 productId: productId,
                 upsize: upsize,
                 addIce: addIce,
-                quantity: quantity
+                quantity: quantity,
+                branchId: currentBranchId
             },
             success: function (result) {
-                $('#cartItemCount').data('notify', result).attr('data-notify', result);
+                $('.cartItemCount').each(function () {
+                    $(this).data('notify', result).attr('data-notify', result);
+                });
+
                 toastr.success('Thêm vào giỏ hàng thành công.', 'Thành công');
+                $(`#ViewProductModal${productId}`).modal('hide');
             },
             error: function (error) {
                 console.error('Error adding to cart:', error);

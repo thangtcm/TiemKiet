@@ -1,15 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @using TiemKiet.Helpers;
+@using TiemKiet.Models.ViewModel
 @{
-    string? userAddress = HttpContextAccessor.HttpContext!.Session.GetString(Constants.UserAddressCurrent);
+    var locationUser = HttpContextAccessor.HttpContext!.Session.GetObjectFromJson<LocationUser>(Constants.LocationUser) ?? new LocationUser();
+    var cart = HttpContextAccessor.HttpContext!.Session.GetObjectFromJson<ICollection<CartItem>>(Constants.UserCart) ?? new List<CartItem>();
 }
 <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
     <div class="d-flex flex-column h-100">
         <div class="offcanvas-header align-items-center">
             <div class="col-10 text-center">
                 <h5 id="offcanvasCartLabel" class="font-inter">Giỏ hàng</h5>
-                <p><span class="me-2"><i class="far fa-clock"></i></span> Địa điểm của bạn: @(userAddress ?? "Không có địa chỉ")</p>
+                <p><span class="me-2"><i class="far fa-clock"></i></span> Địa điểm của bạn: @(locationUser.AddreasUserName ?? "Không có địa chỉ")</p>
             </div>
             <div class="col-2 text-end">
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -22,29 +24,7 @@
                     <div class="container">
                         <div class="row justify-content-center gy-3">
                             <div class="col-12">
-                                <div class="d-flex align-items-center justify-content-between gap-3">
-                                    <div class="wrap-num-product d-flex justify-content-between mt-1 mb-1">
-                                        <div class="btn btn-primary btn-num-product-down trans-04">
-                                            <i class="fas fa-minus"></i>
-                                        </div>
-
-                                        <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-                                        <div class="btn btn-primary btn-num-product-up trans-04">
-                                            <i class="fas fa-plus"></i>
-                                        </div>
-                                    </div>
-                                    <div class="header-cart-item-img d-none d-lg-block d-xl-block d-xxl-block">
-                                        <img src="~/images/logo.png" alt="IMG">
-                                    </div>
-
-                                    <div class="header-cart-item-txt pt-2">
-                                        <h6>Cà phê muối</h6>
-                                    </div>
-                                    <p class="ms-auto header-cart-item-info text-price mb-0">
-                                        25,000 VND
-                                    </p>
-                                </div>
+                                <h1>Giỏ hàng rỗng</h1>
                             </div>
                         </div>
                     </div>
@@ -56,10 +36,10 @@
                     <h5>Tổng cộng:</h5>
                 </div>
                 <div class="col-6">
-                    <p class="text-price text-end font-weight-600">1,125,000đ</p>
+                    <p class="text-price text-end font-weight-600">0</p>
                 </div>
                 <div class="col-12">
-                    <a href="" class="btn btn-primary w-100 font-monospace font-weight-600 mt-3">Xem lại đơn hàng</a>
+                    <a asp-action="Index" asp-controller="Cart" class="btn btn-primary w-100 font-monospace font-weight-600 mt-3">Xem lại đơn hàng</a>
                 </div>
             </div>
         </div>

@@ -108,6 +108,17 @@ namespace TiemKiet.Repository.GenericRepository
             return await query.FirstOrDefaultAsync(expression!, cancellationToken);
         }
 
+        public async Task<T?> GetLastAsync(Expression<Func<T, bool>>? expression, Func<IQueryable<T>, IQueryable<T>>? include = null, CancellationToken cancellationToken = default)
+        {
+            IQueryable<T> query = _entitySet;
+
+            if (include != null)
+            {
+                query = include(query);
+            }
+
+            return await query.LastOrDefaultAsync(expression!, cancellationToken);
+        }
 
         public void Remove(T entity)
             => _dbContext.Remove(entity);

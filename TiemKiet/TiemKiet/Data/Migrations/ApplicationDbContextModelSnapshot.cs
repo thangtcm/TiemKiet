@@ -210,6 +210,9 @@ namespace TiemKiet.Migrations
                     b.Property<string>("ImgAvatar")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAction")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -278,6 +281,7 @@ namespace TiemKiet.Migrations
                             EmailConfirmed = true,
                             FullName = "Admin",
                             Gender = 0,
+                            IsAction = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "admin@tiemkiet.vn",
                             NormalizedUserName = "admin",
@@ -410,6 +414,12 @@ namespace TiemKiet.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("BranchLatitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BranchLongitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("BranchName")
                         .IsRequired()
@@ -682,6 +692,9 @@ namespace TiemKiet.Migrations
                     b.Property<double>("DiscountShip")
                         .HasColumnType("float");
 
+                    b.Property<double>("Distance")
+                        .HasColumnType("float");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -700,14 +713,13 @@ namespace TiemKiet.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("NoteShip")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NumberPhone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Shipping")
+                    b.Property<double>("ShipTotal")
                         .HasColumnType("float");
 
                     b.Property<long?>("StaffId")
@@ -740,7 +752,6 @@ namespace TiemKiet.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("OrderId")
@@ -788,6 +799,9 @@ namespace TiemKiet.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ItemUnavailable")
                         .HasColumnType("bit");
 
                     b.Property<string>("ProductDescription")

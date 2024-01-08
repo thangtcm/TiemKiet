@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TiemKiet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+449801564e1d0b0ccf9f271dfb6e22fade08a3a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TiemKiet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TiemKiet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

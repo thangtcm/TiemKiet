@@ -23,22 +23,41 @@
 	});
 
 	// Select 2
+	$('.selectsearch').each(function () {
+		var $select = $(this);
+		var modalId = $select.data('modal-id');
 
-	if ($('.selectsearch').length > 0) {
-		$('.selectsearch').select2({
-			minimumResultsForSearch: 1,
-			width: '100%'
-		});
-	}
+		if (modalId) {
+			$select.select2({
+				minimumResultsForSearch: 1,
+				width: '100%',
+				dropdownParent: $('#' + modalId)
+			});
+		} else {
+			$select.select2({
+				minimumResultsForSearch: 1,
+				width: '100%'
+			});
+		}
+	});
 
-	if ($('.select').length > 0) {
-		$('.select').each(function () {
-			$(this).select2({
+	$('.select').each(function () {
+		var $select = $(this);
+		var modalId = $select.data('modal-id');
+
+		if (modalId) {
+			$select.select2({
+				minimumResultsForSearch: -1,
+				width: '100%',
+				dropdownParent: $('#' + modalId)
+			});
+		} else {
+			$select.select2({
 				minimumResultsForSearch: -1,
 				width: '100%'
 			});
-		});
-	}
+		}
+	});
 
 	// Scroll To Top 
 	$(window).on('scroll', function () {
@@ -57,14 +76,18 @@
 
 	/*==================================================================
 	[ +/- num product ]*/
-	$('.btn-num-product-down').on('click', function () {
+	$(document).on('click', '.btn-num-product-down', function () {
 		var numProduct = Number($(this).next().val());
-		if (numProduct > 0) $(this).next().val(numProduct - 1);
+		if (numProduct > 0) {
+			$(this).next().val(numProduct - 1);
+			$(this).next().trigger('change');
+		}
 	});
 
-	$('.btn-num-product-up').on('click', function () {
+	$(document).on('click', '.btn-num-product-up', function () {
 		var numProduct = Number($(this).prev().val());
 		$(this).prev().val(numProduct + 1);
+		$(this).prev().trigger('change');
 	});
 
 	$(window).stellar({

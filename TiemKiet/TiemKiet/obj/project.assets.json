@@ -2,29 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "AspNetCoreHero.ToastNotification/1.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
-        },
-        "compile": {
-          "lib/net5.0/AspNetCoreHero.ToastNotification.Views.dll": {},
-          "lib/net5.0/AspNetCoreHero.ToastNotification.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/AspNetCoreHero.ToastNotification.Views.dll": {},
-          "lib/net5.0/AspNetCoreHero.ToastNotification.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ],
-        "build": {
-          "buildTransitive/AspNetCoreHero.ToastNotification.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/AspNetCoreHero.ToastNotification.props": {}
-        }
-      },
       "BarcodeLib/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -4431,30 +4408,6 @@
     }
   },
   "libraries": {
-    "AspNetCoreHero.ToastNotification/1.1.0": {
-      "sha512": "bCAYeD+b2pRelcOrHMNtYGVtRq+J2u+SAaND33v3u6qZCatHf4XSZOEPhBfCKJAjMGvsggtPKaNFnrv4VhwOfA==",
-      "type": "package",
-      "path": "aspnetcorehero.toastnotification/1.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
-        "aspnetcorehero.toastnotification.nuspec",
-        "build/AspNetCoreHero.ToastNotification.props",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "buildMultiTargeting/AspNetCoreHero.ToastNotification.props",
-        "buildTransitive/AspNetCoreHero.ToastNotification.props",
-        "lib/net5.0/AspNetCoreHero.ToastNotification.Views.dll",
-        "lib/net5.0/AspNetCoreHero.ToastNotification.dll",
-        "lib/netcoreapp3.1/AspNetCoreHero.ToastNotification.Views.dll",
-        "lib/netcoreapp3.1/AspNetCoreHero.ToastNotification.dll",
-        "logo-transparent.png",
-        "staticwebassets/notyf.min.css",
-        "staticwebassets/notyf.min.js",
-        "staticwebassets/toastify.css",
-        "staticwebassets/toastify.js"
-      ]
-    },
     "BarcodeLib/3.0.3": {
       "sha512": "5aDPRVhFwzZpZFm7Zsj69aZb6xkbDwxJqbjKICg4545/qza/fXG23KdvXJBoveutTDmIAt9ZBTgYct2OCPjq4A==",
       "type": "package",
@@ -7066,6 +7019,7 @@
       "path": "microsoft.netcore.jit/1.0.2",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "microsoft.netcore.jit.1.0.2.nupkg.sha512",
@@ -7094,6 +7048,7 @@
       "path": "microsoft.netcore.portable.compatibility/1.0.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/net45/_._",
@@ -7177,6 +7132,7 @@
       "path": "microsoft.netcore.runtime.coreclr/1.0.2",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "microsoft.netcore.runtime.coreclr.1.0.2.nupkg.sha512",
@@ -12492,7 +12448,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AspNetCoreHero.ToastNotification >= 1.1.0",
       "BarcodeLib >= 3.0.3",
       "Firebase.Auth >= 1.0.0",
       "FirebaseAdmin >= 2.4.0",
@@ -12559,10 +12514,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "AspNetCoreHero.ToastNotification": {
-            "target": "Package",
-            "version": "[1.1.0, )"
-          },
           "BarcodeLib": {
             "target": "Package",
             "version": "[3.0.3, )"

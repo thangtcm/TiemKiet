@@ -18,5 +18,19 @@ namespace TiemKiet.Models.ViewModel
         public string Author { get; set; }
         public bool Visible { get; set; }
         public bool IsRemoved { get; set; }
+
+        public BlogInfoVM() {  }
+        public BlogInfoVM(BlogPost model)
+        {
+            this.BlogId = model.Id;
+            this.Heading = model.Heading;
+            this.Title = model.Title;
+            this.ShortDescription = model.ShortDescription;
+            this.FeatheredImageUrl = model.FeatheredImageUrl;
+            this.PublishedDate = model.PublishedDate;
+            this.Author = model.Author;
+            this.Visible = model.Visible;
+            this.IsRemoved = model.IsRemoved;
+        }
     }
 }

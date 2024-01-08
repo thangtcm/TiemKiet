@@ -30,14 +30,17 @@ namespace TiemKietAPI.Controllers
             _userService = userService;
         }
 
-        [HttpGet("GetOrder")]
+        [HttpGet("GetUserPedingOrder")]
         public async Task<IActionResult> Get(long orderId, long userId)
         {
             try
             {
-                var order = await _orderService.GetByIdAsync(orderId, userId, x => x.Include(od => od.OrderDetails!));
-
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", order));
+                var order = await _orderService.GetByIdAsync(orderId, userId, x => x.Include(od => od.OrderDetails!).ThenInclude(p => p.Product!));
+                if(order == null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Not Found", "Không tìm thấy dữ liệu."));
+                }
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", new OrderInfoVM(order)));
             }
             catch (Exception ex)
             {
@@ -71,22 +74,6 @@ namespace TiemKietAPI.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
 
-        [HttpGet("GetUserPedingOrder")]
-        public async Task<IActionResult> GetUserPedingOrder(long userId)
-        {
-            try
-            {
-                var order = await _orderService.GetUserPedingOrder(userId);
-
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Lấy dữ liệu thành công.", order));
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message.ToString());
-            }
-            return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
-        }    
-
         [HttpGet("GetPendingOrders")]
         public async Task<IActionResult> GetPendingOrders(long userId, string date, OrderStatus orderStatus)
         {
@@ -97,7 +84,7 @@ namespace TiemKietAPI.Controllers
                 {
                     datenow = CallBack.ConvertStringToDateTime(date);
                 }
-                var orders = await _orderService.GetPendingDateOrders(userId, datenow, orderStatus);
+                var orders = await _orderService.GetPendingDateOrders(userId, datenow, orderStatus,  x => x.Include(a => a.OrderDetails!).ThenInclude(p => p.Product!));
                 var orderlst = orders.Select(x => new OrderInfoVM(x)
                 {
                 }).ToList();
@@ -118,16 +105,10 @@ namespace TiemKietAPI.Controllers
             {
                 if (!ModelState.IsValid)
                     return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
-
-                var user = await _userService.GetUser(orderInfoVM.UserId);
-                if (user == null)
-                {
-                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("User NotFound", $"Người dùng không tồn tại."));
-                }
                 var result = await _orderService.Add(orderInfoVM, 1000000001);
                 if(result.IsSuccess)
                 {
-                    return Ok(ResponseResult.CreateResponse("Success", result.Message));
+                    return Ok(ResponseResult.CreateResponse("Success", result.Message, result.Result));
                 }
                 return NotFound(ResponseResult.CreateResponse("Error", result.Message));
             }

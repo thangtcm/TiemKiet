@@ -9,7 +9,8 @@ namespace TiemKiet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string UrlBanner { get; set; }
+        public string UrlBannerPC { get; set; }
+        public string UrlBannerMobile { get; set; }
         public DateTime DatePublish { get; set; }
         public long UserId { get; set; }
         public ApplicationUser UserPublish { get; set; }

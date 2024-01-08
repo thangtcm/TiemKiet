@@ -13,6 +13,7 @@ namespace TiemKiet.Models.ViewModel
         public double ProductPriceUpSize { get; set; }
         public double ProductSale { get; set; }
         public string? BranchName { get; set; }
+        public bool? ItemUnavailable { get; set; }
         public string? ProductImage { get; set; }
         [JsonIgnore]
         public string ProductMBDescription { get; set; }
@@ -32,6 +33,7 @@ namespace TiemKiet.Models.ViewModel
             BranchName = model.Branch is null ? "" : model.Branch.BranchName ?? "";
             ProductType = model.ProductType;
             ProductPriceUpSize = model.ProductPriceUp;
+            ItemUnavailable = model.ItemUnavailable;
         }
     }
 }

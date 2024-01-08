@@ -52,8 +52,10 @@ namespace TiemKiet.Areas.Admin.Controllers
                     ProvinceLst = await _provinceService.GetListAsync();
                     ViewData["ProvinceLst"] = new SelectList(ProvinceLst, "Id", "CityName");
                     ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập.");
+
                     return View();
                 }
+                this.AddToastrMessage("Tạo chi nhánh thành công", Enums.ToastrMessageType.Success);
                 await _branchService.Add(model, user.Id, districtId);
                 return RedirectToAction(nameof(Index));
             }

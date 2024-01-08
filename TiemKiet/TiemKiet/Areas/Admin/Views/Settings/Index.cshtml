@@ -1,5 +1,97 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SettingVMInfo
+@using TiemKiet.Models.ViewModel;
 @{
+    ViewData["Title"] = "Quản lý giao diện trang chủ";
+}
+
+<div class="content container-fluid">
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Add Subject</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" asp-area="Admin">Dashboard</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="CreateBanner" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title"><span>Thông tin quản lý banner</span></h5>
+                            </div>
+                            <div class="col-12" id="createBannerContainers">
+                                @for(var i = 0; i < Model.bannerInfoVMs.Count; i++)
+                                {
+                                    var UploadImagerBN = $"UploadImagerBN{i}";
+                                    var PewViewImage = $"PewViewImage{i}";
+                                    var UploadImagerBNMB = $"UploadImagerBNMB{i}";
+                                    var PewViewImageMB = $"PewViewImageMB{i}";
+                                    <div class="row create-dynamic">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <label>Ảnh banner cho giao diện máy tính, laptop</label>
+                                                <div class="avatar-preview">
+                                                    <div class="avatar-preview">
+                                                        <img class="my-3 avatar-xxl object-fit-cover" id="@PewViewImage" src="" alt="Banner profile picture">
+                                                    </div>
+                                                    <div class="change-photo-btn">
+                                                        <div>
+                                                            <p>Add Image</p>
+                                                        </div>
+                                                        <input type="file" asp-for="@Model.bannerInfoVMs[i].UploadImg" class="upload" id="@UploadImagerBN" accept=".png, .jpg, .jpeg" onchange="previewImage(this, '@PewViewImage')">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <label>Ảnh banner cho giao diện điện thoại</label>
+                                                <div class="avatar-preview">
+                                                    <div class="avatar-preview">
+                                                        <img class="my-3 avatar-xxl object-fit-cover" id="@PewViewImageMB" src="" alt="Banner profile picture">
+                                                    </div>
+                                                    <div class="change-photo-btn">
+                                                        <div>
+                                                            <p>Add Image</p>
+                                                        </div>
+                                                        <input type="file" asp-for="@Model.bannerInfoVMs[i].UploadImgMobile" class="upload" id="@UploadImagerBN" accept=".png, .jpg, .jpeg" onchange="previewImage(this, '@PewViewImageMB')">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <input type="button" id="btnAddBanner" class="btn btn-primary" value="Thêm" style="width: 10rem;">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="student-submit">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $('#btnAddBanner').on('click', function () {
+            addNewObject('/Admin/Settings/CreatePartialBanner', '#createBannerContainers');
+        });
+    </script>
 }

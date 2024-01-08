@@ -1,4 +1,5 @@
 ﻿using FirebaseAdmin;
+using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -59,9 +60,30 @@ namespace TiemKietAPI.Controllers
                         Title = request.Title,
                         Body = request.Body,
                     },
+                    Apns = new ApnsConfig()
+                    {
+                        Headers = new Dictionary<string, string>()
+                        {
+                            { "apns-collapse-id", "solo_changed_administrator"},
+                            { "content-available", "1"},
+                            { "apns-priority", "10" },
+                        },
+                        Aps = new Aps()
+                        {
+                            Sound = "default"
+                        }
+                    },
+                    Android = new AndroidConfig()
+                    {
+                        Priority = Priority.High,
+                        Notification = new AndroidNotification()
+                        {
+                            DefaultSound = true,
+                        }
+                    }
                 };
                 var messaging = FirebaseMessaging.DefaultInstance;
-                var result = await messaging.SendMulticastAsync(message);
+                var result = await messaging.SendEachForMulticastAsync(message);
                 return Ok("Gửi thông báo thành công!.");
             }
             catch (Exception ex)
@@ -199,7 +221,30 @@ namespace TiemKietAPI.Controllers
                 _logger.LogError(ex.Message.ToString());
             }
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
-        }    
+        }
+
+        [HttpPost("RemoveUser")]
+        public async Task<IActionResult> RemoveUser(long userId)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Value Not Valid", $"Dữ liệu nhập vào không hợp lệ - {ModelState}."));
+
+                var result = await _userService.RemoveUser(userId);
+
+                if (!result.IsSuccess)
+                {
+                    return NotFound(ResponseResult.CreateResponse("Lỗi", result.Message));
+                }
+                return Ok(ResponseResult.CreateResponse("Success", result.Message));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
 
         [HttpGet("IsNumberPhoneExist")]
         public async Task<IActionResult> IsNumberPhoneExist([Phone] string numberPhone)
@@ -245,6 +290,52 @@ namespace TiemKietAPI.Controllers
             return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
         }
 
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword(UserInfoVM model)
+        {
+            try
+            {
+                if (!model.UserId.HasValue) return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Server", "Tài khoản không tồn tại."));
+                var user = await _userService.GetUser(model.UserId.Value);
+                if (user is null) return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Server", "Tài khoản không tồn tại."));
+                var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.PasswordOld, model.Password);
+                if (!changePasswordResult.Succeeded)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new { Error = changePasswordResult.Errors });
+                }
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đổi mật khẩu thành công."));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString(), ex);
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Server", "Đã có lỗi xảy ra trong quá trình tạo tài khoản (Vui lòng liên hệ đội ngũ Admin để được hỗ trợ)."));
+        }
+
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update([FromBody] UserInfoVM userinfo)
+        {
+            try
+            {
+                if (!ModelState.IsValid || !userinfo.UserId.HasValue)
+                {
+                    return BadRequest(ResponseResult.CreateResponse("Error", $"Lỗi thiếu dữ liệu.", null));
+                }
+
+                var result = await _userService.UpdateUser(userinfo);
+                if (result)
+                {
+                    return Ok(ResponseResult.CreateResponse("Success", "Cập nhật thông tin người dùng thành công.", null));
+                }
+                return NotFound(ResponseResult.CreateResponse("Error", "Cập nhật thông tin người dùng không thành công."));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Có lỗi xảy ra khi Login");
+                return StatusCode(StatusCodes.Status500InternalServerError, ResponseResult.CreateResponse("ServerError", "Đã có lỗi xảy ra từ máy chủ."));
+            }
+        }
+
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] UserInfoVM userinfo)
         {
@@ -262,14 +353,21 @@ namespace TiemKietAPI.Controllers
                     return NotFound(ResponseResult.CreateResponse("DataNull", "NumberPhone không tồn tại."));
                 }
 
+                if(!userResult.IsAction)
+                {
+                    return NotFound(ResponseResult.CreateResponse("Not Found", "Người dùng không tồn tại."));
+                }
                 var result = await _signInManager.PasswordSignInAsync(userResult.UserName, userinfo.Password, isPersistent: false, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
                     var roles = await _userManager.GetRolesAsync(userResult);
                     var tokens = await _userTokenService.GetListAsync(userResult.Id);
-                    var isHasOrder = await _orderService.HasOrder(userResult.Id);
-                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList()) { IsHasOrder = isHasOrder }));
+                    var isHasOrder = await _orderService.GetUserPedingOrder(userResult.Id);
+                    long orderId = 0;
+                    if (isHasOrder != null)
+                        orderId = isHasOrder.Id;
+                    return Ok(ResponseResult.CreateResponse("Success", "Đăng nhập thành công thành công.", new UserInfoVM(userResult, roles.ToList(), tokens.Select(x => x.UserToken).ToList()) { IsHasOrder = orderId }));
                 }
 
                 return NotFound(ResponseResult.CreateResponse("DataNull", "UserName or Password không đúng."));
@@ -303,6 +401,7 @@ namespace TiemKietAPI.Controllers
                 user.PhoneNumber = model.NumberPhone;
                 user.Birthday = CallBack.ConvertStringToDateTime(model.Birthday ?? DateTime.Now.ToString("dd/MM/yyyy"));
                 user.Gender = model.Gender ?? Gender.Another;
+                user.IsAction = true;
                 await _userStore.SetUserNameAsync(user, model.NumberPhone, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -291,8 +291,6 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\refs\System.Xml.XmlSerializer.
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\refs\System.Xml.XPath.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\refs\WindowsBase.dll
-D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
-D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\BarcodeStandard.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\Firebase.Auth.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Debug\net6.0\FirebaseAdmin.dll

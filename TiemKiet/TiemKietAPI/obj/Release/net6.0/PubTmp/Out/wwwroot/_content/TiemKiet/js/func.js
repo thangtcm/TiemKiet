@@ -273,3 +273,92 @@
 	}
 
 })(jQuery);
+
+function addNewObject(apiEndpoint, containerSelector) {
+	$.ajax({
+		url: apiEndpoint,
+		method: 'GET',
+		success: function (result) {
+			var newIndex = $(".create-dynamic").length;
+			result = result.replace(/\[0\]/g, "[" + newIndex + "]");
+			result = result.replace(/UploadImagerBN0/g, "UploadImagerBN" + newIndex);
+			result = result.replace(/PewViewImage0/g, "PewViewImage" + newIndex);
+			result = result.replace(/UploadImagerBNMB0/g, "UploadImagerBNMB" + newIndex);
+			result = result.replace(/PewViewImageMB0/g, "PewViewImageMB" + newIndex);
+			$(containerSelector).append(result);
+		},
+		error: function (xhr, status, error) {
+			console.error('Error updating objects:', error);
+		}
+	});
+}
+
+function checkVoucher() {
+	$.ajax({
+		url: "Order/CartList",
+		method: 'GET',
+		success: function (result) {
+			$(containerSelector).html(result);
+		},
+		error: function (xhr, status, error) {
+			console.error('Error updating objects:', error);
+		}
+	});
+}
+
+function previewCart(containerSelector) {
+	$.ajax({
+		url: "Cart/CartList",
+		method: 'GET',
+		success: function (result) {
+			$(containerSelector).html(result);
+		},
+		error: function (xhr, status, error) {
+			console.error('Error updating objects:', error);
+		}
+	});
+}
+
+
+function updateItemCart(productId, quantity, upsize, addIce, container = null, contaierPrice = null) {
+	console.log(productId + ' ' + quantity + ' ' + upsize + ' ' + addIce);
+	$.ajax({
+		url: "Cart/UpdateQuantity",
+		method: 'POST',
+		data: {
+			productId: productId,
+			upsize: upsize,
+			addIce: addIce,
+			quantity: quantity
+		},
+		success: function (result) {
+			if (quantity == 0 && container != null) {
+				$(`#${container.id}`).remove();
+			}
+			if (contaierPrice != null) {
+				$(`#${contaierPrice.id}`).html(result);
+			}
+			previewCart('#previewCartData');
+			toastr.success('Cật nhật số lượng sản phẩm thành công.', 'Thành công');
+		},
+		error: function (xhr, status, error) {
+			console.error('Error updating objects:', error);
+		}
+	});
+}
+
+
+function previewImage(input, previewId) {
+	var preview = document.getElementById(previewId);
+	var file = input.files[0];
+
+	if (file) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			preview.src = e.target.result;
+		};
+
+		reader.readAsDataURL(file);
+	}
+}

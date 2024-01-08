@@ -38,51 +38,61 @@
         </div>
     </div>
     <!-- ======= Header ======= -->
-    <header id="header" class="header d-flex align-items-center">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="./assets/images/logo.png" alt="">
-            </a>
-
-            <a class="mobile-nav-toggle mobile-nav-show"><i class="fas fa-bars"></i></a>
-            <a class="mobile-nav-toggle mobile-nav-hide d-none"><i class="fas fa-times"></i></a>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="#">Sản Phẩm</a></li>
-                    <li><a href="about.html" class="active">Chuyện Nhà Kiết</a></li>
-                    <li><a href="#">Liên Hệ</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <a class="btn dropdown-toggle" type="button" id="dropdownAccount" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <div>
-                                    <img src="./assets/images/Anh-Wibu-mat-do.jpg" class="rounded-circle me-2" alt=""
-                                        style="width: 40px; height: 40px;">
-                                    <span>Trần Cao Minh Thắng</span>
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0 shadow-none"
-                                aria-labelledby="dropdownAccount">
-                                <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
-                                <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
-                                <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
-                            </ul>
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7"> 
+                        <h5>Miễn phí giao hàng, 30 ngày tính từ ../../....</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="text-end text-userNamepc d-flex justify-content-end">
+                          <a href="#" class="font-monospace fw-bold" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="mobile-nav-toggle">Đăng nhập</a>
                         </div>
-                    </li>
-                </ul>
-            </nav><!-- .navbar -->
-            <!-- <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#">Đăng nhập</a></li>
-          <li><a href="#">Đăng ký</a></li>
-        </ul>
-      </nav> -->
-
+                    </div>
+                </div>
+            </div>
         </div>
-    </header><!-- End Header -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="./assets/images/logo.png" alt="" style="max-width: 4rem;"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active d-lg-none d-xxl-none d-xl-none d-inline-block"><a href="./index.html">Home</a></li>
+                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                      <div class="d-flex flex-wrap gap-3 justify-content-end">
+                        <a class="icon-header-item px-2 icon-header-noti" data-notify="2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                          <span class="font-monospace fs-5 font-weight-600">Giỏ hàng </span> <i class="fas fa-shopping-cart"></i>
+                        </a>
+                      </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-primary canvas__open" data-bs-toggle="offcanvas" href="#MobileNavMenu" role="button" aria-controls="MobileNavMenu"><i class="fa fa-bars"></i></a>
+        </div>
+    </header>
 
     <main id="main">
         <section id="header-title">
@@ -92,7 +102,23 @@
         <section class="section">
             <div class="container">
                 <div class="blog-content">
+                    <span class="d-flex flex-wrap g-2">
+                        <span>
+                            <span class="text-secondary">By</span> Admin  
+                            <span class="mx-2">|</span>
+                        </span>
+                        <span>
+                            22 Jan, 2018
+                            <span class="mx-2">|</span>
+                        </span>
 
+                        <span>
+                            StreetStyle, Fashion, Couple  
+                        </span>
+                    </span>
+                    <h1 class="text-dark">
+                        8 Inspiring Ways to Wear Dresses in the Winter
+                    </h1>
                 </div>
             </div>
         </section>

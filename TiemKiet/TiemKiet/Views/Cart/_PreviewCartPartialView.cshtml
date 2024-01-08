@@ -6,48 +6,59 @@
         <h5>Danh sách giỏ hàng</h5>
         <div class="container">
             <div class="row justify-content-center gy-3">
-                @foreach(var item in Model)
+                @if (Model.Count == 0)
                 {
-                    <div class="col-12">
-                        <div class="d-flex align-items-center justify-content-between gap-3">
-                            <div class="wrap-num-product d-flex justify-content-between mt-1 mb-1">
-                                <div class="btn btn-primary btn-num-product-down trans-04">
-                                    <i class="fas fa-minus"></i>
-                                </div>
-
-                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-                                <div class="btn btn-primary btn-num-product-up trans-04">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </div>
-                            <div class="header-cart-item-img d-none d-lg-block d-xl-block d-xxl-block">
-                                <img src="~/images/logo.png" alt="IMG">
-                            </div>
-
-                            <div class="header-cart-item-txt pt-2">
-                                <h6>Cà phê muối</h6>
-                            </div>
-                            <p class="ms-auto header-cart-item-info text-price mb-0">
-                                25,000 VND
-                            </p>
-                        </div>
-                    </div>
+                    <h2>Giỏ hàng rỗng</h2>
                 }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-12">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div class="wrap-num-product d-flex justify-content-between mt-1 mb-1">
+                                    <div class="btn btn-primary btn-num-product-down trans-04">
+                                        <i class="fas fa-minus"></i>
+                                    </div>
+
+                                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="@item.ProductQuantity" onchange="updateItemCart(@item.ProductId, this.value, @item.ProductUpsize.ToString().ToLower(), @item.ProductHasIce.ToString().ToLower())">
+
+                                    <div class="btn btn-primary btn-num-product-up trans-04">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="header-cart-item-img d-none d-lg-block d-xl-block d-xxl-block">
+                                    <img src="@item.ProductImage" alt="IMG">
+                                </div>
+
+                                <div class="header-cart-item-txt pt-2">
+                                    <h6>@item.ProductName</h6>
+                                </div>
+                                <p class="ms-auto header-cart-item-info text-price mb-0">
+                                    @(item.getTotalPrice().ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))
+                                </p>
+                            </div>
+                        </div>
+                    }
+                }
+                
                 
             </div>
         </div>
     </div>
-
 </div>
+@{
+    var total = Model.Sum(x => x.getTotalPrice());
+}
 <div class="row mt-auto py-3 container">
     <div class="col-6">
         <h5>Tổng cộng:</h5>
     </div>
     <div class="col-6">
-        <p class="text-price text-end font-weight-600">1,125,000đ</p>
+        <p class="text-price text-end font-weight-600">@(total.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</p>
     </div>
     <div class="col-12">
-        <a href="" class="btn btn-primary w-100 font-monospace font-weight-600 mt-3">Xem lại đơn hàng</a>
+        <a asp-action="Index" asp-controller="Cart" class="btn btn-primary w-100 font-monospace font-weight-600 mt-3">Xem lại đơn hàng</a>
     </div>
 </div>
+

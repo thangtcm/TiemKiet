@@ -27,7 +27,7 @@ namespace TiemKietAPI.Controllers
             try
             {
                 var version = await _versionService.GetByIdAsync();
-                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", new { Data = version}));
+                return StatusCode(StatusCodes.Status200OK, ResponseResult.CreateResponse("Success", "Đã lấy danh sách thành công.", version));
             }
             catch (Exception ex)
             {

@@ -112,6 +112,7 @@ Version      : 1.0
     --color-default-dart: #000000;
     --color-primary: #4c2b19;
     --color-secondary: #865a41;
+    --color-background: #e4d3c2;
 }
 
 /* Smooth scroll behavior */
@@ -336,6 +337,10 @@ ol {
 
 .bg-primary {
     background-color: var(--color-secondary) !important;
+}
+
+.bg-product{
+    background-color: var(--color-background) !important;
 }
 
 .bg-normal {
@@ -1659,7 +1664,7 @@ Pre-loader Style
 ===============================*/
 
 .mobile {
-    background-color: rgba(248, 249, 250, 1) !important;
+    background-color: #e4d3c2;
 }
 
 /*===============================
@@ -2798,112 +2803,102 @@ input.num-product::-webkit-inner-spin-button {
 
 
 /*--------------------------------------------------------------
-# COUPON
+# ORDER PROCESS
 --------------------------------------------------------------*/
-
-.coupon {
-    width: 400px;
-    height: 200px;
-    border-radius: 10px;
+#progressbar {
+    margin-bottom: 30px;
     overflow: hidden;
-    margin: auto;
-    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
-    display: flex;
-    align-items: stretch;
+    color: #9d8578;
+    padding-left: 0px;
+    margin-top: 30px;
+} 
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
     position: relative;
-    text-transform: uppercase;
+    font-weight: 400;
 }
 
-.coupon::before,
-.coupon::after {
-    content: "";
+#progressbar .order-checked:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f111";
+    font-size: 1.3rem;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+#progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #9d8578;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px;
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background: #9d8578;
     position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
+    left: 0;
+    top: 16px;
     z-index: -1;
 }
 
-.coupon::before {
-    left: 0;
-    background-image: radial-gradient(circle at 0 50%,
-            transparent 25px,
-            gold 26px);
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: -50%;
+    z-index: 1;
 }
 
-.coupon::after {
-    right: 0;
-    background-image: radial-gradient(circle at 100% 50%,
-            transparent 25px,
-            gold 26px);
+#progressbar li:nth-child(2):after, #progressbar li:nth-child(3):after {
+    left: -50%;
 }
 
-.coupon>div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 50%;
 }
 
-.left {
-    width: 20%;
-    border-right: 2px dashed rgba(0, 0, 0, 0.13);
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.left div {
-    transform: rotate(-90deg);
-    white-space: nowrap;
-    font-weight: bold;
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-.center {
-    flex-grow: 1;
-    text-align: center;
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: var(--color-primary);
+    z-index: 1;
 }
 
-.right {
-    width: 120px;
-    background-image: radial-gradient(circle at 100% 50%,
-            transparent 25px,
-            #fff 26px);
-}
-
-.right div {
-    font-family: "Libre Barcode 128 Text", cursive;
-    font-size: 2.5rem;
-    font-weight: 400;
-    transform: rotate(-90deg);
-}
-
-.center h2 {
-    background: #000;
-    color: gold;
-    padding: 0 10px;
-    font-size: 2.15rem;
-    white-space: nowrap;
-}
-
-.center h3 {
-    font-size: 2.15rem;
-}
-
-.center small {
-    font-size: 0.625rem;
+#progressbar li.active:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f058";
     font-weight: 600;
-    letter-spacing: 2px;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 2;
+    color: white;
 }
 
-@media screen and (max-width:500px) {
-    .coupon {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .left div {
-        transform: rotate(0deg);
-    }
-
-    .right div {
-        transform: rotate(0deg);
-
-    }
+.order-title-checked i{
+    font-size: 2rem;
 }

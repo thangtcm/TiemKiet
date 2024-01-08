@@ -1,0 +1,161 @@
+﻿@using TiemKiet.Helpers
+@using TiemKiet.Models.ViewModel
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model TiemKiet.Models.ViewModel.OrderInfoVM
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    var locationUser = HttpContextAccessor.HttpContext!.Session.GetObjectFromJson<LocationUser>(Constants.LocationUser) ?? new LocationUser();
+    var distanceBranch = locationUser.DistanceBranches.FirstOrDefault(x => x.LocationBranch.BranchId == Model.BranchId);
+}
+
+<main id="main">
+    <section id="header-title">
+        <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+            <div class="container py-5" data-aos="fade-up"
+                 data-aos-duration="3000">
+                <h1 class="display-3 text-white mb-3">@ViewData["Title"]</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home">Trang Chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">@ViewData["Title"]</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section id="cart" class="section cart">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12" data-aos="fade-up"
+                     data-aos-duration="3000">
+                    <div class="table-responsive table-cart">
+                        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped" style="width:100%">
+                            <thead>
+                                <tr role="row">
+                                    <th>Ảnh</th>
+                                    <th>Món</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng cộng</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.CartItems)
+                                {
+                                    <tr class="text-center" id="@($"ProductContainer{item.ProductId}")">
+
+                                        <td class="product-thumbnail">
+                                            <img src="@item.ProductImage" alt="Image" class="img-fluid">
+                                        </td>
+
+                                        <td>
+                                            <h5>@item.ProductName</h5>
+                                        </td>
+
+                                        <td class="price">@(item.getProductPrice().ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</td>
+
+                                        <td>
+                                            <div class="wrap-num-product d-flex flex-wrap justify-content-center mt-1 mb-1">
+                                                <div class="btn btn-primary btn-num-product-down trans-04">
+                                                    <i class="fas fa-minus"></i>
+                                                </div>
+
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="@item.ProductQuantity" onchange="updateItemCart(@item.ProductId, this.value, @item.ProductUpsize.ToString().ToLower(), @item.ProductHasIce.ToString().ToLower(), @($"ProductContainer{item.ProductId}"), @($"PriceTotalContainer{item.ProductId}"))">
+
+                                                <div class="btn btn-primary btn-num-product-up trans-04">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="price" id="@($"PriceTotalContainer{item.ProductId}")">@(item.getTotalPrice().ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</td>
+                                        <td class="product-remove"><a href="#" onclick="updateItemCart(@item.ProductId, 0, @item.ProductUpsize.ToString().ToLower(), @item.ProductHasIce.ToString().ToLower(), @($"ProductContainer{item.ProductId}"))"><i class="fas fa-times"></i></a></td>
+                                    </tr>
+                                    <!-- END TR-->
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form asp-action="Create" asp-controller="Order" class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input name="VoucherId" value="@Model.VoucherList.Last()" hidden />
+                <div class="col-md-6">
+                    <h3>Thông tin địa điểm giao hàng</h3>
+                    <div class="form-group">
+                        <label for="" class="form-control-label fw-bold">Địa điểm của bạn</label>
+                        <input type="text" class="form-control" value="@locationUser.AddreasUserName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-control-label fw-bold">Giao tới</label>
+                        <input type="text" class="form-control" value="@(distanceBranch?.LocationBranch.BranchName) (Khoảng cách: @distanceBranch?.Distance - @distanceBranch?.Duration)" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-control-label fw-bold">Ghi chú</label>
+                        <input type="text" name="Note" class="form-control" placeholder="Nhập ghi chú cho người giao hàng nếu có">
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-md-6 pl-5">
+                    <div class="row justify-content-end">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-12 text-right border-bottom mb-5">
+                                    <h3 class="text-dark h4 text-uppercase font-weight-600">Tổng cộng giỏ hàng</h3>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <span class="text-dark font-weight-600">Tổng sản phẩm</span>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <strong class="text-dark text-decoration-line-through text-price">@((Model.GrandTotal + Model.Discount).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                    <br />
+                                    <strong class="text-dark text-price">@((Model.GrandTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <span class="text-dark font-weight-600">Phí giao hàng</span>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <strong class="text-dark text-price text-decoration-line-through">@((Model.ShipTotal + Model.DiscountShip).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                    <br />
+                                    <strong class="text-dark text-price">@((Model.ShipTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6">
+                                    <span class="text-dark font-weight-600">Tổng cộng</span>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <strong class="text-dark text-price">@((Model.GrandTotal + Model.ShipTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-lg" type="submit">Tiến hành đặt hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form asp-action="Index" method="get" class="row">
+                <div class="col-lg-6 col-12">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <h3>Thông tin khuyến mãi</h3>
+                    <div class="form-group">
+                        <label class="form-control-label fw-bold">Mã khuyến mãi <span class="fw-normal">(Để áp dụng nhiều ưu đãi hơn, khuyến khích bạn tải ứng dụng của chúng tôi)</span></label>
+                        <input type="text" name="VoucherCode" class="form-control" placeholder="Nhập mã khuyến mãi của bạn nếu có">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Áp dụng voucher</button>
+                </div>
+            </form>
+            
+        </div>
+    </section>
+</main>

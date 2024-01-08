@@ -22,6 +22,7 @@ namespace TiemKiet.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            this.AddToastrMessage("Tải dữ liệu thành công", Enums.ToastrMessageType.Success);
             return View(await _blogService.GetListAsync());
         }
 
@@ -40,7 +41,8 @@ namespace TiemKiet.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập");
                     return View();
-                }    
+                }
+                this.AddToastrMessage("Đăng tải bài viết thành công", Enums.ToastrMessageType.Success);
                 await _blogService.Add(blog, user.Id, upload);
                 return RedirectToAction(nameof(Index));
             }

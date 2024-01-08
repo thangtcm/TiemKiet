@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TiemKiet.Services.Interface;
 
 namespace TiemKiet.Controllers
@@ -7,17 +8,22 @@ namespace TiemKiet.Controllers
     {
         private readonly IProductService _productService;
         private readonly ILogger<ProductController> _logger;
-        public ProductController(IProductService productService, ILogger<ProductController> logger)
+        private readonly IBranchService _branchService;
+        public ProductController(IProductService productService, ILogger<ProductController> logger, IBranchService branchService)
         {
             _productService = productService;
             _logger = logger;
+            _branchService = branchService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int branchId = 1)
         {
             try
             {
-                var products = await _productService.GetCategoriesWithProductsAsync();
+                var branchlst = await _branchService.GetListAsync(null, 3);
+                ViewData["ListBranchSelect"] = new SelectList(branchlst, "Id", "BranchName", branchId);
+                ViewData["CurrentBranchId"] = branchId;
+                var products = await _productService.GetCategoriesWithProductsAsync(branchId);
                 return View(products);
             }catch(Exception ex)
             {

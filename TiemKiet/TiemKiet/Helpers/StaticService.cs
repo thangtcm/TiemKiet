@@ -107,7 +107,7 @@ namespace TiemKiet.Helpers
             services.AddTransient(typeof(IOrderService), typeof(OrderService));
             services.AddTransient(typeof(INotifyFCMService), typeof(NotifyFCMService));
             //services.AddTransient(typeof(IFeedbackService), typeof(FeedbackService));
-
+            services.AddScoped<AuthorizeWithMessageFilter>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //Authentication
             AddAuthorizationPolicies(services);

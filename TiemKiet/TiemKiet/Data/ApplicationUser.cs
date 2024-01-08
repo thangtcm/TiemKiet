@@ -23,7 +23,8 @@ namespace TiemKiet.Data
         public string? TokenAPI { get; set; }
         public double Score { get; set; }
         public double Point { get; set; }
-
+        [DefaultValue(true)]
+        public bool IsAction { get; set; }
         public string NameAndNumberPhone
         {
             get { return $"{FullName} (Phone: {PhoneNumber})"; }

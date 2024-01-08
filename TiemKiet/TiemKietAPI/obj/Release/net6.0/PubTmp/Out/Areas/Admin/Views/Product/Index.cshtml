@@ -74,7 +74,15 @@
                                         <td>
                                             @item.BranchName
                                         </td>
-                                        <td><span class="badge bg-primary-light">Đang hoạt động</span></td>
+                                        <td> @if (item.ItemUnavailable ?? true)
+                                            {
+                                                <span class="badge bg-danger-light">Hết hàng</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-primary-light">Còn hàng</span>
+                                            }
+                                        </td>
                                         <td class="text-end">
                                             <div class="actions">
                                                 <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm bg-success-light me-2">
@@ -83,6 +91,12 @@
                                                 <a asp-action="Edit" asp-route-Id="@item.ProductId" class="btn btn-sm bg-danger-light">
                                                     <i class="far fa-edit"></i>
                                                 </a>
+                                                <form asp-action="UpdateStatus" method="post">
+                                                    <input name="productId" value="@item.ProductId" hidden />
+                                                    <button type="submit" class="btn btn-sm bg-danger-light">
+                                                        <i class="fas fa-unlock-alt"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

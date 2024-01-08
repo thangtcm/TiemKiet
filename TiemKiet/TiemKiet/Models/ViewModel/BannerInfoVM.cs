@@ -4,13 +4,18 @@ namespace TiemKiet.Models.ViewModel
 {
     public class BannerInfoVM
     {
-        public ICollection<string> UrlImageLst { get; set; }
-        public ICollection<IFormFile> UploadImg { get; set; }
+        public int BannerId { get; set; }
+        public string UrlImagePC { get; set; }
+        public string UrlImageMobile { get; set; }
+        public IFormFile UploadImgMobile { get; set; }
+        public IFormFile UploadImg { get; set; }
 
         public BannerInfoVM() { }
-        public BannerInfoVM(List<string> lstImage)
+        public BannerInfoVM(Banner model)
         {
-            UrlImageLst = lstImage;
+            this.BannerId = model.Id;
+            this.UrlImageMobile = model.UrlBannerMobile;
+            this.UrlImagePC = model.UrlBannerPC;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace TiemKiet.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var productlst = await _productService.GetListBranchAsync(1, x => x.Include(x => x.Branch!));
+            this.AddToastrMessage("Tải dữ liệu thành công", Enums.ToastrMessageType.Success);
             return View(productlst.Select(x => new ProductInfoVM(x)).ToList());
         }
 
@@ -68,6 +69,7 @@ namespace TiemKiet.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 await _productService.Add(model, user.Id, branchId);
+                this.AddToastrMessage("Tạo sản phẩm thành công", Enums.ToastrMessageType.Success);
                 return RedirectToAction(nameof(Index));
             }
             catch(Exception ex)
@@ -78,7 +80,28 @@ namespace TiemKiet.Areas.Admin.Controllers
             ViewData["BranchLst"] = new SelectList(branchlst, "Id", "BranchName");
             return View();
         }
- 
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatus(int productId)
+        {
+            try
+            {
+                var user = await _userService.GetUser();
+                if (user == null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                await _productService.UpdateStatus(productId, user.Id);
+                this.AddToastrMessage("Cập nhật sản phẩm thành công", Enums.ToastrMessageType.Success);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return View();
+        }
 
         public async Task<IActionResult> Edit(int? Id)
         {
@@ -120,6 +143,7 @@ namespace TiemKiet.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }    
                 await _productService.Update(model, user.Id);
+                this.AddToastrMessage("Chỉnh sửa sản phẩm thành công", Enums.ToastrMessageType.Success);
                 return RedirectToAction(nameof(Index));
             }catch(Exception ex)
             {

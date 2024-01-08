@@ -17,14 +17,26 @@ namespace TiemKiet.Services
     {
         public IUnitOfWork _unitOfWork;
         private readonly UserManager<ApplicationUser> _userManager;
-        public OrderService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
+        private readonly INotifyFCMService _notificationManager;
+        private readonly IUserService _userService;
+        public OrderService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, INotifyFCMService notificationManager,
+            IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;
+            _notificationManager = notificationManager;
+            _userService = userService;
         }
-        public async Task<StatusResponse<Order>> Add(OrderInfoVM orderInfoVM, long staffId)
+        public async Task<StatusResponse<long>> Add(OrderInfoVM orderInfoVM, long staffId)
         {
-            StatusResponse<Order> data = new();
+            StatusResponse<long> data = new();
+            var user = await _userService.GetUser(orderInfoVM.UserId);
+            if(user == null)
+            {
+                data.IsSuccess = false;
+                data.Message = "Người dùng không tồn tại.";
+                return data;
+            }    
             var isValid = await _unitOfWork.OrderRepository.GetAsync(x => x.UserId == orderInfoVM.UserId && (x.Status != OrderStatus.Canncel && x.Status != OrderStatus.Complete));
             if(isValid != null)
             {
@@ -45,18 +57,21 @@ namespace TiemKiet.Services
                     AddIce = item.ProductHasIce,
                     Note = item.ProductNotes,
                     Order = order,
-                    Price = item.getPrice(),
+                    Price = item.getProductPrice(),
                     UpSize = item.ProductUpsize,
                     Quantity = item.ProductQuantity,
+                    ProductId = item.ProductId
                 };
                 orderDetails.Add(orderDetail);
-            }    
+            }
+            order.Status = OrderStatus.WaitingConfirm;
             _unitOfWork.OrderRepository.Add(order);
             _unitOfWork.OrderDetailRepository.AddRange(orderDetails);
             await _unitOfWork.CommitAsync();
-            //await _notifyFCMService.SendToGroup("Có đơn hàng mới", $"Bạn vừa nhận được đơn hàng mới từ {order.FullName} (SDT: {order.NumberPhone})");
+            await _notificationManager.SendToGroup("Có đơn hàng mới", $"Bạn vừa nhận được đơn hàng mới từ {order.FullName} (SDT: {order.NumberPhone})");
             data.IsSuccess = true;
             data.Message = "Xác nhận đơn hàng thành công, vui lòng đợi nhân viên xác nhận.";
+            data.Result = order.Id;
             return data;
         }
 
@@ -115,14 +130,47 @@ namespace TiemKiet.Services
             var order = await _unitOfWork.OrderRepository.GetAsync(x => x.Id == orderId);
             if(order != null)
             {
+                var message = string.Empty;
                 order.Status = orderStatus;
                 order.StaffId = staffId;
-                if(orderStatus == OrderStatus.Delivering)
+                var user = await _unitOfWork.UserRepository.GetAsync(x => x.Id == order.UserId);
+                if (user == null) return false;
+                double RecivePoint = order.GrandTotal / 1000.0;
+                user.Point += RecivePoint;
+                user.Score += RecivePoint;
+                _unitOfWork.UserRepository.Update(user);
+                switch (orderStatus)
                 {
-                    order.DatePreparing = DateTime.UtcNow.ToTimeZone();
-                }
+                    case OrderStatus.Canncel:
+                    {
+                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã bị hủy.";
+                        break;
+                    }
+                    case OrderStatus.WaitingConfirm:
+                    {
+                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã được chuyển sang trạng thái chờ.";
+                        break;
+                    }
+                    case OrderStatus.Preparing:
+                    {
+                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã được duyệt và đang được chuẩn bị nước.";
+                        break;
+                    }
+                    case OrderStatus.Delivering:
+                    {
+                        message = $"Đơn hàng (ID: {order.Id}) của bạn đang được giao.";
+                        order.DatePreparing = DateTime.UtcNow.ToTimeZone();
+                        break;
+                    }
+                    default:
+                    {
+                        message = $"Đơn hàng (ID: {order.Id}) của bạn được giao hàng thành công và nhận được {RecivePoint} điểm. Tiệm Kiết cảm ơn và chúc bạn ngon miệng mlem mlem.";
+                        break;
+                    }
+                }    
                 order.DateUpdate = DateTime.UtcNow.ToTimeZone();
                 _unitOfWork.OrderRepository.Update(order);
+                await _notificationManager.SendToUser("Thông báo từ đơn hàng", message, user.Id);
                 await _unitOfWork.CommitAsync();
                 return true;
             }
@@ -154,16 +202,22 @@ namespace TiemKiet.Services
                     { Constants.Roles.TiemKietPNT, 2 },
                     { Constants.Roles.TiemKietNB, 3 }
                 };
+                List<OrderStatus> listOrderStatus = new() {
+                    orderStatus
+                };
+                if(orderStatus == OrderStatus.Preparing || OrderStatus.Delivering == orderStatus)
+                {
+                    listOrderStatus.Add(OrderStatus.Preparing);
+                    listOrderStatus.Add(OrderStatus.Delivering);
+                }
                 foreach (var policy in policyMessages.Keys)
                 {
-                    Console.WriteLine(policy + "\n\n\n");
                     if (userRoles.Contains(policy))
                     {
                         var branchId = policyMessages[policy];
-                        Console.WriteLine(branchId + "\n\n\n");
                         return await _unitOfWork.OrderRepository.GetAllAsync(x => x.BranchId == branchId 
                             && x.DateCreate.Date == date.Date 
-                            && x.Status == orderStatus, includes, q => q.OrderByDescending(o => o.Id));
+                            && listOrderStatus.Contains(x.Status), includes, q => q.OrderByDescending(o => o.Id));
                     }
                 }
             }

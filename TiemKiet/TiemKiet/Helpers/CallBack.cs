@@ -1,6 +1,8 @@
-﻿using System.Diagnostics.Metrics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace TiemKiet.Helpers
 {
@@ -19,10 +21,44 @@ namespace TiemKiet.Helpers
             }
         }
 
+        public static double ExtractDistanceValue(string distanceText)
+        {
+            // Sử dụng biểu thức chính quy để tìm các con số trong chuỗi
+            Match match = Regex.Match(distanceText, @"(\d+(\.\d+)?)");
+
+            if (match.Success)
+            {
+                // Lấy giá trị double từ phần tử Match
+                if (double.TryParse(match.Groups[1].Value, out double result))
+                {
+                    return result;
+                }
+            }
+
+            // Trả về giá trị mặc định hoặc xử lý nếu không trích xuất được giá trị
+            return 0.0;
+        }
+
         public static DateTime ToTimeZone(this DateTime dateTime, string timeZoneId = "SE Asia Standard Time")
         {
             TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
             return TimeZoneInfo.ConvertTimeFromUtc(dateTime, timeZone);
+        }
+
+        public static string GetEnumDisplayName(Enum value)
+        {
+            var fieldInfo = value.GetType().GetField(value.ToString());
+            if (fieldInfo == null)
+                return "";
+            var displayAttribute = (DisplayAttribute?)Attribute.GetCustomAttribute(
+                fieldInfo,
+                typeof(DisplayAttribute)
+            );
+
+            string displayName = displayAttribute?.Name ?? value.ToString();
+
+
+            return displayName;
         }
 
         public static string GetRankName(double score)

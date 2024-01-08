@@ -8,6 +8,7 @@ using System.Net.WebSockets;
 using TiemKiet.Data;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
+using TiemKiet.Models;
 using TiemKiet.Models.ViewModel;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
@@ -87,7 +88,7 @@ namespace TiemKiet.Services
             return userWithRoles.ToList();
         }
         public async Task<ApplicationUser?> GetUser(long userId)
-            => await _unitOfWork.UserRepository.GetAsync(x => x.Id == userId);
+            => await _unitOfWork.UserRepository.GetAsync(x => x.Id == userId && x.IsAction == true);
 
         public async Task<bool> UpdateUser(UserInfoVM user)
         {
@@ -96,10 +97,34 @@ namespace TiemKiet.Services
             if (userModel is null) return false;
             userModel.FullName = user.FullName;
             userModel.Gender = user.Gender ?? Gender.Another;
+            DateTime datenow = DateTime.Now;
+            if (!String.IsNullOrEmpty(user.Birthday))
+            {
+                datenow = CallBack.ConvertStringToDateTime(user.Birthday);
+            }
+            userModel.Birthday = datenow;
             _unitOfWork.UserRepository.Update(userModel);
             await _unitOfWork.CommitAsync();
             return true;
         }
+
+        public async Task<StatusResponse<bool>> RemoveUser(long userId)
+        {
+            var user = await _unitOfWork.UserRepository.GetAsync(x => x.Id == userId);
+            StatusResponse<bool> data = new();
+            if (user != null)
+            {
+                user.IsAction = false;
+                _unitOfWork.UserRepository.Update(user);
+                await _unitOfWork.CommitAsync();
+                data.IsSuccess = true;
+                data.Message = "Xóa tài khoản thành công";
+                return data;
+            }
+            data.IsSuccess = false;
+            data.Message = "Người dùng không hợp lệ.";
+            return data;
+        }    
 
         public async Task<StatusResponse<CaculateVoucherInfo>> CaculatePrice(long userId, double TotalPrice, double ShipPrice, List<int> VoucherList)
         {
@@ -205,33 +230,76 @@ namespace TiemKiet.Services
 
         public async Task SetUserLocation(double latitude, double longitude)
         {
-            byte[]? oldLatitudeBytes = _httpContextAccessor.HttpContext!.Session.Get(Constants.UserLatitude);
-            byte[]? oldLongitudeBytes = _httpContextAccessor.HttpContext.Session.Get(Constants.UserLongitude);
+            //byte[]? oldLatitudeBytes = _httpContextAccessor.HttpContext!.Session.Get(Constants.UserLatitude);
+            //byte[]? oldLongitudeBytes = _httpContextAccessor.HttpContext.Session.Get(Constants.UserLongitude);
+            var locationUser = _httpContextAccessor.HttpContext!.Session.GetObjectFromJson<LocationUser>(Constants.LocationUser) ?? new LocationUser();
             double oldLatitude = 0;
             double oldLongitude = 0;
-            if (oldLatitudeBytes != null && oldLongitudeBytes != null)
+            if (locationUser != null)
             {
-                oldLatitude = BitConverter.ToDouble(oldLatitudeBytes, 0);
-                oldLongitude = BitConverter.ToDouble(oldLongitudeBytes, 0);
+                oldLatitude = locationUser.Latitude;
+                oldLongitude = locationUser.Longitude;
             }
             var distance = CalculateDistance(oldLatitude, oldLongitude, latitude, longitude);
             Console.WriteLine($"Khoảng cách là : {distance}");
             if (distance >= 15)
             {
-                Console.WriteLine($"Dữ liệu cũ : {oldLatitude} -- {oldLongitude}");
-                Console.WriteLine($"Dữ liệu mới : {latitude} -- {longitude}");
                 var formattedAddress = await GetAddressName(latitude, longitude);
-                if (!string.IsNullOrEmpty(formattedAddress))
+                var getDistance = await GetDistance(latitude, longitude);
+                if (!string.IsNullOrEmpty(formattedAddress) && getDistance != null)
                 {
-                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserAddressCurrent);
-                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserLatitude);
-                    _httpContextAccessor.HttpContext.Session.Remove(Constants.UserLongitude);
-                    _httpContextAccessor.HttpContext.Session.SetString(Constants.UserAddressCurrent, formattedAddress);
-                    _httpContextAccessor.HttpContext.Session.Set(Constants.UserLatitude, BitConverter.GetBytes(latitude));
-                    _httpContextAccessor.HttpContext.Session.Set(Constants.UserLongitude, BitConverter.GetBytes(longitude));
+                    LocationUser model = new()
+                    {
+                        AddreasUserName = formattedAddress,
+                        DistanceBranches = getDistance,
+                        Latitude = latitude,
+                        Longitude = longitude
+                    };
+                    _httpContextAccessor.HttpContext.Session.SetObjectAsJson(Constants.LocationUser, model);
                 }
             }
-        }    
+        }
+
+        private async Task<List<DistanceBranch>> GetDistance(double latitude, double longitude)
+        {
+            List<DistanceBranch> distanceBranches = new List<DistanceBranch>();
+            var locationBranches = new LocationBranch().Default();
+            string geocodingApiUrl = $"https://rsapi.goong.io/DistanceMatrix?origins={latitude},{longitude}&destinations=";
+
+            foreach (var item in locationBranches)
+            {
+                geocodingApiUrl += $"{item.Latitude},{item.Longitude}|";
+            }
+
+            // Loại bỏ dấu "|" cuối cùng nếu có
+            geocodingApiUrl = geocodingApiUrl.TrimEnd('|');
+
+            geocodingApiUrl += $"&api_key={goongApiKey}";
+            var response = await _client.GetAsync(geocodingApiUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var jsonObject = JObject.Parse(jsonString);
+                if (jsonObject["rows"] is JArray rows && rows.Count > 0 &&
+                    rows[0]["elements"] is JArray elements && elements.Count > 0)
+                {
+                    for (int i = 0; i < elements.Count; i++)
+                    {
+                        var element = elements[i];
+                        var distanceBranch = new DistanceBranch
+                        {
+                            LocationBranch = locationBranches[i],
+                            Distance = element["distance"]?["text"]?.ToString() ?? "N/A", 
+                            Duration = element["duration"]?["text"]?.ToString() ?? "N/A" 
+                        };
+                        Console.WriteLine($"{locationBranches[i].BranchName} có khoảng cách {distanceBranch.Distance} với thời gian là : {distanceBranch.Duration}");
+                        distanceBranches.Add(distanceBranch);
+                    }
+                }
+            }
+            return distanceBranches;
+        }
+
         private async Task<string> GetAddressName(double latitude, double longitude)
         {
             string geocodingApiUrl = $"https://rsapi.goong.io/Geocode?latlng={latitude},{longitude}&api_key={goongApiKey}";

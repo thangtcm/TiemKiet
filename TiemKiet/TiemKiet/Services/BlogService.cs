@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using System.Linq;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Models.ViewModel;
@@ -66,5 +67,8 @@ namespace TiemKiet.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<ICollection<BlogInfoVM>> GetListNewAsync(Func<IQueryable<BlogPost>, IIncludableQueryable<BlogPost, object>>? includes = null)
+            => (await _unitOfWork.BlogRepository.GetAllAsync(null, null, q => q.OrderByDescending(o => o.Id), 2)).Select(x => new BlogInfoVM(x)).ToList(); 
     }
 }

@@ -1,0 +1,164 @@
+﻿@model TiemKiet.Models.ViewModel.OrderInfoVM
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+<main id="main">
+    <section id="header-title">
+        <div class="container-fluid page-header text-center" style="padding: 10rem 0;">
+            <div class="container py-5" data-aos="fade-up" data-aos-duration="3000">
+                <h1 class="display-3 text-white mb-3">@ViewData["Title"]</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home">Trang Chủ</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">@ViewData["Title"]</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container px-1 px-md-4 py-5 mx-auto">
+            <div class="card">
+                <div class="container card-body">
+                    <div class="row py-3">
+                        <h5 class="mb-3">Thông tin đơn hàng <span class="text-primary fw-bold">#215</span></h5>
+                        <div class="table-responsive table-cart">
+                            <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped"
+                                    style="width:100%">
+                                <thead>
+                                    <tr role="row">
+                                        <th>Ảnh</th>
+                                        <th>Món</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Tổng cộng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.CartItems)
+                                    {
+                                        <tr class="text-center">
+
+                                            <td class="product-thumbnail">
+                                                <img src="@item.ProductImage" alt="Image" class="img-fluid">
+                                            </td>
+
+                                            <td>
+                                                <h5>@item.ProductName</h5>
+                                            </td>
+
+                                            <td class="price">@(item.getProductPrice().ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</td>
+
+                                            <td>
+                                                @item.ProductQuantity
+                                            </td>
+
+                                            <td class="price">@(item.getTotalPrice().ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</td>
+                                        </tr>
+                                        <!-- END TR-->
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col-md-6">
+                            <h3>Thông tin địa điểm giao hàng</h3>
+                            <div class="form-group">
+                                <label for="" class="form-control-label fw-bold">Địa điểm của bạn</label>
+                                <input type="text" class="form-control" value="@Model.Address"
+                                       readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="form-control-label fw-bold">Giao tới</label>
+                                <input type="text" class="form-control" value="Chi nhánh @ViewBag.BranchAddress"
+                                       readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="form-control-label fw-bold">Ghi chú</label>
+                                <input type="text" class="form-control"
+                                       placeholder="Nhập ghi chú cho người giao hàng nếu có" value="@Model.NoteShip" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-5">
+                            <div class="row justify-content-end">
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-12 text-right border-bottom mb-5">
+                                            <h3 class="text-dark h4 text-uppercase font-weight-600">Tổng cộng giỏ hàng</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <span class="text-dark font-weight-600">Tổng sản phẩm</span>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <strong class="text-dark text-decoration-line-through text-price">@((Model.GrandTotal + Model.Discount).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                            <br />
+                                            <strong class="text-dark text-price">@((Model.GrandTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <span class="text-dark font-weight-600">Phí giao hàng</span>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <strong class="text-dark text-price text-decoration-line-through">@((Model.ShipTotal + Model.DiscountShip).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                            <br />
+                                            <strong class="text-dark text-price">@((Model.ShipTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-md-6">
+                                            <span class="text-dark font-weight-600">Tổng cộng</span>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <strong class="text-dark text-price">@((Model.GrandTotal + Model.ShipTotal).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN")))</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add class 'active' to progress -->
+                    <div class="row d-flex justify-content-center py-3">
+                        <h5>Trạng thái đơn hàng</h5>
+                        <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                <li class="@(Convert.ToInt32(Model.Status) >= 1 ? "active" : "") order-checked">
+                                    <div class="order-title-checked mt-3 text-dark">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <p class="mt-2 fw-bold">Đang chờ xác nhận</p>
+                                    </div>
+                                </li>
+                                <li class="@(Convert.ToInt32(Model.Status) >= 2 ? "active" : "")  order-checked">
+                                    <div class="order-title-checked mt-3 text-dark">
+                                        <i class="fas fa-mug-hot"></i>
+                                        <p class="mt-2 fw-bold">Nhân viên đang chuẩn bị món</p>
+                                    </div>
+                                </li>
+                                <li class="@(Convert.ToInt32(Model.Status) >= 3 ? "active" : "")  order-checked">
+                                    <div class="order-title-checked mt-3 text-dark">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <p class="mt-2 fw-bold">Đang giao</p>
+                                    </div>
+                                </li>
+                                <li class="@(Convert.ToInt32(Model.Status) >= 4 ? "active" : "") order-checked">
+                                    <div class="order-title-checked mt-3 text-dark">
+                                        <i class="fas fa-home"></i>
+                                        <p class="mt-2 fw-bold">Hoàn tất</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -533,6 +533,10 @@
       "PackagePath": "staticwebassets\\images\\Anh-Wibu-mat-do.jpg"
     },
     {
+      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\App.png",
+      "PackagePath": "staticwebassets\\images\\App.png"
+    },
+    {
       "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Product\\test.png",
       "PackagePath": "staticwebassets\\images\\Product\\test.png"
     },

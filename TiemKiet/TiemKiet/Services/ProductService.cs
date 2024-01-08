@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq;
 using TiemKiet.Enums;
@@ -56,9 +57,9 @@ namespace TiemKiet.Services
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task<ICollection<CategorywithProduct>> GetCategoriesWithProductsAsync()
+        public async Task<ICollection<CategorywithProduct>> GetCategoriesWithProductsAsync(int branchId)
         {
-            var products = await _unitOfWork.ProductRepository.GetAllAsync(x => x.BranchId == 1);
+            var products = await _unitOfWork.ProductRepository.GetAllAsync(x => x.BranchId == branchId);
             ICollection<CategorywithProduct> model = new List<CategorywithProduct>();
             foreach(ProductType e in Enum.GetValues(typeof(ProductType)))
             {
@@ -122,7 +123,18 @@ namespace TiemKiet.Services
             }
             else
                 return await _unitOfWork.ProductRepository.GetAllAsync(null);
-        }    
+        }
+
+        public async Task UpdateStatus(int productId, long userId)
+        {
+            var model = await _unitOfWork.ProductRepository.GetAsync(x => x.Id == productId);
+            if(model != null)
+            {
+                model.ItemUnavailable = !model.ItemUnavailable;
+                _unitOfWork.ProductRepository.Update(model);
+                await _unitOfWork.CommitAsync();
+            }
+        }
 
         public async Task<bool> Update(ProductInfoVM productInfo, long userId)
         {

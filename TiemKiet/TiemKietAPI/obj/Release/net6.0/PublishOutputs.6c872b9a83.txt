@@ -15,6 +15,7 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\District\Create.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\District\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Home\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Order\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Create.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Edit.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Product\Index.cshtml
@@ -22,6 +23,7 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Province\Edit.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Province\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Settings\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Settings\_DynamicAddBanner.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\Error.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Footer.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Admin\Views\Shared\_Header.cshtml
@@ -83,10 +85,12 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\Pro
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\_NavMenuProfile.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Blog\Blog.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Blog\Index.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Cart\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Cart\_PreviewCartPartialView.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Create.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Privacy.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Order\OrderDetail.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Product\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Restaurant\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Restaurant\_BranchListView.cshtml
@@ -401,8 +405,6 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKietAPI.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKietAPI.deps.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKietAPI.runtimeconfig.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\TiemKietAPI.pdb
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.ToastNotification.Views.dll
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.ToastNotification.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\BarcodeStandard.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Firebase.Auth.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\FirebaseAdmin.dll

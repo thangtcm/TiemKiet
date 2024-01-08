@@ -60,6 +60,7 @@ namespace TiemKiet.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 await _voucherService.Add(model, user.Id);
+                this.AddToastrMessage("Tạo voucher thành công", Enums.ToastrMessageType.Success);
                 return RedirectToAction(nameof(Index));
             }
             catch

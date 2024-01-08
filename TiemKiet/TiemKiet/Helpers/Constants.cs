@@ -7,7 +7,7 @@
         public const string UserLongitude = "UserLongitude";
         public const string UserAddressCurrent = "UserAddressCurrent";
         public const string UserCart = "UserCart";
-
+        public const string LocationUser = "LocationUser";
         public static class Roles
         {
             public const string Admin = "Administrator";

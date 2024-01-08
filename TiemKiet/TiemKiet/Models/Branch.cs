@@ -34,6 +34,8 @@ namespace TiemKiet.Models
         [ForeignKey("UserIdRemove")]
         [Display(Name = "Người xóa")]
         public ApplicationUser? UserRemove { get; set; }
+        public double BranchLatitude { get; set; }
+        public double BranchLongitude { get; set; }
         public int DistrictId { get; set; }
         [ForeignKey("DistrictId")]
         public District? District { get; set; }

@@ -17,5 +17,6 @@ namespace TiemKiet.Services.Interface
         public Task SetUserLocation(double latitude, double longitude);
         public Task<StatusResponse<CaculateVoucherInfo>> CaculatePrice(long userId, double TotalPrice, double ShipPrice, List<int> VoucherList);
         public Task UpdatePoint(CaculateVoucherInfo model, long userId);
+        public Task<StatusResponse<bool>> RemoveUser(long userId);
     }
 }

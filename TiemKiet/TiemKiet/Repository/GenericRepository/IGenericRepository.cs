@@ -18,6 +18,7 @@ namespace TiemKiet.Repository.GenericRepository
         void Update(T entity);
         void UpdateRange(ICollection<T> entities);
         Task<T?> GetAsync(Expression<Func<T, bool>>? expression, Func<IQueryable<T>, IQueryable<T>>? include = null, CancellationToken cancellationToken = default);
+        Task<T?> GetLastAsync(Expression<Func<T, bool>>? expression, Func<IQueryable<T>, IQueryable<T>>? include = null, CancellationToken cancellationToken = default);
         Task<ICollection<T>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<ICollection<T>> GetAllAsync(Expression<Func<T, bool>>? expression,
                                              Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,

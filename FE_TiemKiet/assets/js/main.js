@@ -23,7 +23,7 @@
 	});
 
 	// Select 2
-
+	
 	if ($('.selectsearch').length > 0) {
 		$('.selectsearch').select2({
 			minimumResultsForSearch: 1,
@@ -31,12 +31,24 @@
 		});
 	}
 
-	if ($('.select').length > 0) {
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-	}
+	$('.select').each(function() {
+		var $select = $(this);
+		var modalId = $select.data('modal-id');
+	
+		if (modalId) {
+			$select.select2({
+				minimumResultsForSearch: -1,
+				width: '100%',
+				dropdownParent: $('#' + modalId)
+			});
+		} else {
+			$select.select2({
+				minimumResultsForSearch: -1,
+				width: '100%'
+			});
+		}
+	});
+	
 
 	// Scroll To Top 
 	$(window).on('scroll', function () {
@@ -280,7 +292,6 @@
 				autoplay: true,
 				autoplayHoverPause: true,
 				navText: ["<i class=\"fas fa-chevron-left\"></i>", "<i class=\"fas fa-chevron-right\"></i>"],
-				autoplayTimeout: ("5" * 1000) || 7000,
 			});
 		});
 	});
