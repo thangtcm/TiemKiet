@@ -2,28 +2,23 @@
 
 <ul class="main-categories">
     <li class="main-nav-list">
-        <a href="#">
+        <a asp-action="Profile" asp-controller="Account">
             <span class="me-2 categories-title @MainNavClass(ViewContext, "Account", "Profile")">Thông tin tài khoản</span>
         </a>
     </li>
     <li class="main-nav-list">
-        <a href="#coffee">
-            <span class="me-2 categories-title">Sổ địa chỉ</span>
+        <a asp-action="ChangePassword" asp-controller="Account">
+            <span class="me-2 categories-title @MainNavClass(ViewContext, "Account", "ChangePassword")">Thay đổi mật khẩu</span>
         </a>
     </li>
     <li class="main-nav-list">
-        <a href="#coffee">
-            <span class="me-2 categories-title">Thay đổi mật khẩu</span>
-        </a>
-    </li>
-    <li class="main-nav-list">
-        <a href="#coffee">
+        <a href="#">
             <span class="me-2 categories-title">Quyền lợi thành viên</span>
         </a>
     </li>
     <li class="main-nav-list">
-        <a href="#coffee">
-            <span class="me-2 categories-title">Lịch sử giao dịch</span>
+        <a asp-action="GetHistoryPayment" asp-controller="Account">
+            <span class="me-2 categories-title @MainNavClass(ViewContext, "Account", "GetHistoryPayment")">Lịch sử giao dịch</span>
         </a>
     </li>
 </ul>

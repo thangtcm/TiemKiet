@@ -37,9 +37,11 @@ namespace TiemKiet.Controllers
                 HttpContext.Session.Remove("ToastrMessageType");
             }
             var blogs = await _blogService.GetListNewAsync();
+            var products = await _productService.GetListFeatured();
             var model = new SettingVMInfo
             {
-                BlogLst = blogs.ToList()
+                BlogLst = blogs.ToList(),
+                ProductLst = products.Select(x => new ProductInfoVM(x)).ToList()
             };
             return View(model);
         }

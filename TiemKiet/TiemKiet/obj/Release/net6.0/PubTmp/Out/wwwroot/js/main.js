@@ -8,7 +8,18 @@
 		$('#js-preloader').addClass('loaded');
 
 	});
+	// Datatable
 
+	if ($('.datatable').length > 0) {
+		$('.datatable').DataTable({
+			"bFilter": false,
+		});
+	}
+	if ($('.datatables').length > 0) {
+		$('.datatables').DataTable({
+			"bFilter": true,
+		});
+	}
 	$(window).on('load', function () {
 		if ($(".wow").length) {
 			var wow = new wow({
@@ -335,6 +346,36 @@
 	if ($('#input_date').length > 0) {
 		var format = $('#input_date').data('format') || "DD/MM/YYYY hh:mm:ss A";
 		$('#input_date').datetimepicker({
+			allowInputToggle: true,
+			showClose: true,
+			showClear: true,
+			showTodayButton: true,
+			format: format,
+			icons: {
+				time: 'fas fa-clock',
+
+				date: 'fas fa-clock',
+
+				up: 'fa fa-chevron-up',
+
+				down: 'fa fa-chevron-down',
+
+				previous: 'fa fa-chevron-left',
+
+				next: 'fa fa-chevron-right',
+
+				today: 'fa fa-chevron-up',
+
+				clear: 'fa fa-trash',
+
+				close: 'fas fa-times'
+			},
+		});
+	}
+
+	if ($('#input_day').length > 0) {
+		var format = $('#input_day').data('format') || "DD/MM/YYYY";
+		$('#input_day').datetimepicker({
 			allowInputToggle: true,
 			showClose: true,
 			showClear: true,

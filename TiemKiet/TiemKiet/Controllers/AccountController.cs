@@ -13,6 +13,7 @@ using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Models.ViewModel;
+using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 
 namespace TiemKiet.Controllers
@@ -25,8 +26,9 @@ namespace TiemKiet.Controllers
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserService _userService;
         private readonly IUserTokenService _userTokenService;
+        private readonly ITranscationLogService _transcationLogService;
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, IUserService userService, IUserTokenService userTokenService)
+            ILogger<AccountController> logger, IUserStore<ApplicationUser> userStore, IUserService userService, IUserTokenService userTokenService, ITranscationLogService transcationLogService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -34,6 +36,7 @@ namespace TiemKiet.Controllers
             _userStore = userStore;
             _userService = userService;
             _userTokenService = userTokenService;
+            _transcationLogService = transcationLogService;
         }
         public IActionResult Register()
         {
@@ -168,6 +171,92 @@ namespace TiemKiet.Controllers
         }
 
         [Authorize]
+        public async Task<IActionResult> GetHistoryPayment(string? date)
+        {
+            try
+            {
+                var user = await _userService.GetUser();
+                if (user == null)
+                {
+                    this.AddToastrMessage("Bạn cần đăng nhập và thử lại.", ToastrMessageType.Error);
+                    return RedirectToAction(nameof(Profile));
+                }
+                DateTime datenow = DateTime.Now;
+                if (!String.IsNullOrEmpty(date))
+                {
+                    datenow = CallBack.ConvertStringToDateTime(date);
+                }
+                var logPayment = await _transcationLogService.GetListAsync(user.Id, datenow);
+                var logpaymentlst = logPayment.Select(x => new TransactionLogVM(x)).ToList();
+                var model = new ObjectWithUser<TransactionLogVM>()
+                {
+                    ListValue = logpaymentlst.ToList(),
+                    User = new UserInfoVM(user),
+                    Value = new TransactionLogVM()
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return StatusCode(StatusCodes.Status404NotFound, ResponseResult.CreateResponse("Error Server", "Đã có lỗi xảy ra từ máy chủ."));
+        }
+
+        [Authorize]
+        public async Task<IActionResult> ChangePassword()
+        {
+            try
+            {
+                var user = await _userService.GetUser();
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập.");
+                    return View();
+                }
+                return View(new UserInfoVM(user));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(UserInfoVM model)
+        {
+            try
+            {
+                if (!model.UserId.HasValue)
+                {
+                    this.AddToastrMessage("Bạn cần đăng nhập và thử lại.", ToastrMessageType.Error);
+                    return RedirectToAction(nameof(Profile));
+                }
+                var user = await _userService.GetUser(model.UserId.Value);
+                if (user is null)
+                {
+                    this.AddToastrMessage("Bạn cần đăng nhập và thử lại.", ToastrMessageType.Error);
+                    return RedirectToAction(nameof(Profile));
+                }
+                var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.PasswordOld, model.Password);
+                if (!changePasswordResult.Succeeded)
+                {
+                    this.AddToastrMessage("Thay đổi mật khẩu thành công", ToastrMessageType.Success);
+                    return RedirectToAction(nameof(Profile));
+                }
+                ModelState.AddModelError(string.Empty, "Thay đổi mật khẩu không thành công, có vẻ bạn nhập sai mật khẩu.");
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return View();
+        }
+
+        [Authorize]
         public async Task<IActionResult> Profile()
         {
             try
@@ -185,8 +274,9 @@ namespace TiemKiet.Controllers
                 _logger.LogError(ex.Message);
             }
             return View();
-        }  
-        
+        }
+
+        [HttpPost]          
         public async Task<IActionResult> EditProfile(long? userId, UserInfoVM model)
         {
             try {

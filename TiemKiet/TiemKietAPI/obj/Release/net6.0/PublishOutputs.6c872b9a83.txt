@@ -80,6 +80,8 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Identity\Pa
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Identity\Pages\_ViewImports.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Areas\Identity\Pages\_ViewStart.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\ChangePassword.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\GetHistoryPayment.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\Profile.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Account\_NavMenuProfile.cshtml
@@ -90,6 +92,7 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Cart\_Previ
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Create.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Privacy.cshtml
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Home\Terms.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Order\OrderDetail.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Product\Index.cshtml
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\PubTmp\Out\Views\Restaurant\Index.cshtml

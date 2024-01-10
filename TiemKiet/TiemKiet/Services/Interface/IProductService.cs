@@ -11,6 +11,7 @@ namespace TiemKiet.Services.Interface
         public Task<ICollection<Product>> GetListAsync();
         public Task UpdateStatus(int productId, long userId);
         public Task<ICollection<Product>> GetListAsync(int branchId);
+        public Task<ICollection<Product>> GetListFeatured();
         public Task<ICollection<CategorywithProduct>> GetCategoriesWithProductsAsync(int branchId);
         public Task<ICollection<Product>> GetListAsync(Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);
         public Task<ICollection<Product>> GetListBranchAsync(int branchId, Func<IQueryable<Product>, IIncludableQueryable<Product, object>> includes);

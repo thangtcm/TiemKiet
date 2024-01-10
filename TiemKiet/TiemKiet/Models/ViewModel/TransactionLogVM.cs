@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Numerics;
+using System.Text.Json.Serialization;
+using TiemKiet.Data;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 
@@ -15,6 +17,8 @@ namespace TiemKiet.Models.ViewModel
         public double PointNew { get; set; }
         public double ScroreOld { get; set; }
         public double ScroreNew { get; set; }
+        [JsonIgnore]
+        public UserInfoVM User { get; set; }
 
         public TransactionLogVM() { }
         public TransactionLogVM(TransactionLog model)
@@ -27,6 +31,7 @@ namespace TiemKiet.Models.ViewModel
             DateTimePayment = model.DateTimePayment.ToString("HH:mm dd/MM/yyyy");
             ScroreNew = model.ScroreNew;
             ScroreOld = model.ScroreOld;
+            User = model.UserCustomer is null ? new UserInfoVM() : new UserInfoVM(model.UserCustomer);
         }
     }
 

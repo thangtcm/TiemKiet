@@ -77,7 +77,6 @@
             "bFilter": true,
         });
     }
-	new DataTable('.datatable');
 
 	/*==================================================================
     [ +/- num product ]*/
@@ -520,6 +519,37 @@
 		showClear: true,
 		showTodayButton: true,
 		format: "DD/MM/YYYY hh:mm:ss A",
+		icons: {
+				time:'fas fa-clock',
+
+				date:'fas fa-clock',
+
+				up:'fa fa-chevron-up',
+
+				down:'fa fa-chevron-down',
+
+				previous:'fa fa-chevron-left',
+
+				next:'fa fa-chevron-right',
+
+				today:'fa fa-chevron-up',
+
+				clear:'fa fa-trash',
+
+				close:'fas fa-times'
+			},
+		debug:true
+		});
+	}
+
+	if ($('#input_day').length > 0) {
+		$('#input_day').datetimepicker({
+		useCurrent: false,
+		allowInputToggle: true,
+		showClose: true,
+		showClear: true,
+		showTodayButton: true,
+		format: "DD/MM/YYYY",
 		icons: {
 				time:'fas fa-clock',
 

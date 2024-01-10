@@ -1,11 +1,13 @@
-﻿<div class="sidebar" id="sidebar">
+﻿@using TiemKiet.Helpers;
+
+<div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title">
                     <span>Main Menu</span>
                 </li>
-                <li class="submenu active">
+                <li class="submenu @ManageNavPages.MainNavClass(ViewContext, "Home", null, "Admin")">
                     <a href="#">
                         <i class="fas fa-th-large"></i> <span>
                             Dashboard
@@ -13,57 +15,56 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: block;">
-                        <li><a asp-action="Index" asp-controller="Home" asp-area="Admin" class="active">Admin Dashboard</a></li>
+                        <li><a asp-action="Index" asp-controller="Home" asp-area="Admin" class="@ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Home"}, null, "Admin")">Admin Dashboard</a></li>
                     </ul>
                 </li>
                 <li class="menu-title">
                     <span>Management</span>
                 </li>
-                <li class="submenu">
+                <li class="submenu @ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Blog"}, null, "Admin")">
                     <a href="#">
                         <i class="fas fa-file-invoice-dollar"></i> <span> Quản lí câu chuyện</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
                         <li>
-                            <a asp-area="Admin" asp-action="Index" asp-controller="Blog"><i class="fas fa-table"></i> <span>Danh sách câu chuyện</span></a>
+                            <a asp-area="Admin" asp-action="Index" asp-controller="Blog" class="@ManageNavPages.MainNavClass(ViewContext, "Blog", null, "Admin")"><i class="fas fa-table"></i> <span>Danh sách câu chuyện</span></a>
                         </li>
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu @ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Account"}, null, "Admin")">
                     <a href="#">
                         <i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a asp-area="Admin" asp-controller="Account" asp-action="Index">Quản lý phân quyền</a></li>
-                        <li><a asp-area="Admin">Quản lý tài khoản</a></li>
+                        <li><a asp-area="Admin" asp-controller="Account" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Account", null, "Admin")">Quản lý phân quyền</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu @ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Country", "Province", "District"}, null, "Admin")">
                     <a href="#">
                         <i class="fas fa-file-invoice-dollar"></i> <span> Quản lý địa chỉ</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a asp-area="Admin" asp-controller="Country" asp-action="Index">Quản lý quốc gia</a></li>
-                        <li><a asp-area="Admin" asp-controller="Province" asp-action="Index">Quản lý tỉnh/thành phố</a></li>
-                        <li><a asp-area="Admin" asp-controller="District" asp-action="Index">Quản lý quận/huyện</a></li>
+                        <li><a asp-area="Admin" asp-controller="Country" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Country", null, "Admin")">Quản lý quốc gia</a></li>
+                        <li><a asp-area="Admin" asp-controller="Province" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Province", null, "Admin")">Quản lý tỉnh/thành phố</a></li>
+                        <li><a asp-area="Admin" asp-controller="District" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "District", null, "Admin")">Quản lý quận/huyện</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu @ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Branch", "Product"}, null, "Admin")">
                     <a href="#">
                         <i class="fas fa-file-invoice-dollar"></i> <span> Quản lý chi nhánh</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a asp-area="Admin" asp-controller="Branch" asp-action="Index">Quản lý chi nhánh</a></li>
-                        <li><a asp-area="Admin" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a></li>
+                        <li><a asp-area="Admin" asp-controller="Branch" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Branch", null, "Admin")">Quản lý chi nhánh</a></li>
+                        <li><a asp-area="Admin" asp-controller="Product" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Product", null, "Admin")">Quản lý sản phẩm</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
+                <li class="submenu @ManageNavPages.MainNavMutipleClass(ViewContext, new List<string>(){"Voucher", "VoucherUser"}, null, "Admin")">
                     <a href="#">
                         <i class="fas fa-file-invoice-dollar"></i> <span> Quản lý khuyến mãi</span> <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a asp-area="Admin" asp-controller="Voucher" asp-action="Index">Quản lý voucher</a></li>
-                        <li><a asp-area="Admin" asp-controller="VoucherUser" asp-action="Index">Quản lý voucher người dùng</a></li>
+                        <li><a asp-area="Admin" asp-controller="Voucher" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "Voucher", null, "Admin")">Quản lý voucher</a></li>
+                        <li><a asp-area="Admin" asp-controller="VoucherUser" asp-action="Index" class="@ManageNavPages.MainNavClass(ViewContext, "VoucherUser", null, "Admin")">Quản lý voucher người dùng</a></li>
                     </ul>
                 </li>
             </ul>

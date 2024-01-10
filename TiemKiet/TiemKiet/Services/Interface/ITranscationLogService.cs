@@ -6,7 +6,7 @@ namespace TiemKiet.Services.Interface
 {
     public interface ITranscationLogService
     {
-        public Task<ICollection<TransactionLog>> GetListAsync(long userId, DateTime datenow);
+        public Task<ICollection<TransactionLog>> GetListAsync(long userId, DateTime datenow, Func<IQueryable<TransactionLog>, IIncludableQueryable<TransactionLog, object>>? includes = null);
         public Task<ICollection<TransactionLog>> GetListAsync();
         public Task<ICollection<TransactionLog>> GetListAsync(long userId, Func<IQueryable<TransactionLog>, IIncludableQueryable<TransactionLog, object>> includes);
         public Task Add(TransactionLogVM transcationInfoVM, long userCustomerId, long userStaffId);

@@ -1,3 +1,10 @@
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.csproj.AssemblyReference.cache
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.AssemblyInfoInputs.cache
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.AssemblyInfo.cs
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.csproj.CoreCompileInputs.cache
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.sourcelink.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\TiemKiet.deps.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\TiemKiet.runtimeconfig.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\TiemKiet.staticwebassets.runtime.json
@@ -564,14 +571,7 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\runtimes\browser\lib\net6.0\
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\TiemKiet.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\TiemKiet.pdb
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.csproj.AssemblyReference.cache
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.AssemblyInfoInputs.cache
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.AssemblyInfo.cs
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.csproj.CoreCompileInputs.cache
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.sourcelink.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\staticwebassets.build.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\staticwebassets.development.json
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\staticwebassets\msbuild.TiemKietAPI.Microsoft.AspNetCore.StaticWebAssets.props

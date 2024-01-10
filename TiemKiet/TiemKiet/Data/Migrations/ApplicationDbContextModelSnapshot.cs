@@ -798,6 +798,9 @@ namespace TiemKiet.Migrations
                     b.Property<DateTime>("DateUpdate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 

@@ -12,6 +12,7 @@ using System.Text.Json;
 using Firebase.Auth;
 using TiemKiet.Models;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace TiemKiet.Helpers
 {
@@ -21,6 +22,7 @@ namespace TiemKiet.Helpers
         {
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize);
+            services.Configure<FirebaseConfigVM>(configuration.GetSection("FirebaseConfig"));
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                             options.UseSqlServer(connectionString));
@@ -122,6 +124,7 @@ namespace TiemKiet.Helpers
             //Console.WriteLine(JsonConvert.SerializeObject(configuration.GetSection("FirebaseConfig").Get<FirebaseNotiConfig>()) + "\n\n\n");
             try
             {
+                
                 var firebaseApp = FirebaseApp.Create(new AppOptions
                 {
                     Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tiemkiet-firebase-admin.json")),

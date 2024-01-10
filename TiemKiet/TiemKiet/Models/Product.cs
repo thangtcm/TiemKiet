@@ -52,6 +52,7 @@ namespace TiemKiet.Models
         [Display(Name = "Trạng thái")]
         public bool IsRemoved { get; set; }
         public bool ItemUnavailable { get; set; }
+        public bool IsFeatured { get; set; }
         public int BranchId { get; set; }
         [ForeignKey("BranchId")]
         public Branch? Branch { get; set; }

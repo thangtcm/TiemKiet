@@ -80,80 +80,23 @@
     </section>
     <section id="product" class="section product pt-2">
         <div class="container">
-            <div class="pb-3">
-                <h3 class="ltext-105 text-center">
-                Store Overview
-                </h3>
+            <div class="section-title" data-aos="fade-up">
+                <h2>NHỮNG SẢN PHẨM NỔI BẬT</h2>
+                <p class="text-dark">
+                    Tiệm Kiết - Hương vị đặc biệt với cà phê muối và trà, nơi tận hưởng trải nghiệm thú vị và thư giãn.
+                </p>
             </div>
-            <!-- Tab01 -->
-            <div class="tab01">
-              <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item pb-2" role="presentation">
-                        <a class="nav-link active" data-toggle="tab" data-bs-toggle="tab" data-bs-target="#best-seller" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Best Seller</a>
-                    </li>
-  
-                    <li class="nav-item pb-2" role="presentation">
-                        <a class="nav-link" data-toggle="tab" href="#featured" data-bs-toggle="tab" data-bs-target="#featured" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Featured</a>
-                    </li>
-  
-                </ul>
-  
-              <!-- Tab panes -->
-                <div class="tab-content pt-3"> 
-                    <!-- - -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
-                        <!-- Slide2 -->
-                        <div id="owl-product" class="owl-carousel owl-product owl-theme owl-loaded owl-drag">
-                            <div class="item">
-                                <div class="block2">
-                                    <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
-                                        <img src="~/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 7rem;">
-                                        <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
-                                        role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
-                                        Quick View
-                                        </a>
-                                    </div>
-
-                                    <div class="block2-txt d-flex justify-content-between pt-2">
-                                        <div class="d-flex flex-column ">
-                                            <a href="product-detail.html" class="stext-product trans-04">
-                                                Cà phê muối
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row justify-content-center">
+                @foreach(var item in Model.ProductLst!)
+                {
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="image hov-img-zoom rounded text-center">
+                            <img src="@item.ProductImage" class="img-fluid" alt="" style="max-width: 15rem;">
                         </div>
+                        <h4 class="text-center mt-3">@item.ProductName</h4>
                     </div>
-                    <!-- - -->
-                    <div class="tab-pane fade" id="featured" role="tabpanel">
-                        <!-- Slide2 -->
-                        <div id="owl-product" class="owl-carousel owl-product owl-theme owl-loaded owl-drag">
-                            <div class="item">
-                                <div class="block2">
-                                    <div class="block2-pic d-flex justify-content-center p-3 hov-img-zoom bg-secondary">
-                                        <img src="~/images/Product/test.png" alt="IMG-PRODUCT" style="max-width: 7rem;">
-
-                                        <a href="#" class="block2-btn d-flex align-items-center justify-content-center stext-103 text-dark view-product-btn bg-white rounded-btn px-3 trans-04"
-                                        role="button" data-bs-toggle="modal" data-bs-target="#ViewProductModal">
-                                        Quick View
-                                        </a>
-                                    </div>
-
-                                    <div class="block2-txt d-flex justify-content-between pt-2">
-                                        <div class="d-flex flex-column ">
-                                            <a href="product-detail.html" class="stext-product trans-04">
-                                                Cà phê muối
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                }
+            </div>
         </div>
     </section>
     <section id="mobile" class="section mobile">

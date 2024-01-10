@@ -160,5 +160,10 @@ namespace TiemKiet.Services
             }
             return false;
         }
+
+        public async Task<ICollection<Product>> GetListFeatured()
+            => await _unitOfWork.ProductRepository.GetAllAsync(x => x.IsFeatured == true && x.BranchId == 1, null, null, 6);
+
+        
     }
 }

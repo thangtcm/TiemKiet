@@ -81,7 +81,8 @@
 
 		performAjaxRequest('/Account/SendOTP', 'POST', { phoneNumber: phoneNumber }, function (result) {
 			$('#loginModal').modal('hide');
-			$('#otpModalToggle').modal('show');
+			//$('#otpModalToggle').modal('show');
+			confirmOTP();
 		}, function () {
 			alert('Error sending OTP.');
 		});
@@ -89,8 +90,8 @@
 
 	window.confirmOTP = function confirmOTP() {
 		var phoneNumber = $('#phoneNumber').val();
-		const otpCode = getOtpData("ConfirmOTPContainer");
-
+		//const otpCode = getOtpData("ConfirmOTPContainer");
+		const otpCode = 1234;
 		performAjaxRequest('/Account/ConfirmOTP', 'POST', { phoneNumber: phoneNumber, codeOTP: otpCode }, function (result) {
 			console.log(result);
 			if (result.success) {

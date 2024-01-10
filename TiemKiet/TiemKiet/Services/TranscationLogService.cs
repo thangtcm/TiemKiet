@@ -51,8 +51,8 @@ namespace TiemKiet.Services
         public async Task<TransactionLog?> GetByIdAsync(int Id, Func<IQueryable<TransactionLog>, IIncludableQueryable<TransactionLog, object>> includes)
             => await _unitOfWork.TransactionLogRepository.GetAsync(x => x.Id == Id, includes);
 
-        public async Task<ICollection<TransactionLog>> GetListAsync(long userId, DateTime datenow)
-            => await _unitOfWork.TransactionLogRepository.GetAllAsync(x => x.UserIdCustomer == userId && x.DateTimePayment.Date == datenow.Date, null, x => x.OrderByDescending(x => x.Id));
+        public async Task<ICollection<TransactionLog>> GetListAsync(long userId, DateTime datenow, Func<IQueryable<TransactionLog>, IIncludableQueryable<TransactionLog, object>>? includes = null)
+            => await _unitOfWork.TransactionLogRepository.GetAllAsync(x => x.UserIdCustomer == userId && x.DateTimePayment.Date == datenow.Date, includes, x => x.OrderByDescending(x => x.Id));
 
         public async Task<ICollection<TransactionLog>> GetListAsync(long userId, Func<IQueryable<TransactionLog>, IIncludableQueryable<TransactionLog, object>> includes)
             => await _unitOfWork.TransactionLogRepository.GetAllAsync(x => x.UserIdCustomer == userId, includes);
