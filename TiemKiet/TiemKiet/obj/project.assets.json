@@ -12471,31 +12471,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\couni\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/duonganhduc/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\TiemKiet.csproj",
+      "projectUniqueName": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/TiemKiet.csproj",
       "projectName": "TiemKiet",
-      "projectPath": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\TiemKiet.csproj",
-      "packagesPath": "C:\\Users\\couni\\.nuget\\packages\\",
-      "outputPath": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\obj\\",
+      "projectPath": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/TiemKiet.csproj",
+      "packagesPath": "/Users/duonganhduc/.nuget/packages/",
+      "outputPath": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\couni\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/duonganhduc/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12508,6 +12501,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -12610,6 +12608,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.30, 6.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[6.0.30, 6.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.30, 6.0.30]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -12618,7 +12630,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }

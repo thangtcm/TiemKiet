@@ -1,667 +1,671 @@
 {
   "Files": [
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TiemKiet.bundle.scp.css",
-      "PackagePath": "staticwebassets\\TiemKiet.bundle.scp.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/obj/Debug/net6.0/scopedcss/projectbundle/TiemKiet.bundle.scp.css",
+      "PackagePath": "staticwebassets/TiemKiet.bundle.scp.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\css\\font.css",
-      "PackagePath": "staticwebassets\\AdminLayout\\css\\font.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/css/font.css",
+      "PackagePath": "staticwebassets/AdminLayout/css/font.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\css\\responsive.css",
-      "PackagePath": "staticwebassets\\AdminLayout\\css\\responsive.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/css/responsive.css",
+      "PackagePath": "staticwebassets/AdminLayout/css/responsive.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\css\\style.css",
-      "PackagePath": "staticwebassets\\AdminLayout\\css\\style.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/css/style.css",
+      "PackagePath": "staticwebassets/AdminLayout/css/style.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\award-icon-01.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\award-icon-01.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/award-icon-01.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/award-icon-01.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\award-icon-02.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\award-icon-02.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/award-icon-02.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/award-icon-02.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\award-icon-03.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\award-icon-03.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/award-icon-03.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/award-icon-03.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\award-icon-04.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\award-icon-04.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/award-icon-04.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/award-icon-04.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\dash-icon-01.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\dash-icon-01.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/dash-icon-01.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/dash-icon-01.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\dash-icon-02.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\dash-icon-02.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/dash-icon-02.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/dash-icon-02.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\dash-icon-03.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\dash-icon-03.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/dash-icon-03.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/dash-icon-03.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\dash-icon-04.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\dash-icon-04.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/dash-icon-04.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/dash-icon-04.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\header-icon-01.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\header-icon-01.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/header-icon-01.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/header-icon-01.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\header-icon-04.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\header-icon-04.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/header-icon-04.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/header-icon-04.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\header-icon-05.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\header-icon-05.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/header-icon-05.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/header-icon-05.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\social-icon-01.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\social-icon-01.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/social-icon-01.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/social-icon-01.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\social-icon-02.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\social-icon-02.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/social-icon-02.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/social-icon-02.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\social-icon-03.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\social-icon-03.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/social-icon-03.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/social-icon-03.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\icons\\social-icon-04.svg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\icons\\social-icon-04.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/icons/social-icon-04.svg",
+      "PackagePath": "staticwebassets/AdminLayout/images/icons/social-icon-04.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\logo\\logo-text.png",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\logo\\logo-text.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/logo/logo-text.png",
+      "PackagePath": "staticwebassets/AdminLayout/images/logo/logo-text.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\logo\\logo.png",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\logo\\logo.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/logo/logo.png",
+      "PackagePath": "staticwebassets/AdminLayout/images/logo/logo.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-01.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-01.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-01.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-01.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-02.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-02.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-02.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-02.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-03.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-03.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-03.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-03.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-04.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-04.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-04.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-04.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-05.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-05.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-05.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-05.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-11.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-11.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-11.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-11.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-13.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-13.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-13.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-13.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\images\\profiles\\avatar-17.jpg",
-      "PackagePath": "staticwebassets\\AdminLayout\\images\\profiles\\avatar-17.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/images/profiles/avatar-17.jpg",
+      "PackagePath": "staticwebassets/AdminLayout/images/profiles/avatar-17.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\js\\chart-data.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\js\\chart-data.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/js/chart-data.js",
+      "PackagePath": "staticwebassets/AdminLayout/js/chart-data.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\js\\feather.min.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\js\\feather.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/js/feather.min.js",
+      "PackagePath": "staticwebassets/AdminLayout/js/feather.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\js\\script.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\js\\script.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/js/script.js",
+      "PackagePath": "staticwebassets/AdminLayout/js/script.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.amd.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.amd.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.amd.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.amd.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.amd.js.LICENSE.txt",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.amd.js.LICENSE.txt"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.amd.js.LICENSE.txt",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.amd.js.LICENSE.txt"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.common.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.common.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.common.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.common.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.css",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.css",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.esm.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.esm.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.esm.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.esm.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.min.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\apexcharts.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.min.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/apexcharts.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ar.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ar.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ar.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ar.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ca.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ca.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ca.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ca.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\cs.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\cs.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/cs.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/cs.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\da.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\da.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/da.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/da.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\de.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\de.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/de.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/de.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\el.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\el.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/el.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/el.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\en.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\en.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/en.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/en.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\es.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\es.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/es.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/es.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\et.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\et.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/et.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/et.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fa.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fa.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/fa.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/fa.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fi.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fi.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/fi.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/fi.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fr.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\fr.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/fr.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/fr.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\he.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\he.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/he.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/he.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hi.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hi.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/hi.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/hi.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hr.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hr.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/hr.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/hr.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hu.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hu.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/hu.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/hu.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hy.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\hy.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/hy.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/hy.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\id.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\id.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/id.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/id.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\it.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\it.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/it.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/it.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ja.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ja.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ja.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ja.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ka.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ka.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ka.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ka.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ko.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ko.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ko.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ko.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\lt.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\lt.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/lt.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/lt.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\lv.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\lv.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/lv.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/lv.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\nb.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\nb.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/nb.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/nb.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\nl.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\nl.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/nl.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/nl.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pl.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pl.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/pl.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/pl.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pt-br.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pt-br.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/pt-br.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/pt-br.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pt.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\pt.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/pt.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/pt.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\rs.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\rs.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/rs.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/rs.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ru.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ru.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ru.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ru.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\se.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\se.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/se.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/se.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sk.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sk.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/sk.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/sk.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sl.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sl.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/sl.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/sl.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sq.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\sq.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/sq.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/sq.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\th.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\th.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/th.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/th.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\tr.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\tr.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/tr.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/tr.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ua.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\ua.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/ua.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/ua.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\zh-cn.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\zh-cn.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/zh-cn.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/zh-cn.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\zh-tw.json",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\apexcharts-bundle\\dist\\locales\\zh-tw.json"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/apexcharts-bundle/dist/locales/zh-tw.json",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/apexcharts-bundle/dist/locales/zh-tw.json"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\jQuery-slimScroll-master\\jquery.slimscroll.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\jQuery-slimScroll-master\\jquery.slimscroll.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/jQuery-slimScroll-master/jquery.slimscroll.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/jQuery-slimScroll-master/jquery.slimscroll.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\AdminLayout\\plugin\\jQuery-slimScroll-master\\jquery.slimscroll.min.js",
-      "PackagePath": "staticwebassets\\AdminLayout\\plugin\\jQuery-slimScroll-master\\jquery.slimscroll.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/AdminLayout/plugin/jQuery-slimScroll-master/jquery.slimscroll.min.js",
+      "PackagePath": "staticwebassets/AdminLayout/plugin/jQuery-slimScroll-master/jquery.slimscroll.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\animate.css",
-      "PackagePath": "staticwebassets\\css\\animate.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/animate.css",
+      "PackagePath": "staticwebassets/css/animate.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\bootstrap-datetimepicker.min.css",
-      "PackagePath": "staticwebassets\\css\\bootstrap-datetimepicker.min.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap-datetimepicker.min.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\responsive.css",
-      "PackagePath": "staticwebassets\\css\\responsive.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/responsive.css",
+      "PackagePath": "staticwebassets/css/responsive.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\css\\toastrcustom.css",
-      "PackagePath": "staticwebassets\\css\\toastrcustom.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/css/toastrcustom.css",
+      "PackagePath": "staticwebassets/css/toastrcustom.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Black.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Black.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Black.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Black.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-BlackItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-BlackItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-BlackItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-BlackItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Bold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Bold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Bold.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Bold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-BoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-BoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-BoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-BoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraBold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraBold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-ExtraBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-ExtraBold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraBoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraBoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraLight.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraLight.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-ExtraLight.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-ExtraLight.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ExtraLightItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ExtraLightItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-ExtraLightItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Italic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Italic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Italic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Italic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Light.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Light.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Light.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Light.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-LightItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-LightItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-LightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-LightItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Medium.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Medium.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Medium.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Medium.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-MediumItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-MediumItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-MediumItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-MediumItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Regular.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Regular.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Regular.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Regular.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-SemiBold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-SemiBold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-SemiBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-SemiBold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-SemiBoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-SemiBoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-Thin.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-Thin.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-Thin.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-Thin.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\Montserrat-ThinItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\Montserrat-ThinItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/Montserrat-ThinItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Montserrat/Montserrat-ThinItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Montserrat\\OFL.txt",
-      "PackagePath": "staticwebassets\\fonts\\Montserrat\\OFL.txt"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Montserrat/OFL.txt",
+      "PackagePath": "staticwebassets/fonts/Montserrat/OFL.txt"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\OFL.txt",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\OFL.txt"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/OFL.txt",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/OFL.txt"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Black.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Black.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-Black.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-Black.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-BlackItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-BlackItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Bold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Bold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-BoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-BoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-BoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-BoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Italic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Italic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-Italic.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-Italic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\PlayfairDisplay\\PlayfairDisplay-Regular.ttf",
-      "PackagePath": "staticwebassets\\fonts\\PlayfairDisplay\\PlayfairDisplay-Regular.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf",
+      "PackagePath": "staticwebassets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Black.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Black.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Black.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Black.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-BlackItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-BlackItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-BlackItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-BlackItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Bold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Bold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Bold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Bold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-BoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-BoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-BoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-BoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraBold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraBold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-ExtraBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-ExtraBold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraBoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraLight.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraLight.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-ExtraLight.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-ExtraLight.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ExtraLightItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-ExtraLightItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Italic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Italic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Italic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Italic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Light.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Light.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Light.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Light.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-LightItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-LightItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-LightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-LightItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Medium.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Medium.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Medium.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Medium.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-MediumItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-MediumItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-MediumItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-MediumItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Regular.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Regular.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Regular.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-SemiBold.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-SemiBold.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-SemiBold.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-SemiBoldItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-SemiBoldItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-Thin.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-Thin.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-Thin.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-Thin.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\fonts\\Poppins\\Poppins-ThinItalic.ttf",
-      "PackagePath": "staticwebassets\\fonts\\Poppins\\Poppins-ThinItalic.ttf"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/fonts/Poppins/Poppins-ThinItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins/Poppins-ThinItalic.ttf"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Anh-Wibu-mat-do.jpg",
-      "PackagePath": "staticwebassets\\images\\Anh-Wibu-mat-do.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/Anh-Wibu-mat-do.jpg",
+      "PackagePath": "staticwebassets/images/Anh-Wibu-mat-do.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\Product\\test.png",
-      "PackagePath": "staticwebassets\\images\\Product\\test.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/App.png",
+      "PackagePath": "staticwebassets/images/App.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\background.jpg",
-      "PackagePath": "staticwebassets\\images\\background.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/Product/test.png",
+      "PackagePath": "staticwebassets/images/Product/test.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\barqr.jpg",
-      "PackagePath": "staticwebassets\\images\\barqr.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/background.jpg",
+      "PackagePath": "staticwebassets/images/background.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\clock-bg-sm.png",
-      "PackagePath": "staticwebassets\\images\\clock-bg-sm.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/barqr.jpg",
+      "PackagePath": "staticwebassets/images/barqr.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/clock-bg-sm.png",
+      "PackagePath": "staticwebassets/images/clock-bg-sm.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\qr.svg",
-      "PackagePath": "staticwebassets\\images\\qr.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\rank-sliver.jpg",
-      "PackagePath": "staticwebassets\\images\\rank-sliver.jpg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/qr.svg",
+      "PackagePath": "staticwebassets/images/qr.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\svg\\error-404.svg",
-      "PackagePath": "staticwebassets\\images\\svg\\error-404.svg"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/rank-sliver.jpg",
+      "PackagePath": "staticwebassets/images/rank-sliver.jpg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\bootstrap-datetimepicker.min.js",
-      "PackagePath": "staticwebassets\\js\\bootstrap-datetimepicker.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/images/svg/error-404.svg",
+      "PackagePath": "staticwebassets/images/svg/error-404.svg"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\func.js",
-      "PackagePath": "staticwebassets\\js\\func.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets/js/bootstrap-datetimepicker.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\main.js",
-      "PackagePath": "staticwebassets\\js\\main.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/func.js",
+      "PackagePath": "staticwebassets/js/func.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\moment-with-locales.min.js",
-      "PackagePath": "staticwebassets\\js\\moment-with-locales.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/main.js",
+      "PackagePath": "staticwebassets/js/main.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\notification.js",
-      "PackagePath": "staticwebassets\\js\\notification.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/moment-with-locales.min.js",
+      "PackagePath": "staticwebassets/js/moment-with-locales.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\scrolljax.min.js",
-      "PackagePath": "staticwebassets\\js\\scrolljax.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/notification.js",
+      "PackagePath": "staticwebassets/js/notification.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/scrolljax.min.js",
+      "PackagePath": "staticwebassets/js/scrolljax.min.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\slicknav.js",
-      "PackagePath": "staticwebassets\\js\\slicknav.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\js\\toastrjs.js",
-      "PackagePath": "staticwebassets\\js\\toastrjs.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/slicknav.js",
+      "PackagePath": "staticwebassets/js/slicknav.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\LICENSE",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/js/toastrjs.js",
+      "PackagePath": "staticwebassets/js/toastrjs.js"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\README.md",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\README.md"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/LICENSE",
+      "PackagePath": "staticwebassets/lib/owlcarousel"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/README.md",
+      "PackagePath": "staticwebassets/lib/owlcarousel/README.md"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/ajax-loader.gif",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/ajax-loader.gif"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.carousel.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.carousel.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.carousel.min.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.carousel.min.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.theme.default.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.theme.default.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.theme.default.min.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.theme.default.min.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.theme.green.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.theme.green.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.theme.green.min.css",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.theme.green.min.css"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/assets/owl.video.play.png",
+      "PackagePath": "staticwebassets/lib/owlcarousel/assets/owl.video.play.png"
     },
     {
-      "Id": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
-      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/owl.carousel.js",
+      "PackagePath": "staticwebassets/lib/owlcarousel/owl.carousel.js"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.TiemKiet.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "/Users/duonganhduc/Documents/Learn/developer_web/TiemKiet/TiemKiet/TiemKiet/wwwroot/lib/owlcarousel/owl.carousel.min.js",
+      "PackagePath": "staticwebassets/lib/owlcarousel/owl.carousel.min.js"
+    },
+    {
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.TiemKiet.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.TiemKiet.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.build.TiemKiet.props",
       "PackagePath": "build\\TiemKiet.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.TiemKiet.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.TiemKiet.props",
       "PackagePath": "buildMultiTargeting\\TiemKiet.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.TiemKiet.props",
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.TiemKiet.props",
       "PackagePath": "buildTransitive\\TiemKiet.props"
     }
   ],
