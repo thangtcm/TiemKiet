@@ -73,22 +73,35 @@
                                         <td>@item.Id</td>
                                         <td>
                                             <h2 class="table-avatar">
-                                                @if(item.Imagelist != null)
+                                                @if(item.Imagelist != null && item.Imagelist.Count > 0)
                                                 {
                                                     <a href="#" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="@item.Imagelist.First().ImageUrl" alt="User Image"></a>
                                                 }
                                                 @item.BranchName
                                             </h2>
                                         </td>
-                                        <td><span class="badge bg-primary-light">Active</span></td>
+                                        <td>
+                                            @if(item.IsRemoved)
+                                            {
+                                                <span class="badge bg-danger-light">Not Active</span>
+                                            }
+                                            else{
+                                                <span class="badge bg-primary-light">Active</span>
+                                            }
+                                        </td>
                                         <td class="text-end">
                                             <div class="actions">
-                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm bg-success-light me-2">
-                                                    <i class="far fa-eye"></i>
-                                                </a>
-                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm bg-danger-light">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
+                                                <form asp-action="Delete" asp-controller="Branch" asp-area="Admin" asp-route-branchId="@item.Id" >
+                                                    <button class="btn btn-sm bg-success-light me-2">
+                                                        @if(item.IsRemoved)
+                                                        {
+                                                            <i class="fas fa-check"></i>
+                                                        }
+                                                        else{
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        }
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

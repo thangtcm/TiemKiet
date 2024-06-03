@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.Office.Interop.Excel;
 using TiemKiet.Enums;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
@@ -73,6 +74,39 @@ namespace TiemKiet.Services
                 return true;
             }
             return false;
+        }
+
+        public IFormFile ConvertToIFormFile(IFormFile file)
+        {
+            // Tạo một tên tập tin tạm thời cho tệp .xls
+            var tempFilePath = Path.GetTempFileName();
+
+            // Lưu tệp IFormFile vào đĩa
+            using (var fileStream = new FileStream(tempFilePath, FileMode.Create))
+            {
+                file.CopyTo(fileStream);
+            }
+
+            // Mở tệp .xls và chuyển đổi sang .xlsx
+            var app = new Microsoft.Office.Interop.Excel.Application();
+            var wb = app.Workbooks.Open(tempFilePath);
+            var newFilePath = Path.ChangeExtension(tempFilePath, ".xlsx");
+            wb.SaveAs(newFilePath, XlFileFormat.xlOpenXMLWorkbook);
+            wb.Close();
+            app.Quit();
+
+            // Đọc nội dung của tệp .xlsx mới chuyển đổi
+            byte[] fileBytes = File.ReadAllBytes(newFilePath);
+
+            // Xóa tệp .xls tạm thời
+            File.Delete(tempFilePath);
+            File.Delete(newFilePath);
+
+            // Tạo một thể hiện mới của IFormFile từ dữ liệu đã chuyển đổi
+            var convertedFile = new FormFile(new MemoryStream(fileBytes), 0, file.Length, file.Name, file.FileName);
+
+            // Trả về tệp IFormFile mới
+            return convertedFile;
         }
     }
 }

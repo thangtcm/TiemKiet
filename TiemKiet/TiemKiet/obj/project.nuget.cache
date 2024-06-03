@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZkIqjZWY7m/XkBzvPKXoy2/Gx/RMiEaAEvtgsZlGVux5IwPKRIOBxfX0EFFOQPdhcOSGz3uyNRaETZe1xqyNaw==",
+  "dgSpecHash": "gcZKQAmqCbElHfCGzS3/5eDkSPBJdifHMDklfR+Y5CqsKDcLMSSkScmje+vRqUjpyOYs+1SwfmfV0fO6jOPLEQ==",
   "success": true,
   "projectFilePath": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\TiemKiet.csproj",
   "expectedPackageFiles": [
@@ -131,6 +131,7 @@
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.netcore.runtime.coreclr\\1.0.2\\microsoft.netcore.runtime.coreclr.1.0.2.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.netcore.windows.apisets\\1.0.1\\microsoft.netcore.windows.apisets.1.0.1.nupkg.sha512",
+    "C:\\Users\\couni\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\couni\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.16\\microsoft.visualstudio.web.codegeneration.6.0.16.nupkg.sha512",

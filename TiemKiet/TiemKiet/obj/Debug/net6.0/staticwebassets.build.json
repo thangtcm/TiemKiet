@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1eGRQn3wgoqe7fV6WyV2Vj3s2OK/Rs+IeVMAzPYont0=",
+  "Hash": "FHv3t0UJjWn1XR/hGJTRSisnWdtaob//DRJV5SUn4LA=",
   "Source": "TiemKiet",
   "BasePath": "_content/TiemKiet",
   "Mode": "Default",
@@ -3701,6 +3701,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Anh-Wibu-mat-do.jpg"
+    },
+    {
+      "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\App.png",
+      "SourceId": "TiemKiet",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\",
+      "BasePath": "_content/TiemKiet",
+      "RelativePath": "images/App.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\App.png"
     },
     {
       "Identity": "D:\\TiemKiet\\TiemKiet\\TiemKiet\\wwwroot\\images\\background.jpg",

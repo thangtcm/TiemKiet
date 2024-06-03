@@ -141,6 +141,8 @@ namespace TiemKiet.Services
             {
                 discount = CallBack.GetDiscount(user.Score);
             }
+            Console.WriteLine($"Giam gia{discount}");
+            Console.WriteLine($"TotalPrice{TotalPrice}");
             List<double> DiscountTotal = new();
             var vouchers = await _unitOfWork.VoucherRepository.GetAllAsync(x => VoucherList.Contains(x.Id));
             if (vouchers.Count(x => x.VoucherType == VoucherType.VoucherShip) > 1 || vouchers.Count(x => x.VoucherType == VoucherType.VoucherProduct) > 1)

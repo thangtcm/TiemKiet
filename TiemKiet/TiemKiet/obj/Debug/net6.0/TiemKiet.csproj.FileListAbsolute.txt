@@ -584,3 +584,4 @@ D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\refs\Microsoft.Extensions.Identit
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll
 D:\TiemKiet\TiemKiet\TiemKiet\obj\Debug\net6.0\TiemKiet.sourcelink.json
+D:\TiemKiet\TiemKiet\TiemKiet\bin\Debug\net6.0\Microsoft.Office.Interop.Excel.dll

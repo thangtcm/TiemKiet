@@ -63,6 +63,9 @@ namespace TiemKiet.Controllers
                     FullName = model.FullName,
                     Birthday = model.Birthday is null ? DateTime.Now : CallBack.ConvertStringToDateTime(model.Birthday),
                     Gender = model.Gender ?? Gender.Another,
+                    PhoneNumberConfirmed = true,
+                    EmailConfirmed = true,
+                    IsAction = true,
                 };
                 await _userStore.SetUserNameAsync(user, model.NumberPhone, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -309,6 +312,54 @@ namespace TiemKiet.Controllers
                 _logger.LogError(ex.Message);
             }
             return NotFound();
-        }    
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendNotificationUser(MessageRequest request, long userId)
+        {
+            try
+            {
+                var listToken = await _userTokenService.GetListAsync(userId);
+                var message = new MulticastMessage()
+                {
+                    Tokens = listToken.Select(x => x.UserToken).ToList(),
+                    Notification = new Notification
+                    {
+                        Title = request.Title,
+                        Body = request.Body,
+                    },
+                    Apns = new ApnsConfig()
+                    {
+                        Headers = new Dictionary<string, string>()
+                        {
+                            { "apns-collapse-id", "solo_changed_administrator"},
+                            { "content-available", "1"},
+                            { "apns-priority", "10" },
+                        },
+                        Aps = new Aps()
+                        {
+                            Sound = "default"
+                        }
+                    },
+                    Android = new AndroidConfig()
+                    {
+                        Priority = Priority.High,
+                        Notification = new AndroidNotification()
+                        {
+                            DefaultSound = true,
+                        }
+                    }
+                };
+                var messaging = FirebaseMessaging.DefaultInstance;
+                var result = await messaging.SendEachForMulticastAsync(message);
+                return Ok("Gửi thông báo thành công!.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message.ToString());
+            }
+            return BadRequest("Đã xảy ra sự cố trong lúc gửi thông báo.");
+
+        }
     }
 }

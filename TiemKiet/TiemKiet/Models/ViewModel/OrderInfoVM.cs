@@ -46,7 +46,7 @@ namespace TiemKiet.Models.ViewModel
             this.DiscountEvent = model.DiscountEvent;
             this.NumberPhone = model.NumberPhone;
             this.Status = model.Status;
-            this.NoteShip = model.NoteShip;
+            this.NoteShip = model.NoteShip ?? "";
             this.UserId = model.UserId is null ? 0 : model.UserId.Value;
             this.LatCustomer = model.LatCustomer;
             this.BranchId = model.BranchId;
@@ -69,7 +69,7 @@ namespace TiemKiet.Models.ViewModel
                         {
                             ProductId = item.ProductId.HasValue ? item.ProductId.Value : 0,
                             ProductHasIce = item.AddIce,
-                            ProductNotes = item.Note,
+                            ProductNotes = item.Note ?? "",
                             ProductQuantity = item.Quantity,
                             ProductUpsize = item.UpSize,
                         };

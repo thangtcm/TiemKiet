@@ -1,0 +1,98 @@
+/* _content/TiemKiet/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-5m9qs67jcp] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-5m9qs67jcp] {
+  color: #0077cc;
+}
+
+.btn-primary[b-5m9qs67jcp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-5m9qs67jcp], .nav-pills .show > .nav-link[b-5m9qs67jcp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-5m9qs67jcp] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-5m9qs67jcp] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-5m9qs67jcp] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-5m9qs67jcp] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-5m9qs67jcp] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/TiemKiet/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-ahva7gug5k] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-ahva7gug5k] {
+  color: #0077cc;
+}
+
+.btn-primary[b-ahva7gug5k] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-ahva7gug5k], .nav-pills .show > .nav-link[b-ahva7gug5k] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-ahva7gug5k] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-ahva7gug5k] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-ahva7gug5k] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-ahva7gug5k] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-ahva7gug5k] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
