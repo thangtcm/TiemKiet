@@ -103,7 +103,7 @@ namespace TiemKiet.Controllers
                 var user = await _userService.GetUser();
                 if(user != null)
                 {
-                    var result = await _orderService.GetByIdAsync(orderId, user.Id, x => x.Include(d => d.OrderDetails!));
+                    var result = await _orderService.GetByIdAsync(orderId, user.Id, x => x.Include(d => d.OrderDetails!).ThenInclude(p => p.Product!));
                     if (result == null)
                     {
                         return RedirectToAction("Index", "Home");

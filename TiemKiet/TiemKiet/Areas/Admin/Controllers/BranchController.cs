@@ -41,6 +41,25 @@ namespace TiemKiet.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Delete(int branchId)
+        {
+            try{
+                var user = await _userService.GetUser();
+                if(user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Bạn cần đăng nhập.");
+                    return RedirectToAction(nameof(Index));
+                }
+                this.AddToastrMessage("Xóa chi nhánh thành công", Enums.ToastrMessageType.Success);
+                await _branchService.Delete(branchId, user.Id);
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Create(BranchInfoVM model, int districtId)
         {
             ICollection<Province> ProvinceLst  = new List<Province>();

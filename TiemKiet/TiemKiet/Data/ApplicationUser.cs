@@ -24,7 +24,7 @@ namespace TiemKiet.Data
         public double Score { get; set; }
         public double Point { get; set; }
         [DefaultValue(true)]
-        public bool IsAction { get; set; }
+        public bool IsAction { get; set; } = true;
         public string NameAndNumberPhone
         {
             get { return $"{FullName} (Phone: {PhoneNumber})"; }

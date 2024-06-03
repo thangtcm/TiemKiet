@@ -586,3 +586,4 @@ D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\refint\TiemKietAPI.dll
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.pdb
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\TiemKietAPI.genruntimeconfig.cache
 D:\TiemKiet\TiemKiet\TiemKietAPI\obj\Release\net6.0\ref\TiemKietAPI.dll
+D:\TiemKiet\TiemKiet\TiemKietAPI\bin\Release\net6.0\Microsoft.Office.Interop.Excel.dll

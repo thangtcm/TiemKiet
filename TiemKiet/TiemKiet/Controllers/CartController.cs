@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using TiemKiet.Helpers;
 using TiemKiet.Models;
 using TiemKiet.Models.ViewModel;
@@ -66,6 +67,7 @@ namespace TiemKiet.Controllers
                     model.Address = locationUser.AddreasUserName;
                     var shipPrice = ((CallBack.ExtractDistanceValue(locationUser.DistanceBranches.FirstOrDefault(x => x.LocationBranch.BranchId == barnchId)!.Distance)) - 2.5) * 5000;
                     var Total = await _userService.CaculatePrice(user!.Id, cart.Sum(x => x.getTotalPrice()), shipPrice, new List<int>() { 0, voucherId });
+                    Console.WriteLine(JsonConvert.SerializeObject(Total));
                     if (Total.Result != null)
                     {
                         model.GrandTotal = Total.Result.TotalPrice;

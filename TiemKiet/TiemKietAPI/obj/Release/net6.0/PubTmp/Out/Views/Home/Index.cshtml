@@ -177,3 +177,34 @@
         </div>
     </section>
 </main>
+
+@section Scripts {
+@*     <script>
+        $(document).ready(function () {
+            // Hàm để gọi API
+            function callApi() {
+                var userId = 1000000019; // Thay thế bằng giá trị userId thực tế của bạn
+                $.ajax({
+                    url: '/Account/SendNotificationUser?userId=' + userId, // Thêm userId vào URL
+                    type: 'POST', // Loại yêu cầu (POST trong trường hợp này)
+                    contentType: 'application/json', // Đặt kiểu nội dung là JSON
+                    data: JSON.stringify({
+                        Title: 'DƯƠNG ANH ĐỨC',
+                        Body: 'Thầy ơi trả lời tin nhắn thanh toán lương cho em với ạ, hoặc như nào thầy trả lời tin nhắn em để giải quyết chứ thấy im lặng như thế em không tính chi được'
+                    }),
+                    success: function (data) {
+                        // Hiển thị kết quả từ API
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+
+            // Thực hiện gọi API mỗi 6 giây
+            setInterval(callApi, 6000);
+        });
+
+    </script> *@
+}

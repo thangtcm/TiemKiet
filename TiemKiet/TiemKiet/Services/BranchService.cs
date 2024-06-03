@@ -66,7 +66,7 @@ namespace TiemKiet.Services
         {
             var branch = await _unitOfWork.BranchRepository.GetAsync(x => x.Id == Id);
             if (branch == null) return false;
-            branch.IsRemoved = true;
+            branch.IsRemoved = !branch.IsRemoved;
             branch.UserIdRemove = userId;
             branch.DateRemove = DateTime.UtcNow.ToTimeZone();
             _unitOfWork.BranchRepository.Update(branch);

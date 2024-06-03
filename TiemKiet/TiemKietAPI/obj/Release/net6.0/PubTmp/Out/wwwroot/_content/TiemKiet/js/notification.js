@@ -1,23 +1,35 @@
-﻿const firebaseConfig = {
-    apiKey: "AIzaSyAXK3Zho4-QwdwKowzrmZVRpBbjxBNDtxw",
-    authDomain: "leafcoffee-66175.firebaseapp.com",
-    projectId: "leafcoffee-66175",
-    storageBucket: "leafcoffee-66175.appspot.com",
-    messagingSenderId: "189337812695",
-    appId: "1:189337812695:web:57b971e4f3acaf508cba92",
-    measurementId: "G-MKB2F9R564"
-};
+﻿async function getFirebaseConfig() {
+    try {
+        const response = await fetch('/firebaseconfig/get');
+        const config = await response.json();
+        return config;
+    } catch (error) {
+        console.error('Error fetching Firebase config:', error);
+        return null;
+    }
+}
 
-const app = firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
+async function initializeFirebase() {
+    try {
+        const firebaseConfig = await getFirebaseConfig();
+        const app = firebase.initializeApp(firebaseConfig);
+        const messaging = app.messaging();
+        return messaging;
+    } catch (error) {
+        console.error('Error initializing Firebase:', error);
+        return null;
+    }
+}
 
 async function getToken() {
-    const messaging = firebase.messaging();
     togglePreloader(true);
     try {
+        const messaging = await initializeFirebase();
         const permission = await Notification.requestPermission();
         if (permission === 'granted') {
-            const currentToken = await messaging.getToken({ vapidKey: 'BPPI3HPUZ0xGI4axfOogJXzKwdOM54c_O9zRGwH_ttz8HXJvv3F4FvMv6-bhzuNJp9ljIgxEQHLKQxdJi-JiX2E' });
+            const currentToken = await messaging.getToken({
+                vapidKey: 'BPPI3HPUZ0xGI4axfOogJXzKwdOM54c_O9zRGwH_ttz8HXJvv3F4FvMv6-bhzuNJp9ljIgxEQHLKQxdJi-JiX2E'
+            });
 
             if (currentToken) {
                 console.log(currentToken);
@@ -32,8 +44,7 @@ async function getToken() {
     } catch (err) {
         console.log('An error occurred while retrieving token. ', err);
         return "";
-    }
-    finally {
+    } finally {
         togglePreloader(false);
     }
 }
@@ -48,11 +59,15 @@ function requestPermission() {
     });
 }
 
-requestPermission();
+async function startApp() {
+    await getToken();
+    // Gọi các hàm khác tại đây, nếu có
+}
+
+// Gọi hàm async để bắt đầu ứng dụng
+startApp();
 
 function deleteToken() {
-    const messaging = firebase.messaging();
-
     messaging.deleteToken().then(() => {
         console.log('Token deleted.');
     }).catch((err) => {

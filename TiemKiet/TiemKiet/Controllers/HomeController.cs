@@ -45,15 +45,14 @@ namespace TiemKiet.Controllers
             };
             return View(model);
         }
-
-        [Route("Home/Privacy")]
+        [HttpGet]
         [Route("Privacy")]
         public IActionResult Privacy()
         {
             return View();
         }
 
-        [Route("Home/Terms-of-user")]
+        [HttpGet]
         [Route("Terms-of-user")]
         public IActionResult Terms()
         {
