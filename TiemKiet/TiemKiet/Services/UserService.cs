@@ -26,7 +26,7 @@ namespace TiemKiet.Services
         private readonly HttpClient _client;
         private readonly string goongApiKey = "6EuUBdEOjBJijWIabRTLzxVvhYDNi9cKWGY9UxjI";
 
-        public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor, 
+        public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor,
             ITranscationLogService transcationLogService, RoleManager<ApplicationRole> roleManager, HttpClient client)
         {
             _unitOfWork = unitOfWork;
@@ -40,16 +40,19 @@ namespace TiemKiet.Services
         public async Task<ApplicationUser?> GetUser()
         {
             var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext!.User);
+
+            Console.WriteLine($"User: {_httpContextAccessor.HttpContext!.User}");
+
             return user;
         }
 
         public async Task<ICollection<ApplicationUser>> GetUsers()
             => await _unitOfWork.UserRepository.GetAllAsync();
 
-     
+
         public async Task<ResponseListVM<UserInfoVM>> GetUsersWithRoles(int page = 1)
         {
-           
+
             var users = await _userManager.Users.AsNoTracking().ToListAsync();
             var userroles = await _unitOfWork.UserRoleRepository.GetAllAsync();
             var roles = await _roleManager.Roles.AsNoTracking().ToListAsync();
@@ -124,10 +127,11 @@ namespace TiemKiet.Services
             data.IsSuccess = false;
             data.Message = "Người dùng không hợp lệ.";
             return data;
-        }    
+        }
 
         public async Task<StatusResponse<CaculateVoucherInfo>> CaculatePrice(long userId, double TotalPrice, double ShipPrice, List<int> VoucherList)
         {
+            Console.WriteLine($"userId{userId}");
             var user = await GetUser(userId);
             StatusResponse<CaculateVoucherInfo> data = new();
             if (user == null)
@@ -150,10 +154,10 @@ namespace TiemKiet.Services
                 data.IsSuccess = false;
                 data.Message = "{ERROR} Mỗi loại voucher chỉ được phép chọn 1 voucher.";
                 return data;
-            }    
+            }
             foreach (var item in vouchers)
             {
-                if(item.MinBillAmount > TotalPrice)
+                if (item.MinBillAmount > TotalPrice)
                 {
                     data.IsSuccess = false;
                     data.Message = $"Voucher bạn vừa chọn cần hoá đơn tối thiểu {item.MinBillAmount.ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))}.";
@@ -162,29 +166,29 @@ namespace TiemKiet.Services
                 switch (item.VoucherType)
                 {
                     case VoucherType.VoucherShip:
-                    {
-                        if (item.DiscountType == DiscountType.Percentage)
                         {
-                            shipdiscount = ((ShipPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (ShipPrice * item.DiscountValue / 100));
+                            if (item.DiscountType == DiscountType.Percentage)
+                            {
+                                shipdiscount = ((ShipPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (ShipPrice * item.DiscountValue / 100));
+                            }
+                            else
+                            {
+                                shipdiscount = item.DiscountValue;
+                            }
+                            break;
                         }
-                        else
-                        {
-                            shipdiscount = item.DiscountValue;
-                        }
-                        break;
-                    }
                     case VoucherType.VoucherProduct:
-                    {
-                        if (item.DiscountType == DiscountType.Percentage)
                         {
-                            DiscountTotal.Add(((TotalPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (TotalPrice * item.DiscountValue / 100)));
+                            if (item.DiscountType == DiscountType.Percentage)
+                            {
+                                DiscountTotal.Add(((TotalPrice * item.DiscountValue / 100) > item.MaxDiscountAmount ? item.MaxDiscountAmount : (TotalPrice * item.DiscountValue / 100)));
+                            }
+                            else
+                            {
+                                DiscountTotal.Add(item.DiscountValue);
+                            }
+                            break;
                         }
-                        else
-                        {
-                            DiscountTotal.Add(item.DiscountValue);
-                        }
-                        break;
-                    }
                 }
 
             }
@@ -195,10 +199,10 @@ namespace TiemKiet.Services
                 UserId = userId,
                 VoucherList = VoucherList,
                 ShipPrice = (ShipPrice - shipdiscount) < 0 ? 0 : (ShipPrice - shipdiscount),
-                DiscountShipPrice =( shipdiscount > ShipPrice) ? ShipPrice : shipdiscount
+                DiscountShipPrice = (shipdiscount > ShipPrice) ? ShipPrice : shipdiscount
             };
             model.TotalPrice = TotalPrice - model.DiscountPrice;
-            data.IsSuccess= true;
+            data.IsSuccess = true;
             data.Result = model;
             data.Message = "Tính toán thành công.";
             return data;
@@ -206,11 +210,11 @@ namespace TiemKiet.Services
 
         public async Task<ApplicationUser?> GetUserwithPhone([Phone] string Phone)
             => await _unitOfWork.UserRepository.GetAsync(x => x.PhoneNumber == Phone);
-            
+
         public async Task UpdatePoint(CaculateVoucherInfo model, long userId)
         {
             var user = await GetUser(model.UserId);
-            if(user != null)
+            if (user != null)
             {
                 double RecivePoint = model.TotalPrice / 1000.0;
                 TransactionLogVM _logPayment = new()
@@ -227,7 +231,7 @@ namespace TiemKiet.Services
                 await _transcationLogService.Add(_logPayment, model.UserId, userId);
                 _unitOfWork.UserRepository.Update(user);
                 await _unitOfWork.CommitAsync();
-            }    
+            }
         }
 
         public async Task SetUserLocation(double latitude, double longitude)
@@ -291,8 +295,8 @@ namespace TiemKiet.Services
                         var distanceBranch = new DistanceBranch
                         {
                             LocationBranch = locationBranches[i],
-                            Distance = element["distance"]?["text"]?.ToString() ?? "N/A", 
-                            Duration = element["duration"]?["text"]?.ToString() ?? "N/A" 
+                            Distance = element["distance"]?["text"]?.ToString() ?? "N/A",
+                            Duration = element["duration"]?["text"]?.ToString() ?? "N/A"
                         };
                         Console.WriteLine($"{locationBranches[i].BranchName} có khoảng cách {distanceBranch.Distance} với thời gian là : {distanceBranch.Duration}");
                         distanceBranches.Add(distanceBranch);

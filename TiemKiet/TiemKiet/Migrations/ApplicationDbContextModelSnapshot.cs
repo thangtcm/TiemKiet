@@ -281,7 +281,7 @@ namespace TiemKiet.Migrations
                             EmailConfirmed = true,
                             FullName = "Admin",
                             Gender = 0,
-                            IsAction = false,
+                            IsAction = true,
                             LockoutEnabled = true,
                             NormalizedEmail = "admin@tiemkiet.vn",
                             NormalizedUserName = "admin",

@@ -16,7 +16,6 @@ using TiemKiet.Models.ViewModel;
 using TiemKiet.Services;
 using TiemKiet.Services.Interface;
 using X.PagedList;
-using static Google.Apis.Requests.BatchRequest;
 
 namespace TiemKietAPI.Controllers
 {

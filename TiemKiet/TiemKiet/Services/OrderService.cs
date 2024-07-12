@@ -10,6 +10,7 @@ using TiemKiet.Models;
 using TiemKiet.Models.ViewModel;
 using TiemKiet.Repository.UnitOfWork;
 using TiemKiet.Services.Interface;
+using X.PagedList;
 
 namespace TiemKiet.Services
 {
@@ -31,19 +32,19 @@ namespace TiemKiet.Services
         {
             StatusResponse<long> data = new();
             var user = await _userService.GetUser(orderInfoVM.UserId);
-            if(user == null)
+            if (user == null)
             {
                 data.IsSuccess = false;
                 data.Message = "Người dùng không tồn tại.";
                 return data;
-            }    
+            }
             var isValid = await _unitOfWork.OrderRepository.GetAsync(x => x.UserId == orderInfoVM.UserId && (x.Status != OrderStatus.Canncel && x.Status != OrderStatus.Complete));
-            if(isValid != null)
+            if (isValid != null)
             {
                 data.IsSuccess = false;
                 data.Message = "Người dùng đang có đơn hàng chưa hoàn thành.";
                 return data;
-            }    
+            }
             Order order = new(orderInfoVM, staffId)
             {
                 DateCreate = DateTime.UtcNow.ToTimeZone(),
@@ -78,7 +79,7 @@ namespace TiemKiet.Services
         public async Task<bool> Delete(int Id, long userId)
         {
             var order = await _unitOfWork.OrderRepository.GetAsync(x => x.Id == Id);
-            if(order == null)
+            if (order == null)
             {
                 return false;
             }
@@ -92,7 +93,7 @@ namespace TiemKiet.Services
 
         public async Task<Order?> GetByIdAsync(long Id, long? userId = null, Func<IQueryable<Order>, IIncludableQueryable<Order, object>>? includes = null)
         {
-            if(userId.HasValue)
+            if (userId.HasValue)
             {
                 return await _unitOfWork.OrderRepository.GetAsync(x => x.Id == Id && x.UserId == userId.Value, includes);
             }
@@ -128,7 +129,7 @@ namespace TiemKiet.Services
         public async Task<bool> UpdateStatus(long orderId, OrderStatus orderStatus, long staffId)
         {
             var order = await _unitOfWork.OrderRepository.GetAsync(x => x.Id == orderId);
-            if(order != null)
+            if (order != null)
             {
                 var message = string.Empty;
                 order.Status = orderStatus;
@@ -138,36 +139,41 @@ namespace TiemKiet.Services
                 double RecivePoint = order.GrandTotal / 1000.0;
                 user.Point += RecivePoint;
                 user.Score += RecivePoint;
+                var calculation = new CaculateVoucherInfo() { UserId = user.Id, CurrentPrice = order.GrandTotal, DiscountPrice = order.Discount, DiscountShipPrice = order.DiscountShip, TotalPrice = order.GrandTotal - order.Discount, ShipPrice = order.ShipTotal, VoucherList = order.ListVoucher.Split(", ").Select(int.Parse).ToList() };
+                await _userService.UpdatePoint(
+                     calculation,
+                     order.UserId ?? 0
+                 );
                 _unitOfWork.UserRepository.Update(user);
                 switch (orderStatus)
                 {
                     case OrderStatus.Canncel:
-                    {
-                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã bị hủy.";
-                        break;
-                    }
+                        {
+                            message = $"Đơn hàng (ID: {order.Id}) của bạn đã bị hủy.";
+                            break;
+                        }
                     case OrderStatus.WaitingConfirm:
-                    {
-                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã được chuyển sang trạng thái chờ.";
-                        break;
-                    }
+                        {
+                            message = $"Đơn hàng (ID: {order.Id}) của bạn đã được chuyển sang trạng thái chờ.";
+                            break;
+                        }
                     case OrderStatus.Preparing:
-                    {
-                        message = $"Đơn hàng (ID: {order.Id}) của bạn đã được duyệt và đang được chuẩn bị nước.";
-                        break;
-                    }
+                        {
+                            message = $"Đơn hàng (ID: {order.Id}) của bạn đã được duyệt và đang được chuẩn bị nước.";
+                            break;
+                        }
                     case OrderStatus.Delivering:
-                    {
-                        message = $"Đơn hàng (ID: {order.Id}) của bạn đang được giao.";
-                        order.DatePreparing = DateTime.UtcNow.ToTimeZone();
-                        break;
-                    }
+                        {
+                            message = $"Đơn hàng (ID: {order.Id}) của bạn đang được giao.";
+                            order.DatePreparing = DateTime.UtcNow.ToTimeZone();
+                            break;
+                        }
                     default:
-                    {
-                        message = $"Đơn hàng (ID: {order.Id}) của bạn được giao hàng thành công và nhận được {RecivePoint} điểm. Tiệm Kiết cảm ơn và chúc bạn ngon miệng mlem mlem.";
-                        break;
-                    }
-                }    
+                        {
+                            message = $"Đơn hàng (ID: {order.Id}) của bạn được giao hàng thành công và nhận được {RecivePoint} điểm. Tiệm Kiết cảm ơn và chúc bạn ngon miệng mlem mlem.";
+                            break;
+                        }
+                }
                 order.DateUpdate = DateTime.UtcNow.ToTimeZone();
                 _unitOfWork.OrderRepository.Update(order);
                 await _notificationManager.SendToUser("Thông báo từ đơn hàng", message, user.Id);
@@ -180,7 +186,7 @@ namespace TiemKiet.Services
         public async Task<bool> Update(OrderInfoVM orderInfoVM, long staffId)
         {
             var order = await _unitOfWork.OrderRepository.GetAsync(x => x.Id == orderInfoVM.OrderId);
-            if(order != null)
+            if (order != null)
             {
                 order = new Order(orderInfoVM, staffId);
                 _unitOfWork.OrderRepository.Update(order);
@@ -205,7 +211,7 @@ namespace TiemKiet.Services
                 List<OrderStatus> listOrderStatus = new() {
                     orderStatus
                 };
-                if(orderStatus == OrderStatus.Preparing || OrderStatus.Delivering == orderStatus)
+                if (orderStatus == OrderStatus.Preparing || OrderStatus.Delivering == orderStatus)
                 {
                     listOrderStatus.Add(OrderStatus.Preparing);
                     listOrderStatus.Add(OrderStatus.Delivering);
@@ -215,8 +221,8 @@ namespace TiemKiet.Services
                     if (userRoles.Contains(policy))
                     {
                         var branchId = policyMessages[policy];
-                        return await _unitOfWork.OrderRepository.GetAllAsync(x => x.BranchId == branchId 
-                            && x.DateCreate.Date == date.Date 
+                        return await _unitOfWork.OrderRepository.GetAllAsync(x => x.BranchId == branchId
+                            && x.DateCreate.Date == date.Date
                             && listOrderStatus.Contains(x.Status), includes, q => q.OrderByDescending(o => o.Id));
                     }
                 }

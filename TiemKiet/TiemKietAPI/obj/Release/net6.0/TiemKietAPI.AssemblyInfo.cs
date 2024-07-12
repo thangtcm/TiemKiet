@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TiemKietAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cbc51f2b6f3f5d2dcbe2aa7f26cc7eb16d986b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16024fb7186c96a4c98e78780ae3aab26ec2edfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("TiemKietAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TiemKietAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
