@@ -1,30 +1,37 @@
-name: Build & Test 🧪
+name: CI
 
 on:
   push:
-    branches:
-      - main
-
+  pull_request:
+    branches: [ main ]
+# Specifies the dotnet SDK version for one of the
+# below steps
 env:
   DOTNET_VERSION: '6.0.x'
-
+# This section contains all the jobs to be run.
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  ci:
+    name: ci-${{matrix.os}}
+    # Specifies what platforms the workflow should
+    # run on.
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup .NET 📦
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Install dependencies 📂
-        run: dotnet restore WebApi
-
-      - name: Build 🧱
-        run: dotnet build WebApi --configuration Release --no-restore
-
-      - name: Test 🧪
-        run: dotnet test WebApi --configuration Release --no-build
+    # Checks out the source code at the latest commit
+    - uses: actions/checkout@v3
+    # Installs the .NET SDK on the build machine
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    # Installs any NuGet packages required.
+    - name: Install dependencies
+      run: dotnet restore
+    # Builds the project
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    # Runs any tests in the project
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
