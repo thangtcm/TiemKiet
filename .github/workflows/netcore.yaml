@@ -1,37 +1,56 @@
-name: CI
+name: Publish
 
 on:
-  push:
-  pull_request:
-    branches: [ main ]
-# Specifies the dotnet SDK version for one of the
-# below steps
+  release:
+    types: [published]
 env:
   DOTNET_VERSION: '6.0.x'
-# This section contains all the jobs to be run.
 jobs:
-  ci:
-    name: ci-${{matrix.os}}
-    # Specifies what platforms the workflow should
-    # run on.
-    runs-on: ${{ matrix.os }}
+  release:
+    name: Release
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        kind: ['linux', 'windows']
+        include:
+          - kind: linux
+            os: ubuntu-latest
+            target: linux-x64
+          - kind: windows
+            os: windows-latest
+            target: win-x64
+    runs-on: ${{ matrix.os }}
     steps:
-    # Checks out the source code at the latest commit
-    - uses: actions/checkout@v3
-    # Installs the .NET SDK on the build machine
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-    # Installs any NuGet packages required.
-    - name: Install dependencies
-      run: dotnet restore
-    # Builds the project
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    # Runs any tests in the project
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Build
+        shell: bash
+        run: |
+          tag=$(git describe --tags --abbrev=0)
+          release_name="app-$tag-${{ matrix.target }}"
+
+          # Build everything
+          dotnet publish --framework net6.0 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+
+          # Pack files
+          if [ "${{ matrix.target }}" == "win-x64" ]; then
+            # Pack to zip for Windows
+            7z a -tzip "${release_name}.zip" "./${release_name}/*"
+          else
+          tar czvf "${release_name}.tar.gz" "$release_name"
+          fi
+
+          # Delete output directory
+          rm -r "$release_name"
+
+      - name: Publish
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "app*"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
